@@ -646,3 +646,349 @@
 | swarmmulti | 9011b6476f86a1439333c109dea4fd8cd00e2772 | 62a08ed6f7bd4f1dd6ff75200aece9aad37be5f3 |
 | void | 5a64983c70ea4de17ea860d794aec3f94f1d5720 | 5d2eec0a6c5899614e1c666184f9d6e515ae3e12 |
 | voidmulti | f0876d434b3469ef67ff6a46a80aaad21e997102 | 7bd2fa3a6f946275d691ad71fa99984bfe00c53c |
+
+## 6. 스킬 → 효과/행동 연결 추적 (v0.1.7 기준)
+
+원본 7계층의 EffectData 및 BehaviorData를 추가로 조회했습니다. 직접 연결부터 검색·지속·행동 효과의 참조를 재귀 추적했습니다. 여러 계층의 참조를 합치므로 역사적 분기 및 비활성 조건도 포함될 수 있고, 엔진 토큰·동적 연결은 미해결일 수 있습니다. 수치는 원본에서 마지막으로 명시된 값을 사용하며 상속 기본값과 배열 재정의 전체를 보장하지 않습니다. **연결된 수정 ID는 패치 존재 증거이지 스킬이 정상 동작한다는 뜻이 아닙니다.**
+
+| 능력 ID | 추적 노드 수 | 연결된 수정 ID | 미수정 피해/회복 수치 후보 |
+|---|---:|---|---|
+| `250mmStrikeCannons` | 6 | `250mmStrikeCannonsDamage` | — |
+| `255` | 0 | — | — |
+| `AdeptPhaseShift` | 106 | `FungalGrowthDamage` | — |
+| `AdeptPhaseShiftCancel` | 4 | — | — |
+| `AdeptShadePhaseShiftCancel` | 97 | `FungalGrowthDamage` | — |
+| `AmorphousArmorcloud` | 4 | — | — |
+| `ArchonWarp` | 0 | — | — |
+| `ArmoryResearch` | 0 | — | — |
+| `ArmoryResearchSwarm` | 0 | — | — |
+| `ArmSiloWithNuke` | 0 | — | — |
+| `AssaultMode` | 0 | — | — |
+| `attackProtossBuilding` | 0 | — | — |
+| `AttackRedirect` | 0 | — | — |
+| `AttackWarpPrism` | 0 | — | — |
+| `BanelingNestResearch` | 0 | — | — |
+| `BansheeCloak` | 1 | — | — |
+| `BarracksAddOns` | 0 | — | — |
+| `BarracksLand` | 0 | — | — |
+| `BarracksLiftOff` | 0 | — | — |
+| `BarracksReactorMorph` | 0 | — | — |
+| `BarracksTechLabMorph` | 0 | — | — |
+| `BarracksTechLabResearch` | 0 | — | — |
+| `BarracksTrain` | 0 | — | — |
+| `BattlecruiserAttack` | 0 | — | — |
+| `BattlecruiserMove` | 0 | — | — |
+| `BattlecruiserStop` | 0 | — | — |
+| `BlindingCloud` | 9 | — | — |
+| `Blink` | 1 | — | — |
+| `BroodLordHangar` | 0 | — | — |
+| `BroodLordQueue2` | 0 | — | — |
+| `BuildAutoTurret` | 9 | — | — |
+| `BuildinProgressNydusCanal` | 0 | — | — |
+| `BuildNydusCanal` | 0 | — | — |
+| `BunkerTransport` | 0 | — | — |
+| `BurrowBanelingDown` | 0 | — | — |
+| `BurrowBanelingUp` | 0 | — | — |
+| `BurrowChargeRevD` | 18 | `BurrowChargeMPTargetDamage` | — |
+| `BurrowCreepTumorDown` | 0 | — | — |
+| `BurrowDroneDown` | 0 | — | — |
+| `BurrowDroneUp` | 0 | — | — |
+| `BurrowHydraliskDown` | 0 | — | — |
+| `BurrowHydraliskUp` | 0 | — | — |
+| `BurrowInfestorDown` | 0 | — | — |
+| `BurrowInfestorTerranDown` | 0 | — | — |
+| `BurrowInfestorTerranUp` | 0 | — | — |
+| `BurrowInfestorUp` | 0 | — | — |
+| `BurrowLurkerMPDown` | 0 | — | — |
+| `BurrowLurkerMPUp` | 0 | — | — |
+| `BurrowQueenDown` | 0 | — | — |
+| `BurrowQueenUp` | 0 | — | — |
+| `BurrowRavagerDown` | 0 | — | — |
+| `BurrowRavagerUp` | 0 | — | — |
+| `BurrowRoachDown` | 0 | — | — |
+| `BurrowRoachUp` | 0 | — | — |
+| `BurrowUltraliskDown` | 0 | — | — |
+| `BurrowUltraliskUp` | 0 | — | — |
+| `BurrowZerglingDown` | 0 | — | — |
+| `BurrowZerglingUp` | 0 | — | — |
+| `CalldownMULE` | 15 | — | — |
+| `CarrierHangar` | 0 | — | — |
+| `CausticSpray` | 11 | `CausticLevel2Damage`, `CausticLevel1Damage` | — |
+| `ChannelSnipe` | 11 | `ChannelSnipeDamage` | — |
+| `Charge` | 10 | `ChargingDamage` | — |
+| `ChronoBoostEnergyCost` | 2 | — | — |
+| `CommandCenterLand` | 0 | — | — |
+| `CommandCenterLiftOff` | 0 | — | — |
+| `CommandCenterTrain` | 0 | — | — |
+| `CommandCenterTransport` | 0 | — | — |
+| `Contaminate` | 19 | — | — |
+| `Corruption` | 11 | — | — |
+| `CreepTumorBuild` | 0 | — | — |
+| `CyberneticsCoreResearch` | 0 | — | — |
+| `DarkShrineResearch` | 0 | — | — |
+| `DarkTemplarBlink` | 3 | — | — |
+| `DefilerMPBurrow` | 0 | — | — |
+| `DefilerMPConsume` | 5 | — | — |
+| `DefilerMPDarkSwarm` | 5 | — | — |
+| `DefilerMPPlague` | 4 | `DefilerMPPlagueDamage` | — |
+| `DefilerMPUnburrow` | 0 | — | — |
+| `DigesterCreepSpray` | 17 | — | — |
+| `DisguiseAsMarineWithoutShield` | 1 | — | — |
+| `DisguiseAsMarineWithShield` | 1 | — | — |
+| `DisguiseAsZerglingWithoutWings` | 1 | — | — |
+| `DisguiseAsZerglingWithWings` | 1 | — | — |
+| `DroneHarvest` | 0 | — | — |
+| `EMP` | 8 | `EMPModifyUnit`, `EMPDamage` | — |
+| `EnergyRecharge` | 2 | — | — |
+| `EngineeringBayResearch` | 0 | — | — |
+| `evolutionchamberresearch` | 0 | — | — |
+| `Explode` | 11 | `VolatileBurstDirectFallbackEnemyNeutralUnit`, `VolatileBurstDirectFallbackEnemyNeutralBuilding`, `VolatileBurstU`, `VolatileBurstU2`, `VolatileBurstFriendlyBuildingDamage` | — |
+| `FactoryAddOns` | 0 | — | — |
+| `FactoryLand` | 0 | — | — |
+| `FactoryLiftOff` | 0 | — | — |
+| `FactoryReactorMorph` | 0 | — | — |
+| `FactoryTechLabMorph` | 0 | — | — |
+| `FactoryTechLabResearch` | 0 | — | — |
+| `FactoryTrain` | 0 | — | — |
+| `Feedback` | 3 | `Feedback` | — |
+| `FighterMode` | 0 | — | — |
+| `FleetBeaconResearch` | 0 | — | — |
+| `ForceField` | 3 | — | — |
+| `ForgeResearch` | 0 | — | — |
+| `FungalGrowth` | 13 | `FungalGrowthDamage` | — |
+| `FusionCoreResearch` | 0 | — | — |
+| `GatewayTrain` | 0 | — | — |
+| `GenerateCreep` | 0 | — | — |
+| `GhostAcademyResearch` | 0 | — | — |
+| `GhostCloak` | 1 | — | — |
+| `GhostHoldFire` | 2 | — | — |
+| `GhostWeaponsFree` | 2 | — | — |
+| `GravitonBeam` | 23 | — | — |
+| `GuardianShield` | 4 | `GuardianShield` | — |
+| `HallucinationAdept` | 8 | — | — |
+| `HallucinationArchon` | 8 | — | — |
+| `HallucinationColossus` | 8 | — | — |
+| `HallucinationDisruptor` | 8 | — | — |
+| `HallucinationHighTemplar` | 8 | — | — |
+| `HallucinationImmortal` | 8 | — | — |
+| `HallucinationOracle` | 8 | — | — |
+| `HallucinationPhoenix` | 8 | — | — |
+| `HallucinationProbe` | 8 | — | — |
+| `HallucinationStalker` | 8 | — | — |
+| `HallucinationVoidRay` | 8 | — | — |
+| `HallucinationWarpPrism` | 8 | — | — |
+| `HallucinationZealot` | 8 | — | — |
+| `HangarQueue5` | 0 | — | — |
+| `HydraliskDenResearch` | 0 | — | — |
+| `HydraliskFrenzy` | 2 | — | — |
+| `Hyperjump` | 16 | — | — |
+| `ImmortalOverload` | 4 | `ImmortalOverload` | — |
+| `InfestationPitResearch` | 0 | — | — |
+| `InfestedTerrans` | 9 | — | — |
+| `InfestorEnsnare` | 11 | — | — |
+| `KD8Charge` | 22 | `KD8ChargeExplodeDamage` | — |
+| `LairResearch` | 0 | — | — |
+| `LarvaTrain` | 0 | — | — |
+| `LiberatorAATarget` | 4 | — | — |
+| `LiberatorAGTarget` | 13 | — | — |
+| `LiberatorMorphtoAA` | 0 | — | — |
+| `LiberatorMorphtoAG` | 0 | — | — |
+| `LightningBomb` | 4 | `LightningBombDamage` | — |
+| `LightofAiur` | 1 | — | — |
+| `LockOn` | 10 | — | — |
+| `LockOnCancel` | 9 | — | — |
+| `LocustMPFlyingMorphToGround` | 0 | — | — |
+| `LocustMPFlyingSwoop` | 9 | — | — |
+| `LocustMPFlyingSwoopAttack` | 10 | — | — |
+| `LocustMPMorphToAir` | 0 | — | — |
+| `LurkerAspectMP` | 0 | — | — |
+| `LurkerAspectMPFromHydraliskBurrowed` | 0 | — | — |
+| `LurkerDenResearch` | 0 | — | — |
+| `LurkerHoldFire` | 2 | — | — |
+| `LurkerRemoveHoldFire` | 2 | — | — |
+| `MassRecall` | 29 | — | — |
+| `MedivacHeal` | 1 | `MedivacHeal` | — |
+| `MedivacSpeedBoost` | 1 | — | — |
+| `MedivacTransport` | 0 | — | — |
+| `MercCompoundResearch` | 0 | — | — |
+| `Mergeable` | 0 | — | — |
+| `MorphBackToGateway` | 0 | — | — |
+| `MorphBuildingGatewayWarpGateFree` | 0 | — | — |
+| `MorphToBaneling` | 0 | — | — |
+| `MorphToBroodLord` | 0 | — | — |
+| `MorphToDevourerMP` | 0 | — | — |
+| `MorphToGhostNova` | 1 | — | — |
+| `MorphToGuardianMP` | 0 | — | — |
+| `MorphToHellion` | 0 | — | — |
+| `MorphToHellionTank` | 0 | — | — |
+| `MorphToInfestedTerran` | 0 | — | — |
+| `MorphToLurker` | 0 | — | — |
+| `MorphToMothership` | 0 | — | — |
+| `MorphToOverseer` | 0 | — | — |
+| `MorphToRavager` | 0 | — | — |
+| `MorphToSwarmHostBurrowedMP` | 0 | — | — |
+| `MorphToSwarmHostMP` | 0 | — | — |
+| `MorphToTransportOverlord` | 0 | — | — |
+| `MorphZerglingToBaneling` | 0 | — | — |
+| `MothershipCloak` | 8 | — | — |
+| `MothershipCoreEnergize` | 5 | — | — |
+| `MothershipCoreMassRecall` | 1 | — | — |
+| `MothershipCorePurifyNexus` | 5 | — | — |
+| `MothershipCorePurifyNexusCancel` | 2 | — | — |
+| `MothershipMassRecall` | 8 | — | — |
+| `MULEGather` | 0 | — | — |
+| `MULERepair` | 2 | — | `MULERepair`, `Repair` |
+| `NeuralParasite` | 27 | — | — |
+| `NexusInvulnerability` | 2 | — | — |
+| `NexusMassRecall` | 22 | — | — |
+| `NexusTrain` | 0 | — | — |
+| `NexusTrainMothership` | 0 | — | — |
+| `NexusTrainMothershipCore` | 0 | — | — |
+| `NydusCanalTransport` | 0 | — | — |
+| `NydusWormTransport` | 0 | — | — |
+| `ObserverMorphtoObserverSiege` | 0 | — | — |
+| `ObserverSiegeMorphtoObserver` | 0 | — | — |
+| `OracleRevelation` | 7 | — | — |
+| `OracleStasisTrapActivate` | 12 | — | — |
+| `OracleStasisTrapBuild` | 0 | — | — |
+| `OracleWeapon` | 1 | — | — |
+| `OrbitalCommandLand` | 0 | — | — |
+| `OrbitalLiftOff` | 0 | — | — |
+| `OverlordTransport` | 0 | — | — |
+| `OverseerMorphtoOverseerSiegeMode` | 0 | — | — |
+| `OverseerSiegeModeMorphtoOverseer` | 0 | — | — |
+| `ParasiticBomb` | 32 | `ParasiticBombDotDamage` | — |
+| `PhasingMode` | 0 | — | — |
+| `PlacePointDefenseDrone` | 7 | — | — |
+| `ProbeHarvest` | 0 | — | — |
+| `ProtossBuild` | 0 | — | — |
+| `PsiStorm` | 6 | `PsiStormDamage`, `PsiStormDamageInitial` | — |
+| `PurificationNova` | 16 | `PurificationNovaDamage` | — |
+| `PurificationNovaMorph` | 1 | — | — |
+| `PurificationNovaMorphBack` | 1 | — | — |
+| `PurificationNovaTargeted` | 15 | `PurificationNovaDamage` | — |
+| `PurifyMorphPylon` | 1 | — | — |
+| `PurifyMorphPylonBack` | 1 | — | — |
+| `QueenBuild` | 0 | — | — |
+| `QueenMPEnsnare` | 6 | — | — |
+| `QueenMPInfestCommandCenter` | 0 | — | — |
+| `QueenMPSpawnBroodlings` | 6 | — | — |
+| `RavagerCorrosiveBile` | 10 | `RavagerCorrosiveBileDamage` | — |
+| `RavenRepairDroneHeal` | 1 | `RavenRepairDroneHeal` | — |
+| `RavenScramblerMissile` | 3 | — | — |
+| `RavenShredderMissile` | 14 | `RavenShredderMissileArmorReductionUISubtruct`, `RavenShredderMissileArmorReductionUIAdd`, `SeekerMissileDamage` | — |
+| `ReactorMorph` | 0 | — | — |
+| `Repair` | 1 | — | `Repair` |
+| `ResourceStun` | 16 | — | — |
+| `RoachWarrenResearch` | 0 | — | — |
+| `RoboticsBayResearch` | 0 | — | — |
+| `RoboticsFacilityTrain` | 1 | — | — |
+| `SalvageEffect` | 3 | `BurndownDamage` | — |
+| `SalvageShared` | 2 | `BurndownDamage` | — |
+| `SapStructure` | 1 | — | — |
+| `ScannerSweep` | 1 | — | — |
+| `SCVHarvest` | 0 | — | — |
+| `SeekerMissile` | 9 | `SeekerMissileDamage` | — |
+| `Shatter` | 1 | — | — |
+| `ShieldBatteryRechargeChanneled` | 5 | `ShieldBatteryRechargeChanneled`, `ShieldBatteryRechargeChanneledOvercharged` | — |
+| `ShieldBatteryRechargeEx5` | 5 | `ShieldBatteryRechargeEx5` | — |
+| `SiegeMode` | 0 | — | — |
+| `Snipe` | 1 | `SnipeDamage` | — |
+| `SpawnChangeling` | 7 | — | — |
+| `SpawningPoolResearch` | 0 | — | — |
+| `SpawnLarva` | 19 | — | — |
+| `SpawnLocustsTargeted` | 21 | — | — |
+| `SpineCrawlerRoot` | 0 | — | — |
+| `SpineCrawlerUproot` | 0 | — | — |
+| `SpireResearch` | 0 | — | — |
+| `SporeCrawlerRoot` | 0 | — | — |
+| `SporeCrawlerUproot` | 0 | — | — |
+| `SprayProtoss` | 1 | — | — |
+| `SprayTerran` | 1 | — | — |
+| `SprayZerg` | 1 | — | — |
+| `StargateTrain` | 2 | — | — |
+| `StarportAddOns` | 0 | — | — |
+| `StarportLand` | 0 | — | — |
+| `StarportLiftOff` | 0 | — | — |
+| `StarportReactorMorph` | 0 | — | — |
+| `StarportTechLabMorph` | 0 | — | — |
+| `StarportTechLabResearch` | 0 | — | — |
+| `StarportTrain` | 0 | — | — |
+| `Stimpack` | 1 | — | — |
+| `StimpackMarauder` | 1 | — | — |
+| `StimpackMarauderRedirect` | 0 | — | — |
+| `StimpackRedirect` | 0 | — | — |
+| `stopProtossBuilding` | 0 | — | — |
+| `StopRedirect` | 0 | — | — |
+| `SupplyDepotLower` | 0 | — | — |
+| `SupplyDepotRaise` | 0 | — | — |
+| `SupplyDrop` | 6 | `Transfusion2` | — |
+| `SwarmHostSpawnLocusts` | 21 | — | — |
+| `TacNukeStrike` | 5 | `NukeDamage` | — |
+| `TechLabMorph` | 0 | — | — |
+| `TempestDisruptionBlast` | 6 | — | — |
+| `TemplarArchivesResearch` | 0 | — | — |
+| `TemporalField` | 10 | — | — |
+| `TerranBuild` | 0 | — | — |
+| `ThorAPMode` | 0 | — | — |
+| `ThorNormalMode` | 0 | — | — |
+| `TimeWarp` | 10 | — | — |
+| `TornadoMissile` | 6 | `TornadoMissileDamage` | — |
+| `TrainQueen` | 2 | — | — |
+| `Transfusion` | 4 | `Transfusion`, `TransfusionHealTick` | — |
+| `TransportMode` | 0 | — | — |
+| `TwilightCouncilResearch` | 0 | — | — |
+| `UltraliskCavernResearch` | 0 | — | — |
+| `UltraliskWeaponCooldown` | 1 | — | — |
+| `Unsiege` | 0 | — | — |
+| `UpgradeToGreaterSpire` | 0 | — | — |
+| `UpgradeToHive` | 0 | — | — |
+| `UpgradeToLair` | 0 | — | — |
+| `UpgradeToLurkerDenMP` | 0 | — | — |
+| `UpgradeToOrbital` | 0 | — | — |
+| `UpgradeToPlanetaryFortress` | 0 | — | — |
+| `UpgradeToWarpGate` | 0 | — | — |
+| `ViperConsumeStructure` | 9 | `ViperConsumeDamage`, `ViperConsumeStructureModifyTarget` | — |
+| `VoidMPImmortalReviveRebuild` | 0 | — | — |
+| `VoidRaySwarmDamageBoost` | 1 | — | — |
+| `VoidRaySwarmDamageBoostCancel` | 2 | — | — |
+| `VoidSiphon` | 6 | `OracleVoidSiphonDamage` | — |
+| `VolatileBurstBuilding` | 1 | — | — |
+| `Vortex` | 75 | `TempestDamageGround`, `SeekerMissileDamage`, `RipFieldDamage`, `OracleShotDamage`, `OracleWeaponDamage` | — |
+| `WarpGateTrain` | 0 | — | — |
+| `WarpPrismTransport` | 0 | — | — |
+| `WidowMineAttack` | 11 | `WidowMineExplodeSplash`, `WidowMineExplodeDirect` | — |
+| `WidowMineBurrow` | 0 | — | — |
+| `WidowMineUnburrow` | 0 | — | — |
+| `WorkerStopIdleAbilityVespene` | 8 | — | — |
+| `Yamato` | 2 | `YamatoU` | — |
+| `Yoink` | 97 | — | — |
+| `ZergBuild` | 0 | — | — |
+
+### 미수정 양수 피해·회복 수치 후보 (자동 탐지, 수동 판정 전)
+
+| 효과 ID | 유형 | 원본 명시값 | 연결 능력 |
+|---|---|---|---|
+| `MULERepair` | CEffectCreateHealer | RechargeVitalRate=1 | `MULERepair` |
+| `Repair` | CEffectCreateHealer | RechargeVitalRate=1 | `MULERepair`, `Repair` |
+
+추적 집계: 연결 수정 39개, 연결 수정 미확인 272개. 미수정 수치 후보 2개. 아래 후보는 구버전·캠페인 분기, 공유 효과, 피해가 아닌 판정용 값 등을 포함할 수 있어 무조건 일괄 변경하지 않습니다.
+
+### 효과/행동 원본 SHA
+
+| 계층 | 카탈로그 | blob SHA |
+|---|---|---|
+| core | EffectData | 3d4ef88a33446b64680f6dbb3b60bc4536c7d27a |
+| core | BehaviorData | 83116ed5a729c58c677a8f8da61d9778f8041f51 |
+| liberty | EffectData | ff78a59606c974ab648443e7f374450e9c96b559 |
+| liberty | BehaviorData | 56a20210d555bf1748acb71763e195297bbb2d24 |
+| libertymulti | EffectData | 1d2a99be5ca9c75c43f759ef9bead4bf65e89665 |
+| libertymulti | BehaviorData | c4da4224c293277f69e3481a8d151c660105d718 |
+| swarm | EffectData | 53a382bbdf04683dd939a1eec7c232a497228608 |
+| swarm | BehaviorData | 1effee08c38df683d257f2f825fe5f64bc1369a9 |
+| swarmmulti | EffectData | 866168445a66d2547881234368f714beb1a5eabf |
+| swarmmulti | BehaviorData | cbb4d90bab7d4631d4679732b1870bc362f56a78 |
+| void | EffectData | be583cc0b7a247dbc17b11e29fdc4337c616912f |
+| void | BehaviorData | 7d5969fdd0b9a29f067e6f547f65f604b28771ab |
+| voidmulti | EffectData | de48ed11c9d8f9155bc8a5c9c81cdb4a245e7901 |
+| voidmulti | BehaviorData | 032a8e5d01872d6530a01005d51b85a398745a21 |
