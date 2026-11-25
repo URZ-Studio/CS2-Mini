@@ -3,14 +3,14 @@ setlocal
 cd /d "%~dp0"
 where py >nul 2>&1
 if not errorlevel 1 (
-  py -3 "%~dp0Build-MiniCraft.py"
+  py -3 "%~dp0Build-MiniCraft.py" %*
 ) else (
-  python "%~dp0Build-MiniCraft.py"
+  python "%~dp0Build-MiniCraft.py" %*
 )
 if errorlevel 1 (
-  echo Build failed. Install Python 3 or check the message above.
+  echo Build failed. See error above.
   pause
   exit /b 1
 )
-explorer "%~dp0MiniCraft-II-v0.1.2.SC2Mod"
+if "%~1"=="" explorer "%~dp0MiniCraft-II-v0.1.3.SC2Mod"
 pause
