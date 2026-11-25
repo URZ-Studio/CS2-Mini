@@ -1,0 +1,299 @@
+{
+  "weapons": {
+    "FusionCutter": {},
+    "GuassRifle": {},
+    "PunisherGrenades": {
+      "Effect": "PunisherGrenadesLM",
+      "DisplayEffect": "PunisherGrenadesU"
+    },
+    "P38ScytheGuassPistol": {
+      "Effect": "P38ScytheGuassPistolBurst"
+    },
+    "D8Charge": {
+      "Effect": "D8ChargeLaunchMissile",
+      "DisplayEffect": "D8ChargeDamage"
+    },
+    "C10CanisterRifle": {},
+    "InfernalFlameThrower": {
+      "Effect": "InfernalFlameThrowerCP"
+    },
+    "HellionTank": {
+      "DisplayEffect": "HellionTankDamage"
+    },
+    "90mmCannons": {},
+    "90mmCannonsFake": {
+      "Effect": "90mmCannonsDummy"
+    },
+    "CrucioShockCannon": {
+      "Effect": "CrucioShockCannonSwitch",
+      "DisplayEffect": "CrucioShockCannonDummy"
+    },
+    "TyphoonMissilePod": {
+      "Effect": "CycloneAttackWeaponLaunchMissileSwitch",
+      "DisplayEffect": "CycloneAttackWeaponDamage"
+    },
+    "JavelinMissileLaunchers": {
+      "Effect": "JavelinMissileLaunchersPersistent",
+      "DisplayEffect": "JavelinMissileLaunchersDamage"
+    },
+    "ThorsHammer": {
+      "DisplayEffect": "ThorsHammerDamage"
+    },
+    "LanceMissileLaunchers": {
+      "Effect": "LanceMissileLaunchersDamage",
+      "DisplayEffect": "LanceMissileLaunchersDamage"
+    },
+    "LanzerTorpedoes": {
+      "DisplayEffect": "LanzerTorpedoesDamage"
+    },
+    "TwinGatlingCannon": {
+      "Effect": "TwinGatlingCannons",
+      "DisplayEffect": "TwinGatlingCannons"
+    },
+    "LiberatorMissileLaunchers": {
+      "Effect": "LiberatorMissileBurstPersistent",
+      "DisplayEffect": "LiberatorMissileDamage"
+    },
+    "LiberatorAGWeapon": {
+      "Effect": "LiberatorAGMissileLMSet",
+      "DisplayEffect": "LiberatorAGDamage"
+    },
+    "BacklashRockets": {
+      "DisplayEffect": "BacklashRocketsU"
+    },
+    "BattlecruiserWeaponSwitch": {
+      "Effect": "BattlecruiserDamageSet",
+      "DisplayEffect": "ATSLaserBatteryU"
+    },
+    "TwinIbiksCannon": {},
+    "LongboltMissile": {
+      "DisplayEffect": "LongboltMissileU"
+    },
+    "Spines": {},
+    "Claws": {},
+    "VolatileBurst": {},
+    "VolatileBurstBuilding": {
+      "Effect": "VolatileBurst",
+      "DisplayEffect": "VolatileBurst"
+    },
+    "RoachMelee": {
+      "Effect": "RoachUMelee",
+      "DisplayEffect": "RoachUMelee"
+    },
+    "AcidSaliva": {
+      "Effect": "AcidSalivaLM",
+      "DisplayEffect": "AcidSalivaU"
+    },
+    "ScanMoveDummy": {
+      "Effect": ""
+    },
+    "RavagerWeapon": {
+      "Effect": "RavagerWeaponLM",
+      "DisplayEffect": "RavagerWeaponDamage"
+    },
+    "HydraliskMelee": {},
+    "NeedleSpines": {
+      "Effect": "NeedleSpinesLaunchMissile",
+      "DisplayEffect": "NeedleSpinesDamage"
+    },
+    "LurkerMP": {
+      "DisplayEffect": "LurkerMPDamage"
+    },
+    "InfestorWeaponAcidSpores": {
+      "Effect": "InfestorWeaponLM",
+      "DisplayEffect": "InfestorWeaponDamage"
+    },
+    "KaiserBlades": {
+      "DisplayEffect": "KaiserBladesDamage",
+      "Effect": "KaiserBladesDamage"
+    },
+    "Ram": {},
+    "AcidSpines": {
+      "Effect": "AcidSpinesLM"
+    },
+    "Talons": {
+      "Effect": "TalonsBurst",
+      "DisplayEffect": "TalonsMissileDamage"
+    },
+    "TalonsMissile": {
+      "Effect": "TalonsMissileBurst",
+      "DisplayEffect": "TalonsMissileDamage"
+    },
+    "GlaiveWurm": {
+      "DisplayEffect": "GlaiveWurmU1"
+    },
+    "ParasiteSpore": {
+      "Effect": "ParasiteSporeLaunchMissile",
+      "DisplayEffect": "ParasiteSporeDamage"
+    },
+    "BroodlingStrike": {
+      "Effect": "BroodlordIterateBroodlingEscort",
+      "DisplayEffect": "BroodlingEscortDamage"
+    },
+    "ImpalerTentacle": {
+      "Effect": "ImpalerTentacleLM",
+      "DisplayEffect": "ImpalerTentacleU"
+    },
+    "AcidSpew": {
+      "Effect": "SporeCrawler",
+      "DisplayEffect": "SporeCrawlerU"
+    },
+    "ParticleBeam": {},
+    "PsiBlades": {
+      "Effect": "PsiBladesBurst"
+    },
+    "ParticleDisruptors": {
+      "DisplayEffect": "ParticleDisruptorsU"
+    },
+    "DisruptionBeam": {
+      "DisplayEffect": "DisruptionBeamDamage"
+    },
+    "Adept": {
+      "Effect": "AdeptLM",
+      "DisplayEffect": "AdeptDamage"
+    },
+    "HighTemplarWeapon": {
+      "Effect": "HighTemplarWeaponLM",
+      "DisplayEffect": "HighTemplarWeaponDamage"
+    },
+    "WarpBlades": {},
+    "PsionicShockwave": {
+      "Effect": "PsionicShockwaveDamage",
+      "DisplayEffect": "PsionicShockwaveDamage"
+    },
+    "PhaseDisruptors": {},
+    "ThermalLances": {
+      "DisplayEffect": "ThermalLancesMU"
+    },
+    "DisruptorFakeWeapon": {
+      "Effect": "FakeWeaponDummyDamage"
+    },
+    "IonCannons": {
+      "DisplayEffect": "IonCannonsU"
+    },
+    "VoidRaySwarm": {
+      "DisplayEffect": "VoidRaySwarmDamage"
+    },
+    "Oracle": {
+      "Effect": "OracleWeaponCreatePersistent",
+      "DisplayEffect": "OracleWeaponDamage"
+    },
+    "Tempest": {
+      "Effect": "TempestLaunchMissile",
+      "DisplayEffect": "TempestDamage"
+    },
+    "TempestGround": {
+      "Effect": "TempestLaunchMissileGround",
+      "DisplayEffect": "TempestDamageGround"
+    },
+    "InterceptorLaunch": {
+      "Effect": "InterceptorLaunchPersistent",
+      "DisplayEffect": "Carrier"
+    },
+    "MothershipBeam": {
+      "Effect": "MothershipBeamSetCustom",
+      "DisplayEffect": "MothershipBeamDamage"
+    },
+    "PurifierBeamDummyTargetFire": {
+      "Effect": "MothershipAddTargetFire"
+    },
+    "PhotonCannon": {
+      "Effect": "PhotonCannonLM",
+      "DisplayEffect": "PhotonCannonU"
+    }
+  },
+  "roots": [
+    "PunisherGrenadesLM",
+    "PunisherGrenadesU",
+    "P38ScytheGuassPistolBurst",
+    "D8ChargeLaunchMissile",
+    "D8ChargeDamage",
+    "InfernalFlameThrowerCP",
+    "HellionTankDamage",
+    "90mmCannonsDummy",
+    "CrucioShockCannonSwitch",
+    "CrucioShockCannonDummy",
+    "CycloneAttackWeaponLaunchMissileSwitch",
+    "CycloneAttackWeaponDamage",
+    "JavelinMissileLaunchersPersistent",
+    "JavelinMissileLaunchersDamage",
+    "ThorsHammerDamage",
+    "LanceMissileLaunchersDamage",
+    "LanzerTorpedoesDamage",
+    "TwinGatlingCannons",
+    "LiberatorMissileBurstPersistent",
+    "LiberatorMissileDamage",
+    "LiberatorAGMissileLMSet",
+    "LiberatorAGDamage",
+    "BacklashRocketsU",
+    "BattlecruiserDamageSet",
+    "ATSLaserBatteryU",
+    "LongboltMissileU",
+    "VolatileBurst",
+    "RoachUMelee",
+    "AcidSalivaLM",
+    "AcidSalivaU",
+    "RavagerWeaponLM",
+    "RavagerWeaponDamage",
+    "NeedleSpinesLaunchMissile",
+    "NeedleSpinesDamage",
+    "LurkerMPDamage",
+    "InfestorWeaponLM",
+    "InfestorWeaponDamage",
+    "KaiserBladesDamage",
+    "AcidSpinesLM",
+    "TalonsBurst",
+    "TalonsMissileDamage",
+    "TalonsMissileBurst",
+    "GlaiveWurmU1",
+    "ParasiteSporeLaunchMissile",
+    "ParasiteSporeDamage",
+    "BroodlordIterateBroodlingEscort",
+    "BroodlingEscortDamage",
+    "ImpalerTentacleLM",
+    "ImpalerTentacleU",
+    "SporeCrawler",
+    "SporeCrawlerU",
+    "PsiBladesBurst",
+    "ParticleDisruptorsU",
+    "DisruptionBeamDamage",
+    "AdeptLM",
+    "AdeptDamage",
+    "HighTemplarWeaponLM",
+    "HighTemplarWeaponDamage",
+    "PsionicShockwaveDamage",
+    "ThermalLancesMU",
+    "FakeWeaponDummyDamage",
+    "IonCannonsU",
+    "VoidRaySwarmDamage",
+    "OracleWeaponCreatePersistent",
+    "OracleWeaponDamage",
+    "TempestLaunchMissile",
+    "TempestDamage",
+    "TempestLaunchMissileGround",
+    "TempestDamageGround",
+    "InterceptorLaunchPersistent",
+    "Carrier",
+    "MothershipBeamSetCustom",
+    "MothershipBeamDamage",
+    "MothershipAddTargetFire",
+    "PhotonCannonLM",
+    "PhotonCannonU"
+  ],
+  "missing": [
+    "FusionCutter",
+    "GuassRifle",
+    "C10CanisterRifle",
+    "90mmCannons",
+    "TwinIbiksCannon",
+    "Spines",
+    "Claws",
+    "VolatileBurst",
+    "ScanMoveDummy",
+    "HydraliskMelee",
+    "Ram",
+    "ParticleBeam",
+    "WarpBlades",
+    "PhaseDisruptors"
+  ]
+}
