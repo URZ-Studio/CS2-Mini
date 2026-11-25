@@ -1,0 +1,318 @@
+{
+  "units": {
+    "SCV": [
+      "FusionCutter"
+    ],
+    "MULE": [],
+    "Marine": [
+      "GuassRifle"
+    ],
+    "Marauder": [
+      "PunisherGrenades"
+    ],
+    "Reaper": [
+      "P38ScytheGuassPistol",
+      "D8Charge"
+    ],
+    "Ghost": [
+      "C10CanisterRifle"
+    ],
+    "Hellion": [
+      "InfernalFlameThrower"
+    ],
+    "HellionTank": [
+      "HellionTank"
+    ],
+    "WidowMine": [],
+    "WidowMineBurrowed": [],
+    "SiegeTank": [
+      "90mmCannons",
+      "90mmCannonsFake"
+    ],
+    "SiegeTankSieged": [
+      "CrucioShockCannon"
+    ],
+    "Cyclone": [
+      "TyphoonMissilePod"
+    ],
+    "Thor": [
+      "JavelinMissileLaunchers",
+      "ThorsHammer"
+    ],
+    "ThorAP": [
+      "LanceMissileLaunchers",
+      "ThorsHammer"
+    ],
+    "VikingFighter": [
+      "LanzerTorpedoes"
+    ],
+    "VikingAssault": [
+      "TwinGatlingCannon"
+    ],
+    "Medivac": [],
+    "Liberator": [
+      "LiberatorMissileLaunchers"
+    ],
+    "LiberatorAG": [
+      "LiberatorAGWeapon"
+    ],
+    "Raven": [],
+    "Banshee": [
+      "BacklashRockets"
+    ],
+    "Battlecruiser": [
+      "BattlecruiserWeaponSwitch"
+    ],
+    "CommandCenter": [],
+    "OrbitalCommand": [],
+    "PlanetaryFortress": [
+      "TwinIbiksCannon"
+    ],
+    "SupplyDepot": [],
+    "SupplyDepotLowered": [],
+    "Refinery": [],
+    "Barracks": [],
+    "Factory": [],
+    "Starport": [],
+    "BarracksReactor": [],
+    "FactoryReactor": [],
+    "StarportReactor": [],
+    "EngineeringBay": [],
+    "Armory": [],
+    "FusionCore": [],
+    "GhostAcademy": [],
+    "Bunker": [],
+    "MissileTurret": [
+      "LongboltMissile"
+    ],
+    "SensorTower": [],
+    "Drone": [
+      "Spines"
+    ],
+    "DroneBurrowed": [],
+    "Zergling": [
+      "Claws"
+    ],
+    "ZerglingBurrowed": [],
+    "Baneling": [
+      "VolatileBurst",
+      "VolatileBurstBuilding"
+    ],
+    "BanelingBurrowed": [],
+    "Roach": [
+      "RoachMelee",
+      "AcidSaliva"
+    ],
+    "RoachBurrowed": [
+      "ScanMoveDummy"
+    ],
+    "Ravager": [
+      "RavagerWeapon"
+    ],
+    "RavagerBurrowed": [],
+    "Hydralisk": [
+      "HydraliskMelee",
+      "NeedleSpines"
+    ],
+    "HydraliskBurrowed": [],
+    "LurkerMP": [],
+    "LurkerMPBurrowed": [
+      "LurkerMP"
+    ],
+    "Infestor": [
+      "InfestorWeaponAcidSpores"
+    ],
+    "InfestorBurrowed": [],
+    "SwarmHostMP": [],
+    "SwarmHostBurrowedMP": [],
+    "Ultralisk": [
+      "KaiserBlades",
+      "Ram"
+    ],
+    "UltraliskBurrowed": [],
+    "Queen": [
+      "AcidSpines",
+      "Talons",
+      "TalonsMissile"
+    ],
+    "QueenBurrowed": [],
+    "Mutalisk": [
+      "GlaiveWurm"
+    ],
+    "Corruptor": [
+      "ParasiteSpore"
+    ],
+    "BroodLord": [
+      "BroodlingStrike"
+    ],
+    "Viper": [],
+    "Overlord": [],
+    "OverlordTransport": [],
+    "Overseer": [],
+    "Hatchery": [],
+    "Lair": [],
+    "Hive": [],
+    "Extractor": [],
+    "SpawningPool": [],
+    "EvolutionChamber": [],
+    "RoachWarren": [],
+    "BanelingNest": [],
+    "SpineCrawler": [
+      "ImpalerTentacle"
+    ],
+    "SpineCrawlerUprooted": [],
+    "SporeCrawler": [
+      "AcidSpew"
+    ],
+    "SporeCrawlerUprooted": [],
+    "HydraliskDen": [],
+    "LurkerDenMP": [],
+    "InfestationPit": [],
+    "Spire": [],
+    "GreaterSpire": [],
+    "UltraliskCavern": [],
+    "NydusNetwork": [],
+    "NydusCanal": [],
+    "Probe": [
+      "ParticleBeam"
+    ],
+    "Zealot": [
+      "PsiBlades"
+    ],
+    "Stalker": [
+      "ParticleDisruptors"
+    ],
+    "Sentry": [
+      "DisruptionBeam"
+    ],
+    "Adept": [
+      "Adept"
+    ],
+    "HighTemplar": [
+      "HighTemplarWeapon"
+    ],
+    "DarkTemplar": [
+      "WarpBlades"
+    ],
+    "Archon": [
+      "PsionicShockwave"
+    ],
+    "Immortal": [
+      "PhaseDisruptors"
+    ],
+    "Colossus": [
+      "ThermalLances"
+    ],
+    "Disruptor": [
+      "DisruptorFakeWeapon"
+    ],
+    "Observer": [],
+    "WarpPrism": [],
+    "WarpPrismPhasing": [],
+    "Phoenix": [
+      "IonCannons"
+    ],
+    "VoidRay": [
+      "VoidRaySwarm"
+    ],
+    "Oracle": [
+      "Oracle"
+    ],
+    "Tempest": [
+      "Tempest",
+      "TempestGround"
+    ],
+    "Carrier": [
+      "InterceptorLaunch"
+    ],
+    "Mothership": [
+      "MothershipBeam",
+      "PurifierBeamDummyTargetFire"
+    ],
+    "Nexus": [],
+    "Pylon": [],
+    "Assimilator": [],
+    "Gateway": [],
+    "WarpGate": [],
+    "CyberneticsCore": [],
+    "Forge": [],
+    "PhotonCannon": [
+      "PhotonCannon"
+    ],
+    "ShieldBattery": [],
+    "TwilightCouncil": [],
+    "TemplarArchive": [],
+    "DarkShrine": [],
+    "RoboticsFacility": [],
+    "RoboticsBay": [],
+    "Stargate": [],
+    "FleetBeacon": []
+  },
+  "weapons": [
+    "FusionCutter",
+    "GuassRifle",
+    "PunisherGrenades",
+    "P38ScytheGuassPistol",
+    "D8Charge",
+    "C10CanisterRifle",
+    "InfernalFlameThrower",
+    "HellionTank",
+    "90mmCannons",
+    "90mmCannonsFake",
+    "CrucioShockCannon",
+    "TyphoonMissilePod",
+    "JavelinMissileLaunchers",
+    "ThorsHammer",
+    "LanceMissileLaunchers",
+    "LanzerTorpedoes",
+    "TwinGatlingCannon",
+    "LiberatorMissileLaunchers",
+    "LiberatorAGWeapon",
+    "BacklashRockets",
+    "BattlecruiserWeaponSwitch",
+    "TwinIbiksCannon",
+    "LongboltMissile",
+    "Spines",
+    "Claws",
+    "VolatileBurst",
+    "VolatileBurstBuilding",
+    "RoachMelee",
+    "AcidSaliva",
+    "ScanMoveDummy",
+    "RavagerWeapon",
+    "HydraliskMelee",
+    "NeedleSpines",
+    "LurkerMP",
+    "InfestorWeaponAcidSpores",
+    "KaiserBlades",
+    "Ram",
+    "AcidSpines",
+    "Talons",
+    "TalonsMissile",
+    "GlaiveWurm",
+    "ParasiteSpore",
+    "BroodlingStrike",
+    "ImpalerTentacle",
+    "AcidSpew",
+    "ParticleBeam",
+    "PsiBlades",
+    "ParticleDisruptors",
+    "DisruptionBeam",
+    "Adept",
+    "HighTemplarWeapon",
+    "WarpBlades",
+    "PsionicShockwave",
+    "PhaseDisruptors",
+    "ThermalLances",
+    "DisruptorFakeWeapon",
+    "IonCannons",
+    "VoidRaySwarm",
+    "Oracle",
+    "Tempest",
+    "TempestGround",
+    "InterceptorLaunch",
+    "MothershipBeam",
+    "PurifierBeamDummyTargetFire",
+    "PhotonCannon"
+  ]
+}
