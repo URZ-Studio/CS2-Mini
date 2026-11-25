@@ -93,6 +93,22 @@ def validate():
         raw = ET.tostring(node, encoding="unicode").replace(" />", "/>")
         if expected not in raw:
             raise ValueError("Audit regression: " + uid)
+    model_checks = [
+        ("Nexus", "ScaleMin", "0.6,0.6,0.6"),
+        ("Nexus", "ShadowRadius", "1.24985"),
+        ("NexusPlacement", "ScaleMin", "0.6,0.6,0.6"),
+        ("NexusBirth", "ScaleMin", "0.6,0.6,0.6"),
+        ("NexusSplat", "ScaleMin", "0.6,0.6,0.6"),
+        ("GatewayPlacement", "ScaleMin", "0.4,0.4,0.4"),
+        ("PylonPlacement", "ScaleMin", "0.425,0.425,0.425"),
+    ]
+    for uid, field, expected in model_checks:
+        node = parsed["ModelData"].find("./*[@id='" + uid + "']/" + field)
+        if node is None or node.get("value") != expected:
+            raise ValueError("Model regression: " + uid + "/" + field)
+    for uid in ("Nexus", "Gateway", "Pylon", "Barracks", "Hatchery"):
+        if parsed["ActorData"].find("./*[@id='" + uid + "']/Scale") is not None:
+            raise ValueError("Duplicate visual scaling: " + uid)
     print("Static regression checks passed.")
 def merge_strings(data, changes):
     old = data.decode("utf-8-sig").splitlines() if data else []
