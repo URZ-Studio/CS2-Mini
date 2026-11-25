@@ -1,0 +1,558 @@
+{
+  "foot": {
+    "SiegeTankSieged": {
+      "Footprint": "FootprintSieged"
+    },
+    "CommandCenter": {
+      "Footprint": "Footprint5x5Contour",
+      "PlacementFootprint": "Footprint5x5DropOff"
+    },
+    "OrbitalCommand": {
+      "Footprint": "Footprint5x5Contour",
+      "PlacementFootprint": "Footprint5x5DropOff"
+    },
+    "PlanetaryFortress": {
+      "Footprint": "Footprint5x5Contour",
+      "PlacementFootprint": "Footprint5x5DropOff"
+    },
+    "SupplyDepot": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint2x2"
+    },
+    "SupplyDepotLowered": {
+      "Footprint": "Footprint2x2Underground"
+    },
+    "Refinery": {
+      "Footprint": "FootprintGeyserRoundedBuilt",
+      "PlacementFootprint": "Footprint3x3CappedGeyser"
+    },
+    "Barracks": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "Factory": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "Starport": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "BarracksReactor": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint3x3AddOn2x2"
+    },
+    "FactoryReactor": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint3x3AddOn2x2"
+    },
+    "StarportReactor": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint3x3AddOn2x2"
+    },
+    "EngineeringBay": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "Armory": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "FusionCore": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "GhostAcademy": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "Bunker": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "MissileTurret": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint2x2"
+    },
+    "SensorTower": {
+      "Footprint": "Footprint1x1",
+      "PlacementFootprint": "Footprint1x1"
+    },
+    "Hatchery": {
+      "Footprint": "Footprint6x5DropOffCreepSourceContour",
+      "PlacementFootprint": "Footprint6x5DropOffCreepSource"
+    },
+    "Lair": {
+      "Footprint": "Footprint6x5DropOffCreepSourceContour",
+      "PlacementFootprint": "Footprint6x5DropOffCreepSource"
+    },
+    "Hive": {
+      "Footprint": "Footprint6x5DropOffCreepSourceContour",
+      "PlacementFootprint": "Footprint6x5DropOffCreepSource"
+    },
+    "Extractor": {
+      "Footprint": "FootprintGeyserRoundedBuilt",
+      "PlacementFootprint": "Footprint3x3CappedGeyser"
+    },
+    "SpawningPool": {
+      "Footprint": "Footprint3x3CreepContour",
+      "PlacementFootprint": "Footprint3x3Creep"
+    },
+    "EvolutionChamber": {
+      "Footprint": "Footprint3x3CreepContour",
+      "PlacementFootprint": "Footprint3x3Creep"
+    },
+    "RoachWarren": {
+      "Footprint": "Footprint3x3CreepContour",
+      "PlacementFootprint": "Footprint3x3Creep"
+    },
+    "BanelingNest": {
+      "Footprint": "Footprint3x3CreepContour",
+      "PlacementFootprint": "Footprint3x3Creep"
+    },
+    "SpineCrawler": {
+      "Footprint": "Footprint2x2ZergSpineCrawler",
+      "PlacementFootprint": "Footprint2x2Creep2"
+    },
+    "SporeCrawler": {
+      "Footprint": "Footprint2x2Contour2",
+      "PlacementFootprint": "Footprint2x2Creep2"
+    },
+    "HydraliskDen": {
+      "Footprint": "Footprint3x3CreepContour",
+      "PlacementFootprint": "Footprint3x3Creep"
+    },
+    "LurkerDenMP": {
+      "Footprint": "Footprint3x3CreepContour",
+      "PlacementFootprint": "Footprint3x3Creep"
+    },
+    "InfestationPit": {
+      "Footprint": "Footprint3x3CreepContour",
+      "PlacementFootprint": "Footprint3x3Creep"
+    },
+    "Spire": {
+      "Footprint": "Footprint2x2CreepContour",
+      "PlacementFootprint": "Footprint2x2Creep"
+    },
+    "GreaterSpire": {
+      "Footprint": "Footprint2x2IgnoreCreepContour",
+      "PlacementFootprint": "Footprint2x2Creep"
+    },
+    "UltraliskCavern": {
+      "Footprint": "Footprint3x3CreepContour",
+      "PlacementFootprint": "Footprint3x3Creep"
+    },
+    "NydusNetwork": {
+      "Footprint": "Footprint3x3CreepContour",
+      "PlacementFootprint": "Footprint3x3Creep"
+    },
+    "NydusCanal": {
+      "Footprint": "Footprint3x3IgnoreCreepContour",
+      "PlacementFootprint": "Footprint3x3IgnoreCreepContour"
+    },
+    "Nexus": {
+      "Footprint": "Footprint5x5Contour",
+      "PlacementFootprint": "Footprint5x5DropOff"
+    },
+    "Pylon": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint2x2"
+    },
+    "Assimilator": {
+      "Footprint": "FootprintGeyserRoundedBuilt",
+      "PlacementFootprint": "Footprint3x3CappedGeyser"
+    },
+    "Gateway": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "WarpGate": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "CyberneticsCore": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "Forge": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "PhotonCannon": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint2x2"
+    },
+    "ShieldBattery": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint2x2"
+    },
+    "TwilightCouncil": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "TemplarArchive": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "DarkShrine": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint2x2"
+    },
+    "RoboticsFacility": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "RoboticsBay": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "Stargate": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "FleetBeacon": {
+      "Footprint": "Footprint3x3Contour",
+      "PlacementFootprint": "Footprint3x3"
+    },
+    "AssimilatorRich": {
+      "Footprint": "FootprintGeyserRoundedBuilt",
+      "PlacementFootprint": "Footprint3x3CappedGeyser"
+    },
+    "CreepTumorQueen": {
+      "Footprint": "CreepTumorQueen",
+      "PlacementFootprint": "CreepTumorQueen"
+    },
+    "ExtractorRich": {
+      "Footprint": "FootprintGeyserRoundedBuilt",
+      "PlacementFootprint": "Footprint3x3CappedGeyser"
+    },
+    "RefineryRich": {
+      "Footprint": "FootprintGeyserRoundedBuilt",
+      "PlacementFootprint": "Footprint3x3CappedGeyser"
+    },
+    "AutoTurret": {
+      "Footprint": "FootprintAutoTurret",
+      "PlacementFootprint": "FootprintAutoTurret"
+    },
+    "Reactor": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint3x3AddOn2x2"
+    },
+    "TechLab": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint3x3AddOn2x2"
+    },
+    "CreepTumor": {
+      "Footprint": "CreepTumor",
+      "PlacementFootprint": "CreepTumor"
+    },
+    "CreepTumorBurrowed": {
+      "Footprint": "CreepTumorBurrowed"
+    },
+    "ForceField": {
+      "PlacementFootprint": "Footprint3x3ForceField"
+    },
+    "NydusCanalAttacker": {
+      "Footprint": "Footprint2x2IgnoreCreepContour",
+      "PlacementFootprint": "Footprint2x2IgnoreCreepContour"
+    },
+    "NydusCanalCreeper": {
+      "Footprint": "Footprint2x2IgnoreCreepContour",
+      "PlacementFootprint": "Footprint2x2IgnoreCreepContour"
+    },
+    "OracleStasisTrap": {
+      "Footprint": "OracleStasisTrap",
+      "PlacementFootprint": "OracleStasisTrap"
+    },
+    "PylonOvercharged": {
+      "Footprint": "Footprint2x2Contour",
+      "PlacementFootprint": "Footprint2x2"
+    }
+  },
+  "unitIds": [
+    "SCV",
+    "MULE",
+    "Marine",
+    "Marauder",
+    "Reaper",
+    "Ghost",
+    "Hellion",
+    "HellionTank",
+    "WidowMine",
+    "WidowMineBurrowed",
+    "SiegeTank",
+    "SiegeTankSieged",
+    "Cyclone",
+    "Thor",
+    "ThorAP",
+    "VikingFighter",
+    "VikingAssault",
+    "Medivac",
+    "Liberator",
+    "LiberatorAG",
+    "Raven",
+    "Banshee",
+    "Battlecruiser",
+    "CommandCenter",
+    "OrbitalCommand",
+    "PlanetaryFortress",
+    "SupplyDepot",
+    "SupplyDepotLowered",
+    "Refinery",
+    "Barracks",
+    "Factory",
+    "Starport",
+    "BarracksReactor",
+    "FactoryReactor",
+    "StarportReactor",
+    "EngineeringBay",
+    "Armory",
+    "FusionCore",
+    "GhostAcademy",
+    "Bunker",
+    "MissileTurret",
+    "SensorTower",
+    "Drone",
+    "DroneBurrowed",
+    "Zergling",
+    "ZerglingBurrowed",
+    "Baneling",
+    "BanelingBurrowed",
+    "Roach",
+    "RoachBurrowed",
+    "Ravager",
+    "RavagerBurrowed",
+    "Hydralisk",
+    "HydraliskBurrowed",
+    "LurkerMP",
+    "LurkerMPBurrowed",
+    "Infestor",
+    "InfestorBurrowed",
+    "SwarmHostMP",
+    "SwarmHostBurrowedMP",
+    "Ultralisk",
+    "UltraliskBurrowed",
+    "Queen",
+    "QueenBurrowed",
+    "Mutalisk",
+    "Corruptor",
+    "BroodLord",
+    "Viper",
+    "Overlord",
+    "OverlordTransport",
+    "Overseer",
+    "Hatchery",
+    "Lair",
+    "Hive",
+    "Extractor",
+    "SpawningPool",
+    "EvolutionChamber",
+    "RoachWarren",
+    "BanelingNest",
+    "SpineCrawler",
+    "SpineCrawlerUprooted",
+    "SporeCrawler",
+    "SporeCrawlerUprooted",
+    "HydraliskDen",
+    "LurkerDenMP",
+    "InfestationPit",
+    "Spire",
+    "GreaterSpire",
+    "UltraliskCavern",
+    "NydusNetwork",
+    "NydusCanal",
+    "Probe",
+    "Zealot",
+    "Stalker",
+    "Sentry",
+    "Adept",
+    "HighTemplar",
+    "DarkTemplar",
+    "Archon",
+    "Immortal",
+    "Colossus",
+    "Disruptor",
+    "Observer",
+    "WarpPrism",
+    "WarpPrismPhasing",
+    "Phoenix",
+    "VoidRay",
+    "Oracle",
+    "Tempest",
+    "Carrier",
+    "Mothership",
+    "Nexus",
+    "Pylon",
+    "Assimilator",
+    "Gateway",
+    "WarpGate",
+    "CyberneticsCore",
+    "Forge",
+    "PhotonCannon",
+    "ShieldBattery",
+    "TwilightCouncil",
+    "TemplarArchive",
+    "DarkShrine",
+    "RoboticsFacility",
+    "RoboticsBay",
+    "Stargate",
+    "FleetBeacon",
+    "AssimilatorRich",
+    "CreepTumorQueen",
+    "ExtractorRich",
+    "LurkerMPEgg",
+    "RavagerCocoon",
+    "RefineryRich",
+    "TransportOverlordCocoon",
+    "PointDefenseDrone",
+    "Interceptor",
+    "BarracksFlying",
+    "AutoTurret",
+    "FactoryFlying",
+    "StarportFlying",
+    "Reactor",
+    "TechLab",
+    "Larva",
+    "Egg",
+    "BanelingCocoon",
+    "OverlordCocoon",
+    "BroodLordCocoon",
+    "CreepTumor",
+    "CreepTumorBurrowed",
+    "InfestorTerran",
+    "InfestorTerranBurrowed",
+    "CommandCenterFlying",
+    "OrbitalCommandFlying",
+    "ForceField",
+    "Broodling",
+    "BroodlingEscort",
+    "Changeling",
+    "ChangelingZealot",
+    "ChangelingMarineShield",
+    "ChangelingMarine",
+    "ChangelingZergling",
+    "ChangelingZerglingWings",
+    "ScopeTest",
+    "GhostAlternate",
+    "GhostNova",
+    "MothershipCore",
+    "NydusCanalAttacker",
+    "NydusCanalCreeper",
+    "WarHound",
+    "LocustMP",
+    "LocustMPFlying",
+    "HERCPlacement",
+    "HERC",
+    "DisruptorPhased",
+    "VoidMPImmortalReviveCorpse",
+    "ScourgeMP",
+    "DefilerMP",
+    "DefilerMPBurrowed",
+    "QueenMP",
+    "OracleStasisTrap",
+    "AdeptPhaseShift",
+    "KD8Charge",
+    "ObserverSiegeMode",
+    "OverseerSiegeMode",
+    "PylonOvercharged",
+    "BypassArmorDrone",
+    "RavenRepairDrone"
+  ],
+  "added": [
+    "AssimilatorRich",
+    "CreepTumorQueen",
+    "ExtractorRich",
+    "LurkerMPEgg",
+    "RavagerCocoon",
+    "RefineryRich",
+    "TransportOverlordCocoon",
+    "PointDefenseDrone",
+    "Interceptor",
+    "BarracksFlying",
+    "AutoTurret",
+    "FactoryFlying",
+    "StarportFlying",
+    "Reactor",
+    "TechLab",
+    "Larva",
+    "Egg",
+    "BanelingCocoon",
+    "OverlordCocoon",
+    "BroodLordCocoon",
+    "CreepTumor",
+    "CreepTumorBurrowed",
+    "InfestorTerran",
+    "InfestorTerranBurrowed",
+    "CommandCenterFlying",
+    "OrbitalCommandFlying",
+    "ForceField",
+    "Broodling",
+    "BroodlingEscort",
+    "Changeling",
+    "ChangelingZealot",
+    "ChangelingMarineShield",
+    "ChangelingMarine",
+    "ChangelingZergling",
+    "ChangelingZerglingWings",
+    "ScopeTest",
+    "GhostAlternate",
+    "GhostNova",
+    "MothershipCore",
+    "NydusCanalAttacker",
+    "NydusCanalCreeper",
+    "WarHound",
+    "LocustMP",
+    "LocustMPFlying",
+    "HERCPlacement",
+    "HERC",
+    "DisruptorPhased",
+    "VoidMPImmortalReviveCorpse",
+    "ScourgeMP",
+    "DefilerMP",
+    "DefilerMPBurrowed",
+    "QueenMP",
+    "OracleStasisTrap",
+    "AdeptPhaseShift",
+    "KD8Charge",
+    "ObserverSiegeMode",
+    "OverseerSiegeMode",
+    "PylonOvercharged",
+    "BypassArmorDrone",
+    "RavenRepairDrone"
+  ],
+  "modeCosts": {
+    "HellionTank": "Hellion",
+    "WidowMineBurrowed": "WidowMine",
+    "SiegeTankSieged": "SiegeTank",
+    "ThorAP": "Thor",
+    "VikingAssault": "VikingFighter",
+    "LiberatorAG": "Liberator",
+    "SupplyDepotLowered": "SupplyDepot",
+    "BarracksReactor": "Reactor",
+    "FactoryReactor": "Reactor",
+    "StarportReactor": "Reactor",
+    "DroneBurrowed": "Drone",
+    "ZerglingBurrowed": "Zergling",
+    "BanelingBurrowed": "Baneling",
+    "RoachBurrowed": "Roach",
+    "RavagerBurrowed": "Ravager",
+    "HydraliskBurrowed": "Hydralisk",
+    "LurkerMPBurrowed": "LurkerMP",
+    "InfestorBurrowed": "Infestor",
+    "UltraliskBurrowed": "Ultralisk",
+    "QueenBurrowed": "Queen",
+    "SpineCrawlerUprooted": "SpineCrawler",
+    "SporeCrawlerUprooted": "SporeCrawler",
+    "WarpPrismPhasing": "WarpPrism",
+    "BarracksFlying": "Barracks",
+    "FactoryFlying": "Factory",
+    "StarportFlying": "Starport",
+    "CreepTumorBurrowed": "CreepTumor",
+    "InfestorTerranBurrowed": "InfestorTerran",
+    "CommandCenterFlying": "CommandCenter",
+    "OrbitalCommandFlying": "OrbitalCommand",
+    "DefilerMPBurrowed": "DefilerMP",
+    "ObserverSiegeMode": "Observer",
+    "OverseerSiegeMode": "Overseer"
+  }
+}
