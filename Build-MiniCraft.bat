@@ -12,5 +12,5 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-explorer "%~dp0MiniCraft-II-v0.1.1.SC2Mod"
+explorer "%~dp0MiniCraft-II-v0.1.2.SC2Mod"
 pause
