@@ -96,8 +96,12 @@ void MCAI_Economy(int p, int town, string race, int bases, int minerals, int gas
     int workers;
     int goal = MCAI_Min(88, bases * 22);
     int facilities = MCAI_Min(14, 2 + bases * 2 + minerals / 650);
-    if (race == "Prot") { worker = "Probe"; hall = "Nexus"; supply = "Pylon"; }
-    if (race == "Zerg") { worker = "Drone"; hall = "Hatchery"; supply = "Overlord"; }
+    int t = 0;
+    string refinery = "Refinery";
+    int spots;
+    int targetGas;
+    if (race == "Prot") { worker = "Probe"; hall = "Nexus"; supply = "Pylon"; refinery = "Assimilator"; }
+    if (race == "Zerg") { worker = "Drone"; hall = "Hatchery"; supply = "Overlord"; refinery = "Extractor"; }
     workers = MCAI_Count(p, worker);
     // Supply before new producers or army; reserve more as the economy grows.
     if (made < cap && free < 6.0 + bases * 2 && minerals >= 50 && MCAI_Pending(p, supply) < 2) {
@@ -107,10 +111,23 @@ void MCAI_Economy(int p, int town, string race, int bases, int minerals, int gas
     if (free >= 1.0 && minerals >= 50 && workers < goal) {
         MCAI_Train(p, town, worker, goal, MCAI_Min(3, bases), c_makePriorityContinue);
     }
+    // Use local gas sites instead of queuing refineries at a full main base.
+    if (workers >= 14 && minerals >= 150 && gas < 180 && AIGetTime() >= 65.0) {
+        while (t < c_townMax && mcai_tick >= mcai_nextBuild[p]) {
+            if (AIGetTownState(p, t) == c_townStateEstablished) {
+                spots = AIGetRawGasNumSpots(p, t);
+                targetGas = AIGetBuildingCountInTown(p, t, refinery, c_techCountQueuedOrBetter);
+                if (spots > 0 && targetGas < MCAI_Min(2, spots)) {
+                    MCAI_Build(p, t, refinery, MCAI_Count(p, refinery) + 1, c_makePriorityTown);
+                }
+            }
+            t += 1;
+        }
+    }
     if (workers >= 12 && free >= 4.0) {
         if (race == "Terr") {
             if (minerals >= 180 && MCAI_Ready(p, "SupplyDepot") + MCAI_Ready(p, "SupplyDepotLowered") > 0) {
-                MCAI_Build(p, town, "Barracks", facilities, c_makePriorityTown);
+                MCAI_Build(p, town, "Barracks", MCAI_Min(facilities, 2 + bases * 2 + minerals / 1000), c_makePriorityTown);
             }
             if (gas >= 80 && minerals >= 180 && MCAI_Ready(p, "Barracks") > 0) {
                 MCAI_Build(p, town, "Factory", MCAI_Min(7, bases + gas / 500), c_makePriorityTown);
@@ -121,7 +138,7 @@ void MCAI_Economy(int p, int town, string race, int bases, int minerals, int gas
         } else if (race == "Prot") {
             if (minerals >= 180 && MCAI_Ready(p, "Pylon") > 0) {
                 // Engine aliases may include WarpGate; do not add an independent target for it.
-                MCAI_Build(p, town, "Gateway", facilities, c_makePriorityTown);
+                MCAI_Build(p, town, "Gateway", MCAI_Min(facilities, 2 + bases * 2 + minerals / 1000), c_makePriorityTown);
             }
             if (gas >= 60 && MCAI_Ready(p, "Gateway") > 0) {
                 MCAI_Build(p, town, "CyberneticsCore", 1, c_makePriorityTown);
@@ -134,6 +151,9 @@ void MCAI_Economy(int p, int town, string race, int bases, int minerals, int gas
             if (minerals >= 140) { MCAI_Build(p, town, "SpawningPool", 1, c_makePriorityTown); }
             if (gas >= 40 && minerals >= 160 && MCAI_Ready(p, "SpawningPool") > 0) {
                 MCAI_Build(p, town, "RoachWarren", 1, c_makePriorityTown);
+            }
+            if (gas >= 100 && minerals >= 180 && (MCAI_Ready(p, "Lair") > 0 || MCAI_Ready(p, "Hive") > 0)) {
+                MCAI_Build(p, town, "HydraliskDen", 1, c_makePriorityTown);
             }
             if (minerals >= 850 && bases >= 2 && MCAI_Ready(p, "SpawningPool") > 0) {
                 // Extra hatcheries increase larvae throughput; avoid unlimited macro hatch spam.
@@ -242,4 +262,5 @@ void MiniCraftAI_Init() {
     if (mcai_timer != null) { return; }
     mcai_timer = TriggerCreate("MCAI_Pulse");
     TriggerAddEventTimePeriodic(mcai_timer, 4.0, c_timeGame);
+    TriggerDebugOutput(1, StringToText("MiniCraft AI v0.1.9 initialized"), true);
 }
