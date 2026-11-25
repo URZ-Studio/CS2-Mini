@@ -1,0 +1,245 @@
+// MiniCraft II AI v0.1.9 experimental
+// Galaxy custom script: call MiniCraftAI_Init once from the mod library initialization.
+// This augments melee AI rather than replacing the engine's economy/attack waves.
+// No free units, resources, stat changes, map-wide enemy scans, or queue clearing.
+trigger mcai_timer = null;
+int mcai_tick = 0;
+int[16] mcai_nextBuild;
+int[16] mcai_nextTrain;
+int[16] mcai_nextExpand;
+int[16] mcai_buildRequests;
+int[16] mcai_trainRequests;
+int[16] mcai_expandRequests;
+int[16] mcai_bankTicks;
+bool mcai_debug = false;
+
+int MCAI_Min(int a, int b) {
+    if (a < b) { return a; }
+    return b;
+}
+int MCAI_Max(int a, int b) {
+    if (a > b) { return a; }
+    return b;
+}
+int MCAI_Count(int p, string kind) {
+    return AITechCount(p, kind, c_techCountQueuedOrBetter);
+}
+int MCAI_Ready(int p, string kind) {
+    return AITechCount(p, kind, c_techCountCompleteOnly);
+}
+int MCAI_Pending(int p, string kind) {
+    return MCAI_Max(0, MCAI_Count(p, kind) - MCAI_Ready(p, kind));
+}
+bool MCAI_Build(int p, int town, string kind, int goal, int priority) {
+    if (mcai_tick < mcai_nextBuild[p] || MCAI_Count(p, kind) >= goal ||
+        MCAI_Pending(p, kind) > 0 || AIGetInternalBuildQueueCount(p) >= 5) { return false; }
+    AIBuild(p, priority, town, kind, 1, c_makeDefault);
+    mcai_nextBuild[p] = mcai_tick + 3;
+    mcai_buildRequests[p] += 1;
+    return true;
+}
+bool MCAI_Train(int p, int town, string kind, int goal, int batch, int priority) {
+    int count = MCAI_Count(p, kind);
+    if (mcai_tick < mcai_nextTrain[p] || count >= goal ||
+        MCAI_Pending(p, kind) >= batch || AIGetInternalTrainQueueCount(p) >= 12) { return false; }
+    AITrain(p, priority, town, kind, MCAI_Min(batch, goal - count));
+    mcai_nextTrain[p] = mcai_tick + 1;
+    mcai_trainRequests[p] += 1;
+    return true;
+}
+bool MCAI_Expand(int p, int town, string hall, int bases, int workers, int minerals) {
+    int t = 0;
+    int state;
+    if (mcai_tick < mcai_nextExpand[p] || bases >= 6 ||
+        workers < bases * 16 || minerals < 650 || AIGetInternalBuildQueueCount(p) >= 5) { return false; }
+    while (t < c_townMax) {
+        state = AIGetTownState(p, t);
+        if (state == c_townStateClaimed || state == c_townStateBuilding) { return false; }
+        t += 1;
+    }
+    mcai_nextExpand[p] = mcai_tick + 25;
+    AIExpand(p, AIGetTownLocation(p, town), hall);
+    mcai_expandRequests[p] += 1;
+    return true;
+}
+bool MCAI_AirSeen(int p) {
+    return AIKnownUnitCount(p, c_maxPlayers, "Mutalisk") > 0 ||
+        AIKnownUnitCount(p, c_maxPlayers, "Battlecruiser") > 0 ||
+        AIKnownUnitCount(p, c_maxPlayers, "Banshee") > 0 ||
+        AIKnownUnitCount(p, c_maxPlayers, "Carrier") > 0 ||
+        AIKnownUnitCount(p, c_maxPlayers, "VoidRay") > 0 ||
+        AIKnownUnitCount(p, c_maxPlayers, "Tempest") > 0 ||
+        AIKnownUnitCount(p, c_maxPlayers, "Oracle") > 0 ||
+        AIKnownUnitCount(p, c_maxPlayers, "Liberator") > 0;
+}
+void MCAI_Configure(int p, bool banked) {
+    // Absolute scale, never repeatedly multiply the current army.
+    if (banked) { AISetStockArmyDefaultScale(p, 2.5); }
+    else { AISetStockArmyDefaultScale(p, 2.0); }
+    AISetDifficulty(p, c_diffNormalVision, true);
+    AISetDifficulty(p, c_diffOptimizeGas, true);
+    AISetDifficulty(p, c_diffBalancePeonsAcrossBases, true);
+    AISetDifficulty(p, c_diffAutoBuildPrereqs, true);
+    AISetDifficulty(p, c_diffTimeoutMakeRequests, true);
+    AISetDifficulty(p, c_diffFleeWorkers, true);
+    AISetDifficulty(p, c_diffRepairDamage, true);
+    AISetDifficulty(p, c_diffAdvancedRetreatLogic, true);
+    AISetDifficulty(p, c_diffFleeDanger, true);
+    AISetDifficulty(p, c_diffAllowKiting, true);
+    AISetDifficulty(p, c_diffLimitAPM, true);
+    AISetAPM(p, 600);
+}
+void MCAI_Economy(int p, int town, string race, int bases, int minerals, int gas, fixed free, fixed made, fixed cap) {
+    string worker = "SCV";
+    string hall = "CommandCenter";
+    string supply = "SupplyDepot";
+    int workers;
+    int goal = MCAI_Min(88, bases * 22);
+    int facilities = MCAI_Min(14, 2 + bases * 2 + minerals / 650);
+    if (race == "Prot") { worker = "Probe"; hall = "Nexus"; supply = "Pylon"; }
+    if (race == "Zerg") { worker = "Drone"; hall = "Hatchery"; supply = "Overlord"; }
+    workers = MCAI_Count(p, worker);
+    // Supply before new producers or army; reserve more as the economy grows.
+    if (made < cap && free < 6.0 + bases * 2 && minerals >= 50 && MCAI_Pending(p, supply) < 2) {
+        if (race == "Zerg") { MCAI_Train(p, town, supply, MCAI_Count(p, supply) + 1, 1, c_makePriorityFood); }
+        else { MCAI_Build(p, town, supply, MCAI_Count(p, supply) + 1, c_makePriorityFood); }
+    }
+    if (free >= 1.0 && minerals >= 50 && workers < goal) {
+        MCAI_Train(p, town, worker, goal, MCAI_Min(3, bases), c_makePriorityContinue);
+    }
+    if (workers >= 12 && free >= 4.0) {
+        if (race == "Terr") {
+            if (minerals >= 180 && MCAI_Ready(p, "SupplyDepot") + MCAI_Ready(p, "SupplyDepotLowered") > 0) {
+                MCAI_Build(p, town, "Barracks", facilities, c_makePriorityTown);
+            }
+            if (gas >= 80 && minerals >= 180 && MCAI_Ready(p, "Barracks") > 0) {
+                MCAI_Build(p, town, "Factory", MCAI_Min(7, bases + gas / 500), c_makePriorityTown);
+            }
+            if (gas >= 160 && minerals >= 250 && MCAI_Ready(p, "Factory") > 0) {
+                MCAI_Build(p, town, "Starport", MCAI_Min(5, bases + gas / 750), c_makePriorityTown);
+            }
+        } else if (race == "Prot") {
+            if (minerals >= 180 && MCAI_Ready(p, "Pylon") > 0) {
+                // Engine aliases may include WarpGate; do not add an independent target for it.
+                MCAI_Build(p, town, "Gateway", facilities, c_makePriorityTown);
+            }
+            if (gas >= 60 && MCAI_Ready(p, "Gateway") > 0) {
+                MCAI_Build(p, town, "CyberneticsCore", 1, c_makePriorityTown);
+            }
+            if (gas >= 120 && minerals >= 220 && MCAI_Ready(p, "CyberneticsCore") > 0) {
+                MCAI_Build(p, town, "RoboticsFacility", MCAI_Min(5, bases + gas / 650), c_makePriorityTown);
+                MCAI_Build(p, town, "Stargate", MCAI_Min(5, bases + gas / 750), c_makePriorityTown);
+            }
+        } else if (race == "Zerg") {
+            if (minerals >= 140) { MCAI_Build(p, town, "SpawningPool", 1, c_makePriorityTown); }
+            if (gas >= 40 && minerals >= 160 && MCAI_Ready(p, "SpawningPool") > 0) {
+                MCAI_Build(p, town, "RoachWarren", 1, c_makePriorityTown);
+            }
+            if (minerals >= 850 && bases >= 2 && MCAI_Ready(p, "SpawningPool") > 0) {
+                // Extra hatcheries increase larvae throughput; avoid unlimited macro hatch spam.
+                MCAI_Build(p, town, "Hatchery", MCAI_Min(10, bases + 1 + minerals / 1200), c_makePriorityTown);
+            }
+            if (free >= 2.0 && minerals >= 100 && MCAI_Ready(p, "SpawningPool") > 0) {
+                MCAI_Train(p, town, "Queen", MCAI_Min(10, bases + 1), 1, c_makePriorityDefense);
+            }
+        }
+    }
+    if (made < cap || free < 4.0) {
+        MCAI_Expand(p, town, hall, bases, workers, minerals);
+    }
+}
+void MCAI_Army(int p, int town, string race, int bases, int minerals, int gas, fixed free) {
+    int batch = MCAI_Min(8, MCAI_Min(2 + bases, FixedToInt(free / 2.0)));
+    int goal = MCAI_Min(180, 20 + bases * 22 + minerals / 80);
+    bool air = false;
+    if (batch < 1 || minerals < 100 || mcai_tick < mcai_nextTrain[p]) { return; }
+    air = MCAI_AirSeen(p);
+    // Prefer tech units when available; never block on unavailable prerequisite chains.
+    if (race == "Terr") {
+        if (air && gas >= 100 && MCAI_Ready(p, "Starport") > 0) {
+            if (MCAI_Train(p, town, "VikingFighter", MCAI_Min(28, 4 + bases * 4), MCAI_Min(batch, 3), c_makePriorityDefense)) { return; }
+        }
+        if (!air && gas >= 160 && MCAI_Ready(p, "FactoryTechLab") > 0) {
+            if (MCAI_Train(p, town, "SiegeTank", MCAI_Min(22, bases * 4), MCAI_Min(batch, 2), c_makePriorityAttack)) { return; }
+        }
+        if (gas >= 100 && MCAI_Ready(p, "Starport") > 0) {
+            if (MCAI_Train(p, town, "Medivac", MCAI_Min(16, bases * 3), MCAI_Min(batch, 2), c_makePriorityAttack)) { return; }
+        }
+        if (gas >= 60 && MCAI_Ready(p, "BarracksTechLab") > 0) {
+            if (MCAI_Train(p, town, "Marauder", MCAI_Min(48, bases * 10), MCAI_Min(batch, 3), c_makePriorityAttack)) { return; }
+        }
+        if (MCAI_Ready(p, "Barracks") > 0) { MCAI_Train(p, town, "Marine", goal, batch, c_makePriorityAttack); }
+    } else if (race == "Prot") {
+        if (air && gas >= 100 && MCAI_Ready(p, "Stargate") > 0) {
+            if (MCAI_Train(p, town, "Phoenix", MCAI_Min(24, bases * 5), MCAI_Min(batch, 2), c_makePriorityDefense)) { return; }
+        }
+        if (!air && gas >= 120 && MCAI_Ready(p, "RoboticsFacility") > 0) {
+            if (MCAI_Train(p, town, "Immortal", MCAI_Min(22, bases * 4), MCAI_Min(batch, 2), c_makePriorityAttack)) { return; }
+        }
+        if (gas >= 50 && MCAI_Ready(p, "CyberneticsCore") > 0) {
+            if (MCAI_Train(p, town, "Stalker", MCAI_Min(90, 12 + bases * 14), MCAI_Min(batch, 4), c_makePriorityAttack)) { return; }
+        }
+        if (MCAI_Ready(p, "Gateway") > 0 || MCAI_Ready(p, "WarpGate") > 0) {
+            MCAI_Train(p, town, "Zealot", goal, batch, c_makePriorityAttack);
+        }
+    } else if (race == "Zerg") {
+        if (gas >= 120 && MCAI_Ready(p, "HydraliskDen") > 0) {
+            if (MCAI_Train(p, town, "Hydralisk", MCAI_Min(65, 8 + bases * 12), MCAI_Min(batch, 4), c_makePriorityAttack)) { return; }
+        }
+        if (!air && gas >= 70 && MCAI_Ready(p, "RoachWarren") > 0) {
+            if (MCAI_Train(p, town, "Roach", MCAI_Min(90, 12 + bases * 14), MCAI_Min(batch, 5), c_makePriorityAttack)) { return; }
+        }
+        if (MCAI_Ready(p, "SpawningPool") > 0) {
+            MCAI_Train(p, town, "Zergling", MCAI_Min(240, goal * 2), batch, c_makePriorityAttack);
+        }
+    }
+}
+void MCAI_Player(int p) {
+    string race;
+    int town;
+    int bases;
+    int minerals;
+    int gas;
+    fixed made;
+    fixed cap;
+    fixed free;
+    if (PlayerType(p) != c_playerTypeComputer || PlayerStatus(p) != c_playerStatusActive ||
+        AIIsCampaign(p) || AIGetTime() < 30.0) { return; }
+    town = AIGetMainTown(p);
+    if (town < 0 || AIGetTownState(p, town) != c_townStateEstablished) { return; }
+    race = PlayerRace(p);
+    if (race != "Terr" && race != "Prot" && race != "Zerg") { return; }
+    bases = MCAI_Max(1, AIGetNumEstablishedTowns(p));
+    minerals = PlayerGetPropertyInt(p, c_playerPropMinerals);
+    gas = PlayerGetPropertyInt(p, c_playerPropVespene);
+    made = PlayerGetPropertyFixed(p, c_playerPropSuppliesMade);
+    cap = PlayerGetPropertyFixed(p, c_playerPropSuppliesLimit);
+    free = made - PlayerGetPropertyFixed(p, c_playerPropSuppliesUsed);
+    if (made > cap) { free = cap - PlayerGetPropertyFixed(p, c_playerPropSuppliesUsed); }
+    if (minerals >= 600 || gas >= 600) { mcai_bankTicks[p] += 1; }
+    else { mcai_bankTicks[p] = 0; }
+    if (mcai_tick % 5 == 0) { MCAI_Configure(p, mcai_bankTicks[p] >= 3); }
+    MCAI_Economy(p, town, race, bases, minerals, gas, free, made, cap);
+    MCAI_Army(p, town, race, bases, minerals, gas, free);
+    if (mcai_debug && mcai_tick % 15 == 0) {
+        TriggerDebugOutput(1, StringToText("MiniAI p=" + IntToString(p) + " M=" + IntToString(minerals) +
+            " G=" + IntToString(gas) + " bases=" + IntToString(bases) +
+            " build=" + IntToString(mcai_buildRequests[p]) + " train=" + IntToString(mcai_trainRequests[p]) +
+            " expand=" + IntToString(mcai_expandRequests[p])), true);
+    }
+}
+bool MCAI_Pulse(bool testConds, bool runActions) {
+    int p = 1;
+    if (!runActions) { return true; }
+    mcai_tick += 1;
+    while (p <= 15) {
+        MCAI_Player(p);
+        p += 1;
+    }
+    return true;
+}
+void MiniCraftAI_Init() {
+    if (mcai_timer != null) { return; }
+    mcai_timer = TriggerCreate("MCAI_Pulse");
+    TriggerAddEventTimePeriodic(mcai_timer, 4.0, c_timeGame);
+}
