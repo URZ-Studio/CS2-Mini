@@ -12,5 +12,5 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-if "%~1"=="" explorer "%~dp0MiniCraft-II-v0.1.3.SC2Mod"
+if "%~1"=="" explorer "%~dp0MiniCraft-II-v0.1.4.SC2Mod"
 pause
