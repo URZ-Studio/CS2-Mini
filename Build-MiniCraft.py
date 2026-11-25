@@ -70,6 +70,28 @@ def validate():
         rows = parsed["FootprintData"].findall("./*[@id='" + uid + "']/Layers[@index='Place']/Rows")
         if len(rows) != size or any(row.get("value") != "x" * size for row in rows):
             raise ValueError("Footprint check failed: " + uid)
+    additional_checks = [
+        ("EffectData", "PsiStormDamage", "<Amount value=\"0.625\"/>"),
+        ("EffectData", "NukeDamage", "<Amount value=\"30\"/>"),
+        ("EffectData", "RavagerCorrosiveBileDamage", "<Amount value=\"6\"/>"),
+        ("EffectData", "ParasiticBombDotDamage", "<Amount value=\"0.3\"/>"),
+        ("EffectData", "EMPModifyUnit", "<Change value=\"-10\"/>"),
+        ("BehaviorData", "ImmortalOverload", "ModifyLimit=\"10\""),
+        ("BehaviorData", "GuardianShield", "<ModifyAmount value=\"-0.2\"/>"),
+        ("AbilData", "ProtossBuild", "index=\"Build16\" Time=\"20\""),
+        ("AbilData", "TrainQueen", "index=\"Train1\" Time=\"25\""),
+        ("AbilData", "MorphToRavager", "index=\"Delay\" value=\"8.5\""),
+        ("AbilData", "CarrierHangar", "index=\"Ammo1\" Time=\"6\""),
+        ("UnitData", "BarracksTechLab", "MiniFootprint2x2Contour"),
+        ("UnitData", "InfestedTerransEgg", "<LifeMax value=\"7.5\"/>"),
+    ]
+    for cat, uid, expected in additional_checks:
+        node = parsed[cat].find("./*[@id='" + uid + "']")
+        if node is None:
+            raise ValueError("Missing audit entry: " + uid)
+        raw = ET.tostring(node, encoding="unicode").replace(" />", "/>")
+        if expected not in raw:
+            raise ValueError("Audit regression: " + uid)
     print("Static regression checks passed.")
 def merge_strings(data, changes):
     old = data.decode("utf-8-sig").splitlines() if data else []
