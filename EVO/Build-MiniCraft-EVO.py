@@ -58,7 +58,9 @@ def put(e,tag,value):
     if child is None: child=ET.SubElement(e,tag)
     child.set("value",str(value))
 
-def xmlread(p): return ET.parse(p)
+def xmlread(p):
+    # SC2 catalog templates contain <?token ...?> processing instructions.
+    return ET.parse(p,parser=ET.XMLParser(target=ET.TreeBuilder(insert_comments=True,insert_pis=True)))
 def xmlwrite(t,p):
     p.parent.mkdir(parents=True,exist_ok=True)
     t.write(p,encoding="utf-8",xml_declaration=True)
@@ -380,11 +382,45 @@ def final_bw_vitals(stage):
     return {"BW":{uid:records[uid]["LifeMax"] for uid in expected},
             "BW_vital_records":len(out),"final_catalog":path}
 
+def local_dependency(name):
+    # Match the upstream custom-mod path separator convention, without the
+    # upstream Battle.net identity (which could load unmodified Core).
+    return "file:Mods\\MiniCraft-EVO\\"+name
+
+def verify_trigger_chain(stage, src):
+    core = stage/MODS[1]
+    multi = stage/MODS[2]
+    for folder in (core,multi):
+        manifest = xmlread(folder/"ComponentList.SC2Components").getroot()
+        if not any(x.get("Type")=="trig" and x.text=="Triggers" for x in manifest):
+            raise ValueError("Missing trigger component: "+str(folder))
+        original = src/folder.name/"Triggers"
+        if (folder/"Triggers").read_bytes() != original.read_bytes():
+            raise ValueError("Trigger source changed: "+str(folder))
+    lib = xmlread(core/"Triggers").getroot().find("./Library[@Id='SCEV']")
+    if lib is None or lib.find("LibraryShareToMods") is None:
+        raise ValueError("Core SCEV library is missing or not shared to mods")
+    for tag,uid in (("FunctionDef","3EC1A15D"),("FunctionDef","3FB1045E"),("PresetValue","F665AC2C")):
+        if lib.find(".//Element[@Type='"+tag+"'][@Id='"+uid+"']") is None:
+            raise ValueError("Missing Core trigger definition: "+uid)
+    core_base = core/"Base.SC2Data"
+    multi_base = multi/"Base.SC2Data"
+    for p in (core_base/"LibSCEV.galaxy",core_base/"LibSCEV_h.galaxy",multi_base/"Lib8FCB4FA8.galaxy",multi_base/"Lib8FCB4FA8_h.galaxy"):
+        if not p.is_file() or not p.stat().st_size:
+            raise ValueError("Missing Galaxy library: "+str(p))
+    script = (multi_base/"Lib8FCB4FA8.galaxy").read_text(encoding="utf-8-sig")
+    for token in ('include "LibSCEV"',"libSCEV_InitVariables();","libSCEV_gf_SCEvoFeatureActive(libSCEV_ge_SCEvoFeatures_MissChance)","libSCEV_gf_SCEvoActivateFeature(libSCEV_ge_SCEvoFeatures_MissChance, true)"):
+        if token not in script:
+            raise ValueError("Broken Multi initialization: "+token)
+    if re.search(r"if\s*\(\s*\(\s*==",script):
+        raise ValueError("Broken empty comparison in Multi initialization")
+    return {"shared_library":"SCEV","multi_library":"8FCB4FA8","source_triggers_preserved":True,"initialization_symbols_present":True}
+
 def verify_generated(stage):
     # A generated local document must never resolve original Battle.net EVO dependencies.
     for mod,dependency in ((MODS[1],MODS[0]),(MODS[2],MODS[1])):
         root = xmlread(stage/mod/"DocumentInfo").getroot()
-        expected = "file:Mods/MiniCraft-EVO/"+dependency
+        expected = local_dependency(dependency)
         refs = [e.text or "" for e in root.findall("./Dependencies/Value")]
         if expected not in refs or any(dependency in x and x != expected for x in refs):
             raise ValueError("Wrong local dependency in "+mod+": "+str(refs))
@@ -408,7 +444,7 @@ def doc(stage,mod):
         for e in deps:
             for name in MODS:
                 if name in (e.text or ""):
-                    e.text="file:Mods/MiniCraft-EVO/"+name
+                    e.text=local_dependency(name)
     if mod==MODS[2]:
         flags=root.find("Flags")
         if flags is None:flags=ET.SubElement(root,"Flags")
@@ -460,6 +496,15 @@ def selftest():
     e=ET.fromstring('<CActorUnit id="ZerglingSCBW" unitName="ZerglingSCBW"/>')
     patch_record(e,"SCBW_02.Zerg/z.xml",set(),{"ZerglingSCBW"})
     assert e.find("UnitFlags").get("value")=="0"
+    with tempfile.TemporaryDirectory() as tmp:
+        p=Path(tmp)/"tokens.xml"
+        p.write_text('<Catalog><CUnit id="X"><?token id="Race" value="Terran"?><LifeMax value="40"/></CUnit></Catalog>',encoding="utf-8")
+        tree=xmlread(p)
+        patch_record(tree.getroot()[0],"SCBW_01.Terran/test.xml",set(),set())
+        xmlwrite(tree,p)
+        assert '<?token id="Race" value="Terran"?>' in p.read_text(encoding="utf-8")
+        assert tree.getroot()[0].find("LifeMax").get("value")=="4"
+    assert local_dependency(MODS[1]).replace(chr(92),"/")=="file:Mods/MiniCraft-EVO/SCEvo_Core.SC2Mod"
     COUNTS.clear(); VISUAL_AUDIT.clear()
     print("EVO transform self-tests passed.")
 
@@ -475,6 +520,9 @@ def main():
     src=args.source.resolve();mods=args.mods.resolve()
     if (src/"SC Evo Complete").is_dir():src=src/"SC Evo Complete"
     if not mods.is_dir() or mods.name.lower()!="mods":raise SystemExit("Select the installed StarCraft II Mods folder.")
+    game=mods.parent
+    if not ((game/"SC2Data").is_dir() and ((game/"Versions").is_dir() or (game/"Support64").is_dir())):
+        raise SystemExit("Mods is not in a StarCraft II installation. Select the Mods folder beside SC2Data and Versions/Support64: "+str(mods))
     for mod in MODS:
         if not (src/mod/"ComponentList.SC2Components").is_file():raise SystemExit("Missing source components: "+mod)
     for mod in MODS[1:]:
@@ -494,6 +542,7 @@ def main():
         for mod in MODS:doc(stage,mod)
         health_check["SC2"]=verify_generated(stage)
         inv["health_check"]=health_check
+        inv["trigger_check"]=verify_trigger_chain(stage,src)
         license_path=src.parent/"LICENSE"
         if not license_path.is_file():raise SystemExit("Upstream LICENSE missing")
         shutil.copy2(license_path,stage/"LICENSE-SCEvo.txt")
@@ -501,7 +550,7 @@ def main():
         inv["terran_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="terran"]
         inv["zerg_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="zerg"]
         (stage/"EVO-audit.json").write_text(json.dumps(inv,indent=2,ensure_ascii=False),encoding="utf-8")
-        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.2-preview"},indent=2),encoding="utf-8")
+        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.3-preview"},indent=2),encoding="utf-8")
         if out.exists():
             from datetime import datetime
             backup=out.with_name(out.name+".backup-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
@@ -514,6 +563,8 @@ def main():
         if stage.exists():shutil.rmtree(stage)
     print("Built:",out/MODS[2]/"ComponentList.SC2Components")
     print("Verified generated XML health:",inv["health_check"])
+    print("Verified trigger source and shared Core library:",inv["trigger_check"])
+    print("Core dependency:",out/MODS[1])
     print("Open only the Built path above, NOT the upstream or cache copy.")
     print("Inventory:",inv["counts"])
     print("Transform:",dict(COUNTS))
