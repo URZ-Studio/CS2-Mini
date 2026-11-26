@@ -1,0 +1,628 @@
+{
+  "rev": "773c8e8ae8828121e8f37bb74ab82ceb761a45bc",
+  "rows": [
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/08.AcademySCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "StimpackSCBWResearch"
+        ],
+        "CActorUnit": [
+          "AcademySCBW"
+        ],
+        "CActorSplat": [
+          "AcademySCBW@Splat"
+        ],
+        "CActorModel": [
+          "AcademySCBW@Build"
+        ],
+        "CModel": [
+          "AcademySCBW@DeathLow",
+          "AcademySCBW",
+          "AcademySCBW@Death",
+          "AcademySCBW@Placement",
+          "AcademySCBW@Portrait",
+          "AcademySCBW@Build",
+          "AcademySCBW@Splat"
+        ],
+        "CUnit": [
+          "AcademySCBW"
+        ],
+        "CUpgrade": [
+          "StimpackSCBWResearch"
+        ]
+      },
+      "sha": "17ea1ae0f12b9daec69441983ff2758f0d3128f8"
+    },
+    {
+      "file": "SCBW_01.Terran/05b.StructureAdvanced/01.FactorySCBW.xml",
+      "types": {
+        "CAbilBuild": [
+          "FactorySCBW@AddOns"
+        ],
+        "CAbilMorphPlacement": [
+          "FactorySCBW@Land"
+        ],
+        "CAbilMorph": [
+          "FactorySCBW@LiftOff"
+        ],
+        "CAbilTrain": [
+          "FactorySCBW@Train"
+        ],
+        "CActorProgress": [
+          "FactorySCBW@AddOns"
+        ],
+        "CActorUnit": [
+          "FactorySCBW"
+        ],
+        "CActorModel": [
+          "FactorySCBW@Build"
+        ],
+        "CActorSound": [
+          "FactorySCBW@Land",
+          "FactorySCBW@LiftOff"
+        ],
+        "CActorSplat": [
+          "FactorySCBW@Splat"
+        ],
+        "CModel": [
+          "FactorySCBW@DeathLow",
+          "FactorySCBW@FlyDeath",
+          "FactorySCBW",
+          "FactorySCBW@Build",
+          "FactorySCBW@Death",
+          "FactorySCBW@Placement",
+          "FactorySCBW@Portrait",
+          "FactorySCBW@Splat"
+        ],
+        "CUnit": [
+          "FactorySCBW@Flying",
+          "FactorySCBW"
+        ]
+      },
+      "sha": "c8c827d8f5770f7b7dfc0a7be48f8ee659c970dd"
+    },
+    {
+      "file": "SCBW_01.Terran/05b.StructureAdvanced/01a.MachineShopSCBW.xml",
+      "types": {
+        "CActorUnit": [
+          "MachineShopSCBW"
+        ],
+        "CActorSplat": [
+          "MachineShopSCBW@Splat"
+        ],
+        "CActorModel": [
+          "MachineShopSCBW@Build"
+        ],
+        "CModel": [
+          "MachineShopSCBW",
+          "MachineShopSCBW@Death",
+          "MachineShopSCBW@DeathDetached",
+          "MachineShopSCBW@Placement",
+          "MachineShopSCBW@Splat",
+          "MachineShopSCBW@Build"
+        ],
+        "CUnit": [
+          "MachineShopSCBW"
+        ],
+        "CBehaviorBuff": [
+          "MachineShopSCBW@Attached"
+        ]
+      },
+      "sha": "0dc705cec0f72e04b35acce08b81b35c97d7554c"
+    },
+    {
+      "file": "SCBW_01.Terran/05b.StructureAdvanced/02.StarportSCBW.xml",
+      "types": {
+        "CAbilBuild": [
+          "StarportSCBW@AddOns"
+        ],
+        "CAbilMorphPlacement": [
+          "StarportSCBW@Land"
+        ],
+        "CAbilMorph": [
+          "StarportSCBW@LiftOff"
+        ],
+        "CAbilTrain": [
+          "StarportSCBW@Train"
+        ],
+        "CActorSplat": [
+          "StarportSCBW@Splat"
+        ],
+        "CActorUnit": [
+          "StarportSCBW"
+        ],
+        "CActorProgress": [
+          "StarportSCBW@AddOns"
+        ],
+        "CActorModel": [
+          "StarportSCBW@Build"
+        ],
+        "CActorSound": [
+          "StarportSCBW@Land",
+          "StarportSCBW@LiftOff"
+        ],
+        "CModel": [
+          "StarportSCBW@DeathLow",
+          "StarportSCBW",
+          "StarportSCBW@Build",
+          "StarportSCBW@Death",
+          "StarportSCBW@FlyDeath",
+          "StarportSCBW@Placement",
+          "StarportSCBW@Portrait",
+          "StarportSCBW@Splat"
+        ],
+        "CUnit": [
+          "StarportSCBW@Flying",
+          "StarportSCBW"
+        ]
+      },
+      "sha": "da96838ca09ef4ff4d9edb0415f39c7da985d78e"
+    },
+    {
+      "file": "SCBW_01.Terran/05b.StructureAdvanced/02a.ControlTowerSCBW.xml",
+      "types": {
+        "CActorUnit": [
+          "ControlTowerSCBW"
+        ],
+        "CActorModel": [
+          "ControlTowerSCBW@Build"
+        ],
+        "CActorSplat": [
+          "ControlTowerSCBW@Splat"
+        ],
+        "CModel": [
+          "ControlTowerSCBW",
+          "ControlTowerSCBW@Build",
+          "ControlTowerSCBW@Death",
+          "ControlTowerSCBW@DeathDetached",
+          "ControlTowerSCBW@Placement",
+          "ControlTowerSCBW@Splat"
+        ],
+        "CUnit": [
+          "ControlTowerSCBW"
+        ],
+        "CBehaviorBuff": [
+          "ControlTowerSCBW@Attached"
+        ]
+      },
+      "sha": "f21b8a2aa7372280319971cc2f9b2ab0f309cc80"
+    },
+    {
+      "file": "SCBW_01.Terran/05b.StructureAdvanced/03.ArmorySCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "TerranVehiclePlatingSCBW",
+          "TerranVehicleWeaponsSCBW",
+          "TerranShipPlatingSCBW",
+          "TerranShipWeaponsSCBW",
+          "MechPlating"
+        ],
+        "CActorModel": [
+          "ArmorySCBW@Build"
+        ],
+        "CActorUnit": [
+          "ArmorySCBW"
+        ],
+        "CActorSplat": [
+          "ArmorySCBW@Splat"
+        ],
+        "CModel": [
+          "ArmorySCBW@DeathLow",
+          "ArmorySCBW@Build",
+          "ArmorySCBW",
+          "ArmorySCBW@Death",
+          "ArmorySCBW@Placement",
+          "ArmorySCBW@Splat",
+          "ArmorySCBW@Portrait"
+        ],
+        "CUnit": [
+          "ArmorySCBW"
+        ],
+        "CUpgrade": [
+          "TerranShipPlatingSCBW_Lvl1",
+          "TerranShipPlatingSCBW_Lvl2",
+          "TerranShipPlatingSCBW_Lvl3",
+          "TerranShipWeaponsSCBW_Lvl1",
+          "TerranShipWeaponsSCBW_Lvl2",
+          "TerranShipWeaponsSCBW_Lvl3",
+          "TerranVehiclePlatingSCBW_Lvl1",
+          "TerranVehiclePlatingSCBW_Lvl2",
+          "TerranVehiclePlatingSCBW_Lvl3",
+          "TerranVehicleWeaponsSCBW_Lvl1",
+          "TerranVehicleWeaponsSCBW_Lvl2",
+          "TerranVehicleWeaponsSCBW_Lvl3",
+          "MechPlating@Lvl1",
+          "MechPlating@Lvl2",
+          "MechPlating@Lvl3"
+        ]
+      },
+      "sha": "d286ca9c21716bbf0470d850e3b964fabcd93adb"
+    },
+    {
+      "file": "SCBW_01.Terran/05b.StructureAdvanced/04.ScienceFacilitySCBW.xml",
+      "types": {
+        "CAbilBuild": [
+          "ScienceFacilitySCBW@AddOns"
+        ],
+        "CAbilMorphPlacement": [
+          "ScienceFacilitySCBW@Land"
+        ],
+        "CAbilMorph": [
+          "ScienceFacilitySCBW@LiftOff"
+        ],
+        "CActorSplat": [
+          "ScienceFacilitySCBW@Splat"
+        ],
+        "CActorUnit": [
+          "ScienceFacilitySCBW"
+        ],
+        "CActorProgress": [
+          "ScienceFacilitySCBW@AddOns"
+        ],
+        "CActorModel": [
+          "ScienceFacilitySCBW@Build"
+        ],
+        "CActorSound": [
+          "ScienceFacilitySCBW@Land",
+          "ScienceFacilitySCBW@LiftOff"
+        ],
+        "CModel": [
+          "ScienceFacilitySCBW@DeathLow",
+          "ScienceFacilitySCBW",
+          "ScienceFacilitySCBW@Build",
+          "ScienceFacilitySCBW@Death",
+          "ScienceFacilitySCBW@FlyDeath",
+          "ScienceFacilitySCBW@Placement",
+          "ScienceFacilitySCBW@Portrait",
+          "ScienceFacilitySCBW@Splat"
+        ],
+        "CUnit": [
+          "ScienceFacilitySCBW@Flying",
+          "ScienceFacilitySCBW"
+        ]
+      },
+      "sha": "2ea16d7d8ddec971b0d25b92bf1989dfb3d14734"
+    },
+    {
+      "file": "SCBW_01.Terran/05b.StructureAdvanced/04a.PhysicsLabSCBW.xml",
+      "types": {
+        "CActorUnit": [
+          "PhysicsLabSCBW"
+        ],
+        "CActorModel": [
+          "PhysicsLabSCBW@Build"
+        ],
+        "CActorSplat": [
+          "PhysicsLabSCBW@Splat"
+        ],
+        "CModel": [
+          "PhysicsLabSCBW",
+          "PhysicsLabSCBW@Build",
+          "PhysicsLabSCBW@Death",
+          "PhysicsLabSCBW@DeathDetached",
+          "PhysicsLabSCBW@Placement",
+          "PhysicsLabSCBW@Splat"
+        ],
+        "CUnit": [
+          "PhysicsLabSCBW"
+        ],
+        "CBehaviorBuff": [
+          "PhysicsLabSCBW@Attached"
+        ]
+      },
+      "sha": "9c760c4f3ff11e9727670f3e50441bbafe1cd0a0"
+    },
+    {
+      "file": "SCBW_01.Terran/05b.StructureAdvanced/04b.CovertOpsSCBW.xml",
+      "types": {
+        "CActorUnit": [
+          "CovertOpsSCBW"
+        ],
+        "CActorModel": [
+          "CovertOpsSCBW@Build"
+        ],
+        "CActorSplat": [
+          "CovertOpsSCBW@Splat"
+        ],
+        "CModel": [
+          "CovertOpsSCBW",
+          "CovertOpsSCBW@Build",
+          "CovertOpsSCBW@Death",
+          "CovertOpsSCBW@DeathDetached",
+          "CovertOpsSCBW@Placement",
+          "CovertOpsSCBW@Splat"
+        ],
+        "CUnit": [
+          "CovertOpsSCBW"
+        ],
+        "CBehaviorBuff": [
+          "CovertOpsSCBW@Attached"
+        ]
+      },
+      "sha": "1a1cde3689989f071708354a116da48d3bdd1fc4"
+    },
+    {
+      "file": "SCBW_01.Terran/07.SpecialUnits/01.Stinger.xml",
+      "types": {
+        "CEffectDamage": [
+          "StingerSCBWWeaponGround@Damage",
+          "StingerSCBWWeapon@Damage"
+        ],
+        "CEffectLaunchMissile": [
+          "StingerSCBWWeaponGround@LM"
+        ],
+        "CAbilResearch": [
+          "StingerSCBWAttackMoveUpgrade"
+        ],
+        "CActorAction": [
+          "StingerSCBWWeaponGround@Attack",
+          "StingerSCBWWeapon@Attack"
+        ],
+        "CActorMissile": [
+          "StingerSCBWWeaponGround@Missile"
+        ],
+        "CActorTurret": [
+          "StingerSCBW@Turret"
+        ],
+        "CActorUnit": [
+          "StingerSCBW"
+        ],
+        "CModel": [
+          "StingerSCBWWeaponGround@Launch",
+          "StingerSCBWWeaponGround@Impact",
+          "StingerSCBWWeaponGround@Missile",
+          "StingerSCBWWeapon@Impact",
+          "StingerSCBWWeapon@Launch",
+          "StingerSCBW@Portrait",
+          "StingerSCBW",
+          "StingerSCBW@Death",
+          "StingerSCBW@DeathRagdoll"
+        ],
+        "CWeaponLegacy": [
+          "StingerSCBWWeaponGround",
+          "StingerSCBWWeapon",
+          "StingerSCBWWeapon@Air",
+          "StingerSCBWWeapon@Fake"
+        ],
+        "CUnit": [
+          "StingerSCBWWeaponGround@Missile",
+          "StingerSCBW"
+        ],
+        "CUpgrade": [
+          "StingerSCBWAttackMoveUpgrade"
+        ]
+      },
+      "sha": "0aaecbf3498bf3812f68013c1f702d00c5d1886a"
+    },
+    {
+      "file": "SCBW_02.Zerg/01.Worker/00.LarvaSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "LarvaSCBW@TrainFinish"
+        ],
+        "CAbilTrain": [
+          "LarvaSCBW@Train"
+        ],
+        "CActorProgress": [
+          "LarvaSCBW@Train"
+        ],
+        "CActorUnit": [
+          "LarvaSCBW"
+        ],
+        "CActorSound": [
+          "LarvaSCBW@Death"
+        ],
+        "CModel": [
+          "LarvaSCBW",
+          "LarvaSCBW@Death",
+          "LarvaSCBW@Portrait"
+        ],
+        "CUnit": [
+          "LarvaSCBW"
+        ],
+        "CBehaviorWander": [
+          "LarvaSCBW@Wander"
+        ]
+      },
+      "sha": "e1ae7770291f57214f4652409513712f608ceea9"
+    },
+    {
+      "file": "SCBW_02.Zerg/01.Worker/00a.EggSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "EggSCBW@DeathModel"
+        ],
+        "CActorUnit": [
+          "EggSCBW"
+        ],
+        "CActorSound": [
+          "EggSCBW@DeathSound",
+          "EggSCBW@Ready",
+          "EggSCBW@Birth"
+        ],
+        "CModel": [
+          "EggSCBW@DeathModel",
+          "EggSCBW",
+          "EggSCBW@Portrait"
+        ],
+        "CUnit": [
+          "EggSCBW"
+        ]
+      },
+      "sha": "11a1f1df37701bb9857d83c17e1907c7cad0be83"
+    },
+    {
+      "file": "SCBW_02.Zerg/01.Worker/01.DroneSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "DroneSCBWWeapon@Damage"
+        ],
+        "CEffectSet": [
+          "DroneSCBW@ExtractorQuirk",
+          "DroneSCBW@TrainStart"
+        ],
+        "CEffectModifyUnit": [
+          "DroneSCBW@ExtractorQuirkMU"
+        ],
+        "CEffectRemoveBehavior": [
+          "DroneSCBW@ExtractorQuirkRB",
+          "DroneSCBW@ExtractorQuirkRBMatrix"
+        ],
+        "CAbilHarvest": [
+          "DroneSCBW@Harvest",
+          "DroneSCBW@HarvestNoQue"
+        ],
+        "CAbilMorph": [
+          "DroneSCBW@BurrowDown",
+          "DroneSCBW@BurrowUp"
+        ],
+        "CAbilBuild": [
+          "DroneSCBW@Build",
+          "DroneSCBW@BuildAdv"
+        ],
+        "CActorForceSphere": [
+          "DroneSCBWWeapon@PhysicsImpact"
+        ],
+        "CActorAction": [
+          "DroneSCBWWeapon@Action"
+        ],
+        "CActorSplat": [
+          "DroneSCBW@BurrowedSplat"
+        ],
+        "CActorSound": [
+          "DroneSCBW@Harvest"
+        ],
+        "CActorUnit": [
+          "DroneSCBW"
+        ],
+        "CModel": [
+          "DroneSCBWWeapon@ImpactMelee",
+          "DroneSCBWWeapon@Launch",
+          "DroneSCBWWeapon@Impact",
+          "DroneSCBWWeapon@Missile",
+          "DroneSCBW",
+          "DroneSCBW@Death",
+          "DroneSCBW@DeathAcid",
+          "DroneSCBW@DeathFire",
+          "DroneSCBW@DeathRagdoll",
+          "DroneSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "DroneSCBWWeapon"
+        ],
+        "CUnit": [
+          "DroneSCBW@Burrowed",
+          "DroneSCBW"
+        ]
+      },
+      "sha": "e88d1aebe67de3e28b861e9ab8064ba6d74a4eb7"
+    },
+    {
+      "file": "SCBW_02.Zerg/01.Worker/02.OverlordSCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "OverlordSCBWSightUpgrade",
+          "OverlordSCBWSpeedUpgrade",
+          "OverlordSCBWTransportResearch"
+        ],
+        "CAbilTransport": [
+          "OverlordSCBW@Transport"
+        ],
+        "CActorModel": [
+          "EggSCBW@DeathModelVariation1",
+          "EggSCBW@DeathModelVariation2",
+          "OverlordSCBW@DeathRagdoll"
+        ],
+        "CActorEventMacro": [
+          "OverlordSCBW@UnloadDropAnim"
+        ],
+        "CActorSound": [
+          "OverlordSCBW@TransportLoadSound",
+          "OverlordSCBW@TransportUnloadSound",
+          "OverlordSCBW@Death",
+          "OverlordSCBW@Land"
+        ],
+        "CActorForceSphere": [
+          "OverlordSCBW@DeathRagdollDetonationForce"
+        ],
+        "CActorUnit": [
+          "OverlordSCBW"
+        ],
+        "CModel": [
+          "OverlordSCBW",
+          "OverlordSCBW@Death",
+          "OverlordSCBW@DeathRagdoll",
+          "OverlordSCBW@Portrait"
+        ],
+        "CAccumulatorConstant": [
+          "OverlordSCBW@DetectRange",
+          "OverlordSCBW@DetectRangeUpgraded"
+        ],
+        "CUnit": [
+          "OverlordSCBW"
+        ],
+        "CBehaviorBuff": [
+          "OverlordSCBW@Transport",
+          "OverlordSCBW@Detector"
+        ],
+        "CUpgrade": [
+          "OverlordSCBWSightUpgrade",
+          "OverlordSCBWSpeedUpgrade",
+          "OverlordSCBWTransportResearch"
+        ]
+      },
+      "sha": "a5ee54fb218d4d96f1e5564079a0f7673d2a40ac"
+    },
+    {
+      "file": "SCBW_02.Zerg/02.ArmyHatchery/01.ZerglingSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "ZerglingSCBWWeapon@Damage"
+        ],
+        "CAbilResearch": [
+          "ZerglingSCBWAttackSpeedUpgrade",
+          "ZerglingSCBWSpeedUpgrade"
+        ],
+        "CAbilMorph": [
+          "ZerglingSCBW@BurrowDown",
+          "ZerglingSCBW@BurrowUp"
+        ],
+        "CActorAction": [
+          "ZerglingSCBWWeapon@Action"
+        ],
+        "CActorSound": [
+          "ZerglingSCBWWeapon@LaunchSound",
+          "ZerglingSCBW@Death"
+        ],
+        "CActorSplat": [
+          "ZerglingSCBW@BurrowedSplat"
+        ],
+        "CActorUnit": [
+          "ZerglingSCBW"
+        ],
+        "CModel": [
+          "ZerglingSCBWWeapon@Impact",
+          "ZerglingSCBW",
+          "ZerglingSCBW@Death",
+          "ZerglingSCBW@DeathAcid",
+          "ZerglingSCBW@DeathFire",
+          "ZerglingSCBW@DeathRagdoll",
+          "ZerglingSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "ZerglingSCBWWeapon"
+        ],
+        "CUnit": [
+          "ZerglingSCBW@Burrowed",
+          "ZerglingSCBW"
+        ],
+        "CUpgrade": [
+          "ZerglingSCBWAttackSpeedUpgrade",
+          "ZerglingSCBWSpeedUpgrade"
+        ]
+      },
+      "sha": "74d0695960d9bdf315f633cee07474b2aac3fd59"
+    }
+  ]
+}
