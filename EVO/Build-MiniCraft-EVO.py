@@ -561,24 +561,86 @@ def selftest():
     else:
         raise AssertionError("Header/XML mismatch must fail")
 
+    with tempfile.TemporaryDirectory() as tmp:
+        root=Path(tmp)/"StarCraft II"
+        root.mkdir()
+        (root/"SC2Data").mkdir()
+        (root/"Versions").mkdir()
+        assert game_root(root)==root.resolve()
+        assert game_root(root/"Mods")==root.resolve()
+        assert not (root/"Mods").exists()
+        assert game_root(Path(tmp)/"unrelated") is None
     COUNTS.clear(); VISUAL_AUDIT.clear()
     print("EVO transform self-tests passed.")
+
+
+def game_root(value):
+    if not value: return None
+    p=Path(os.path.expandvars(str(value).strip().strip('"'))).expanduser()
+    if p.name.lower()=="mods": p=p.parent
+    if p.is_file(): p=p.parent
+    for root in (p,p.parent):
+        if (root/"SC2Data").is_dir() and ((root/"Versions").is_dir() or (root/"Support64").is_dir() or (root/"Support").is_dir()):
+            return root.resolve()
+    return None
+
+def locate_mods(explicit=None, remember=None):
+    # A real installation need not have a Mods directory yet.
+    candidates=[]
+    if explicit: candidates.append(explicit)
+    if remember and remember.is_file():
+        candidates.append(remember.read_text(encoding="utf-8-sig").strip())
+    for env in ("ProgramFiles(x86)","ProgramFiles","ProgramW6432"):
+        if os.environ.get(env): candidates.append(Path(os.environ[env])/"StarCraft II")
+    if os.name=="nt":
+        import winreg
+        for hive in (winreg.HKEY_LOCAL_MACHINE,winreg.HKEY_CURRENT_USER):
+            for view in (winreg.KEY_WOW64_32KEY,winreg.KEY_WOW64_64KEY):
+                for key in (r"SOFTWARE\Blizzard Entertainment\StarCraft II",r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\StarCraft II"):
+                    try:
+                        with winreg.OpenKey(hive,key,0,winreg.KEY_READ|view) as reg:
+                            for name in ("InstallPath","InstallLocation","GamePath"):
+                                try: candidates.append(winreg.QueryValueEx(reg,name)[0])
+                                except OSError: pass
+                    except OSError: pass
+        for drive in "CDEFGHIJKLMNOPQRSTUVWXYZ":
+            for sub in ("StarCraft II",r"Games\StarCraft II",r"Program Files (x86)\StarCraft II",r"Program Files\StarCraft II"):
+                candidates.append(Path(drive+":\\")/sub)
+    for value in candidates:
+        root=game_root(value)
+        if root is not None:
+            mods=root/"Mods"
+            mods.mkdir(exist_ok=True)
+            print("StarCraft II Mods:",mods,flush=True)
+            return mods
+        if explicit and value==explicit:
+            print("Invalid explicit game path:",value,flush=True)
+    while True:
+        try: value=input("Enter StarCraft II installation folder (or Mods folder): ").strip().strip('"')
+        except EOFError: raise SystemExit("No StarCraft II installation found. Enter the actual game installation path.")
+        if not value: raise SystemExit("No StarCraft II installation selected.")
+        root=game_root(value)
+        if root is None:
+            print("Not a StarCraft II installation. Choose the folder containing SC2Data and Versions/Support64.",flush=True)
+            continue
+        mods=root/"Mods"
+        mods.mkdir(exist_ok=True)
+        print("StarCraft II Mods:",mods,flush=True)
+        return mods
 
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--check",action="store_true")
     p.add_argument("--source",type=Path)
     p.add_argument("--mods",type=Path)
+    p.add_argument("--remember-mods",type=Path)
     p.add_argument("--mini",type=Path,default=Path(__file__).resolve().parents[1]/"Build-MiniCraft.py")
     args=p.parse_args();selftest()
     if args.check:return
-    if not args.source or not args.mods:p.error("--source and --mods required")
-    src=args.source.resolve();mods=args.mods.resolve()
+    if not args.source:p.error("--source required")
+    src=args.source.resolve()
+    mods=locate_mods(args.mods,args.remember_mods)
     if (src/"SC Evo Complete").is_dir():src=src/"SC Evo Complete"
-    if not mods.is_dir() or mods.name.lower()!="mods":raise SystemExit("Select the installed StarCraft II Mods folder.")
-    game=mods.parent
-    if not ((game/"SC2Data").is_dir() and ((game/"Versions").is_dir() or (game/"Support64").is_dir())):
-        raise SystemExit("Mods is not in a StarCraft II installation. Select the Mods folder beside SC2Data and Versions/Support64: "+str(mods))
     for mod in MODS:
         if not (src/mod/"ComponentList.SC2Components").is_file():raise SystemExit("Missing source components: "+mod)
     for mod in MODS[1:]:
@@ -606,7 +668,7 @@ def main():
         inv["terran_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="terran"]
         inv["zerg_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="zerg"]
         (stage/"EVO-audit.json").write_text(json.dumps(inv,indent=2,ensure_ascii=False),encoding="utf-8")
-        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.4-preview"},indent=2),encoding="utf-8")
+        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.5-preview"},indent=2),encoding="utf-8")
         if out.exists():
             from datetime import datetime
             backup=out.with_name(out.name+".backup-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
@@ -617,6 +679,9 @@ def main():
             raise
     finally:
         if stage.exists():shutil.rmtree(stage)
+    if args.remember_mods:
+        args.remember_mods.parent.mkdir(parents=True,exist_ok=True)
+        args.remember_mods.write_text(str(mods),encoding="utf-8")
     print("Built:",out/MODS[2]/"ComponentList.SC2Components")
     print("Verified generated XML health:",inv["health_check"])
     print("Verified trigger source and shared Core library:",inv["trigger_check"])
