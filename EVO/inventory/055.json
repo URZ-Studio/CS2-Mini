@@ -1,0 +1,577 @@
+{
+  "rev": "773c8e8ae8828121e8f37bb74ab82ceb761a45bc",
+  "rows": [
+    {
+      "file": "SCBW_02.Zerg/05a.StructureBasic/02b.SporeColonySCBW.xml",
+      "types": {
+        "CEffectLaunchMissile": [
+          "SporeColonySCBWWeapon@LM"
+        ],
+        "CEffectDamage": [
+          "SporeColonySCBWWeapon@Damage"
+        ],
+        "CAbilMorph": [
+          "SporeColonySCBW@Morph"
+        ],
+        "CActorAction": [
+          "SporeColonySCBWWeapon@Action"
+        ],
+        "CActorMissile": [
+          "SporeColonySCBWWeapon@Missile"
+        ],
+        "CActorProgress": [
+          "SporeColonySCBW@MorphProgress",
+          "SporeColonySCBW@BuildProgress"
+        ],
+        "CActorModel": [
+          "SporeColonySCBW@MorphModel",
+          "SporeColonySCBW@PlacementModel",
+          "SporeColonySCBW@Build"
+        ],
+        "CActorSiteOpLocalOffset": [
+          "SporeColonySCBW@SplatOffset"
+        ],
+        "CActorRange": [
+          "SporeColonySCBW@ProtectRange"
+        ],
+        "CActorTurret": [
+          "SporeColonySCBW@Turret"
+        ],
+        "CActorLookAt": [
+          "SporeColonySCBW@LookAt"
+        ],
+        "CActorUnit": [
+          "SporeColonySCBW"
+        ],
+        "CActorSplat": [
+          "SporeColonySCBW@Splat"
+        ],
+        "CActorSound": [
+          "SporeColonySCBW@Death"
+        ],
+        "CModel": [
+          "SporeColonySCBWWeapon@Impact",
+          "SporeColonySCBWWeapon@Missile",
+          "SporeColonySCBW",
+          "SporeColonySCBW@Death",
+          "SporeColonySCBW@DeathUnderConstruction",
+          "SporeColonySCBW@Placement",
+          "SporeColonySCBW@Portrait",
+          "SporeColonySCBW@Build"
+        ],
+        "CWeaponLegacy": [
+          "SporeColonySCBWWeapon"
+        ],
+        "CUnit": [
+          "SporeColonySCBWWeapon@Missile",
+          "SporeColonySCBW"
+        ]
+      },
+      "sha": "0b824f053509c6d85f79b80022d3f8f3a5b55b00"
+    },
+    {
+      "file": "SCBW_02.Zerg/05a.StructureBasic/03.ExtractorSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "ExtractorSCBW@RichBuild",
+          "ExtractorSCBW@Build"
+        ],
+        "CActorUnit": [
+          "ExtractorSCBW",
+          "ExtractorSCBW@Rich"
+        ],
+        "CModel": [
+          "ExtractorSCBW@Build",
+          "ExtractorSCBW",
+          "ExtractorSCBW@Death",
+          "ExtractorSCBW@DeathUnderConstruction",
+          "ExtractorSCBW@EmptyDeath",
+          "ExtractorSCBW@Placement",
+          "ExtractorSCBW@Portrait",
+          "ExtractorSCBW@Rich",
+          "ExtractorSCBW@RichDeath"
+        ],
+        "CUnit": [
+          "ExtractorSCBW",
+          "ExtractorSCBW@Rich"
+        ]
+      },
+      "sha": "7ce7c8cdc503fc58a7ebe32f814b338be8e02ada"
+    },
+    {
+      "file": "SCBW_02.Zerg/05a.StructureBasic/04.SpawningPoolSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "SpawningPoolSCBW@WaterSplash",
+          "SpawningPoolSCBW@Build"
+        ],
+        "CActorSound": [
+          "SpawningPoolSCBW@DeathLow"
+        ],
+        "CActorUnit": [
+          "SpawningPoolSCBW"
+        ],
+        "CModel": [
+          "SpawningPoolSCBW@Build",
+          "SpawningPoolSCBW",
+          "SpawningPoolSCBW@Death",
+          "SpawningPoolSCBW@DeathUnderConstruction",
+          "SpawningPoolSCBW@Placement",
+          "SpawningPoolSCBW@Portrait"
+        ],
+        "CUnit": [
+          "SpawningPoolSCBW"
+        ]
+      },
+      "sha": "d68cc9c0abd07f64160692e5b4669f8acabb0461"
+    },
+    {
+      "file": "SCBW_02.Zerg/05a.StructureBasic/05.EvolutionChamberSCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "ZergGroundCarapaceSCBW",
+          "ZergMeleeAttacksSCBW",
+          "ZergMissileAttacksSCBW"
+        ],
+        "CActorModel": [
+          "EvolutionChamberSCBW@Build"
+        ],
+        "CActorUnit": [
+          "EvolutionChamberSCBW"
+        ],
+        "CModel": [
+          "EvolutionChamberSCBW@Build",
+          "EvolutionChamberSCBW",
+          "EvolutionChamberSCBW@Death",
+          "EvolutionChamberSCBW@DeathUnderConstruction",
+          "EvolutionChamberSCBW@Placement",
+          "EvolutionChamberSCBW@Portrait"
+        ],
+        "CUnit": [
+          "EvolutionChamberSCBW"
+        ],
+        "CUpgrade": [
+          "ZergGroundCarapaceSCBW_Lvl1",
+          "ZergGroundCarapaceSCBW_Lvl2",
+          "ZergGroundCarapaceSCBW_Lvl3",
+          "ZergMeleeAttacksSCBW_Lvl1",
+          "ZergMeleeAttacksSCBW_Lvl2",
+          "ZergMeleeAttacksSCBW_Lvl3",
+          "ZergMissileAttacksSCBW_Lvl1",
+          "ZergMissileAttacksSCBW_Lvl2",
+          "ZergMissileAttacksSCBW_Lvl3"
+        ]
+      },
+      "sha": "00d9da43a6c0e53426b315a33d52835daa4f274b"
+    },
+    {
+      "file": "SCBW_02.Zerg/05a.StructureBasic/06.HydraliskDenSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "HydraliskDenSCBW@Build"
+        ],
+        "CActorUnit": [
+          "HydraliskDenSCBW"
+        ],
+        "CModel": [
+          "HydraliskDenSCBW@Build",
+          "HydraliskDenSCBW",
+          "HydraliskDenSCBW@Death",
+          "HydraliskDenSCBW@DeathUnderConstruction",
+          "HydraliskDenSCBW@Placement",
+          "HydraliskDenSCBW@Portrait"
+        ],
+        "CUnit": [
+          "HydraliskDenSCBW"
+        ]
+      },
+      "sha": "f180f460105939b397d233e2445e3088b9c79a34"
+    },
+    {
+      "file": "SCBW_02.Zerg/05b.StructureAdvanced/01.LairSCBW.xml",
+      "types": {
+        "CAbilMorph": [
+          "LairSCBW@Morph"
+        ],
+        "CActorEventMacro": [
+          "LairSCBW@PlayerDecalMacro"
+        ],
+        "CActorUnit": [
+          "LairSCBW"
+        ],
+        "CActorProgress": [
+          "LairSCBW@MorphProgress"
+        ],
+        "CModel": [
+          "LairSCBW",
+          "LairSCBW@Death",
+          "LairSCBW@Portrait"
+        ],
+        "CUnit": [
+          "LairSCBW"
+        ]
+      },
+      "sha": "d1dcc4d202567df382fe959dfda5296c64d171f8"
+    },
+    {
+      "file": "SCBW_02.Zerg/05b.StructureAdvanced/02.HiveSCBW.xml",
+      "types": {
+        "CAbilMorph": [
+          "HiveSCBW@Morph"
+        ],
+        "CActorEventMacro": [
+          "HiveSCBW@PlayerDecalMacro"
+        ],
+        "CActorUnit": [
+          "HiveSCBW"
+        ],
+        "CActorProgress": [
+          "HiveSCBW@MorphProgress"
+        ],
+        "CModel": [
+          "HiveSCBW",
+          "HiveSCBW@Death",
+          "HiveSCBW@Portrait"
+        ],
+        "CUnit": [
+          "HiveSCBW"
+        ]
+      },
+      "sha": "12c0e3a8a2c5b6eb14caffcfc61d8878dfaccbb2"
+    },
+    {
+      "file": "SCBW_02.Zerg/05b.StructureAdvanced/03.SpireSCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "ZergFlyerAttacksSCBW",
+          "ZergFlyerCarapaceSCBW"
+        ],
+        "CActorModel": [
+          "SpireSCBW@Build",
+          "SpireSCBW@Morph"
+        ],
+        "CActorSiteOpRotationExplicit": [
+          "SpireSCBW@MorphFacing"
+        ],
+        "CActorUnit": [
+          "SpireSCBW"
+        ],
+        "CModel": [
+          "SpireSCBW@Build",
+          "SpireSCBW@Morph",
+          "SpireSCBW",
+          "SpireSCBW@Death",
+          "SpireSCBW@DeathUnderConstruction",
+          "SpireSCBW@Placement",
+          "SpireSCBW@Portrait"
+        ],
+        "CUnit": [
+          "SpireSCBW"
+        ],
+        "CUpgrade": [
+          "ZergFlyerAttacksSCBW_Lvl1",
+          "ZergFlyerAttacksSCBW_Lvl2",
+          "ZergFlyerAttacksSCBW_Lvl3",
+          "ZergFlyerCarapaceSCBW_Lvl1",
+          "ZergFlyerCarapaceSCBW_Lvl2",
+          "ZergFlyerCarapaceSCBW_Lvl3"
+        ]
+      },
+      "sha": "3048988fa71c008a83c14f57599e937b179bfac1"
+    },
+    {
+      "file": "SCBW_02.Zerg/05b.StructureAdvanced/03a.GreaterSpireSCBW.xml",
+      "types": {
+        "CAbilMorph": [
+          "GreaterSpireSCBW@Morph"
+        ],
+        "CActorUnit": [
+          "GreaterSpireSCBW"
+        ],
+        "CModel": [
+          "GreaterSpireSCBW",
+          "GreaterSpireSCBW@Build",
+          "GreaterSpireSCBW@Death",
+          "GreaterSpireSCBW@Portrait"
+        ],
+        "CUnit": [
+          "GreaterSpireSCBW"
+        ]
+      },
+      "sha": "1261ca9572cf7152d67fe6aa8ea08943d435ec0d"
+    },
+    {
+      "file": "SCBW_02.Zerg/05b.StructureAdvanced/04.QueensNestSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "QueensNestSCBW@Build"
+        ],
+        "CActorUnit": [
+          "QueensNestSCBW"
+        ],
+        "CModel": [
+          "QueensNestSCBW@Build",
+          "QueensNestSCBW",
+          "QueensNestSCBW@Death",
+          "QueensNestSCBW@DeathUnderConstruction",
+          "QueensNestSCBW@Placement",
+          "QueensNestSCBW@Portrait"
+        ],
+        "CUnit": [
+          "QueensNestSCBW"
+        ]
+      },
+      "sha": "79b05ad05eb10dddc86b28dc713a7b527d12ac64"
+    },
+    {
+      "file": "SCBW_02.Zerg/05b.StructureAdvanced/05.NydusCanalSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "NydusCanalSCBW@TeleporterSet",
+          "NydusCanalSCBW@TransportCargoBlockedSet",
+          "NydusCanalSCBW@TransportCargoLoad",
+          "NydusCanalSCBW@AlertDummy",
+          "NydusCanalSCBW@Dummy",
+          "NydusCanalSCBW@Build"
+        ],
+        "CEffectModifyUnit": [
+          "NydusCanalSCBW@TeleporterCopyRally"
+        ],
+        "CEffectTeleport": [
+          "NydusCanalSCBW@TeleporterTP"
+        ],
+        "CEffectAddTrackedUnit": [
+          "NydusCanalSCBW@Build@TrackerTrack",
+          "NydusCanalSCBW@Build@TrackerTrackCaster"
+        ],
+        "CEffectEnumTrackedUnits": [
+          "NydusCanalSCBW@TeleporterEnum"
+        ],
+        "CEffectApplyBehavior": [
+          "NydusCanalSCBW@TransportCargoBlocked",
+          "NydusCanalSCBW@TransportCargoIdent",
+          "NydusCanalSCBW@TransportCargoAB",
+          "NydusCanalSCBW@RallyTracker",
+          "NydusCanalSCBW@Build@ABCaster",
+          "NydusCanalSCBW@Build@AB"
+        ],
+        "CEffectIssueOrder": [
+          "NydusCanalSCBW@TransportCargoForceUnload",
+          "NydusCanalSCBW@RallyLink"
+        ],
+        "CEffectRemoveBehavior": [
+          "NydusCanalSCBW@TransportCargoRB"
+        ],
+        "CAbilBattery": [
+          "NydusCanalSCBW@Teleporter"
+        ],
+        "CAbilBuildable": [
+          "NydusCanalSCBW@Mutate"
+        ],
+        "CAbilRally": [
+          "NydusCanalSCBW@Rally"
+        ],
+        "CAbilTransport": [
+          "NydusCanalSCBW@Transport"
+        ],
+        "CAbilBuild": [
+          "NydusCanalSCBW@Build"
+        ],
+        "CActorMinimap": [
+          "NydusCanalSCBW@Ping"
+        ],
+        "CActorSound": [
+          "NydusCanalSCBW@TransportLoadSound",
+          "NydusCanalSCBW@TransportUnloadSound"
+        ],
+        "CActorUnit": [
+          "NydusCanalSCBW"
+        ],
+        "CActorModel": [
+          "NydusCanalSCBW@Build"
+        ],
+        "CModel": [
+          "NydusCanalSCBW@Ping",
+          "NydusCanalSCBW",
+          "NydusCanalSCBW@Death",
+          "NydusCanalSCBW@DeathUnderConstruction",
+          "NydusCanalSCBW@Placement",
+          "NydusCanalSCBW@Portrait",
+          "NydusCanalSCBW@Build"
+        ],
+        "CUnit": [
+          "NydusCanalSCBW"
+        ],
+        "CBehaviorBuff": [
+          "NydusCanalSCBW@TransportCargoBlocked",
+          "NydusCanalSCBW@TransportCargoIdent",
+          "NydusCanalSCBW@TransportCargo",
+          "NydusCanalSCBW@RallyTracker"
+        ],
+        "CBehaviorUnitTracker": [
+          "NydusCanalSCBW@Build@Used"
+        ]
+      },
+      "sha": "9c0f6f9754fb1b9a3a6a735c58aba0479eab3437"
+    },
+    {
+      "file": "SCBW_02.Zerg/05b.StructureAdvanced/06.UltraliskCavernSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "UltraliskCavernSCBW@Build"
+        ],
+        "CActorUnit": [
+          "UltraliskCavernSCBW"
+        ],
+        "CModel": [
+          "UltraliskCavernSCBW@Build",
+          "UltraliskCavernSCBW",
+          "UltraliskCavernSCBW@Death",
+          "UltraliskCavernSCBW@DeathUnderConstruction",
+          "UltraliskCavernSCBW@Placement",
+          "UltraliskCavernSCBW@Portrait"
+        ],
+        "CUnit": [
+          "UltraliskCavernSCBW"
+        ]
+      },
+      "sha": "b05a7bf0064923bb1a27f181393df9ea56c48ad3"
+    },
+    {
+      "file": "SCBW_02.Zerg/05b.StructureAdvanced/07.DefilerMoundSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "DefilerMoundSCBW@Build"
+        ],
+        "CActorUnit": [
+          "DefilerMoundSCBW"
+        ],
+        "CModel": [
+          "DefilerMoundSCBW",
+          "DefilerMoundSCBW@Death",
+          "DefilerMoundSCBW@DeathUnderConstruction",
+          "DefilerMoundSCBW@Placement",
+          "DefilerMoundSCBW@Portrait",
+          "DefilerMoundSCBW@Build"
+        ],
+        "CUnit": [
+          "DefilerMoundSCBW"
+        ]
+      },
+      "sha": "c78d92a8f67dfa25b119856c4d7948237dc171ba"
+    },
+    {
+      "file": "SCBW_03.Protoss/01.Worker/01.ProbeSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "ProbeSCBWWeapon@Damage"
+        ],
+        "CAbilHarvest": [
+          "ProbeSCBW@Harvest",
+          "ProbeSCBW@HarvestNoQue"
+        ],
+        "CAbilBuild": [
+          "ProbeSCBW@Build",
+          "ProbeSCBW@BuildAdv"
+        ],
+        "CActorAction": [
+          "ProbeSCBWWeapon@Action"
+        ],
+        "CActorBeamSimple": [
+          "ProbeSCBWWeapon@Beam"
+        ],
+        "CActorSound": [
+          "ProbeSCBWWeapon@Launch",
+          "ProbeSCBW@HarvestSound",
+          "ProbeSCBW@Death",
+          "ProbeSCBW@Land"
+        ],
+        "CActorUnit": [
+          "ProbeSCBW"
+        ],
+        "CModel": [
+          "ProbeSCBWWeapon@Beam",
+          "ProbeSCBWWeapon@Impact",
+          "ProbeSCBW@Portrait",
+          "ProbeSCBW@Death",
+          "ProbeSCBW@DeathRagdoll",
+          "ProbeSCBW"
+        ],
+        "CWeaponLegacy": [
+          "ProbeSCBWWeapon"
+        ],
+        "CUnit": [
+          "ProbeSCBW"
+        ]
+      },
+      "sha": "3b2ff359bfa4a627435f2a7360935e48f87c1952"
+    },
+    {
+      "file": "SCBW_03.Protoss/02.Gateway/01.ZealotSCBW.xml",
+      "types": {
+        "CEffectApplyBehavior": [
+          "ZealotSCBWWeapon@SuppressMovement"
+        ],
+        "CEffectRemoveBehavior": [
+          "ZealotSCBWWeapon@SuppressMovementClear"
+        ],
+        "CEffectDamage": [
+          "ZealotSCBWWeapon@Damage"
+        ],
+        "CEffectCreatePersistent": [
+          "ZealotSCBWWeapon@CP"
+        ],
+        "CEffectSet": [
+          "ZealotSCBWWeapon@Set"
+        ],
+        "CAbilResearch": [
+          "ZealotSCBWSpeedUpgrade"
+        ],
+        "CActorSound": [
+          "ZealotSCBWWeapon@Launch",
+          "ZealotSCBWWeapon@Impact",
+          "ZealotSCBW@Death",
+          "ZealotSCBW@Land"
+        ],
+        "CActorAction": [
+          "ZealotSCBWWeapon@Action"
+        ],
+        "CActorForceSphere": [
+          "ZealotSCBWWeapon@DeathForce00"
+        ],
+        "CActorForceCylinder": [
+          "ZealotSCBWWeapon@DeathForce01",
+          "ZealotSCBWWeapon@DeathForce02"
+        ],
+        "CActorModel": [
+          "ZealotSCBW@DeathRagdoll"
+        ],
+        "CActorUnit": [
+          "ZealotSCBW"
+        ],
+        "CModel": [
+          "ZealotSCBWWeapon@ActionImpact",
+          "ZealotSCBW",
+          "ZealotSCBW@Death",
+          "ZealotSCBW@DeathRagdoll",
+          "ZealotSCBW@Placement",
+          "ZealotSCBW@Portrait",
+          "ZealotSCBW@WarpIn"
+        ],
+        "CWeaponLegacy": [
+          "ZealotSCBWWeapon"
+        ],
+        "CUnit": [
+          "ZealotSCBW"
+        ],
+        "CBehaviorBuff": [
+          "ZealotSCBWWeapon@SuppressMovement"
+        ],
+        "CUpgrade": [
+          "ZealotSCBWSpeedUpgrade"
+        ]
+      },
+      "sha": "56010c8bff19d92fd74c41380c8ef0748f104d9a"
+    }
+  ]
+}
