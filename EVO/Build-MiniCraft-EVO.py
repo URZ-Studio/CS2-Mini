@@ -777,6 +777,20 @@ $link.Save()
         print("Shortcut creation skipped (build is intact):",exc)
         print("Open the installed folder directly:",out)
 
+
+def rename_with_retry(source,target):
+    import time
+    for attempt in range(4):
+        try:
+            source.rename(target)
+            return
+        except PermissionError as exc:
+            if attempt<3 and os.name=="nt":
+                print("Windows denied folder rename; retrying. Close Galaxy Editor and StarCraft II.",flush=True)
+                time.sleep(2)
+                continue
+            raise PermissionError("Cannot rename "+str(source)+" -> "+str(target)+". Close Galaxy Editor and StarCraft II, then right-click Build-MiniCraft.bat and Run as administrator. If it still fails, check folder permissions or another program holding the directory. No permission changes were made.") from exc
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--check",action="store_true")
@@ -801,6 +815,9 @@ def main():
         if key not in inv["ids"].get("CUnit",[]):raise SystemExit("Unexpected source: missing "+key)
     out=mods/"MiniCraft-EVO"
     if out.exists() and not (out/"MINICRAFT-EVO.json").is_file():raise SystemExit("Refusing to replace unrecognized folder: "+str(out))
+    if args.open_output and os.name=="nt" and out.exists():
+        home=os.environ.get("MINICRAFT_LAUNCHER_HOME")
+        if home: expose_output(out,home)
     stage=Path(tempfile.mkdtemp(prefix=".MiniCraft-EVO-stage-",dir=mods))
     backup=None
     try:
@@ -820,14 +837,18 @@ def main():
         inv["terran_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="terran"]
         inv["zerg_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="zerg"]
         (stage/"EVO-audit.json").write_text(json.dumps(inv,indent=2,ensure_ascii=False),encoding="utf-8")
-        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.6-preview"},indent=2),encoding="utf-8")
+        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.7-preview"},indent=2),encoding="utf-8")
         if out.exists():
             from datetime import datetime
             backup=out.with_name(out.name+".backup-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
-            out.rename(backup)
-        try:stage.rename(out)
+            rename_with_retry(out,backup)
+        try:rename_with_retry(stage,out)
         except BaseException:
-            if backup and not out.exists():backup.rename(out)
+            if backup and not out.exists():
+                try: rename_with_retry(backup,out)
+                except OSError:
+                    print("Automatic rollback failed; previous mod is preserved at:",backup,flush=True)
+                    raise
             raise
     finally:
         if stage.exists():shutil.rmtree(stage)
@@ -855,4 +876,9 @@ def main():
         entry=out/MODS[2]/"ComponentList.SC2Components"
         try: subprocess.Popen(["explorer.exe","/select,"+str(entry)])
         except OSError as exc: print("Explorer could not open; use Built path above:",exc)
-if __name__=="__main__":main()
+if __name__=="__main__":
+    try: main()
+    except PermissionError as exc:
+        print("EVO installation permission error:",exc,file=sys.stderr)
+        print("Close Galaxy Editor and StarCraft II. Run the existing BAT as administrator and retry.",file=sys.stderr)
+        sys.exit(1)
