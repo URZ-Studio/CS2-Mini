@@ -11,42 +11,36 @@ git --git-dir="%BOOT%\source.git" fetch --no-tags --depth=1 "%REPO%" +refs/heads
 git --git-dir="%BOOT%\source.git" show refs/heads/main:Installer-Worker.bat > "%BOOT%\worker.next.bat" || goto fail
 move /y "%BOOT%\worker.next.bat" "%BOOT%\worker.bat" >nul || goto fail
 if /i "%~1"=="--evo" goto evoarg
-if not "%~1"=="" goto classicarg
-:menu
-echo.
-echo ========================================
-echo MiniCraft II - Universal Installer
-echo ========================================
-echo [1] Classic - Install / Update
-echo [2] EVO - Install / Update
-echo [3] Both - Install / Update
-echo [0] Exit
-choice /c 1230 /n /m "Select: "
-if errorlevel 255 goto fail
-if errorlevel 4 exit /b 0
-if errorlevel 3 goto both
-if errorlevel 2 goto evo
-if errorlevel 1 goto classic
-goto fail
-:classic
+if /i "%~1"=="--classic" goto classicarg
+if not "%~1"=="" if /i "%~nx1"=="Mods" goto bothmods
+if not "%~1"=="" goto bothclassic
+:both
+echo [1/2] Installing or updating Classic...
 call "%BOOT%\worker.bat" classic || goto fail
-goto done
-:evo
+echo [2/2] Installing or updating EVO...
 call "%BOOT%\worker.bat" evo || goto fail
 goto done
-:both
+:bothmods
+echo [1/2] Installing or updating Classic...
 call "%BOOT%\worker.bat" classic || goto fail
+echo [2/2] Installing or updating EVO...
+call "%BOOT%\worker.bat" evo "%~1" || goto fail
+goto done
+:bothclassic
+echo [1/2] Installing or updating Classic...
+call "%BOOT%\worker.bat" classic "%~1" || goto fail
+echo [2/2] Installing or updating EVO...
 call "%BOOT%\worker.bat" evo || goto fail
 goto done
 :classicarg
-call "%BOOT%\worker.bat" classic "%~1" || goto fail
+call "%BOOT%\worker.bat" classic "%~2" || goto fail
 goto done
 :evoarg
 call "%BOOT%\worker.bat" evo "%~2" || goto fail
 goto done
 :done
 echo.
-echo Selected installation completed.
+echo Installation and update completed.
 pause
 exit /b 0
 :fail
