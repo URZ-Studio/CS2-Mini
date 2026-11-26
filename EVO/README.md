@@ -1,4 +1,4 @@
-# MiniCraft EVO — v0.1.1 preview
+# MiniCraft EVO — v0.1.3 preview
 
 Separate local derivative of SCEvoComplete at commit 773c8e8ae8828121e8f37bb74ab82ceb761a45bc. MIT license retained. Original MiniCraft, upstream, and published mods are not edited.
 
@@ -27,3 +27,7 @@ The builder audits Terran XML records at build time, scales independently identi
 ## Zerg visual pass (2026-11-26)
 
 Zerg now uses the same independent visual model and shadow pass as Terran, with separate `zerg_record_audit` output. Preserve creep, Dark Swarm, Plague, Ensnare, area indicators and uncertain attached models; exclude body models from duplicate scaling. Actual counts and unresolved inheritance are recorded during local build; no gameplay or editor validation yet.
+
+## Core trigger recovery (0.1.3 preview)
+
+Close Galaxy Editor without saving a broken regenerated script, then run the existing unified launcher. The builder verifies that the Mods directory belongs to the game installation, uses local-only Core/Assets references in the upstream custom-mod path format, preserves XML token processing instructions, and verifies shared SCEV library definitions and unmodified trigger sources before replacing the previous build. Explorer selects the freshly generated Multi ComponentList.SC2Components after success. Open that document, not an older separately saved packed SC2Mod. The output audit includes trigger_check and health_check. The actual Editor dependency resolver and compilation remain untested; local dependencies still require publishing/configuring separate dependencies for Battle.net.
