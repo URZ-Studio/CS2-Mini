@@ -387,6 +387,34 @@ def local_dependency(name):
     # upstream Battle.net identity (which could load unmodified Core).
     return "file:Mods\\MiniCraft-EVO\\"+name
 
+
+# The pinned upstream uses H2CS v8: 44-byte prefix, uint32 dependency
+# count, NUL-terminated UTF-8 dependency strings, then localized metadata.
+# The Editor can read these before XML DocumentInfo, so both must agree.
+def header_dependencies(raw):
+    if len(raw)<48 or raw[:4]!=b"H2CS" or int.from_bytes(raw[4:8],"little")!=8:
+        raise ValueError("Unsupported EVO DocumentHeader format")
+    count=int.from_bytes(raw[44:48],"little")
+    if count>128: raise ValueError("Unexpected EVO dependency count")
+    pos=48
+    refs=[]
+    for _ in range(count):
+        end=raw.find(b"\x00",pos)
+        if end<0: raise ValueError("Truncated EVO DocumentHeader dependency")
+        refs.append(raw[pos:end].decode("utf-8"))
+        pos=end+1
+    return refs,pos
+
+def replace_header_dependencies(raw, before, after):
+    refs,end=header_dependencies(raw)
+    if refs!=before:
+        raise ValueError("Original DocumentHeader and DocumentInfo dependencies disagree: "+str(refs))
+    result=raw[:44]+len(after).to_bytes(4,"little")+b"".join(x.encode("utf-8")+b"\x00" for x in after)+raw[end:]
+    check,tail=header_dependencies(result)
+    if check!=after or result[tail:]!=raw[end:]:
+        raise ValueError("DocumentHeader rewrite verification failed")
+    return result
+
 def verify_trigger_chain(stage, src):
     core = stage/MODS[1]
     multi = stage/MODS[2]
@@ -417,6 +445,15 @@ def verify_trigger_chain(stage, src):
     return {"shared_library":"SCEV","multi_library":"8FCB4FA8","source_triggers_preserved":True,"initialization_symbols_present":True}
 
 def verify_generated(stage):
+    # Both editor metadata formats must agree, including standard dependencies.
+    for mod in MODS:
+        root=xmlread(stage/mod/"DocumentInfo").getroot()
+        refs=[e.text or "" for e in root.findall("./Dependencies/Value")]
+        binary_refs,_=header_dependencies((stage/mod/"DocumentHeader").read_bytes())
+        if binary_refs!=refs:
+            raise ValueError("Header/XML dependency mismatch in "+mod)
+        if any("SC Evolution Complete" in x or "bnet:SCEvo_" in x for x in refs):
+            raise ValueError("Stale original EVO dependency in "+mod)
     # A generated local document must never resolve original Battle.net EVO dependencies.
     for mod,dependency in ((MODS[1],MODS[0]),(MODS[2],MODS[1])):
         root = xmlread(stage/mod/"DocumentInfo").getroot()
@@ -440,6 +477,7 @@ def verify_generated(stage):
 def doc(stage,mod):
     path=stage/mod/"DocumentInfo";t=xmlread(path);root=t.getroot()
     deps=root.find("Dependencies")
+    before=[e.text or "" for e in root.findall("./Dependencies/Value")]
     if deps is not None:
         for e in deps:
             for name in MODS:
@@ -453,6 +491,9 @@ def doc(stage,mod):
         if mt is None:mt=ET.SubElement(root,"ModType")
         if mt.find("Value") is None:ET.SubElement(mt,"Value")
         mt.find("Value").text="Gameplay"
+    after=[e.text or "" for e in root.findall("./Dependencies/Value")]
+    header=stage/mod/"DocumentHeader"
+    header.write_bytes(replace_header_dependencies(header.read_bytes(),before,after))
     xmlwrite(t,path)
     for loc in ("enUS","koKR"):
         f=stage/mod/(loc+".SC2Data")/"LocalizedData/GameStrings.txt"
@@ -505,6 +546,21 @@ def selftest():
         assert '<?token id="Race" value="Terran"?>' in p.read_text(encoding="utf-8")
         assert tree.getroot()[0].find("LifeMax").get("value")=="4"
     assert local_dependency(MODS[1]).replace(chr(92),"/")=="file:Mods/MiniCraft-EVO/SCEvo_Core.SC2Mod"
+    old=["bnet:Void Multi (Mod)/0.0/999,file:Mods/VoidMulti.SC2Mod",r"bnet:SCEvo_Core/0.0/444268,file:Mods\SC Evolution Complete\SCEvo_Core.SC2Mod"]
+    new=[old[0],local_dependency(MODS[1])]
+    prefix=b"H2CS"+(8).to_bytes(4,"little")+bytes(36)
+    tail=b"\x0c\x00\x00\x00\x0c\x00DocInfo/Name"
+    raw=prefix+len(old).to_bytes(4,"little")+b"".join(x.encode("utf-8")+b"\x00" for x in old)+tail
+    result=replace_header_dependencies(raw,old,new)
+    refs,end=header_dependencies(result)
+    assert refs==new and result[end:]==tail
+    try:
+        replace_header_dependencies(raw,new,new)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Header/XML mismatch must fail")
+
     COUNTS.clear(); VISUAL_AUDIT.clear()
     print("EVO transform self-tests passed.")
 
@@ -550,7 +606,7 @@ def main():
         inv["terran_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="terran"]
         inv["zerg_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="zerg"]
         (stage/"EVO-audit.json").write_text(json.dumps(inv,indent=2,ensure_ascii=False),encoding="utf-8")
-        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.3-preview"},indent=2),encoding="utf-8")
+        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.4-preview"},indent=2),encoding="utf-8")
         if out.exists():
             from datetime import datetime
             backup=out.with_name(out.name+".backup-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
@@ -564,6 +620,7 @@ def main():
     print("Built:",out/MODS[2]/"ComponentList.SC2Components")
     print("Verified generated XML health:",inv["health_check"])
     print("Verified trigger source and shared Core library:",inv["trigger_check"])
+    print("Verified all three DocumentHeader and DocumentInfo dependency lists match.")
     print("Core dependency:",out/MODS[1])
     print("Open only the Built path above, NOT the upstream or cache copy.")
     print("Inventory:",inv["counts"])
