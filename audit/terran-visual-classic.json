@@ -1,0 +1,277 @@
+{
+  "source_layers": [
+    {
+      "layer": "core",
+      "sha": "89a218ada2d0d07fd4734ea30b3c44a5038ed010"
+    },
+    {
+      "layer": "liberty",
+      "sha": "508d32ba215141d4a860984d9068f39e65128564"
+    },
+    {
+      "layer": "libertymulti",
+      "sha": "ab45363a560013c93108f6402a7abc2ad2029701"
+    },
+    {
+      "layer": "swarm",
+      "sha": "ab45363a560013c93108f6402a7abc2ad2029701"
+    },
+    {
+      "layer": "swarmmulti",
+      "sha": "ab45363a560013c93108f6402a7abc2ad2029701"
+    },
+    {
+      "layer": "void",
+      "sha": "ab45363a560013c93108f6402a7abc2ad2029701"
+    },
+    {
+      "layer": "voidmulti",
+      "sha": "2ccae3217d3a0d30179e3736926d3ff6f45fca46"
+    }
+  ],
+  "added": [
+    {
+      "id": "HellionTankMorph",
+      "fields": {
+        "ScaleMin": "0.375,0.375,0.375",
+        "ScaleMax": "0.375,0.375,0.375",
+        "ShadowRadius": "0.4332",
+        "SelectionRadius": "0.4332",
+        "Radius": "0.325"
+      }
+    },
+    {
+      "id": "SiegeTankSiegedMorph",
+      "fields": {
+        "ScaleMin": "0.4,0.4,0.4",
+        "ScaleMax": "0.4,0.4,0.4",
+        "ShadowRadius": "0.625",
+        "SelectionRadius": "0.625",
+        "Radius": "0.5"
+      }
+    },
+    {
+      "id": "BattlecruiserYamatoAttackImpact",
+      "fields": {
+        "ScaleMin": "0.375,0.375,0.375",
+        "ScaleMax": "0.375,0.375,0.375"
+      }
+    },
+    {
+      "id": "HellionTankAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.825,0.825,0.5",
+        "ScaleMax": "0.825,0.825,0.5"
+      }
+    },
+    {
+      "id": "HellionTankAttackLaunchLow",
+      "fields": {
+        "ScaleMin": "0.825,0.825,0.5",
+        "ScaleMax": "0.825,0.825,0.5"
+      }
+    },
+    {
+      "id": "HellionTankAttackLaunchUpgraded",
+      "fields": {
+        "ScaleMin": "0.825,0.825,0.5",
+        "ScaleMax": "0.825,0.825,0.5"
+      }
+    },
+    {
+      "id": "HellionTankAttackLaunchUpgradedLow",
+      "fields": {
+        "ScaleMin": "0.825,0.825,0.5",
+        "ScaleMax": "0.825,0.825,0.5"
+      }
+    },
+    {
+      "id": "ReaperHeal",
+      "fields": {
+        "ScaleMin": "0.4,0.4,0.4",
+        "ScaleMax": "0.4,0.4,0.4"
+      }
+    },
+    {
+      "id": "SupplyDepotXPRPlacement",
+      "fields": {
+        "ScaleMin": "0.3,0.3,0.3",
+        "ScaleMax": "0.3,0.3,0.3",
+        "ShadowRadius": "0",
+        "SelectionRadius": "0"
+      }
+    },
+    {
+      "id": "WidowMineAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.375,0.375,0.375",
+        "ScaleMax": "0.375,0.375,0.375"
+      }
+    },
+    {
+      "id": "WidowMineWeapon",
+      "fields": {
+        "ScaleMin": "0.375,0.375,0.375",
+        "ScaleMax": "0.375,0.375,0.375",
+        "SelectionRadius": "0.0625"
+      }
+    },
+    {
+      "id": "WidowMineAirWeapon",
+      "fields": {
+        "ScaleMin": "0.375,0.375,0.375",
+        "ScaleMax": "0.375,0.375,0.375",
+        "SelectionRadius": "0.0625"
+      }
+    },
+    {
+      "id": "CycloneMissile",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ThorSelfRepair",
+      "fields": {
+        "ScaleMin": "0.25,0.25,0.25",
+        "ScaleMax": "0.25,0.25,0.25"
+      }
+    },
+    {
+      "id": "AutoTurret_CovertOps_Placement",
+      "fields": {
+        "ScaleMin": "0.4,0.4,0.4",
+        "ScaleMax": "0.4,0.4,0.4",
+        "ShadowRadius": "0.3125",
+        "SelectionRadius": "0.3125"
+      }
+    },
+    {
+      "id": "RavenScramblerMissileWeapon",
+      "fields": {
+        "ScaleMin": "0.75,0.75,0.75",
+        "ScaleMax": "0.75,0.75,0.75"
+      }
+    },
+    {
+      "id": "RavenScramblerMissileImpact",
+      "fields": {
+        "ScaleMin": "0.325,0.325,0.325",
+        "ScaleMax": "0.325,0.325,0.325"
+      }
+    }
+  ],
+  "unresolved": [
+    "SCVAttackLaunch",
+    "RavenRepairDroneHealImpact",
+    "RavenRepairDroneReleaseWeapon",
+    "Thor_CollectorEdition_Morph_Death",
+    "Thor_CollectorEdition_DeathRagdoll",
+    "Thor_CollectorEdition_Death",
+    "StimpackStartImpact",
+    "StimpackEndImpact",
+    "TerranFlyingBuildingDeathLow",
+    "AutoTurretAttackLaunch",
+    "AutoTurretAttackImpact",
+    "BansheeAttackImpact",
+    "BattlecruiserAirAttackImpact",
+    "GhostAttackLaunch",
+    "GhostBunkerAttackLaunch",
+    "GhostAttackImpact",
+    "GhostSnipeAttackLaunch",
+    "GhostSnipeAttackImpact",
+    "HellionAttackDamageReaction",
+    "HellionUpgradedAttackDamageReaction",
+    "HellionUpgradedAttackDamageReactionStructure",
+    "HellionAttackDamageShield",
+    "MarauderAttackLaunch",
+    "MarauderUpgradedAttackImpact",
+    "MarauderBaseAttackImpact",
+    "MarineAttackLaunch",
+    "MarineAttackImpact",
+    "MissileTurretAttackImpact",
+    "PlanetaryFortressAttackImpact",
+    "PlanetaryFortressAttackLaunch",
+    "ReaperAttackLaunch",
+    "ReaperBunkerAttackLaunch",
+    "ReaperAttackImpact",
+    "SCVAttack",
+    "SiegeTankAttackLaunch",
+    "SiegeTankAttackLaunchLow",
+    "SiegeTankAttackImpact",
+    "SiegeTankAttackImpactLow",
+    "SiegeTankSiegedAttackLaunch",
+    "SiegeTankSiegedAttackImpact",
+    "SiegeTankSiegedAttackDamage",
+    "SiegeTankSiegedAttackDamageShield",
+    "SiegeTankSiegedAttackDirectedLaunch",
+    "SiegeTankSiegedAttackDirectedImpact",
+    "SiegeTankSiegedAttackDirectedDamage",
+    "SiegeTankSiegedAttackDirectedDamageShield",
+    "VikingAssaultAttackLaunch",
+    "VikingAssaultAttackImpact",
+    "VikingFighterAttackLaunch",
+    "VikingFighterWeapon",
+    "VikingFighterAttackImpact",
+    "TerranFlyingBuildingDeath",
+    "TerranSmallUnitDeath",
+    "TerranLargeUnitDeath",
+    "ThorHandGunAttackLaunch",
+    "ThorHandGunAttackImpact",
+    "ThorAAAttackImpact",
+    "ThorAAWeapon",
+    "ThorAAAttackLaunch",
+    "MarineShieldUpgradeDeath",
+    "LongboltMissileWeapon",
+    "PunisherGrenadesLMWeapon",
+    "ReaperD8AttackImpact",
+    "YamatoWeapon",
+    "ReaperJumpLandDownModel",
+    "ReaperJumpLandUpModel",
+    "ReaperJumpLaunchModel",
+    "TerranBuildingSmokeMedium",
+    "TerranBuildingSmokeLarge",
+    "TerranBuildingFireLarge",
+    "AutoTurretReleaseWeapon",
+    "AutoTurretReleaseMissileImpact",
+    "BattlecruiserYamatoAttackChargeModel",
+    "VikingMechaAssaultWeaponLaunch",
+    "SCV_Blizzcon17_Death",
+    "SCV_Blizzcon17_DeathRagdoll",
+    "Ghost_Eidolon_Death",
+    "CycloneMissilesAttackImpact",
+    "CycloneMissilesWeapon",
+    "CycloneMissilesAttackLaunch",
+    "HellionTankAttackFireAddition",
+    "HellionTankAttackUpgradedFireAddition",
+    "MarineXPRDeathRagdoll",
+    "SupplyDepotXPRDeath",
+    "WidowMineAttackImpact",
+    "WidowMineAirAttackImpact",
+    "CycloneMissileLarge",
+    "CycloneMissileLaunch",
+    "CycloneMissileImpact",
+    "CycloneMissileImpactLarge",
+    "LiberatorAttackImpact",
+    "LiberatorMissile",
+    "LiberatorDamageMissile",
+    "Marauder_BlackOps_Death",
+    "SiegeTank_BlackOps_Death",
+    "ThorAAAttackImpactLance",
+    "ThorAAAttackLaunchLance",
+    "ThorAAWeaponLance",
+    "Ghost_CovertOps_DeathEviscerate",
+    "Ghost_CovertOps_DeathRagdoll",
+    "AutoTurret_Junker_Death",
+    "AutoTurret_Junker_DeathRagdoll",
+    "RefineryTerrazineBuild",
+    "TerranSquibDeathRagdoll",
+    "KD8ChargeWeapon",
+    "RavenShredderMissileAttackImpactDebuff",
+    "RavenScramblerMissileBehavior",
+    "MarauderConcussiveShellMissile",
+    "MarauderConcussiveShellMissileLaunch"
+  ],
+  "policy": "Terran model candidates with numeric explicit/inherited original scale; preserve area indicators and shared beam/uncertain assets; not live tested"
+}
