@@ -262,9 +262,333 @@ bool MCAI_Pulse(bool testConds, bool runActions) {
     }
     return true;
 }
-void MiniCraftAI_Init() {
+void MiniCraftAI_Start() {
     if (mcai_timer != null) { return; }
     mcai_timer = TriggerCreate("MCAI_Pulse");
     TriggerAddEventTimePeriodic(mcai_timer, 4.0, c_timeGame);
     TriggerDebugOutput(1, StringToText("MiniCraft AI v0.1.10 initialized"), true);
+}
+
+// MiniCraft match options preview. One selection for the entire match.
+int mc_dialog = -1;
+int[6] mc_buttons;
+int[6] mc_choice;
+int mc_start;
+int mc_host = 0;
+int mc_mult = 1;
+bool mc_workersFree = false;
+bool mc_configured = false;
+bool mc_initRequested = false;
+trigger mc_menuTrigger = null;
+trigger mc_spawnTrigger = null;
+trigger mc_timeout = null;
+string[72] mc_foodId;
+fixed[72] mc_foodBase;
+
+bool MC_Worker(string id) {
+    return id == "SCV" || id == "Probe" || id == "Drone" || id == "DroneBurrowed";
+}
+bool MC_Active(int p) {
+    return p > 0 && p <= 15 && PlayerStatus(p) == c_playerStatusActive &&
+        (PlayerType(p) == c_playerTypeUser || PlayerType(p) == c_playerTypeComputer);
+}
+void MC_LoadFood() {
+    mc_foodId[0] = "SCV"; mc_foodBase[0] = -0.5;
+    mc_foodId[1] = "Marine"; mc_foodBase[1] = -0.5;
+    mc_foodId[2] = "Marauder"; mc_foodBase[2] = -1;
+    mc_foodId[3] = "Reaper"; mc_foodBase[3] = -0.5;
+    mc_foodId[4] = "Ghost"; mc_foodBase[4] = -1.5;
+    mc_foodId[5] = "Hellion"; mc_foodBase[5] = -1;
+    mc_foodId[6] = "HellionTank"; mc_foodBase[6] = -1;
+    mc_foodId[7] = "WidowMine"; mc_foodBase[7] = -1;
+    mc_foodId[8] = "WidowMineBurrowed"; mc_foodBase[8] = -1;
+    mc_foodId[9] = "SiegeTank"; mc_foodBase[9] = -1.5;
+    mc_foodId[10] = "SiegeTankSieged"; mc_foodBase[10] = -1.5;
+    mc_foodId[11] = "Cyclone"; mc_foodBase[11] = -1.5;
+    mc_foodId[12] = "Thor"; mc_foodBase[12] = -3;
+    mc_foodId[13] = "ThorAP"; mc_foodBase[13] = -3;
+    mc_foodId[14] = "VikingFighter"; mc_foodBase[14] = -1;
+    mc_foodId[15] = "VikingAssault"; mc_foodBase[15] = -1;
+    mc_foodId[16] = "Medivac"; mc_foodBase[16] = -1;
+    mc_foodId[17] = "Liberator"; mc_foodBase[17] = -1.5;
+    mc_foodId[18] = "LiberatorAG"; mc_foodBase[18] = -1.5;
+    mc_foodId[19] = "Raven"; mc_foodBase[19] = -1;
+    mc_foodId[20] = "Banshee"; mc_foodBase[20] = -1.5;
+    mc_foodId[21] = "Battlecruiser"; mc_foodBase[21] = -3;
+    mc_foodId[22] = "Drone"; mc_foodBase[22] = -0.5;
+    mc_foodId[23] = "DroneBurrowed"; mc_foodBase[23] = -0.5;
+    mc_foodId[24] = "Zergling"; mc_foodBase[24] = -0.25;
+    mc_foodId[25] = "ZerglingBurrowed"; mc_foodBase[25] = -0.25;
+    mc_foodId[26] = "Baneling"; mc_foodBase[26] = -0.25;
+    mc_foodId[27] = "BanelingBurrowed"; mc_foodBase[27] = -0.25;
+    mc_foodId[28] = "Roach"; mc_foodBase[28] = -1;
+    mc_foodId[29] = "RoachBurrowed"; mc_foodBase[29] = -1;
+    mc_foodId[30] = "Ravager"; mc_foodBase[30] = -1.5;
+    mc_foodId[31] = "RavagerBurrowed"; mc_foodBase[31] = -1.5;
+    mc_foodId[32] = "Hydralisk"; mc_foodBase[32] = -1;
+    mc_foodId[33] = "HydraliskBurrowed"; mc_foodBase[33] = -1;
+    mc_foodId[34] = "LurkerMP"; mc_foodBase[34] = -1.5;
+    mc_foodId[35] = "LurkerMPBurrowed"; mc_foodBase[35] = -1.5;
+    mc_foodId[36] = "Infestor"; mc_foodBase[36] = -1;
+    mc_foodId[37] = "InfestorBurrowed"; mc_foodBase[37] = -1;
+    mc_foodId[38] = "SwarmHostMP"; mc_foodBase[38] = -2;
+    mc_foodId[39] = "SwarmHostBurrowedMP"; mc_foodBase[39] = -2;
+    mc_foodId[40] = "Ultralisk"; mc_foodBase[40] = -3;
+    mc_foodId[41] = "UltraliskBurrowed"; mc_foodBase[41] = -3;
+    mc_foodId[42] = "Queen"; mc_foodBase[42] = -1;
+    mc_foodId[43] = "QueenBurrowed"; mc_foodBase[43] = -1;
+    mc_foodId[44] = "Mutalisk"; mc_foodBase[44] = -1;
+    mc_foodId[45] = "Corruptor"; mc_foodBase[45] = -1;
+    mc_foodId[46] = "BroodLord"; mc_foodBase[46] = -2;
+    mc_foodId[47] = "Viper"; mc_foodBase[47] = -1.5;
+    mc_foodId[48] = "Probe"; mc_foodBase[48] = -0.5;
+    mc_foodId[49] = "Zealot"; mc_foodBase[49] = -1;
+    mc_foodId[50] = "Stalker"; mc_foodBase[50] = -1;
+    mc_foodId[51] = "Sentry"; mc_foodBase[51] = -1;
+    mc_foodId[52] = "Adept"; mc_foodBase[52] = -1;
+    mc_foodId[53] = "HighTemplar"; mc_foodBase[53] = -1;
+    mc_foodId[54] = "DarkTemplar"; mc_foodBase[54] = -1;
+    mc_foodId[55] = "Archon"; mc_foodBase[55] = -2;
+    mc_foodId[56] = "Immortal"; mc_foodBase[56] = -2;
+    mc_foodId[57] = "Colossus"; mc_foodBase[57] = -3;
+    mc_foodId[58] = "Disruptor"; mc_foodBase[58] = -2;
+    mc_foodId[59] = "Observer"; mc_foodBase[59] = -0.5;
+    mc_foodId[60] = "WarpPrism"; mc_foodBase[60] = -1;
+    mc_foodId[61] = "WarpPrismPhasing"; mc_foodBase[61] = -1;
+    mc_foodId[62] = "Phoenix"; mc_foodBase[62] = -1;
+    mc_foodId[63] = "VoidRay"; mc_foodBase[63] = -2;
+    mc_foodId[64] = "Oracle"; mc_foodBase[64] = -1.5;
+    mc_foodId[65] = "Tempest"; mc_foodBase[65] = -2;
+    mc_foodId[66] = "Carrier"; mc_foodBase[66] = -3;
+    mc_foodId[67] = "LurkerMPEgg"; mc_foodBase[67] = -1;
+    mc_foodId[68] = "RavagerCocoon"; mc_foodBase[68] = -1;
+    mc_foodId[69] = "BanelingCocoon"; mc_foodBase[69] = -0.25;
+    mc_foodId[70] = "BroodLordCocoon"; mc_foodBase[70] = -1;
+    mc_foodId[71] = "ObserverSiegeMode"; mc_foodBase[71] = -0.5;
+}
+fixed MC_TargetFood(int i, int n, bool freeWorkers) {
+    if (freeWorkers && MC_Worker(mc_foodId[i])) { return 0.0; }
+    return mc_foodBase[i] / IntToFixed(n);
+}
+bool MC_SetFood(int n, bool freeWorkers) {
+    int p = 1;
+    int i;
+    fixed desired;
+    fixed observed;
+    bool ok = true;
+    while (p <= 15) {
+        if (MC_Active(p)) {
+            i = 0;
+            while (i < 72) {
+                desired = MC_TargetFood(i,n,freeWorkers);
+                if (desired != mc_foodBase[i]) {
+                    if (!CatalogFieldValueSet(c_gameCatalogUnit,mc_foodId[i],"Food",p,FixedToString(desired,c_fixedPrecisionAny))) { ok = false; }
+                    observed = StringToFixed(CatalogFieldValueGet(c_gameCatalogUnit,mc_foodId[i],"Food",p));
+                    if (observed != desired) { ok = false; }
+                }
+                i += 1;
+            }
+        }
+        p += 1;
+    }
+    if (!ok) {
+        // Restore all changed food entries; never activate duplicate spawning on a failed catalog transaction.
+        p = 1;
+        while (p <= 15) {
+            if (MC_Active(p)) {
+                i = 0;
+                while (i < 72) {
+                    if (MC_TargetFood(i,n,freeWorkers) != mc_foodBase[i]) {
+                        if (!CatalogFieldValueSet(c_gameCatalogUnit,mc_foodId[i],"Food",p,FixedToString(mc_foodBase[i],c_fixedPrecisionAny))) {
+                            TriggerDebugOutput(1,StringToText("MiniCraft Food rollback failed: "+mc_foodId[i]),true);
+                        }
+                    }
+                    i += 1;
+                }
+            }
+            p += 1;
+        }
+    }
+    return ok;
+}
+bool MC_TrainAbility(string a) {
+    return a == "CommandCenterTrain" || a == "BarracksTrain" || a == "FactoryTrain" || a == "StarportTrain" || a == "NexusTrain" || a == "GatewayTrain" || a == "StargateTrain" || a == "RoboticsFacilityTrain" || a == "LarvaTrain" || a == "WarpGateTrain" || a == "TrainQueen";
+}
+bool MC_TrainUnit(string id) {
+    return id == "SCV" || id == "Marine" || id == "Marauder" || id == "Reaper" || id == "Ghost" || id == "Hellion" || id == "WidowMine" || id == "SiegeTank" || id == "Cyclone" || id == "Thor" || id == "VikingFighter" || id == "Medivac" || id == "Liberator" || id == "Raven" || id == "Banshee" || id == "Battlecruiser" || id == "Drone" || id == "Zergling" || id == "Roach" || id == "Hydralisk" || id == "Infestor" || id == "SwarmHostMP" || id == "Ultralisk" || id == "Queen" || id == "Mutalisk" || id == "Corruptor" || id == "Viper" || id == "Probe" || id == "Zealot" || id == "Stalker" || id == "Sentry" || id == "Adept" || id == "HighTemplar" || id == "DarkTemplar" || id == "Immortal" || id == "Colossus" || id == "Disruptor" || id == "Observer" || id == "WarpPrism" || id == "Phoenix" || id == "VoidRay" || id == "Oracle" || id == "Tempest" || id == "Carrier";
+}
+bool MC_OnTrain(bool testConds,bool runActions) {
+    unit u;
+    int p;
+    string id;
+    if (!runActions || !mc_configured || mc_mult <= 1) { return true; }
+    if (!MC_TrainAbility(EventUnitCreatedAbil())) { return true; }
+    u = EventUnitCreatedUnit();
+    if (u == null || !UnitIsAlive(u)) { return true; }
+    p = UnitGetOwner(u);
+    id = UnitGetType(u);
+    if (!MC_Active(p) || !MC_TrainUnit(id)) { return true; }
+    // Script-created copies have no training ability and cannot trigger another batch.
+    // Each native Zergling birth is handled once (two births per normal egg).
+    UnitCreate(mc_mult-1,id,0,p,UnitGetPosition(u),UnitGetFacing(u));
+    return true;
+}
+string MC_RichType(string id) {
+    if (id == "MineralField" || id == "PurifierMineralField" || id == "LabMineralField" || id == "BattleStationMineralField" || id == "MineralFieldOpaque") { return "RichMineralField"; }
+    if (id == "MineralField750" || id == "MineralField450" || id == "PurifierMineralField750" || id == "LabMineralField750" || id == "BattleStationMineralField750" || id == "MineralField900Opaque") { return "RichMineralField750"; }
+    if (id == "VespeneGeyser" || id == "SpacePlatformGeyser" || id == "ProtossVespeneGeyser" || id == "PurifierVespeneGeyser" || id == "ShakurasVespeneGeyser") { return "RichVespeneGeyser"; }
+    return "";
+}
+bool MC_IsRich(string id) {
+    return id == "RichMineralField" || id == "RichMineralField750" || id == "PurifierRichMineralField" || id == "PurifierRichMineralField750" || id == "RichVespeneGeyser";
+}
+void MC_Resources(int percent, bool rich) {
+    unitgroup g = UnitGroup(null,c_playerAny,RegionEntireMap(),null,0);
+    int i = 1;
+    unit u;
+    string id;
+    string target;
+    fixed amount;
+    while (i <= UnitGroupCount(g,c_unitCountAll)) {
+        u = UnitGroupUnit(g,i);
+        i += 1;
+        if (u != null && UnitIsAlive(u)) {
+            id = UnitGetType(u);
+            target = MC_RichType(id);
+            if (target != "" || MC_IsRich(id)) {
+                amount = UnitGetPropertyFixed(u,c_unitPropResources,c_unitPropCurrent);
+                if (amount > 0.0) {
+                    if (rich && target != "") {
+                        libNtve_gf_ReplaceUnit(u,target,libNtve_ge_ReplaceUnitOptions_NewUnitsDefault);
+                        u = libNtve_gf_LastReplacedUnit();
+                    }
+                    if (u != null) { UnitSetPropertyFixed(u,c_unitPropResources,amount * IntToFixed(percent) / 100.0); }
+                }
+            }
+        }
+    }
+}
+string MC_Value(int row) {
+    int v = mc_choice[row];
+    if (row == 0) { return "미니 (일반 모드 준비 중)"; }
+    if (row == 1) { return IntToString(v+1)+"배"; }
+    if (row == 2) { if (v == 0) { return "미강화"; } return "강화"; }
+    if (row == 3) { return IntToString(200+100*v); }
+    if (row == 4) {
+        if (v == 0) { return "100%"; }
+        if (v == 1) { return "150%"; }
+        if (v == 2) { return "200%"; }
+        if (v == 3) { return "300%"; }
+        if (v == 4) { return "500%"; }
+        if (v == 5) { return "꿀광·꿀가스 100%"; }
+        if (v == 6) { return "꿀광·꿀가스 150%"; }
+        if (v == 7) { return "꿀광·꿀가스 200%"; }
+        if (v == 8) { return "꿀광·꿀가스 300%"; }
+        return "꿀광·꿀가스 500%";
+    }
+    if (v == 0) { return "일꾼 인구 포함"; }
+    return "일꾼 인구 미포함";
+}
+int MC_Button(string title,int x,int y,int w) {
+    int c = DialogControlCreate(mc_dialog,c_triggerControlTypeButton);
+    DialogControlSetSize(c,PlayerGroupAll(),w,46);
+    DialogControlSetPosition(c,PlayerGroupAll(),c_anchorTopLeft,x,y);
+    DialogControlSetPropertyAsText(c,c_triggerControlPropertyText,PlayerGroupAll(),StringToText(title));
+    return c;
+}
+void MC_Apply() {
+    int p = 1;
+    int pct = 100;
+    int v = mc_choice[4];
+    bool rich = v >= 5;
+    if (mc_configured) { return; }
+    mc_mult = mc_choice[1]+1;
+    mc_workersFree = mc_choice[5] == 1;
+    if (!MC_SetFood(mc_mult,mc_workersFree)) {
+        mc_mult = 1;
+        mc_workersFree = false;
+        TriggerDebugOutput(1,StringToText("MiniCraft: Food catalog change rejected; production multiplier and worker exemption disabled."),true);
+    }
+    while (p <= 15) {
+        if (MC_Active(p)) { PlayerModifyPropertyInt(p,c_playerPropSuppliesLimit,c_playerPropOperSetTo,200+100*mc_choice[3]); }
+        p += 1;
+    }
+    if (rich) { v -= 5; }
+    if (v == 1) { pct = 150; }
+    if (v == 2) { pct = 200; }
+    if (v == 3) { pct = 300; }
+    if (v == 4) { pct = 500; }
+    if (pct != 100 || rich) { MC_Resources(pct,rich); }
+    if (mc_mult > 1) {
+        mc_spawnTrigger = TriggerCreate("MC_OnTrain");
+        TriggerAddEventUnitCreated(mc_spawnTrigger,null,null,null);
+    }
+    mc_configured = true;
+    if (mc_choice[2] == 1) { MiniCraftAI_Start(); }
+    if (mc_dialog != -1) { DialogDestroy(mc_dialog); mc_dialog = -1; }
+    UnitPauseAll(false);
+    AITimePause(false);
+    TriggerDebugOutput(1,StringToText("MiniCraft options applied: "+IntToString(mc_mult)+"x, cap "+IntToString(200+100*mc_choice[3])),true);
+}
+bool MC_Timeout(bool testConds,bool runActions) {
+    if (runActions && !mc_configured) { MC_Apply(); }
+    return true;
+}
+bool MC_Click(bool testConds,bool runActions) {
+    int c;
+    int i = 0;
+    int[6] max;
+    if (!runActions || mc_configured || EventPlayer() != mc_host) { return true; }
+    c = EventDialogControl();
+    if (c == mc_start) { MC_Apply(); return true; }
+    max[0]=1; max[1]=8; max[2]=2; max[3]=4; max[4]=10; max[5]=2;
+    while (i < 6) {
+        if (c == mc_buttons[i]) {
+            mc_choice[i] = (mc_choice[i]+1) % max[i];
+            DialogControlSetPropertyAsText(c,c_triggerControlPropertyText,PlayerGroupAll(),StringToText(MC_Value(i)));
+        }
+        i += 1;
+    }
+    return true;
+}
+bool MC_Show(bool testConds,bool runActions) {
+    int p = 1;
+    int i = 0;
+    int label;
+    string[6] names;
+    if (!runActions || mc_configured || mc_dialog != -1) { return true; }
+    while (p <= 15) {
+        if (MC_Active(p) && PlayerType(p) == c_playerTypeUser) { mc_host = p; break; }
+        p += 1;
+    }
+    MC_LoadFood();
+    mc_choice[3] = 1;
+    if (mc_host == 0) { MC_Apply(); return true; }
+    UnitPauseAll(true);
+    AITimePause(true);
+    mc_dialog = DialogCreate(660,440,c_anchorCenter,0,0,true);
+    names[0]="크래프트"; names[1]="생산 배수"; names[2]="AI"; names[3]="최대 인구"; names[4]="필드 자원"; names[5]="일꾼";
+    while (i < 6) {
+        label = DialogControlCreate(mc_dialog,c_triggerControlTypeLabel);
+        DialogControlSetPosition(label,PlayerGroupAll(),c_anchorTopLeft,25,35+i*52);
+        DialogControlSetSize(label,PlayerGroupAll(),170,42);
+        DialogControlSetPropertyAsText(label,c_triggerControlPropertyText,PlayerGroupAll(),StringToText(names[i]));
+        mc_buttons[i] = MC_Button(MC_Value(i),205,30+i*52,420);
+        i += 1;
+    }
+    DialogControlSetEnabled(mc_buttons[0],PlayerGroupAll(),false);
+    mc_start = MC_Button("게임 시작 (60초 후 자동 확정)",125,365,410);
+    mc_menuTrigger = TriggerCreate("MC_Click");
+    TriggerAddEventDialogControl(mc_menuTrigger,mc_host,c_invalidDialogControlId,c_triggerControlEventTypeClick);
+    DialogSetVisible(mc_dialog,PlayerGroupSingle(mc_host),true);
+    mc_timeout = TriggerCreate("MC_Timeout");
+    TriggerAddEventTimeElapsed(mc_timeout,60.0,c_timeReal);
+    return true;
+}
+void MiniCraftAI_Init() {
+    trigger start;
+    if (mc_initRequested) { return; }
+    mc_initRequested = true;
+    start = TriggerCreate("MC_Show");
+    TriggerAddEventTimeElapsed(start,1.0,c_timeGame);
 }
