@@ -444,6 +444,94 @@ def verify_trigger_chain(stage, src):
         raise ValueError("Broken empty comparison in Multi initialization")
     return {"shared_library":"SCEV","multi_library":"8FCB4FA8","source_triggers_preserved":True,"initialization_symbols_present":True}
 
+
+def split_dependency(ref):
+    parts=ref.split(",file:",1)
+    if ref.startswith("file:"): return "",ref[5:].replace("\\","/").lower()
+    if ref.startswith("bnet:"): return parts[0],parts[1].replace("\\","/").lower() if len(parts)==2 else ""
+    raise ValueError("Unsupported dependency: "+ref)
+
+def validate_dependency_list(mod,refs):
+    idx=MODS.index(mod)
+    standard=("liberty","void","voidmulti")[idx]
+    if len(refs)!=(1 if idx==0 else 2):
+        raise ValueError("Unexpected dependency count in "+mod)
+    bnet,local=split_dependency(refs[0])
+    standard_title=("liberty (mod)","void (mod)","void multi (mod)")[idx]
+    if not bnet.lower().startswith("bnet:"+standard_title+"/") or (local and local!="mods/"+standard+".sc2mod"):
+        raise ValueError("Unexpected standard dependency in "+mod+": "+refs[0])
+    if idx==0: return False
+    bnet,local=split_dependency(refs[1])
+    dep=MODS[idx-1]
+    expected="mods/minicraft-evo/"+dep.lower()
+    title=("minicraft evo assets","minicraft evo core")[idx-1]
+    if local and local!=expected:
+        raise ValueError("Wrong local dependency in "+mod+": "+refs[1])
+    if not bnet and local!=expected:
+        raise ValueError("Missing local dependency in "+mod)
+    if bnet:
+        # Never silently reconnect the upstream author's published files.
+        if not bnet.lower().startswith("bnet:"+title+"/"):
+            raise ValueError("Unexpected published dependency in "+mod+"; expected "+title+": "+bnet)
+        if bnet.rsplit("/",1)[-1] in ("444267","444268"):
+            raise ValueError("Original EVO publication is not a MiniCraft dependency")
+    return bool(bnet)
+
+def preserve_editor_metadata(stage,previous):
+    status={}
+    for mod in MODS:
+        dest=stage/mod
+        old=previous/mod
+        source=old/"DocumentInfo"
+        header=old/"DocumentHeader"
+        if previous.exists():
+            if not source.is_file() or not header.is_file():
+                raise ValueError("Existing component metadata missing: "+str(old))
+            refs=[e.text or "" for e in xmlread(source).getroot().findall("./Dependencies/Value")]
+            remote=validate_dependency_list(mod,refs)
+            binary_refs,_=header_dependencies(header.read_bytes())
+            if binary_refs!=refs:
+                raise ValueError("Saved editor header/XML disagree; reopen and save component before updating: "+str(old))
+            # Keep the editor's exact metadata pair, including opaque header fields.
+            shutil.copy2(source,dest/"DocumentInfo")
+            shutil.copy2(header,dest/"DocumentHeader")
+            for old_strings in old.glob("*.SC2Data/LocalizedData/GameStrings.txt"):
+                new_strings=dest/old_strings.relative_to(old)
+                if not new_strings.is_file(): continue
+                old_lines=old_strings.read_text(encoding="utf-8-sig").splitlines()
+                doc_lines=[x for x in old_lines if x.startswith("DocInfo/")]
+                if not doc_lines: continue
+                new_lines=new_strings.read_text(encoding="utf-8-sig").splitlines()
+                keys={x.partition("=")[0] for x in doc_lines}
+                new_lines=[x for x in new_lines if x.partition("=")[0] not in keys]
+                new_strings.write_text("\n".join(new_lines+doc_lines)+"\n",encoding="utf-8-sig")
+            status[mod]={"editor_metadata_preserved":True,"published_dependency":remote,"dependencies":refs}
+        else:
+            refs=[e.text or "" for e in xmlread(dest/"DocumentInfo").getroot().findall("./Dependencies/Value")]
+            status[mod]={"editor_metadata_preserved":False,"published_dependency":validate_dependency_list(mod,refs),"dependencies":refs}
+    return status
+
+def write_publish_guide(stage,out,status):
+    lines=["MINICRAFT EVO - Battle.net publishing checklist","",
+           "Publish through Galaxy Editor while signed into your own account.","",
+           "1. Open Assets, publish as MiniCraft EVO Assets, then save the component document in place.",
+           "2. Open Core. Double-click its blank Blizzard dependency name, select your published MiniCraft EVO Assets, keep its local file, save in place, then publish as MiniCraft EVO Core.",
+           "3. Open Multi. Double-click its blank Blizzard dependency name, select your published MiniCraft EVO Core, keep its local file, save in place, then publish as MiniCraft EVO.",
+           "4. For a separate map, attach the published MiniCraft EVO and any other required published dependencies.",
+           "", "Use the same region and account. Do not select the original SCEvo publications.",
+           "Save the component folders themselves; separate packed Save As files are not imported by the updater.",
+           "A published dependency in this report does not verify online publication or availability.",
+           "The updater preserves saved component metadata; Battle.net publication itself is manual.",""]
+    for mod in MODS:
+        lines.append(str(out/mod/"ComponentList.SC2Components"))
+        lines.extend("  "+x for x in status[mod]["dependencies"])
+        lines.append("")
+    (stage/"EVO-PUBLISH.txt").write_text("\n".join(lines)+"\n",encoding="utf-8-sig")
+    # Explorer shortcuts are plain cmd files; paths are relative to the installed folder.
+    for idx,mod in enumerate(MODS,1):
+        label=("Assets","Core","Multi")[idx-1]
+        (stage/("Open-"+str(idx)+"-"+label+".cmd")).write_text('@echo off\r\nstart "" explorer.exe /select,"%~dp0'+mod+'\\ComponentList.SC2Components"\r\n',encoding="ascii",newline="")
+
 def verify_generated(stage):
     # Both editor metadata formats must agree, including standard dependencies.
     for mod in MODS:
@@ -452,15 +540,7 @@ def verify_generated(stage):
         binary_refs,_=header_dependencies((stage/mod/"DocumentHeader").read_bytes())
         if binary_refs!=refs:
             raise ValueError("Header/XML dependency mismatch in "+mod)
-        if any("SC Evolution Complete" in x or "bnet:SCEvo_" in x for x in refs):
-            raise ValueError("Stale original EVO dependency in "+mod)
-    # A generated local document must never resolve original Battle.net EVO dependencies.
-    for mod,dependency in ((MODS[1],MODS[0]),(MODS[2],MODS[1])):
-        root = xmlread(stage/mod/"DocumentInfo").getroot()
-        expected = local_dependency(dependency)
-        refs = [e.text or "" for e in root.findall("./Dependencies/Value")]
-        if expected not in refs or any(dependency in x and x != expected for x in refs):
-            raise ValueError("Wrong local dependency in "+mod+": "+str(refs))
+        validate_dependency_list(mod,refs)
     base = stage/MODS[2]/"Base.SC2Data"
     includes = [x.get("path") for x in xmlread(base/"GameData.xml").getroot()]
     if includes[-2:] != ["GameData/MiniCraftSC2.xml","GameData/MiniCraftBWFinalVitals.xml"]:
@@ -570,6 +650,36 @@ def selftest():
         assert game_root(root/"Mods")==root.resolve()
         assert not (root/"Mods").exists()
         assert game_root(Path(tmp)/"unrelated") is None
+
+    standard="bnet:Void (Mod)/0.0/999,file:Mods/Void.SC2Mod"
+    local=local_dependency(MODS[0])
+    remote="bnet:MiniCraft EVO Assets/0.0/123456,"+local
+    assert not validate_dependency_list(MODS[1],[standard,local])
+    assert validate_dependency_list(MODS[1],[standard,remote])
+    assert validate_dependency_list(MODS[1],[standard,"bnet:MiniCraft EVO Assets/0.0/123456"])
+    for bad in ("bnet:SCEvo_Assets/0.0/444267,"+local,"bnet:MiniCraft EVO Assets/0.0/444267,"+local,"file:Mods/SC Evolution Complete/SCEvo_Assets.SC2Mod"):
+        try: validate_dependency_list(MODS[1],[standard,bad])
+        except ValueError: pass
+        else: raise AssertionError("Unexpected dependency accepted: "+bad)
+    with tempfile.TemporaryDirectory() as tmp:
+        old=Path(tmp)/"old";new=Path(tmp)/"new"
+        for idx,mod in enumerate(MODS):
+            std=("bnet:Liberty (Mod)/0.0/999,file:Mods/Liberty.SC2Mod",standard,"bnet:Void Multi (Mod)/0.0/999,file:Mods/VoidMulti.SC2Mod")[idx]
+            dep=[std]+([remote] if idx==1 else [local_dependency(MODS[1])] if idx==2 else [])
+            for folder in (old,new):
+                d=folder/mod;d.mkdir(parents=True)
+                root=ET.Element("DocInfo");deps=ET.SubElement(root,"Dependencies")
+                for value in dep: ET.SubElement(deps,"Value").text=value
+                ET.ElementTree(root).write(d/"DocumentInfo",encoding="utf-8")
+                raw=prefix+len(dep).to_bytes(4,"little")+b"".join(x.encode("utf-8")+b"\x00" for x in dep)+tail
+                (d/"DocumentHeader").write_bytes(raw)
+            (old/mod/"DocumentHeader").write_bytes(raw+b"editor metadata")
+        status=preserve_editor_metadata(new,old)
+        assert status[MODS[1]]["published_dependency"] and not status[MODS[2]]["published_dependency"]
+        assert (new/MODS[1]/"DocumentHeader").read_bytes()==(old/MODS[1]/"DocumentHeader").read_bytes()
+        write_publish_guide(new,old,status)
+        assert (new/"EVO-PUBLISH.txt").is_file()
+        assert (new/"Open-1-Assets.cmd").is_file()
     COUNTS.clear(); VISUAL_AUDIT.clear()
     print("EVO transform self-tests passed.")
 
@@ -659,6 +769,8 @@ def main():
         patch_bw(stage,inv,catalogs);patch_sc2(stage,catalogs)
         health_check=final_bw_vitals(stage)
         for mod in MODS:doc(stage,mod)
+        inv["publication"]=preserve_editor_metadata(stage,out)
+        write_publish_guide(stage,out,inv["publication"])
         health_check["SC2"]=verify_generated(stage)
         inv["health_check"]=health_check
         inv["trigger_check"]=verify_trigger_chain(stage,src)
@@ -669,7 +781,7 @@ def main():
         inv["terran_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="terran"]
         inv["zerg_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="zerg"]
         (stage/"EVO-audit.json").write_text(json.dumps(inv,indent=2,ensure_ascii=False),encoding="utf-8")
-        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.5-preview"},indent=2),encoding="utf-8")
+        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.6-preview"},indent=2),encoding="utf-8")
         if out.exists():
             from datetime import datetime
             backup=out.with_name(out.name+".backup-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
@@ -688,6 +800,9 @@ def main():
     print("Verified trigger source and shared Core library:",inv["trigger_check"])
     print("Verified all three DocumentHeader and DocumentInfo dependency lists match.")
     print("Core dependency:",out/MODS[1])
+    print("Battle.net publishing guide:",out/"EVO-PUBLISH.txt")
+    for mod in MODS:
+        print("Publication metadata:",mod,inv["publication"][mod])
     print("Open only the Built path above, NOT the upstream or cache copy.")
     print("Inventory:",inv["counts"])
     print("Transform:",dict(COUNTS))
