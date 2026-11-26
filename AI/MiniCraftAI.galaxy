@@ -371,6 +371,10 @@ trigger mc_spawnTrigger = null;
 trigger mc_timeout = null;
 string[72] mc_foodId;
 fixed[72] mc_foodBase;
+const bool mc_normalProfile = false;
+fixed[1152] mc_originalFood;
+bool[1152] mc_foodKnown;
+bool[1152] mc_foodChanged;
 
 bool MC_Worker(string id) {
     return id == "SCV" || id == "Probe" || id == "Drone" || id == "DroneBurrowed";
@@ -453,22 +457,45 @@ void MC_LoadFood() {
     mc_foodId[70] = "BroodLordCocoon"; mc_foodBase[70] = -1;
     mc_foodId[71] = "ObserverSiegeMode"; mc_foodBase[71] = -0.5;
 }
-fixed MC_TargetFood(int i, int n, bool freeWorkers) {
+fixed MC_TargetFood(int p, int i, int n, bool freeWorkers) {
     if (freeWorkers && MC_Worker(mc_foodId[i])) { return 0.0; }
-    return mc_foodBase[i] / IntToFixed(n);
+    return mc_originalFood[p*72+i] / IntToFixed(n);
 }
 bool MC_SetFood(int n, bool freeWorkers) {
     int p = 1;
     int i;
+    int slot;
+    string raw;
     fixed desired;
     fixed observed;
     bool ok = true;
+    if (n == 1 && !freeWorkers) { return true; }
+    // Read actual profile and dependency values before touching the catalog.
     while (p <= 15) {
         if (MC_Active(p)) {
             i = 0;
             while (i < 72) {
-                desired = MC_TargetFood(i,n,freeWorkers);
-                if (desired != mc_foodBase[i]) {
+                slot = p*72+i;
+                raw = CatalogFieldValueGet(c_gameCatalogUnit,mc_foodId[i],"Food",p);
+                if (raw != "") {
+                    mc_originalFood[slot] = StringToFixed(raw);
+                    mc_foodKnown[slot] = true;
+                } else { ok = false; }
+                i += 1;
+            }
+        }
+        p += 1;
+    }
+    if (!ok) { return false; }
+    p = 1;
+    while (p <= 15 && ok) {
+        if (MC_Active(p)) {
+            i = 0;
+            while (i < 72 && ok) {
+                slot = p*72+i;
+                desired = MC_TargetFood(p,i,n,freeWorkers);
+                if (desired != mc_originalFood[slot]) {
+                    mc_foodChanged[slot] = true;
                     if (!CatalogFieldValueSet(c_gameCatalogUnit,mc_foodId[i],"Food",p,FixedToString(desired,c_fixedPrecisionAny))) { ok = false; }
                     observed = StringToFixed(CatalogFieldValueGet(c_gameCatalogUnit,mc_foodId[i],"Food",p));
                     if (observed != desired) { ok = false; }
@@ -479,19 +506,18 @@ bool MC_SetFood(int n, bool freeWorkers) {
         p += 1;
     }
     if (!ok) {
-        // Restore all changed food entries; never activate duplicate spawning on a failed catalog transaction.
         p = 1;
         while (p <= 15) {
-            if (MC_Active(p)) {
-                i = 0;
-                while (i < 72) {
-                    if (MC_TargetFood(i,n,freeWorkers) != mc_foodBase[i]) {
-                        if (!CatalogFieldValueSet(c_gameCatalogUnit,mc_foodId[i],"Food",p,FixedToString(mc_foodBase[i],c_fixedPrecisionAny))) {
-                            TriggerDebugOutput(1,StringToText("MiniCraft Food rollback failed: "+mc_foodId[i]),true);
-                        }
+            i = 0;
+            while (i < 72) {
+                slot = p*72+i;
+                if (mc_foodChanged[slot] && mc_foodKnown[slot]) {
+                    if (!CatalogFieldValueSet(c_gameCatalogUnit,mc_foodId[i],"Food",p,FixedToString(mc_originalFood[slot],c_fixedPrecisionAny))) {
+                        TriggerDebugOutput(1,StringToText("MiniCraft Food rollback failed: "+mc_foodId[i]),true);
                     }
-                    i += 1;
+                    mc_foodChanged[slot] = false;
                 }
+                i += 1;
             }
             p += 1;
         }
@@ -524,7 +550,7 @@ bool MC_OnTrain(bool testConds,bool runActions) {
     }
     if (i >= 72) { return true; }
     actual = UnitGetPropertyFixed(u,c_unitPropSuppliesUsed,c_unitPropCurrent);
-    if (actual != -MC_TargetFood(i,mc_mult,mc_workersFree)) {
+    if (!mc_foodKnown[p*72+i] || actual != -MC_TargetFood(p,i,mc_mult,mc_workersFree)) {
         TriggerDebugOutput(1,StringToText("MiniCraft: actual supply differs; batch skipped for "+id),true);
         return true;
     }
@@ -570,7 +596,7 @@ void MC_Resources(int percent, bool rich) {
 }
 string MC_Value(int row) {
     int v = mc_choice[row];
-    if (row == 0) { return "미니 (일반 모드 준비 중)"; }
+    if (row == 0) { if (mc_normalProfile) { return "일반 (순정 프로필)"; } return "미니 (소형 프로필)"; }
     if (row == 1) { return IntToString(v+1)+"배"; }
     if (row == 2) { if (v == 0) { return "미강화"; } return "강화"; }
     if (row == 3) { return IntToString(200+100*v); }
@@ -612,6 +638,7 @@ void MC_Apply() {
         mc_mult = 1;
         mc_workersFree = false;
         TriggerDebugOutput(1,StringToText("MiniCraft: Food catalog change rejected; production multiplier and worker exemption disabled."),true);
+        UIDisplayMessage(PlayerGroupAll(),c_messageAreaChat,StringToText("[Craft] 인구 변경 실패: 1배 / 일꾼 인구 포함으로 복귀"));
     }
     while (p <= 15) {
         if (MC_Active(p)) { PlayerModifyPropertyInt(p,c_playerPropSuppliesLimit,c_playerPropOperSetTo,200+100*mc_choice[3]); }
@@ -630,6 +657,7 @@ void MC_Apply() {
     mc_configured = true;
     if (mc_choice[2] == 1) { MiniCraftAI_Start(); }
     else { UIDisplayMessage(PlayerGroupAll(),c_messageAreaChat,StringToText("[MiniCraft] 기본 AI 활성화")); }
+    UIDisplayMessage(PlayerGroupAll(),c_messageAreaChat,StringToText("[Craft] "+MC_Value(0)+" / "+IntToString(mc_mult)+"배 / 인구 "+IntToString(200+100*mc_choice[3])));
     TriggerDebugOutput(1,StringToText("MiniCraft options applied: "+IntToString(mc_mult)+"x, cap "+IntToString(200+100*mc_choice[3])),true);
 }
 bool MC_Timeout(bool testConds,bool runActions) {
@@ -666,6 +694,7 @@ bool MC_Show(bool testConds,bool runActions) {
     MC_LoadFood();
     mc_choice[2] = 1;
     mc_choice[3] = 1;
+    if (mc_normalProfile) { mc_choice[3] = 0; mc_choice[2] = 0; }
     if (mc_host == 0) { MC_Apply(); return true; }
     UnitPauseAll(true);
     AITimePause(true);
