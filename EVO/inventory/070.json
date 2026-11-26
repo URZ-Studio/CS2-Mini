@@ -1,0 +1,1356 @@
+{
+  "rev": "773c8e8ae8828121e8f37bb74ab82ceb761a45bc",
+  "rows": [
+    {
+      "file": "SCBW_03.Protoss/02.Gateway/02.DragoonSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "DragoonSCBWWeapon@Impact"
+        ],
+        "CEffectUserData": [
+          "DragoonSCBWWeapon@DamageApply"
+        ],
+        "CEffectDamage": [
+          "DragoonSCBWWeapon@DamageAccum",
+          "DragoonSCBWWeapon@DamageExpl"
+        ],
+        "CEffectLaunchMissile": [
+          "DragoonSCBWWeapon@LM"
+        ],
+        "CEffectApplyBehavior": [
+          "DragoonSCBW@CoverAnim"
+        ],
+        "CAbilResearch": [
+          "DragoonSCBWRangeUpgrade"
+        ],
+        "CActorForceSphere": [
+          "DragoonSCBWWeapon@DeathForceUp",
+          "DragoonSCBWWeapon@DeathForce",
+          "DragoonSCBW@DeathRagdollDetonationForce"
+        ],
+        "CActorAction": [
+          "DragoonSCBWWeapon@Action"
+        ],
+        "CActorMissile": [
+          "DragoonSCBWWeapon@Missile"
+        ],
+        "CActorModel": [
+          "DragoonSCBW@DeathRagdoll"
+        ],
+        "CActorSound": [
+          "DragoonSCBW@Land",
+          "DragoonSCBW@Death"
+        ],
+        "CActorUnit": [
+          "DragoonSCBW"
+        ],
+        "CModel": [
+          "DragoonSCBWWeapon@Impact",
+          "DragoonSCBWWeapon@Missile",
+          "DragoonSCBW@DeathRagdoll",
+          "DragoonSCBW@Portrait",
+          "DragoonSCBW@Death",
+          "DragoonSCBW",
+          "DragoonSCBW@Placement",
+          "DragoonSCBW@WarpIn"
+        ],
+        "CWeaponLegacy": [
+          "DragoonSCBWWeapon"
+        ],
+        "CAccumulatorConstant": [
+          "DragoonSCBWWeapon@Damage"
+        ],
+        "CUnit": [
+          "DragoonSCBWWeapon@Missile",
+          "DragoonSCBW"
+        ],
+        "CBehaviorBuff": [
+          "DragoonSCBW@CoverAnim",
+          "DragoonSCBW@CoverAnimActivate"
+        ],
+        "CUpgrade": [
+          "DragoonSCBWRangeUpgrade"
+        ]
+      },
+      "sha": "5a0ea94b09a986a7715041fa65c7878f6048871b"
+    },
+    {
+      "file": "SCBW_03.Protoss/02.Gateway/03.HighTemplarSCBW.xml",
+      "types": {
+        "CEffectModifyUnit": [
+          "HighTemplarSCBWHallucination@CopyScarabsTrigger"
+        ],
+        "CEffectDamage": [
+          "HighTemplarSCBWWeapon@Damage",
+          "HighTemplarSCBWHallucination@KillHallucination",
+          "HighTemplarSCBWPsiStorm@Damage",
+          "HighTemplarSCBWPsiStorm@DamageInitial"
+        ],
+        "CEffectLaunchMissile": [
+          "HighTemplarSCBWWeapon@LM"
+        ],
+        "CEffectSet": [
+          "HighTemplarSCBWWeapon@Set",
+          "HighTemplarSCBWHallucination@SetAB",
+          "HighTemplarSCBWPsiStorm@SearchSet",
+          "HighTemplarSCBWHallucination@SetInitial"
+        ],
+        "CEffectApplyBehavior": [
+          "HighTemplarSCBWHallucination@AB",
+          "HighTemplarSCBWHallucination@ABTimedLife",
+          "HighTemplarSCBWPsiStorm@AB",
+          "HighTemplarSCBWPsiStorm@Marker"
+        ],
+        "CEffectCreatePersistent": [
+          "HighTemplarSCBWPsiStorm@CPDelayInital",
+          "HighTemplarSCBWPsiStorm@CP"
+        ],
+        "CEffectEnumArea": [
+          "HighTemplarSCBWPsiStorm@Search"
+        ],
+        "CEffectCreateUnit": [
+          "HighTemplarSCBWHallucination@CU"
+        ],
+        "CAbilResearch": [
+          "HighTemplarSCBWEnergyUpgrade",
+          "HighTemplarSCBWHallucinationResearch",
+          "HighTemplarSCBWPsiStormResearch"
+        ],
+        "CAbilEffectTarget": [
+          "HighTemplarSCBWPsiStorm",
+          "HighTemplarSCBWPsiStorm@Hardcore",
+          "HighTemplarSCBWHallucination",
+          "HighTemplarSCBWHallucination@Hardcore"
+        ],
+        "CActorEventMacro": [
+          "HighTemplarSCBWPsiStorm@CastMacro",
+          "HighTemplarSCBW@HardcoreMacro"
+        ],
+        "CActorModel": [
+          "HighTemplarSCBWPsiStorm@CastFX",
+          "HighTemplarSCBWHallucination@Birth",
+          "HighTemplarSCBWPsiStorm@Impact",
+          "HighTemplarSCBWPsiStorm@Model",
+          "HighTemplarSCBW@Shadow"
+        ],
+        "CActorAction": [
+          "HighTemplarSCBWWeapon@Action"
+        ],
+        "CActorMissile": [
+          "HighTemplarSCBWWeapon@ActionMissile"
+        ],
+        "CActorForceSphere": [
+          "HighTemplarSCBWWeapon@PhysicsImpactForce"
+        ],
+        "CActorSound": [
+          "HighTemplarSCBWHallucination@BirthSound",
+          "HighTemplarSCBWPsiStorm@ImpactSound",
+          "HighTemplarSCBWPsiStorm@CastSound",
+          "HighTemplarSCBWPsiStorm@Sound",
+          "HighTemplarSCBW@LandSweetener",
+          "HighTemplarSCBW@Land"
+        ],
+        "CActorRange": [
+          "HighTemplarSCBWHallucination@Range",
+          "HighTemplarSCBWPsiStorm@Range"
+        ],
+        "CActorSimple": [
+          "HighTemplarSCBWHallucination"
+        ],
+        "CActorSplat": [
+          "HighTemplarSCBWPsiStorm@CursorSplat"
+        ],
+        "CActorUnit": [
+          "HighTemplarSCBW"
+        ],
+        "CModel": [
+          "HighTemplarSCBWPsiStorm@CastFX",
+          "HighTemplarSCBWWeapon@Missile",
+          "HighTemplarSCBWWeapon@AttackImpact",
+          "HighTemplarSCBWHallucination@Birth",
+          "HighTemplarSCBWPsiStorm@Impact",
+          "HighTemplarSCBWPsiStorm@Model",
+          "HighTemplarSCBWPsiStorm@CursorSplat",
+          "HighTemplarSCBW@Shadow",
+          "HighTemplarSCBW@Death",
+          "HighTemplarSCBW@DeathRagdoll",
+          "HighTemplarSCBW",
+          "HighTemplarSCBW@Low",
+          "HighTemplarSCBW@Placement",
+          "HighTemplarSCBW@Portrait",
+          "HighTemplarSCBW@WarpIn"
+        ],
+        "CWeaponLegacy": [
+          "HighTemplarSCBWWeapon"
+        ],
+        "CUnit": [
+          "HighTemplarSCBWWeapon@Missile",
+          "HighTemplarSCBW"
+        ],
+        "CBehaviorBuff": [
+          "HighTemplarSCBWHallucination",
+          "HighTemplarSCBWHallucination@TimedLife",
+          "HighTemplarSCBWPsiStorm",
+          "HighTemplarSCBWPsiStorm@Marker"
+        ],
+        "CUpgrade": [
+          "HighTemplarSCBWEnergyUpgrade",
+          "HighTemplarSCBWHallucinationResearch",
+          "HighTemplarSCBWPsiStormResearch"
+        ]
+      },
+      "sha": "e737018dcf3d29692dc7d98300aa183013272fe8"
+    },
+    {
+      "file": "SCBW_03.Protoss/02.Gateway/03a.ArchonSCBW.xml",
+      "types": {
+        "CEffectUserData": [
+          "ArchonSCBWWeapon@MissChance"
+        ],
+        "CEffectSet": [
+          "ArchonSCBWWeapon@Impact",
+          "ArchonSCBWWeapon@InitialSet"
+        ],
+        "CEffectCreatePersistent": [
+          "ArchonSCBWWeapon@Miss",
+          "ArchonSCBWWeapon@MissMedium",
+          "ArchonSCBWWeapon@MissLarge"
+        ],
+        "CEffectSwitch": [
+          "ArchonSCBWWeapon@MissOffsetSwitch",
+          "ArchonSCBWWeapon@MissSwitch"
+        ],
+        "CEffectDamage": [
+          "ArchonSCBWWeapon@MissDummy",
+          "ArchonSCBWWeapon@Damage"
+        ],
+        "CAbilMerge": [
+          "ArchonSCBWMerge",
+          "ArchonSCBWMerge@Hardcore"
+        ],
+        "CAbilMergeable": [
+          "ArchonSCBW@Mergeable"
+        ],
+        "CActorAction": [
+          "ArchonSCBWWeapon@Action"
+        ],
+        "CActorBeamSimple": [
+          "ArchonSCBWWeapon@Beam"
+        ],
+        "CActorSound": [
+          "ArchonSCBWMerge@Sound",
+          "ArchonSCBW@Death",
+          "ArchonSCBW@LandSweetener",
+          "ArchonSCBW@Land"
+        ],
+        "CActorUnit": [
+          "ArchonSCBW"
+        ],
+        "CModel": [
+          "ArchonSCBWWeapon@Beam",
+          "ArchonSCBW",
+          "ArchonSCBW@Death",
+          "ArchonSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "ArchonSCBWWeapon"
+        ],
+        "CUnit": [
+          "ArchonSCBW"
+        ]
+      },
+      "sha": "e2d74890ba8d589e78bdd54c03986ab930df7c66"
+    },
+    {
+      "file": "SCBW_03.Protoss/02.Gateway/04.DarkTemplarSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "DarkTemplarSCBWWeapon@Damage"
+        ],
+        "CActorAction": [
+          "DarkTemplarSCBWWeapon@Action"
+        ],
+        "CActorSound": [
+          "DarkTemplarSCBWWeapon@LaunchSound",
+          "DarkTemplarSCBW@LandSweetener",
+          "DarkTemplarSCBW@Land"
+        ],
+        "CActorUnit": [
+          "DarkTemplarSCBW"
+        ],
+        "CActorModel": [
+          "DarkTemplarSCBW@DeathRagdoll"
+        ],
+        "CModel": [
+          "DarkTemplarSCBWWeapon@ActionImpact",
+          "DarkTemplarSCBW",
+          "DarkTemplarSCBW@Death",
+          "DarkTemplarSCBW@DeathRagdoll",
+          "DarkTemplarSCBW@Placement",
+          "DarkTemplarSCBW@Portrait",
+          "DarkTemplarSCBW@WarpIn"
+        ],
+        "CWeaponLegacy": [
+          "DarkTemplarSCBWWeapon"
+        ],
+        "CUnit": [
+          "DarkTemplarSCBW"
+        ]
+      },
+      "sha": "6c7a72f585906ed715a0b3534bfb9fdf1ce2e49a"
+    },
+    {
+      "file": "SCBW_03.Protoss/02.Gateway/04a.DarkArchonSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "DarkArchonSCBWWeapon@Damage",
+          "DarkArchonSCBWFeedback@Damage"
+        ],
+        "CEffectEnumTransport": [
+          "DarkArchonSCBWMindControl@IterateTransport"
+        ],
+        "CEffectSet": [
+          "DarkArchonSCBWMaelstrom@Set",
+          "DarkArchonSCBWMindControl@Clear",
+          "DarkArchonSCBWMindControl@Set",
+          "DarkArchonSCBWMindControl@IterateTransportSet",
+          "DarkArchonSCBWFeedback@Set"
+        ],
+        "CEffectIssueOrder": [
+          "DarkArchonSCBWMaelstrom@HaltIssueOrder"
+        ],
+        "CEffectApplyBehavior": [
+          "DarkArchonSCBWMindControl@ActivationAB",
+          "DarkArchonSCBWMindControl@AB",
+          "DarkArchonSCBWMaelstrom@AB"
+        ],
+        "CEffectRemoveBehavior": [
+          "DarkArchonSCBWMindControl@RB"
+        ],
+        "CEffectModifyUnit": [
+          "DarkArchonSCBWMindControl@MUChangeOwner",
+          "DarkArchonSCBWMindControl@MU",
+          "DarkArchonSCBWMindControl@DrainEnergy",
+          "DarkArchonSCBWFeedback@MU"
+        ],
+        "CEffectEnumArea": [
+          "DarkArchonSCBWMaelstrom@Search"
+        ],
+        "CAbilResearch": [
+          "DarkArchonSCBWEnergyUpgrade",
+          "DarkArchonSCBWFeedbackResearch",
+          "DarkArchonSCBWMaelstromResearch",
+          "DarkArchonSCBWMindControlResearch"
+        ],
+        "CAbilMerge": [
+          "DarkArchonSCBWMerge",
+          "DarkArchonSCBWMerge@Hardcore"
+        ],
+        "CAbilEffectTarget": [
+          "DarkArchonSCBWMindControl",
+          "DarkArchonSCBWMindControl@Hardcore",
+          "DarkArchonSCBWMaelstrom",
+          "DarkArchonSCBWMaelstrom@Hardcore",
+          "DarkArchonSCBWFeedback",
+          "DarkArchonSCBWFeedback@Hardcore"
+        ],
+        "CAbilMergeable": [
+          "DarkArchonSCBW@Mergeable"
+        ],
+        "CActorAction": [
+          "DarkArchonSCBWWeapon@Action"
+        ],
+        "CActorBeamSimple": [
+          "DarkArchonSCBWWeapon@Beam",
+          "DarkArchonSCBWMindControl@Beam"
+        ],
+        "CActorSound": [
+          "DarkArchonSCBWMerge@Sound",
+          "DarkArchonSCBWFeedback@ImpactSound",
+          "DarkArchonSCBWFeedback@LaunchSound",
+          "DarkArchonSCBWMindControl@Sound",
+          "DarkArchonSCBWMaelstrom@LaunchSound",
+          "DarkArchonSCBW@Death"
+        ],
+        "CActorModel": [
+          "DarkArchonSCBWMaelstrom@CastModel",
+          "DarkArchonSCBWFeedback@Impact",
+          "DarkArchonSCBWFeedback@Launch",
+          "DarkArchonSCBWMindControl@Impact",
+          "DarkArchonSCBWMindControl@State",
+          "DarkArchonSCBWMaelstrom@Impact",
+          "DarkArchonSCBWMaelstrom@StunImpact"
+        ],
+        "CActorRange": [
+          "DarkArchonSCBWFeedback@Range",
+          "DarkArchonSCBWMindControl@Range",
+          "DarkArchonSCBWMaelstrom@Range"
+        ],
+        "CActorSplat": [
+          "DarkArchonSCBWMaelstrom@CursorSplat"
+        ],
+        "CActorUnit": [
+          "DarkArchonSCBW"
+        ],
+        "CActorEventMacro": [
+          "DarkArchonSCBW@HardcoreMacro"
+        ],
+        "CModel": [
+          "DarkArchonSCBWWeapon@Beam",
+          "DarkArchonSCBWMaelstrom@CastModel",
+          "DarkArchonSCBWMindControl@Impact",
+          "DarkArchonSCBWMindControl@Beam",
+          "DarkArchonSCBWMindControl@State",
+          "DarkArchonSCBWMaelstrom@Impact",
+          "DarkArchonSCBWMaelstrom@StunImpact",
+          "DarkArchonSCBWFeedback@Impact",
+          "DarkArchonSCBWFeedback@Launch",
+          "DarkArchonSCBW",
+          "DarkArchonSCBW@Death",
+          "DarkArchonSCBW@DeathLow",
+          "DarkArchonSCBW@Placement",
+          "DarkArchonSCBW@Portrait",
+          "DarkArchonSCBW@WarpIn"
+        ],
+        "CWeaponLegacy": [
+          "DarkArchonSCBWWeapon"
+        ],
+        "CUnit": [
+          "DarkArchonSCBW"
+        ],
+        "CBehaviorBuff": [
+          "DarkArchonSCBWMindControl@Activation",
+          "DarkArchonSCBWMindControl@Prevention",
+          "DarkArchonSCBWMindControl",
+          "DarkArchonSCBWMaelstrom"
+        ],
+        "CUpgrade": [
+          "DarkArchonSCBWEnergyUpgrade",
+          "DarkArchonSCBWFeedbackResearch",
+          "DarkArchonSCBWMaelstromResearch",
+          "DarkArchonSCBWMindControlResearch"
+        ]
+      },
+      "sha": "5c67c9a63c252b76ccf4c2bb1cefc0f1a22083bf"
+    },
+    {
+      "file": "SCBW_03.Protoss/03.Robotics/01.ShuttleSCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "ShuttleSCBWSpeedUpgrade"
+        ],
+        "CAbilTransport": [
+          "ShuttleSCBW@Transport"
+        ],
+        "CAbilRedirectInstant": [
+          "ShuttleSCBW@RedirectScarab",
+          "ShuttleSCBW@RedirectScarabCancel"
+        ],
+        "CActorModel": [
+          "ShuttleSCBW@TransportLoadModel",
+          "ShuttleSCBW@TransportUnloadModel",
+          "ShuttleSCBW@TransportUnloadFX",
+          "ShuttleSCBW@WarpInRobotics"
+        ],
+        "CActorSound": [
+          "ShuttleSCBW@TransportLoadSound",
+          "ShuttleSCBW@TransportUnloadSound"
+        ],
+        "CActorUnit": [
+          "ShuttleSCBW"
+        ],
+        "CModel": [
+          "ShuttleSCBW@TransportLoadModel",
+          "ShuttleSCBW@TransportUnloadModel",
+          "ShuttleSCBW@TransportUnloadFX",
+          "ShuttleSCBW@Death",
+          "ShuttleSCBW@DeathRagdoll",
+          "ShuttleSCBW",
+          "ShuttleSCBW@Portrait",
+          "ShuttleSCBW@WarpIn",
+          "ShuttleSCBW@WarpInRobotics"
+        ],
+        "CUnit": [
+          "ShuttleSCBW"
+        ],
+        "CUpgrade": [
+          "ShuttleSCBWSpeedUpgrade"
+        ]
+      },
+      "sha": "3063f9ebd76da407bf7876fa00ae6dab8902671a"
+    },
+    {
+      "file": "SCBW_03.Protoss/03.Robotics/02.ReaverSCBW.xml",
+      "types": {
+        "CEffectApplyBehavior": [
+          "ReaverSCBWWeapon@LaunchSuccess",
+          "ReaverSCBWWeapon@TargetLockedOnReacquire",
+          "ReaverSCBWWeapon@ChaseTracker",
+          "ReaverSCBWWeapon@LaunchAttempt",
+          "ReaverSCBWWeapon@TargetLockedOn",
+          "ReaverSCBWWeapon@Backswing",
+          "ReaverSCBWWeapon@HallucinationScarab",
+          "ReaverSCBWWeapon@UnloadStun",
+          "ReaverSCBWWeapon@NotInsideTransport",
+          "ReaverSCBWWeapon@InsideTransport",
+          "ReaverSCBWWeapon@Warning",
+          "ReaverSCBWWeapon@WarningSign",
+          "ReaverSCBWWeapon@TrackTargetLastPosition",
+          "ReaverSCBWWeapon@TrackTargetPosition",
+          "ReaverSCBWWeapon@KillsToCaster"
+        ],
+        "CEffectRemoveBehavior": [
+          "ReaverSCBWWeapon@NoOrdersRB",
+          "ReaverSCBWWeapon@TeleportTrackRemoveWarningSign",
+          "ReaverSCBWWeapon@TrackTargetLastPositionRB",
+          "ReaverSCBWWeapon@WarningSignRB",
+          "ReaverSCBWWeapon@TeleportTrackRemoveTracker"
+        ],
+        "CEffectUserData": [
+          "ReaverSCBWHangar@ScarabCounterAdd",
+          "ReaverSCBWHangar@ScarabCounterReduce",
+          "ReaverSCBWWeapon@UDMindControlled"
+        ],
+        "CEffectSwitch": [
+          "ReaverSCBWWeapon@LaunchSwitch",
+          "ReaverSCBWWeapon@LaunchPathValid",
+          "ReaverSCBWWeapon@LaunchPathBlocked",
+          "ReaverSCBWWeapon@ChaseSwitch",
+          "ReaverSCBWWeapon@ChaseSwitchNoReset"
+        ],
+        "CEffectCancelOrder": [
+          "ReaverSCBWWeapon@ChaseCancelOrder",
+          "ReaverSCBWWeapon@CancelAttackOrders",
+          "ReaverSCBWWeapon@ChaseCancelAttack",
+          "ReaverSCBWWeapon@ShiftMoveLocationClearOrder"
+        ],
+        "CEffectSet": [
+          "ReaverSCBWWeapon@TeleportTrackFinal",
+          "ReaverSCBWWeapon@ChaseCancel",
+          "ReaverSCBWWeapon@EnumScarabsDudSource",
+          "ReaverSCBWWeapon@Stop",
+          "ReaverSCBWWeapon@EnumScarabsStopSet",
+          "ReaverSCBWWeapon@ChaseSet",
+          "ReaverSCBWWeapon@ChaseSetNoReset",
+          "ReaverSCBWWeapon@ShiftMoveLocationSet",
+          "ReaverSCBWWeapon@InsideTransportSet",
+          "ReaverSCBWWeapon@CUSet",
+          "ReaverSCBWWeapon@SetInitial",
+          "ReaverSCBWWeapon@TeleportTrackSet"
+        ],
+        "CEffectIssueOrder": [
+          "ReaverSCBWWeapon@UnloadStunOrder",
+          "ReaverSCBWWeapon@StopOrder",
+          "ReaverSCBWWeapon@ChaseOrder",
+          "ReaverSCBWWeapon@ShiftMoveLocationOrder",
+          "ReaverSCBWWeapon@ChaseAttack",
+          "ReaverSCBWWeapon@Attack"
+        ],
+        "CEffectEnumTrackedUnits": [
+          "ReaverSCBWWeapon@EnumScarabsDud",
+          "ReaverSCBWWeapon@EnumScarabsStop"
+        ],
+        "CEffectModifyUnit": [
+          "ReaverSCBWWeapon@ResetCooldown",
+          "ReaverSCBWWeapon@DelayAttack",
+          "ReaverSCBWWeapon@SetCooldown"
+        ],
+        "CEffectCreatePersistent": [
+          "ReaverSCBWWeapon@EnumScarabsStopOrders",
+          "ReaverSCBWWeapon@Chase",
+          "ReaverSCBWWeapon@Launch",
+          "ReaverSCBWWeapon@LaunchCheck",
+          "ReaverSCBWWeapon@QueueOrders",
+          "ReaverSCBWWeapon@TeleportTrack"
+        ],
+        "CEffectDestroyPersistent": [
+          "ReaverSCBWWeapon@QueueOrdersDP"
+        ],
+        "CEffectDamage": [
+          "ReaverSCBWWeapon@SuicideDud",
+          "ReaverSCBWWeapon@ScarabSuicide"
+        ],
+        "CEffectCreateUnit": [
+          "ReaverSCBWWeapon@CU"
+        ],
+        "CEffectUseMagazine": [
+          "ReaverSCBWWeapon@UM"
+        ],
+        "CEffectAddTrackedUnit": [
+          "ReaverSCBWWeapon@ScarabTrack"
+        ],
+        "CAbilStop": [
+          "ReaverSCBWWeapon@Stop"
+        ],
+        "CAbilEffectInstant": [
+          "ReaverSCBWWeapon@UnloadStunAbil"
+        ],
+        "CAbilResearch": [
+          "ReaverSCBWWeaponRangeUpgrade",
+          "ReaverSCBWHangarIncreaseUpgrade",
+          "ScarabSCBWWeaponDamageUpgrade"
+        ],
+        "CAbilEffectTarget": [
+          "ReaverSCBWWeapon@Chase"
+        ],
+        "CAbilArmMagazine": [
+          "ReaverSCBWHangar"
+        ],
+        "CAbilAttack": [
+          "ReaverSCBWWeapon@Attack"
+        ],
+        "CActorSound": [
+          "ReaverSCBWWeapon@Launch",
+          "ReaverSCBW@Land"
+        ],
+        "CActorRange": [
+          "ReaverSCBWWeapon@RangeIndicator"
+        ],
+        "CActorSimple": [
+          "ReaverSCBWWeapon@TargetTint"
+        ],
+        "CActorModel": [
+          "ReaverSCBWWeapon@TargetWarning",
+          "ReaverSCBWWeapon@UnloadStun",
+          "ReaverSCBW@DeathAir",
+          "ReaverSCBW@WarpInRobotics"
+        ],
+        "CActorUnit": [
+          "ReaverSCBW"
+        ],
+        "CModel": [
+          "ReaverSCBWWeapon@ImpactDud",
+          "ReaverSCBWWeapon@Impact",
+          "ReaverSCBWWeapon@ImpactUpgraded",
+          "ReaverSCBWWeapon@TargetWarningIndicator",
+          "ReaverSCBWWeapon@TargetWarningIndicatorUpgraded",
+          "ReaverSCBWWeapon@UnloadStun",
+          "ReaverSCBW@DeathRagdoll",
+          "ReaverSCBW@Death",
+          "ReaverSCBW",
+          "ReaverSCBW@Placement",
+          "ReaverSCBW@Portrait",
+          "ReaverSCBW@WarpIn",
+          "ReaverSCBW@WarpInRobotics"
+        ],
+        "CWeaponLegacy": [
+          "ReaverSCBWWeapon",
+          "ReaverSCBWWeapon@NoScan",
+          "ReaverSCBWWeapon@Dummy"
+        ],
+        "CAccumulatorUserData": [
+          "ReaverSCBWHangar@ScarabCounter"
+        ],
+        "CUnit": [
+          "ReaverSCBW"
+        ],
+        "CBehaviorBuff": [
+          "ReaverSCBWWeapon@LaunchSuccess",
+          "ReaverSCBWWeapon@LaunchNoPath",
+          "ReaverSCBWWeapon@ChaseTracker",
+          "ReaverSCBWWeapon@LaunchAttempt",
+          "ReaverSCBWWeapon@TargetLockedOn",
+          "ReaverSCBWWeapon@Backswing",
+          "ReaverSCBWWeapon@Disable",
+          "ReaverSCBWWeapon@NotInsideTransport",
+          "ReaverSCBWWeapon@WarningSign",
+          "ReaverSCBWWeapon@InsideTransport",
+          "ReaverSCBWWeapon@UnloadStun",
+          "ReaverSCBWWeapon@TrackTargetPosition",
+          "ReaverSCBWWeapon@TrackTargetLastPosition",
+          "ReaverSCBWWeapon@Warning",
+          "ReaverSCBWWeapon@ScarabTimedLife",
+          "ReaverSCBWWeapon@NoOrders"
+        ],
+        "CBehaviorUnitTracker": [
+          "ReaverSCBWWeapon@ScarabTracker"
+        ],
+        "CUpgrade": [
+          "ReaverSCBWHangarIncreaseUpgrade",
+          "ScarabSCBWWeaponDamageUpgrade",
+          "ReaverSCBWWeaponRangeUpgrade"
+        ]
+      },
+      "sha": "6002b603c9f3eccb5854f6e10402f62ed94409e1"
+    },
+    {
+      "file": "SCBW_03.Protoss/03.Robotics/02a.ScarabSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "ScarabSCBWWeapon@ImpactUpgraded",
+          "ScarabSCBWWeapon@ImpactSet",
+          "ScarabSCBWWeapon@Impact"
+        ],
+        "CEffectCreatePersistent": [
+          "ScarabSCBWWeapon@ImpactLocation"
+        ],
+        "CEffectDamage": [
+          "ScarabSCBWWeapon@Damage",
+          "ScarabSCBWWeapon@DamageFallback",
+          "ScarabSCBWWeapon@DamageUpgraded",
+          "ScarabSCBWWeapon@DamageUpgradedFallback"
+        ],
+        "CActorAction": [
+          "ScarabSCBWWeapon@Action"
+        ],
+        "CActorForceSphere": [
+          "ScarabSCBWWeapon@ExplosionForce",
+          "ScarabSCBWWeapon@ExplosionForceUp"
+        ],
+        "CActorUnit": [
+          "ScarabSCBW@Dummy",
+          "ScarabSCBW"
+        ],
+        "CModel": [
+          "ScarabSCBW@Upgraded",
+          "ScarabSCBW"
+        ],
+        "CWeaponLegacy": [
+          "ScarabSCBWWeapon"
+        ],
+        "CUnit": [
+          "ScarabSCBW",
+          "ScarabSCBW@Dummy"
+        ],
+        "CBehaviorBuff": [
+          "ScarabSCBW@Height"
+        ]
+      },
+      "sha": "5e013df78946b1053dae482b38fa436f16a00703"
+    },
+    {
+      "file": "SCBW_03.Protoss/03.Robotics/03.ObserverSCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "ObserverSCBWSightUpgrade",
+          "ObserverSCBWSpeedUpgrade"
+        ],
+        "CAbilMorph": [
+          "ObserverSCBWSieged@Morph",
+          "ObserverSCBW@Morph"
+        ],
+        "CActorUnit": [
+          "ObserverSCBW"
+        ],
+        "CActorModel": [
+          "ObserverSCBWSieged@ObservationMode",
+          "ObserverSCBW@WarpInRobotics"
+        ],
+        "CActorSound": [
+          "ObserverSCBWSieged@MorphStart",
+          "ObserverSCBWSieged@MorphEnd",
+          "ObserverSCBWSieged@Loop"
+        ],
+        "CModel": [
+          "ObserverSCBW@Death",
+          "ObserverSCBW@DeathRagdoll",
+          "ObserverSCBW",
+          "ObserverSCBW@Placement",
+          "ObserverSCBW@Portrait",
+          "ObserverSCBW@WarpIn",
+          "ObserverSCBW@WarpInRobotics"
+        ],
+        "CAccumulatorConstant": [
+          "ObserverSCBW@DetectRangeUpgraded",
+          "ObserverSCBWSieged@DetectRangeUpgraded",
+          "ObserverSCBWSieged@DetectRange",
+          "ObserverSCBW@DetectRange"
+        ],
+        "CUnit": [
+          "ObserverSCBWSieged",
+          "ObserverSCBW"
+        ],
+        "CBehaviorBuff": [
+          "ObserverSCBWSieged@Detector",
+          "ObserverSCBW@Detector"
+        ],
+        "CUpgrade": [
+          "ObserverSCBWSightUpgrade",
+          "ObserverSCBWSpeedUpgrade"
+        ]
+      },
+      "sha": "84d26cd28ea8af9f8efeebd3b9fc27ca342770b0"
+    },
+    {
+      "file": "SCBW_03.Protoss/04.Stargate/01.ScoutSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "ScoutSCBWWeaponAir@Impact"
+        ],
+        "CEffectUserData": [
+          "ScoutSCBWWeaponAir@DamageApply"
+        ],
+        "CEffectDamage": [
+          "ScoutSCBWWeaponGround@Damage",
+          "ScoutSCBWWeaponGround@FXDummy",
+          "ScoutSCBWWeaponAir@DamageAccum",
+          "ScoutSCBWWeaponAir@DamageExpl"
+        ],
+        "CEffectCreatePersistent": [
+          "ScoutSCBWWeaponGround@FXPersistent",
+          "ScoutSCBWWeaponGround@CP",
+          "ScoutSCBWWeaponAir@CP",
+          "ScoutSCBW@AirStack@MorphDelay",
+          "ScoutSCBW@MorphDelay"
+        ],
+        "CEffectLaunchMissile": [
+          "ScoutSCBWWeaponAir@LMLeft",
+          "ScoutSCBWWeaponAir@LMRight"
+        ],
+        "CEffectMorph": [
+          "ScoutSCBW@AirStack@Morph",
+          "ScoutSCBW@Morph"
+        ],
+        "CAbilResearch": [
+          "ScoutSCBWSightUpgrade",
+          "ScoutSCBWSpeedUpgrade"
+        ],
+        "CAbilMorph": [
+          "ScoutSCBW@AirStack@Morph",
+          "ScoutSCBW@Morph"
+        ],
+        "CActorModel": [
+          "ScoutSCBWWeaponGround@ImpactModel",
+          "ScoutSCBWWeaponGround@ImpactModelReaction",
+          "ScoutSCBWWeaponGround@LaunchModel",
+          "ScoutSCBW@WarpInStargate"
+        ],
+        "CActorSite": [
+          "ScoutSCBWWeaponGround@LaunchSite"
+        ],
+        "CActorSound": [
+          "ScoutSCBWWeaponGround@Launch",
+          "ScoutSCBWWeaponGround@Impact"
+        ],
+        "CActorAction": [
+          "ScoutSCBWWeaponGround@Action",
+          "ScoutSCBWWeaponAir@ActionLeft",
+          "ScoutSCBWWeaponAir@ActionRight"
+        ],
+        "CActorMissile": [
+          "ScoutSCBWWeaponAir@MissileLeft",
+          "ScoutSCBWWeaponAir@MissileRight"
+        ],
+        "CActorUnit": [
+          "ScoutSCBW"
+        ],
+        "CModel": [
+          "ScoutSCBWWeaponGround@Impact",
+          "ScoutSCBWWeaponGround@Launch",
+          "ScoutSCBWWeaponAir@ImpactLeft",
+          "ScoutSCBWWeaponAir@ImpactRight",
+          "ScoutSCBWWeaponAir@MissileLeft",
+          "ScoutSCBWWeaponAir@MissileRight",
+          "ScoutSCBW@Death",
+          "ScoutSCBW",
+          "ScoutSCBW@Portrait",
+          "ScoutSCBW@WarpIn",
+          "ScoutSCBW@WarpInStargate"
+        ],
+        "CWeaponLegacy": [
+          "ScoutSCBWWeaponGround",
+          "ScoutSCBWWeaponAir"
+        ],
+        "CAccumulatorConstant": [
+          "ScoutSCBWWeaponAir@Damage"
+        ],
+        "CUnit": [
+          "ScoutSCBWWeaponAir@MissileLeft",
+          "ScoutSCBWWeaponAir@MissileRight",
+          "ScoutSCBW",
+          "ScoutSCBW@AirStack"
+        ],
+        "CBehaviorBuff": [
+          "ScoutSCBW@AirStack",
+          "ScoutSCBW@AirStackUndo"
+        ],
+        "CUpgrade": [
+          "ScoutSCBWSightUpgrade",
+          "ScoutSCBWSpeedUpgrade"
+        ]
+      },
+      "sha": "84b75ba0815b2898ed7714d185558df72ab0b162"
+    },
+    {
+      "file": "SCBW_03.Protoss/04.Stargate/02.CarrierSCBW.xml",
+      "types": {
+        "CEffectSwitch": [
+          "CarrierSCBWWeapon@Switch"
+        ],
+        "CEffectEnumMagazine": [
+          "CarrierSCBWWeapon@IM"
+        ],
+        "CEffectUseMagazine": [
+          "CarrierSCBWWeapon@UM"
+        ],
+        "CEffectSet": [
+          "CarrierSCBWWeapon@Set"
+        ],
+        "CEffectCreatePersistent": [
+          "CarrierSCBWWeapon@CP"
+        ],
+        "CAbilResearch": [
+          "CarrierSCBWHangarIncreaseUpgrade"
+        ],
+        "CAbilArmMagazine": [
+          "CarrierSCBWHangar"
+        ],
+        "CActorSound": [
+          "CarrierSCBWWeapon@Launch",
+          "CarrierSCBW@Land"
+        ],
+        "CActorUnit": [
+          "CarrierSCBW"
+        ],
+        "CActorModel": [
+          "CarrierSCBW@WarpInStargate",
+          "CarrierSCBW@DeathActor",
+          "CarrierSCBW@DeathRagdoll"
+        ],
+        "CActorForceSphere": [
+          "CarrierSCBW@DeathRagdollDetonationForce"
+        ],
+        "CModel": [
+          "CarrierSCBW@Death",
+          "CarrierSCBW@DeathLow",
+          "CarrierSCBW@DeathRagdoll",
+          "CarrierSCBW",
+          "CarrierSCBW@Placement",
+          "CarrierSCBW@Portrait",
+          "CarrierSCBW@WarpIn",
+          "CarrierSCBW@WarpInStargate"
+        ],
+        "CWeaponLegacy": [
+          "CarrierSCBWWeapon@Dummy",
+          "CarrierSCBWWeapon"
+        ],
+        "CUnit": [
+          "CarrierSCBW"
+        ],
+        "CUpgrade": [
+          "CarrierSCBWHangarIncreaseUpgrade"
+        ]
+      },
+      "sha": "b046ca26aedc32cb19ab5048196dcd3c0cb53925"
+    },
+    {
+      "file": "SCBW_03.Protoss/04.Stargate/02a.InterceptorSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "InterceptorSCBWWeapon@Damage"
+        ],
+        "CEffectCreatePersistent": [
+          "InterceptorSCBWWeapon@CP"
+        ],
+        "CEffectLaunchMissile": [
+          "InterceptorSCBWWeapon@LM"
+        ],
+        "CEffectSet": [
+          "InterceptorSCBWWeapon@Impact",
+          "InterceptorSCBW@ReturnSet",
+          "InterceptorSCBW@HealSet",
+          "InterceptorSCBW@CreateSet"
+        ],
+        "CEffectRandomPointInCircle": [
+          "InterceptorSCBW@ReturnOrderOffset"
+        ],
+        "CEffectIssueOrder": [
+          "InterceptorSCBW@ReturnOrder"
+        ],
+        "CEffectApplyBehavior": [
+          "InterceptorSCBW@ReturnAB",
+          "InterceptorSCBW@NotLaunchableAB",
+          "InterceptorSCBW@ReturnSlowAB",
+          "InterceptorSCBW@ReturnHaltAB",
+          "InterceptorSCBW@HealLifeAB",
+          "InterceptorSCBW@HealShieldsAB",
+          "InterceptorSCBW@ReturnDamagedAB"
+        ],
+        "CEffectRemoveBehavior": [
+          "InterceptorSCBW@NotLaunchableRB",
+          "InterceptorSCBW@HealLifeRB",
+          "InterceptorSCBW@HealShieldsRB"
+        ],
+        "CEffectModifyUnit": [
+          "InterceptorSCBW@HealShields"
+        ],
+        "CEffectReturnMagazine": [
+          "InterceptorSCBW@Return"
+        ],
+        "CActorAction": [
+          "InterceptorSCBWWeapon@Action"
+        ],
+        "CActorMissile": [
+          "InterceptorSCBWWeapon@Missile"
+        ],
+        "CActorForceSphere": [
+          "InterceptorSCBWWeapon@ActionExplosionDeathForce",
+          "InterceptorSCBWWeapon@ActionDeathForce"
+        ],
+        "CActorSiteOpBankerUnit": [
+          "InterceptorSCBW@Banker"
+        ],
+        "CActorSound": [
+          "InterceptorSCBW@Land"
+        ],
+        "CActorUnit": [
+          "InterceptorSCBW"
+        ],
+        "CModel": [
+          "InterceptorSCBWWeapon@Missile",
+          "InterceptorSCBWWeapon@Beam",
+          "InterceptorSCBWWeapon@Impact",
+          "InterceptorSCBW@Death",
+          "InterceptorSCBW@DeathRagdoll",
+          "InterceptorSCBW"
+        ],
+        "CWeaponStrafe": [
+          "InterceptorSCBWWeapon"
+        ],
+        "CUnit": [
+          "InterceptorSCBWWeapon@Missile",
+          "InterceptorSCBW"
+        ],
+        "CBehaviorBuff": [
+          "InterceptorSCBW@RegenerateShields",
+          "InterceptorSCBW@NotLaunchable",
+          "InterceptorSCBW@Return",
+          "InterceptorSCBW@ReturnSlow",
+          "InterceptorSCBW@ReturnHalt",
+          "InterceptorSCBW@RegenerateLife",
+          "InterceptorSCBW@ReturnDamaged"
+        ]
+      },
+      "sha": "0b2567942a79e7e2081ce1f0dcf8d47fd881c5a1"
+    },
+    {
+      "file": "SCBW_03.Protoss/04.Stargate/03.CorsairSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "CorsairSCBWWeapon@ImpactSplash",
+          "CorsairSCBWWeapon@Impact",
+          "CorsairSCBWDisruptionWeb@Set"
+        ],
+        "CEffectUserData": [
+          "CorsairSCBWWeapon@DamageApply"
+        ],
+        "CEffectDamage": [
+          "CorsairSCBWWeapon@DamageAccum",
+          "CorsairSCBWWeapon@DamageAccum2",
+          "CorsairSCBWWeapon@DamageAccum3",
+          "CorsairSCBWWeapon@DamageExpl"
+        ],
+        "CEffectApplyBehavior": [
+          "CorsairSCBWDisruptionWeb@AB"
+        ],
+        "CEffectCreatePersistent": [
+          "CorsairSCBWDisruptionWeb@CP",
+          "CorsairSCBWDisruptionWeb@CPInfinite"
+        ],
+        "CEffectEnumTransport": [
+          "CorsairSCBWDisruptionWeb@IterateTransport"
+        ],
+        "CEffectEnumArea": [
+          "CorsairSCBWDisruptionWeb@Search"
+        ],
+        "CAbilResearch": [
+          "CorsairSCBWDisruptionWebResearch",
+          "CorsairSCBWEnergyUpgrade"
+        ],
+        "CAbilEffectTarget": [
+          "CorsairSCBWDisruptionWeb",
+          "CorsairSCBWDisruptionWeb@Hardcore"
+        ],
+        "CActorUnit": [
+          "CorsairSCBWDisruptionWeb@Unit",
+          "CorsairSCBW"
+        ],
+        "CActorSound": [
+          "CorsairSCBWWeapon@ImpactSound",
+          "CorsairSCBWDisruptionWeb@LaunchSound",
+          "CorsairSCBWDisruptionWeb@LoopSound",
+          "CorsairSCBWDisruptionWeb@LoopSoundUnit",
+          "CorsairSCBW@Land"
+        ],
+        "CActorModel": [
+          "CorsairSCBWWeapon@ImpactModel",
+          "CorsairSCBWWeapon@LaunchModel",
+          "CorsairSCBWDisruptionWeb@Disrupted",
+          "CorsairSCBWDisruptionWeb@Impact",
+          "CorsairSCBWDisruptionWeb@Cast",
+          "CorsairSCBW@WarpInStargate"
+        ],
+        "CActorAction": [
+          "CorsairSCBWWeapon@Action"
+        ],
+        "CActorBatch": [
+          "CorsairSCBWDisruptionWeb@DisruptedBatch"
+        ],
+        "CActorSiteOpAttach": [
+          "CorsairSCBWDisruptionWeb@DisruptedAttach"
+        ],
+        "CActorSplat": [
+          "CorsairSCBWDisruptionWeb@CursorSplat"
+        ],
+        "CActorRange": [
+          "CorsairSCBWDisruptionWeb@Range"
+        ],
+        "CModel": [
+          "CorsairSCBWDisruptionWeb@Unit",
+          "CorsairSCBWWeapon@Impact",
+          "CorsairSCBWWeapon@Launch",
+          "CorsairSCBWDisruptionWeb@Impact",
+          "CorsairSCBWDisruptionWeb@Cast",
+          "CorsairSCBWDisruptionWeb@Disrupted",
+          "CorsairSCBW@Portrait",
+          "CorsairSCBW",
+          "CorsairSCBW@Death",
+          "CorsairSCBW@Placement",
+          "CorsairSCBW@WarpIn",
+          "CorsairSCBW@WarpInStargate"
+        ],
+        "CWeaponLegacy": [
+          "CorsairSCBWWeapon"
+        ],
+        "CAccumulatorConstant": [
+          "CorsairSCBWWeapon@Damage"
+        ],
+        "CAccumulatorSwitch": [
+          "CorsairSCBWDisruptionWeb@DisruptedBatch"
+        ],
+        "CUnit": [
+          "CorsairSCBWDisruptionWeb@Unit",
+          "CorsairSCBW"
+        ],
+        "CBehaviorBuff": [
+          "CorsairSCBWDisruptionWeb"
+        ],
+        "CUpgrade": [
+          "CorsairSCBWDisruptionWebResearch",
+          "CorsairSCBWEnergyUpgrade"
+        ]
+      },
+      "sha": "84f1d4e70b3fc6b47e7d072360e74fa4ccec410f"
+    },
+    {
+      "file": "SCBW_03.Protoss/04.Stargate/04.ArbiterSCBW.xml",
+      "types": {
+        "CEffectTeleport": [
+          "ArbiterSCBWRecall@TeleportInitial",
+          "ArbiterSCBWRecall@PlacementCheckTP",
+          "ArbiterSCBWRecall@PlacementCheckFail",
+          "ArbiterSCBWRecall@TeleportAir",
+          "ArbiterSCBWRecall@PlacementCheckAir",
+          "ArbiterSCBWRecall@Teleport"
+        ],
+        "CEffectApplyBehavior": [
+          "ArbiterSCBWRecall@Success",
+          "ArbiterSCBWCloakField@AB",
+          "ArbiterSCBWStasisField@AB",
+          "ArbiterSCBWStasisField@ABTimedLife",
+          "ArbiterSCBWRecall@ABRecalled",
+          "ArbiterSCBWRecall@ABRecalling"
+        ],
+        "CEffectSet": [
+          "ArbiterSCBWRecall@CPSet",
+          "ArbiterSCBWWeapon@Impact",
+          "ArbiterSCBWRecall@EnumMagazineSet",
+          "ArbiterSCBWStasisField@Set",
+          "ArbiterSCBWRecall@SetInitial",
+          "ArbiterSCBWRecall@SetInitialGround",
+          "ArbiterSCBWRecall@Set",
+          "ArbiterSCBWRecall@SetGround"
+        ],
+        "CEffectEnumTransport": [
+          "ArbiterSCBWStasisField@IterateTransport"
+        ],
+        "CEffectIssueOrder": [
+          "ArbiterSCBWStasisField@HaltIssueOrder"
+        ],
+        "CEffectUserData": [
+          "ArbiterSCBWWeapon@DamageApply"
+        ],
+        "CEffectDamage": [
+          "ArbiterSCBWWeapon@DamageAccum",
+          "ArbiterSCBWWeapon@DamageExpl",
+          "ArbiterSCBWStasisField@PhasedUnit"
+        ],
+        "CEffectLaunchMissile": [
+          "ArbiterSCBWWeapon@LM"
+        ],
+        "CEffectEnumArea": [
+          "ArbiterSCBWCloakField@Search",
+          "ArbiterSCBWStasisField@Search",
+          "ArbiterSCBWRecall@Search",
+          "ArbiterSCBWRecall@SearchGroundFirst",
+          "ArbiterSCBWRecall@SearchDummy",
+          "ArbiterSCBWRecall@SearchGround"
+        ],
+        "CEffectSwitch": [
+          "ArbiterSCBWRecall@PlacementCheck"
+        ],
+        "CEffectCreatePersistent": [
+          "ArbiterSCBWRecall@CP",
+          "ArbiterSCBWRecall@CPFinal"
+        ],
+        "CEffectRemoveBehavior": [
+          "ArbiterSCBWRecall@ClearRecalls"
+        ],
+        "CEffectEnumMagazine": [
+          "ArbiterSCBWRecall@EnumMagazine"
+        ],
+        "CAbilResearch": [
+          "ArbiterSCBWEnergyUpgrade",
+          "ArbiterSCBWRecallResearch",
+          "ArbiterSCBWStasisFieldResearch"
+        ],
+        "CAbilEffectTarget": [
+          "ArbiterSCBWStasisField",
+          "ArbiterSCBWStasisField@Hardcore",
+          "ArbiterSCBWRecall",
+          "ArbiterSCBWRecall@Hardcore"
+        ],
+        "CActorSound": [
+          "ArbiterSCBWRecall@CastSound",
+          "ArbiterSCBWWeapon@Launch",
+          "ArbiterSCBWStasisField@ImpactSound",
+          "ArbiterSCBWStasisField@OffSound",
+          "ArbiterSCBWStasisField@Shockwave",
+          "ArbiterSCBWRecall@ImpactSoundRecalling",
+          "ArbiterSCBWRecall@ImpactSoundRecalled",
+          "ArbiterSCBWCloakField@Off",
+          "ArbiterSCBWCloakField@On",
+          "ArbiterSCBW@LandSoundSweetener",
+          "ArbiterSCBW@Land"
+        ],
+        "CActorQueryResponse": [
+          "ArbiterSCBWRecall@GuideRegionAdd"
+        ],
+        "CActorRegionCircle": [
+          "ArbiterSCBWRecall@CursorRegion"
+        ],
+        "CActorAction": [
+          "ArbiterSCBWWeapon@Action"
+        ],
+        "CActorMissile": [
+          "ArbiterSCBWWeapon@Missile"
+        ],
+        "CActorSplat": [
+          "ArbiterSCBWStasisField@CursorSplat",
+          "ArbiterSCBWRecall@CursorSplat"
+        ],
+        "CActorModel": [
+          "ArbiterSCBWStasisField@CastModel",
+          "ArbiterSCBWStasisField@Impact",
+          "ArbiterSCBWRecall@SearchEnd",
+          "ArbiterSCBWRecall@SearchStart",
+          "ArbiterSCBWRecall@ImpactRecalled",
+          "ArbiterSCBWRecall@ImpactRecalling",
+          "ArbiterSCBW@WarpInStargate"
+        ],
+        "CActorRange": [
+          "ArbiterSCBWStasisField@Range",
+          "ArbiterSCBWRecall@Range",
+          "ArbiterSCBWCloakField@Range"
+        ],
+        "CActorSimple": [
+          "ArbiterSCBWRecall@Opacity"
+        ],
+        "CActorUnit": [
+          "ArbiterSCBW"
+        ],
+        "CModel": [
+          "ArbiterSCBWWeapon@Impact",
+          "ArbiterSCBWWeapon@Missile",
+          "ArbiterSCBWStasisField@CastModel",
+          "ArbiterSCBWStasisField@Impact",
+          "ArbiterSCBWRecall@ImpactRecalled",
+          "ArbiterSCBWRecall@ImpactRecalling",
+          "ArbiterSCBWRecall@SearchStart",
+          "ArbiterSCBW@Death",
+          "ArbiterSCBW@WarpInStargate",
+          "ArbiterSCBW@Placement",
+          "ArbiterSCBW@WarpIn",
+          "ArbiterSCBW",
+          "ArbiterSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "ArbiterSCBWWeapon"
+        ],
+        "CAccumulatorConstant": [
+          "ArbiterSCBWWeapon@Damage"
+        ],
+        "CUnit": [
+          "ArbiterSCBWWeapon@Missile",
+          "ArbiterSCBW"
+        ],
+        "CBehaviorBuff": [
+          "ArbiterSCBWRecall@Success",
+          "ArbiterSCBWCloakField",
+          "ArbiterSCBWCloakField@Effect",
+          "ArbiterSCBWStasisField",
+          "ArbiterSCBWStasisField@TimedLife",
+          "ArbiterSCBWRecall@Recalled",
+          "ArbiterSCBWRecall@Recalling"
+        ],
+        "CUpgrade": [
+          "ArbiterSCBWEnergyUpgrade",
+          "ArbiterSCBWRecallResearch",
+          "ArbiterSCBWStasisFieldResearch"
+        ]
+      },
+      "sha": "88d67c28f08fd85d47d15876b769ea0923f5d5f0"
+    },
+    {
+      "file": "SCBW_03.Protoss/05a.StructureBasic/00.General.xml",
+      "types": {
+        "CActorModel": [
+          "ProtossBuildingSCBW@FireLarge",
+          "ProtossBuildingSCBW@FireMedium",
+          "ProtossBuildingSCBW@FireSmall",
+          "ProtossBuildingSCBW@BirthSmall",
+          "ProtossBuildingSCBW@Birth"
+        ],
+        "CActorSound": [
+          "ProtossBuildingSCBW@FlameLoopLarge",
+          "ProtossBuildingSCBW@FlameLoopMedium",
+          "ProtossBuildingSCBW@FlameLoopSmall",
+          "ProtossBuildingSCBW@WarpStartSound",
+          "ProtossBuildingSCBW@PowerDownLarge",
+          "ProtossBuildingSCBW@PowerUpLarge"
+        ],
+        "CActorSetQueried": [
+          "ProtossBuildingSCBW@FlameSetFireLarge",
+          "ProtossBuildingSCBW@FlameSetFireMedium",
+          "ProtossBuildingSCBW@FlameSetFireSmall",
+          "ProtossBuildingSCBW@FlameSetFireTransitionLarge",
+          "ProtossBuildingSCBW@FlameSetFireTransitionMedium",
+          "ProtossBuildingSCBW@FlameSetFireTransitionSmall"
+        ],
+        "CActorProgress": [
+          "ProtossBuildingSCBW@ConstructionAttached",
+          "ProtossBuildingSCBW@ConstructionAttachedLarge",
+          "ProtossBuildingSCBW@ConstructionAttachedSmall",
+          "ProtossBuildingSCBW@Construction"
+        ],
+        "CActorStateMonitor": [
+          "ProtossBuildingSCBW@FlamesLarge",
+          "ProtossBuildingSCBW@FlamesMedium",
+          "ProtossBuildingSCBW@FlamesSmall"
+        ],
+        "CModel": [
+          "ProtossBuildingSCBW@FireMedium",
+          "ProtossBuildingSCBW@FireSmall",
+          "ProtossBuildingSCBW@FireLarge",
+          "ProtossBuildingSCBW@BirthLow",
+          "ProtossBuildingSCBW@BirthSmall",
+          "ProtossBuildingSCBW@BirthLowLarge",
+          "ProtossBuildingSCBW@BirthLowSmall",
+          "ProtossBuildingSCBW@BirthLarge",
+          "ProtossBuildingSCBW@Birth"
+        ]
+      },
+      "sha": "78dceee191d008692417c19f7bfe0cb713b6ce5c"
+    }
+  ]
+}
