@@ -160,118 +160,743 @@
         "ScaleMin": "0.325,0.325,0.325",
         "ScaleMax": "0.325,0.325,0.325"
       }
+    },
+    {
+      "id": "SCVAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "RavenRepairDroneHealImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "RavenRepairDroneReleaseWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "StimpackStartImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "StimpackEndImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "TerranFlyingBuildingDeathLow",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "AutoTurretAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "AutoTurretAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "BansheeAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "BattlecruiserAirAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "GhostAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "GhostBunkerAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "GhostAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "GhostSnipeAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "GhostSnipeAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HellionAttackDamageReaction",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HellionUpgradedAttackDamageReaction",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HellionUpgradedAttackDamageReactionStructure",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HellionAttackDamageShield",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MarauderAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MarauderUpgradedAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MarauderBaseAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MarineAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MarineAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MissileTurretAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "PlanetaryFortressAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "PlanetaryFortressAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ReaperAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ReaperBunkerAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ReaperAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SCVAttack",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankAttackLaunchLow",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankAttackImpactLow",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankSiegedAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankSiegedAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankSiegedAttackDamage",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankSiegedAttackDamageShield",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankSiegedAttackDirectedLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankSiegedAttackDirectedImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankSiegedAttackDirectedDamage",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTankSiegedAttackDirectedDamageShield",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "VikingAssaultAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "VikingAssaultAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "VikingFighterAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "VikingFighterWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "VikingFighterAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "TerranFlyingBuildingDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "TerranSmallUnitDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "TerranLargeUnitDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ThorHandGunAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ThorHandGunAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ThorAAAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ThorAAWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ThorAAAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MarineShieldUpgradeDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "LongboltMissileWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "PunisherGrenadesLMWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ReaperD8AttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "YamatoWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ReaperJumpLandDownModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ReaperJumpLandUpModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ReaperJumpLaunchModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "TerranBuildingSmokeMedium",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "TerranBuildingSmokeLarge",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "TerranBuildingFireLarge",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "AutoTurretReleaseWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "AutoTurretReleaseMissileImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "BattlecruiserYamatoAttackChargeModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "VikingMechaAssaultWeaponLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SCV_Blizzcon17_Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SCV_Blizzcon17_DeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "Ghost_Eidolon_Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CycloneMissilesAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CycloneMissilesWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CycloneMissilesAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HellionTankAttackFireAddition",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HellionTankAttackUpgradedFireAddition",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MarineXPRDeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SupplyDepotXPRDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "WidowMineAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "WidowMineAirAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CycloneMissileLarge",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CycloneMissileLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CycloneMissileImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CycloneMissileImpactLarge",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "LiberatorAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "LiberatorMissile",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "LiberatorDamageMissile",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "Marauder_BlackOps_Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SiegeTank_BlackOps_Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ThorAAAttackImpactLance",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ThorAAAttackLaunchLance",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ThorAAWeaponLance",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "AutoTurret_Junker_Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "AutoTurret_Junker_DeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "RefineryTerrazineBuild",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "TerranSquibDeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "KD8ChargeWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "RavenShredderMissileAttackImpactDebuff",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "RavenScramblerMissileBehavior",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MarauderConcussiveShellMissile",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MarauderConcussiveShellMissileLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
     }
   ],
   "unresolved": [
-    "SCVAttackLaunch",
-    "RavenRepairDroneHealImpact",
-    "RavenRepairDroneReleaseWeapon",
     "Thor_CollectorEdition_Morph_Death",
     "Thor_CollectorEdition_DeathRagdoll",
     "Thor_CollectorEdition_Death",
-    "StimpackStartImpact",
-    "StimpackEndImpact",
-    "TerranFlyingBuildingDeathLow",
-    "AutoTurretAttackLaunch",
-    "AutoTurretAttackImpact",
-    "BansheeAttackImpact",
-    "BattlecruiserAirAttackImpact",
-    "GhostAttackLaunch",
-    "GhostBunkerAttackLaunch",
-    "GhostAttackImpact",
-    "GhostSnipeAttackLaunch",
-    "GhostSnipeAttackImpact",
-    "HellionAttackDamageReaction",
-    "HellionUpgradedAttackDamageReaction",
-    "HellionUpgradedAttackDamageReactionStructure",
-    "HellionAttackDamageShield",
-    "MarauderAttackLaunch",
-    "MarauderUpgradedAttackImpact",
-    "MarauderBaseAttackImpact",
-    "MarineAttackLaunch",
-    "MarineAttackImpact",
-    "MissileTurretAttackImpact",
-    "PlanetaryFortressAttackImpact",
-    "PlanetaryFortressAttackLaunch",
-    "ReaperAttackLaunch",
-    "ReaperBunkerAttackLaunch",
-    "ReaperAttackImpact",
-    "SCVAttack",
-    "SiegeTankAttackLaunch",
-    "SiegeTankAttackLaunchLow",
-    "SiegeTankAttackImpact",
-    "SiegeTankAttackImpactLow",
-    "SiegeTankSiegedAttackLaunch",
-    "SiegeTankSiegedAttackImpact",
-    "SiegeTankSiegedAttackDamage",
-    "SiegeTankSiegedAttackDamageShield",
-    "SiegeTankSiegedAttackDirectedLaunch",
-    "SiegeTankSiegedAttackDirectedImpact",
-    "SiegeTankSiegedAttackDirectedDamage",
-    "SiegeTankSiegedAttackDirectedDamageShield",
-    "VikingAssaultAttackLaunch",
-    "VikingAssaultAttackImpact",
-    "VikingFighterAttackLaunch",
-    "VikingFighterWeapon",
-    "VikingFighterAttackImpact",
-    "TerranFlyingBuildingDeath",
-    "TerranSmallUnitDeath",
-    "TerranLargeUnitDeath",
-    "ThorHandGunAttackLaunch",
-    "ThorHandGunAttackImpact",
-    "ThorAAAttackImpact",
-    "ThorAAWeapon",
-    "ThorAAAttackLaunch",
-    "MarineShieldUpgradeDeath",
-    "LongboltMissileWeapon",
-    "PunisherGrenadesLMWeapon",
-    "ReaperD8AttackImpact",
-    "YamatoWeapon",
-    "ReaperJumpLandDownModel",
-    "ReaperJumpLandUpModel",
-    "ReaperJumpLaunchModel",
-    "TerranBuildingSmokeMedium",
-    "TerranBuildingSmokeLarge",
-    "TerranBuildingFireLarge",
-    "AutoTurretReleaseWeapon",
-    "AutoTurretReleaseMissileImpact",
-    "BattlecruiserYamatoAttackChargeModel",
-    "VikingMechaAssaultWeaponLaunch",
-    "SCV_Blizzcon17_Death",
-    "SCV_Blizzcon17_DeathRagdoll",
-    "Ghost_Eidolon_Death",
-    "CycloneMissilesAttackImpact",
-    "CycloneMissilesWeapon",
-    "CycloneMissilesAttackLaunch",
-    "HellionTankAttackFireAddition",
-    "HellionTankAttackUpgradedFireAddition",
-    "MarineXPRDeathRagdoll",
-    "SupplyDepotXPRDeath",
-    "WidowMineAttackImpact",
-    "WidowMineAirAttackImpact",
-    "CycloneMissileLarge",
-    "CycloneMissileLaunch",
-    "CycloneMissileImpact",
-    "CycloneMissileImpactLarge",
-    "LiberatorAttackImpact",
-    "LiberatorMissile",
-    "LiberatorDamageMissile",
-    "Marauder_BlackOps_Death",
-    "SiegeTank_BlackOps_Death",
-    "ThorAAAttackImpactLance",
-    "ThorAAAttackLaunchLance",
-    "ThorAAWeaponLance",
     "Ghost_CovertOps_DeathEviscerate",
-    "Ghost_CovertOps_DeathRagdoll",
-    "AutoTurret_Junker_Death",
-    "AutoTurret_Junker_DeathRagdoll",
-    "RefineryTerrazineBuild",
-    "TerranSquibDeathRagdoll",
-    "KD8ChargeWeapon",
-    "RavenShredderMissileAttackImpactDebuff",
-    "RavenScramblerMissileBehavior",
-    "MarauderConcussiveShellMissile",
-    "MarauderConcussiveShellMissileLaunch"
+    "Ghost_CovertOps_DeathRagdoll"
   ],
-  "policy": "Terran model candidates with numeric explicit/inherited original scale; preserve area indicators and shared beam/uncertain assets; not live tested"
+  "policy": "Terran model candidates with numeric explicit/inherited original scale; preserve area indicators and shared beam/uncertain assets; not live tested",
+  "default_policy": "Core CModel default ScaleMin/ScaleMax explicitly 1,1,1; apply only where known parent chain resolves. Preserve uncertain skin variants."
 }
