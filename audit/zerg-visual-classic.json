@@ -43,13 +43,6 @@
       }
     },
     {
-      "id": "NeuralParasiteTentacle",
-      "fields": {
-        "ScaleMin": "0.425,0.425,0.425",
-        "ScaleMax": "0.425,0.425,0.425"
-      }
-    },
-    {
       "id": "LarvaSuperEgg",
       "fields": {
         "ScaleMin": "0.5,0.5,0.5",
@@ -319,16 +312,6 @@
       }
     },
     {
-      "id": "InfestedTerransEgg",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
       "id": "InfestedTerransWeapon",
       "fields": {
         "ScaleMin": "0.5,0.5,0.5",
@@ -347,106 +330,6 @@
       "fields": {
         "ScaleMin": "0.5,0.5,0.5",
         "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
-      "id": "InfestorTerran_Webby_Death",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "InfestorTerran_Webby_DeathFire",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "InfestorTerran_Webby_DeathAcid",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "InfestorTerran_Webby_DeathTimeout",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "InfestorTerran_Webby_DeathRagdoll",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "InfestorTerran_Primal_Death",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "InfestorTerran_Primal_DeathFire",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "InfestorTerran_Primal_DeathAcid",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "InfestorTerran_Primal_DeathTimeout",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "InfestorTerran_Primal_DeathRagdoll",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
       }
     },
     {
@@ -606,20 +489,6 @@
       }
     },
     {
-      "id": "NeuralParasiteTentacleLaunchHostModel",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
-      "id": "NeuralParasiteTentacleImpactHostModel",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
       "id": "BanelingEx1Death",
       "fields": {
         "ScaleMin": "0.5,0.5,0.5",
@@ -719,13 +588,6 @@
         "ShadowRadius": "0.25",
         "Radius": "0.25",
         "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "LurkerMPAttackSpike",
-      "fields": {
-        "ScaleMin": "0.75,0.75,0.75",
-        "ScaleMax": "0.75,0.75,0.75"
       }
     },
     {
@@ -836,37 +698,6 @@
       }
     },
     {
-      "id": "UltraliskBurrowChargeImpact",
-      "fields": {
-        "ScaleMin": "0.6,0.6,0.6",
-        "ScaleMax": "0.6,0.6,0.6"
-      }
-    },
-    {
-      "id": "UltraliskBurrowChargeModel",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
-      "id": "UltraliskCEDeathRagdoll",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "ViperConsumeStructureTentacle",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
       "id": "ZerglingXPRDeathRagdoll",
       "fields": {
         "ScaleMin": "0.5,0.5,0.5",
@@ -887,31 +718,10 @@
       }
     },
     {
-      "id": "HydraliskImpaleMissileGroundCracks",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
       "id": "HydraliskImpaleAttackImpact",
       "fields": {
         "ScaleMin": "0.125,0.125,0.125",
         "ScaleMax": "0.125,0.125,0.125"
-      }
-    },
-    {
-      "id": "LurkerMPAttackSpikeImpact",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
-      "id": "LurkerAttackSpikeEx2",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
       }
     },
     {
@@ -929,13 +739,6 @@
       }
     },
     {
-      "id": "QueenMPEnsnareImpact",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
       "id": "RavagerWeaponMissile",
       "fields": {
         "ScaleMin": "0.5,0.5,0.5",
@@ -947,43 +750,6 @@
       "fields": {
         "ScaleMin": "0.5,0.5,0.5",
         "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
-      "id": "Zergling_Primal_Upgrade_DeathRagdoll",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "Zergling_Webby_Upgrade_DeathRagdoll",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "Overlord_Mutant_Transport_Death",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
-      }
-    },
-    {
-      "id": "NydusAttackerRumble",
-      "fields": {
-        "ScaleMin": "0.275,0.275,0.275",
-        "ScaleMax": "0.275,0.275,0.275"
       }
     },
     {
@@ -1093,41 +859,10 @@
       }
     },
     {
-      "id": "DefilerMPPlagueAttackImpact",
-      "fields": {
-        "ScaleMin": "0.3,0.3,0.3",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
-      "id": "CausticSprayImpact",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
       "id": "CausticSprayWeapon",
       "fields": {
         "ScaleMin": "0.5,0.5,0.5",
         "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
-      "id": "Infestor_Ex3_Tentacle",
-      "fields": {
-        "ScaleMin": "0.425,0.425,0.425",
-        "ScaleMax": "0.425,0.425,0.425"
-      }
-    },
-    {
-      "id": "InfestorBurrowedNeuralParasiteGroundSplat",
-      "fields": {
-        "ScaleMin": "0.625,0.625,0.625",
-        "ScaleMax": "0.625,0.625,0.625",
-        "ShadowRadius": "0.25",
-        "Radius": "0.25",
-        "SelectionRadius": "0.25"
       }
     },
     {
@@ -1139,13 +874,6 @@
     },
     {
       "id": "InfestedTerranAAMPLaunch",
-      "fields": {
-        "ScaleMin": "0.5,0.5,0.5",
-        "ScaleMax": "0.5,0.5,0.5"
-      }
-    },
-    {
-      "id": "InfestorEnsnareImpact",
       "fields": {
         "ScaleMin": "0.5,0.5,0.5",
         "ScaleMax": "0.5,0.5,0.5"
@@ -1287,7 +1015,89 @@
     "DefilerMPDarkSwarmImpact",
     "ParasiticBombMissile",
     "ParasiticBombAttackImpact",
-    "InfestorEnsnareAttackMissile"
+    "InfestorEnsnareAttackMissile",
+    "NeuralParasiteTentacle",
+    "InfestedTerransEgg",
+    "InfestorTerran_Webby_Death",
+    "InfestorTerran_Webby_DeathFire",
+    "InfestorTerran_Webby_DeathAcid",
+    "InfestorTerran_Webby_DeathTimeout",
+    "InfestorTerran_Webby_DeathRagdoll",
+    "InfestorTerran_Primal_Death",
+    "InfestorTerran_Primal_DeathFire",
+    "InfestorTerran_Primal_DeathAcid",
+    "InfestorTerran_Primal_DeathTimeout",
+    "InfestorTerran_Primal_DeathRagdoll",
+    "NeuralParasiteTentacleLaunchHostModel",
+    "NeuralParasiteTentacleImpactHostModel",
+    "LurkerMPAttackSpike",
+    "UltraliskBurrowChargeImpact",
+    "UltraliskBurrowChargeModel",
+    "UltraliskCEDeathRagdoll",
+    "ViperConsumeStructureTentacle",
+    "HydraliskImpaleMissileGroundCracks",
+    "LurkerMPAttackSpikeImpact",
+    "LurkerAttackSpikeEx2",
+    "QueenMPEnsnareImpact",
+    "Zergling_Primal_Upgrade_DeathRagdoll",
+    "Zergling_Webby_Upgrade_DeathRagdoll",
+    "Overlord_Mutant_Transport_Death",
+    "NydusAttackerRumble",
+    "DefilerMPPlagueAttackImpact",
+    "CausticSprayImpact",
+    "Infestor_Ex3_Tentacle",
+    "InfestorBurrowedNeuralParasiteGroundSplat",
+    "InfestorEnsnareImpact"
   ],
-  "policy": "Verified numeric model scales including Core defaults; preserve area effects and uncertain shared/skin models. Candidate filter is not full runtime coverage."
+  "policy": "Verified numeric model scales including Core defaults; preserve area effects and uncertain shared/skin models. Candidate filter is not full runtime coverage.",
+  "actor_source_layers": [
+    "091d01ae0734a54b873599aaf41204350e944ffb",
+    "9e7f341df86834b7186ba22c4f297606417a6585",
+    "bdd11145e29abb0888950415fe563f3636b28a96",
+    "bee650bd19bd45ce00acc64317c3d08188c4727e",
+    "b2a3ac82e3d934e7b051ca667fc08d84c92db28c",
+    "738d66fb7dd42cb875cf5977684e4f484e2fd64c",
+    "9fe9d706de436be07596839374d1c3cef187bd9e"
+  ],
+  "actor_check": {
+    "matched": 61,
+    "missing": [],
+    "shadow_event_added": [
+      "OverseerSiegeMode"
+    ]
+  },
+  "deferred_for_attachment_or_area_or_skin": [
+    "NeuralParasiteTentacle",
+    "InfestedTerransEgg",
+    "InfestorTerran_Webby_Death",
+    "InfestorTerran_Webby_DeathFire",
+    "InfestorTerran_Webby_DeathAcid",
+    "InfestorTerran_Webby_DeathTimeout",
+    "InfestorTerran_Webby_DeathRagdoll",
+    "InfestorTerran_Primal_Death",
+    "InfestorTerran_Primal_DeathFire",
+    "InfestorTerran_Primal_DeathAcid",
+    "InfestorTerran_Primal_DeathTimeout",
+    "InfestorTerran_Primal_DeathRagdoll",
+    "NeuralParasiteTentacleLaunchHostModel",
+    "NeuralParasiteTentacleImpactHostModel",
+    "LurkerMPAttackSpike",
+    "UltraliskBurrowChargeImpact",
+    "UltraliskBurrowChargeModel",
+    "UltraliskCEDeathRagdoll",
+    "ViperConsumeStructureTentacle",
+    "HydraliskImpaleMissileGroundCracks",
+    "LurkerMPAttackSpikeImpact",
+    "LurkerAttackSpikeEx2",
+    "QueenMPEnsnareImpact",
+    "Zergling_Primal_Upgrade_DeathRagdoll",
+    "Zergling_Webby_Upgrade_DeathRagdoll",
+    "Overlord_Mutant_Transport_Death",
+    "NydusAttackerRumble",
+    "DefilerMPPlagueAttackImpact",
+    "CausticSprayImpact",
+    "Infestor_Ex3_Tentacle",
+    "InfestorBurrowedNeuralParasiteGroundSplat",
+    "InfestorEnsnareImpact"
+  ]
 }
