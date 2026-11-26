@@ -495,6 +495,13 @@ def preserve_editor_metadata(stage,previous):
             # Keep the editor's exact metadata pair, including opaque header fields.
             shutil.copy2(source,dest/"DocumentInfo")
             shutil.copy2(header,dest/"DocumentHeader")
+            if remote and not split_dependency(refs[1])[1]:
+                before=refs[:]
+                refs[1]+=","+local_dependency(MODS[MODS.index(mod)-1])
+                tree=xmlread(dest/"DocumentInfo")
+                tree.getroot().findall("./Dependencies/Value")[1].text=refs[1]
+                (dest/"DocumentHeader").write_bytes(replace_header_dependencies(header.read_bytes(),before,refs))
+                xmlwrite(tree,dest/"DocumentInfo")
             for old_strings in old.glob("*.SC2Data/LocalizedData/GameStrings.txt"):
                 new_strings=dest/old_strings.relative_to(old)
                 if not new_strings.is_file(): continue
@@ -665,7 +672,7 @@ def selftest():
         old=Path(tmp)/"old";new=Path(tmp)/"new"
         for idx,mod in enumerate(MODS):
             std=("bnet:Liberty (Mod)/0.0/999,file:Mods/Liberty.SC2Mod",standard,"bnet:Void Multi (Mod)/0.0/999,file:Mods/VoidMulti.SC2Mod")[idx]
-            dep=[std]+([remote] if idx==1 else [local_dependency(MODS[1])] if idx==2 else [])
+            dep=[std]+([remote] if idx==1 else ["bnet:MiniCraft EVO Core/0.0/123457"] if idx==2 else [])
             for folder in (old,new):
                 d=folder/mod;d.mkdir(parents=True)
                 root=ET.Element("DocInfo");deps=ET.SubElement(root,"Dependencies")
@@ -675,7 +682,9 @@ def selftest():
                 (d/"DocumentHeader").write_bytes(raw)
             (old/mod/"DocumentHeader").write_bytes(raw+b"editor metadata")
         status=preserve_editor_metadata(new,old)
-        assert status[MODS[1]]["published_dependency"] and not status[MODS[2]]["published_dependency"]
+        assert status[MODS[1]]["published_dependency"] and status[MODS[2]]["published_dependency"]
+        assert status[MODS[2]]["dependencies"][1].endswith(","+local_dependency(MODS[1]))
+        assert header_dependencies((new/MODS[2]/"DocumentHeader").read_bytes())[0]==status[MODS[2]]["dependencies"]
         assert (new/MODS[1]/"DocumentHeader").read_bytes()==(old/MODS[1]/"DocumentHeader").read_bytes()
         write_publish_guide(new,old,status)
         assert (new/"EVO-PUBLISH.txt").is_file()
