@@ -1,4 +1,4 @@
-# MiniCraft EVO — v0.1.3 preview
+# MiniCraft EVO — v0.1.4 preview
 
 Separate local derivative of SCEvoComplete at commit 773c8e8ae8828121e8f37bb74ab82ceb761a45bc. MIT license retained. Original MiniCraft, upstream, and published mods are not edited.
 
@@ -31,3 +31,7 @@ Zerg now uses the same independent visual model and shadow pass as Terran, with 
 ## Core trigger recovery (0.1.3 preview)
 
 Close Galaxy Editor without saving a broken regenerated script, then run the existing unified launcher. The builder verifies that the Mods directory belongs to the game installation, uses local-only Core/Assets references in the upstream custom-mod path format, preserves XML token processing instructions, and verifies shared SCEV library definitions and unmodified trigger sources before replacing the previous build. Explorer selects the freshly generated Multi ComponentList.SC2Components after success. Open that document, not an older separately saved packed SC2Mod. The output audit includes trigger_check and health_check. The actual Editor dependency resolver and compilation remain untested; local dependencies still require publishing/configuring separate dependencies for Battle.net.
+
+## Binary dependency header recovery (0.1.4 preview)
+
+The original H2CS version-8 DocumentHeader contains a second dependency list. Rewrite it alongside DocumentInfo, verifying the original lists match and preserving all trailing localized metadata bytes. Verify the generated XML/header lists agree for Assets, Core, and Multi, with no original custom Battle.net dependencies. Round-trip layout checked against all three pinned upstream header files. The actual Galaxy Editor resolver and compilation are still untested. Do not save a document after a missing-dependency warning; reopen the freshly generated Multi document after updating.
