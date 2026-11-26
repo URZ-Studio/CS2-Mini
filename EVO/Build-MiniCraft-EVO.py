@@ -338,6 +338,69 @@ def patch_sc2(stage,catalogs):
     xmlwrite(ET.ElementTree(out),base/"GameData/MiniCraftSC2.xml")
     add_include(base,"GameData/MiniCraftSC2.xml")
 
+
+# Reassert explicit transformed BW vital fields in the final Multi layer.
+# Copy already-scaled values, never scale them a second time.
+def final_bw_vitals(stage):
+    records = {}
+    for mod in MODS[1:]:
+        base = stage/mod/"Base.SC2Data"
+        manifest = xmlread(base/"GameData.xml").getroot()
+        for entry in manifest:
+            rel = entry.get("path","")
+            if not rel.startswith("GameData/") or not rel.endswith(".xml"): continue
+            path = base/rel
+            if not path.is_file(): continue
+            root = xmlread(path).getroot()
+            if root.tag != "Catalog": continue
+            for e in root:
+                uid = e.get("id","")
+                if e.tag != "CUnit" or not uid or e.get("default") == "1": continue
+                if not scope(e,rel[len("GameData/"):]): continue
+                fields = records.setdefault(uid,{})
+                for key in VITALS:
+                    if key in e.attrib and number(e.get(key)) is not None:
+                        fields[key] = e.get(key)
+                    child = e.find(key)
+                    if child is not None and number(child.get("value")) is not None:
+                        fields[key] = child.get("value")
+    expected = {"MarineSCBW":"4","ZerglingSCBW":"3.5"}
+    for uid,hp in expected.items():
+        if number(records.get(uid,{}).get("LifeMax")) != number(hp):
+            raise ValueError("BW health build mismatch: "+uid+" expected "+hp)
+    out = ET.Element("Catalog")
+    for uid,fields in sorted(records.items()):
+        if not fields: continue
+        e = ET.SubElement(out,"CUnit",id=uid)
+        for key,value in sorted(fields.items()): put(e,key,value)
+    base = stage/MODS[2]/"Base.SC2Data"
+    path = "GameData/MiniCraftBWFinalVitals.xml"
+    xmlwrite(ET.ElementTree(out),base/path)
+    add_include(base,path)
+    return {"BW":{uid:records[uid]["LifeMax"] for uid in expected},
+            "BW_vital_records":len(out),"final_catalog":path}
+
+def verify_generated(stage):
+    # A generated local document must never resolve original Battle.net EVO dependencies.
+    for mod,dependency in ((MODS[1],MODS[0]),(MODS[2],MODS[1])):
+        root = xmlread(stage/mod/"DocumentInfo").getroot()
+        expected = "file:Mods/MiniCraft-EVO/"+dependency
+        refs = [e.text or "" for e in root.findall("./Dependencies/Value")]
+        if expected not in refs or any(dependency in x and x != expected for x in refs):
+            raise ValueError("Wrong local dependency in "+mod+": "+str(refs))
+    base = stage/MODS[2]/"Base.SC2Data"
+    includes = [x.get("path") for x in xmlread(base/"GameData.xml").getroot()]
+    if includes[-2:] != ["GameData/MiniCraftSC2.xml","GameData/MiniCraftBWFinalVitals.xml"]:
+        raise ValueError("MiniCraft data catalogs must load last")
+    root = xmlread(base/"GameData/MiniCraftSC2.xml").getroot()
+    result = {}
+    for uid,hp in (("Marine","4.5"),("Zergling","3.5")):
+        e = root.find("./CUnit[@id='"+uid+"']/LifeMax")
+        if e is None or number(e.get("value")) != number(hp):
+            raise ValueError("SC2 health build mismatch: "+uid)
+        result[uid] = e.get("value")
+    return result
+
 def doc(stage,mod):
     path=stage/mod/"DocumentInfo";t=xmlread(path);root=t.getroot()
     deps=root.find("Dependencies")
@@ -427,7 +490,10 @@ def main():
     try:
         for mod in MODS:shutil.copytree(src/mod,stage/mod)
         patch_bw(stage,inv,catalogs);patch_sc2(stage,catalogs)
+        health_check=final_bw_vitals(stage)
         for mod in MODS:doc(stage,mod)
+        health_check["SC2"]=verify_generated(stage)
+        inv["health_check"]=health_check
         license_path=src.parent/"LICENSE"
         if not license_path.is_file():raise SystemExit("Upstream LICENSE missing")
         shutil.copy2(license_path,stage/"LICENSE-SCEvo.txt")
@@ -435,7 +501,7 @@ def main():
         inv["terran_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="terran"]
         inv["zerg_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="zerg"]
         (stage/"EVO-audit.json").write_text(json.dumps(inv,indent=2,ensure_ascii=False),encoding="utf-8")
-        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.1-preview"},indent=2),encoding="utf-8")
+        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.2-preview"},indent=2),encoding="utf-8")
         if out.exists():
             from datetime import datetime
             backup=out.with_name(out.name+".backup-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
@@ -447,6 +513,8 @@ def main():
     finally:
         if stage.exists():shutil.rmtree(stage)
     print("Built:",out/MODS[2]/"ComponentList.SC2Components")
+    print("Verified generated XML health:",inv["health_check"])
+    print("Open only the Built path above, NOT the upstream or cache copy.")
     print("Inventory:",inv["counts"])
     print("Transform:",dict(COUNTS))
     missing=[race+"/"+group+"/"+name for race,g in inv["crosswalk"].items() for group,items in g.items() for name,ids in items.items() if not ids]
