@@ -634,6 +634,7 @@ def main():
     p.add_argument("--source",type=Path)
     p.add_argument("--mods",type=Path)
     p.add_argument("--remember-mods",type=Path)
+    p.add_argument("--open-output",action="store_true")
     p.add_argument("--mini",type=Path,default=Path(__file__).resolve().parents[1]/"Build-MiniCraft.py")
     args=p.parse_args();selftest()
     if args.check:return
@@ -693,4 +694,9 @@ def main():
     missing=[race+"/"+group+"/"+name for race,g in inv["crosswalk"].items() for group,items in g.items() for name,ids in items.items() if not ids]
     print("Unmapped canonical names (see audit):",missing)
     print("Editor and actual game still require validation. Close editor before rebuild.")
+    if args.open_output and os.name=="nt":
+        import subprocess
+        entry=out/MODS[2]/"ComponentList.SC2Components"
+        try: subprocess.Popen(["explorer.exe","/select,"+str(entry)])
+        except OSError as exc: print("Explorer could not open; use Built path above:",exc)
 if __name__=="__main__":main()
