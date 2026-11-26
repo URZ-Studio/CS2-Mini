@@ -23,3 +23,7 @@ Upstream: https://github.com/TeamKoprulu/SCEvoComplete/tree/773c8e8ae8828121e8f3
 ## Terran visual pass (2026-11-26)
 
 The builder audits Terran XML records at build time, scales independently identified model-space effects from explicit/inherited numeric values, and adds unit shadow controls. The `terran_record_audit` array in EVO-audit.json records changed, preserved, and unresolved entries. Range/area indicators, portraits, and ambiguous shared FX are preserved; unknown inheritance and runtime attachment scaling still need testing. No actual Galaxy Editor or gameplay validation yet.
+
+## Zerg visual pass (2026-11-26)
+
+Zerg now uses the same independent visual model and shadow pass as Terran, with separate `zerg_record_audit` output. Preserve creep, Dark Swarm, Plague, Ensnare, area indicators and uncertain attached models; exclude body models from duplicate scaling. Actual counts and unresolved inheritance are recorded during local build; no gameplay or editor validation yet.
