@@ -1,0 +1,619 @@
+{
+  "rev": "773c8e8ae8828121e8f37bb74ab82ceb761a45bc",
+  "rows": [
+    {
+      "file": "SCBW_03.Protoss/05a.StructureBasic/01.NexusSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "NexusSCBW@BirthSet",
+          "NexusSCBW@CreateSet"
+        ],
+        "CAbilTrain": [
+          "NexusSCBW@Train"
+        ],
+        "CAbilRally": [
+          "NexusSCBW@Rally"
+        ],
+        "CActorEventMacro": [
+          "NexusSCBW@ProtossPlayerDecalMacro"
+        ],
+        "CActorModel": [
+          "NexusSCBW@Build"
+        ],
+        "CActorUnit": [
+          "NexusSCBW"
+        ],
+        "CActorSplat": [
+          "NexusSCBW@Splat"
+        ],
+        "CModel": [
+          "NexusSCBW@DeathUnderConstruction",
+          "NexusSCBW@Build",
+          "NexusSCBW@Birth",
+          "NexusSCBW@Death",
+          "NexusSCBW",
+          "NexusSCBW@Placement",
+          "NexusSCBW@Splat"
+        ],
+        "CUnit": [
+          "NexusSCBW"
+        ]
+      },
+      "sha": "5e4c61f39b5b3ebe2bf80ccc4803fea268352532"
+    },
+    {
+      "file": "SCBW_03.Protoss/05a.StructureBasic/02.PylonSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "PylonSCBW@Death",
+          "PylonSCBW@Build"
+        ],
+        "CActorUnit": [
+          "PylonSCBW"
+        ],
+        "CActorSplat": [
+          "PylonSCBW@Splat"
+        ],
+        "CActorTurret": [
+          "PylonSCBW@CrystalRotateTurret",
+          "PylonSCBW@RingRotateTurret"
+        ],
+        "CModel": [
+          "PylonSCBW@DeathUnderConstruction",
+          "PylonSCBW@Build",
+          "PylonSCBW@Birth",
+          "PylonSCBW@Death",
+          "PylonSCBW",
+          "PylonSCBW@Placement",
+          "PylonSCBW@Splat"
+        ],
+        "CUnit": [
+          "PylonSCBW"
+        ]
+      },
+      "sha": "a9258aef931456264e89810979775043a1f7ef01"
+    },
+    {
+      "file": "SCBW_03.Protoss/05a.StructureBasic/03.AssimilatorSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "AssimilatorSCBW@RichBuild",
+          "AssimilatorSCBW@Death",
+          "AssimilatorSCBW@Build"
+        ],
+        "CActorSplat": [
+          "AssimilatorSCBW@RichSplat",
+          "AssimilatorSCBW@Splat"
+        ],
+        "CActorUnit": [
+          "AssimilatorSCBW@Rich",
+          "AssimilatorSCBW"
+        ],
+        "CModel": [
+          "AssimilatorSCBW@RichBuild",
+          "AssimilatorSCBW@RichDeathUnderConstruction",
+          "AssimilatorSCBW@Rich",
+          "AssimilatorSCBW@Rich@Birth",
+          "AssimilatorSCBW@Build",
+          "AssimilatorSCBW@Portrait",
+          "AssimilatorSCBW@Birth",
+          "AssimilatorSCBW@DeathUnderConstruction",
+          "AssimilatorSCBW@Death",
+          "AssimilatorSCBW@DeathEmpty",
+          "AssimilatorSCBW@Splat",
+          "AssimilatorSCBW@Placement",
+          "AssimilatorSCBW"
+        ],
+        "CUnit": [
+          "AssimilatorSCBW@Rich",
+          "AssimilatorSCBW"
+        ]
+      },
+      "sha": "7d2d988429b0c535eae7bd833059ecc1e8839081"
+    },
+    {
+      "file": "SCBW_03.Protoss/05a.StructureBasic/04.GatewaySCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "GatewaySCBWResonantMatrixResearch"
+        ],
+        "CAbilTrain": [
+          "GatewaySCBW@Train"
+        ],
+        "CActorModel": [
+          "GatewaySCBW@Death",
+          "GatewaySCBW@Build"
+        ],
+        "CActorUnit": [
+          "GatewaySCBW"
+        ],
+        "CActorSplat": [
+          "GatewaySCBW@Splat"
+        ],
+        "CModel": [
+          "GatewaySCBW@DeathUnderConstruction",
+          "GatewaySCBW@Build",
+          "GatewaySCBW@Portrait",
+          "GatewaySCBW",
+          "GatewaySCBW@Birth",
+          "GatewaySCBW@Death",
+          "GatewaySCBW@Placement",
+          "GatewaySCBW@Splat"
+        ],
+        "CUnit": [
+          "GatewaySCBW"
+        ],
+        "CBehaviorBuff": [
+          "GatewaySCBWResonantMatrixResearch@Queue"
+        ],
+        "CUpgrade": [
+          "GatewaySCBWResonantMatrixResearch"
+        ]
+      },
+      "sha": "6e4ce034b7b58b1aba59efd9b5cd3df626de3b9c"
+    },
+    {
+      "file": "SCBW_03.Protoss/05a.StructureBasic/05.ForgeSCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "ProtossGroundArmorsSCBW",
+          "ProtossGroundWeaponsSCBW",
+          "ProtossShieldsSCBW"
+        ],
+        "CActorModel": [
+          "ForgeSCBW@Death",
+          "ForgeSCBW@Build"
+        ],
+        "CActorUnit": [
+          "ForgeSCBW"
+        ],
+        "CActorSplat": [
+          "ForgeSCBW@Splat"
+        ],
+        "CModel": [
+          "ForgeSCBW@DeathUnderConstruction",
+          "ForgeSCBW@Build",
+          "ForgeSCBW@Portrait",
+          "ForgeSCBW@Death",
+          "ForgeSCBW@Placement",
+          "ForgeSCBW@Splat",
+          "ForgeSCBW",
+          "ForgeSCBW@Birth"
+        ],
+        "CUnit": [
+          "ForgeSCBW"
+        ],
+        "CUpgrade": [
+          "ProtossGroundArmorsSCBW_Lvl1",
+          "ProtossGroundArmorsSCBW_Lvl2",
+          "ProtossGroundArmorsSCBW_Lvl3",
+          "ProtossGroundWeaponsSCBW_Lvl1",
+          "ProtossGroundWeaponsSCBW_Lvl2",
+          "ProtossGroundWeaponsSCBW_Lvl3",
+          "ProtossShieldsSCBW_Lvl1",
+          "ProtossShieldsSCBW_Lvl2",
+          "ProtossShieldsSCBW_Lvl3"
+        ]
+      },
+      "sha": "29241b4f35fbc9b36c4a955a24cca597d43a9449"
+    },
+    {
+      "file": "SCBW_03.Protoss/05a.StructureBasic/06.ShieldBatterySCBW.xml",
+      "types": {
+        "CEffectEnumArea": [
+          "ShieldBatterySCBWBattery@Enum",
+          "ShieldBatterySCBWRecharge@RevealSearch"
+        ],
+        "CEffectIssueOrder": [
+          "ShieldBatterySCBWBattery@SmartOrder"
+        ],
+        "CEffectSwitch": [
+          "ShieldBatterySCBWBattery@Switch"
+        ],
+        "CEffectApplyBehavior": [
+          "ShieldBatterySCBWBattery@TrackerCaster",
+          "ShieldBatterySCBWBattery@Tracker",
+          "ShieldBatterySCBWBattery@Cooldown"
+        ],
+        "CEffectCreateHealer": [
+          "ShieldBatterySCBWRecharge@Healer",
+          "ShieldBatterySCBWBattery@Healer"
+        ],
+        "CEffectDamage": [
+          "ShieldBatterySCBWRecharge@DamageDummy"
+        ],
+        "CEffectSet": [
+          "ShieldBatterySCBWBattery@Set"
+        ],
+        "CAbilEffectTarget": [
+          "ShieldBatterySCBWBattery@Target",
+          "ShieldBatterySCBWRecharge"
+        ],
+        "CAbilBattery": [
+          "ShieldBatterySCBWBattery"
+        ],
+        "CActorQueryResponse": [
+          "ShieldBatterySCBWBattery@GuideRegionRemove",
+          "ShieldBatterySCBWBattery@GuideRegionClosestAdd",
+          "ShieldBatterySCBWBattery@GuideRegionAdd"
+        ],
+        "CActorRegionCircle": [
+          "ShieldBatterySCBWBattery@CursorRegion",
+          "ShieldBatterySCBWBattery@CursorRegionClosest"
+        ],
+        "CActorSplat": [
+          "ShieldBatterySCBWBattery@CursorSplat",
+          "ShieldBatterySCBW@Splat"
+        ],
+        "CActorRange": [
+          "ShieldBatterySCBWBattery@CursorRange",
+          "ShieldBatterySCBWRecharge@Range",
+          "ShieldBatterySCBW@ProtectRange"
+        ],
+        "CActorSiteOpAttach": [
+          "ShieldBatterySCBWRecharge@ShieldBatteryAttach"
+        ],
+        "CActorBeamSimple": [
+          "ShieldBatterySCBWRecharge@Beam",
+          "ShieldBatterySCBWBattery@Beam"
+        ],
+        "CActorModel": [
+          "ShieldBatterySCBWRecharge@Model",
+          "ShieldBatterySCBWBattery@Model",
+          "ShieldBatterySCBW@PlacementModel",
+          "ShieldBatterySCBW@Build"
+        ],
+        "CActorSound": [
+          "ShieldBatterySCBWRecharge@SoundLoopTarget",
+          "ShieldBatterySCBWRecharge@SoundLoopCaster",
+          "ShieldBatterySCBWBattery@SoundLoopTarget",
+          "ShieldBatterySCBWBattery@SoundLoopCaster"
+        ],
+        "CActorUnit": [
+          "ShieldBatterySCBW"
+        ],
+        "CModel": [
+          "ShieldBatterySCBWBattery@TargetCursorSplat",
+          "ShieldBatterySCBWBattery@Beam",
+          "ShieldBatterySCBWBattery@Model",
+          "ShieldBatterySCBWRecharge@Model",
+          "ShieldBatterySCBWRecharge@Beam",
+          "ShieldBatterySCBW@Build",
+          "ShieldBatterySCBW@Splat",
+          "ShieldBatterySCBW@Portrait",
+          "ShieldBatterySCBW@Death",
+          "ShieldBatterySCBW@DeathUnderConstruction",
+          "ShieldBatterySCBW",
+          "ShieldBatterySCBW@Birth",
+          "ShieldBatterySCBW@Placement"
+        ],
+        "CUnit": [
+          "ShieldBatterySCBW"
+        ],
+        "CBehaviorBuff": [
+          "ShieldBatterySCBWBattery@TrackerCaster",
+          "ShieldBatterySCBWBattery@Cooldown",
+          "ShieldBatterySCBWBattery@Tracker"
+        ]
+      },
+      "sha": "51fdd42dd2af1c89c928c44ee3de8f3282ab6feb"
+    },
+    {
+      "file": "SCBW_03.Protoss/05a.StructureBasic/07.CyberneticsCoreSCBW.xml",
+      "types": {
+        "CAbilResearch": [
+          "ProtossAirArmorsSCBW",
+          "ProtossAirWeaponsSCBW"
+        ],
+        "CActorModel": [
+          "CyberneticsCoreSCBW@Death",
+          "CyberneticsCoreSCBW@Build"
+        ],
+        "CActorUnit": [
+          "CyberneticsCoreSCBW"
+        ],
+        "CActorSplat": [
+          "CyberneticsCoreSCBW@Splat"
+        ],
+        "CModel": [
+          "CyberneticsCoreSCBW@DeathUnderConstruction",
+          "CyberneticsCoreSCBW@Build",
+          "CyberneticsCoreSCBW@Birth",
+          "CyberneticsCoreSCBW@Portrait",
+          "CyberneticsCoreSCBW",
+          "CyberneticsCoreSCBW@Death",
+          "CyberneticsCoreSCBW@Placement",
+          "CyberneticsCoreSCBW@Splat"
+        ],
+        "CUnit": [
+          "CyberneticsCoreSCBW"
+        ],
+        "CUpgrade": [
+          "ProtossAirArmorsSCBW_Lvl1",
+          "ProtossAirArmorsSCBW_Lvl2",
+          "ProtossAirArmorsSCBW_Lvl3",
+          "ProtossAirWeaponsSCBW_Lvl1",
+          "ProtossAirWeaponsSCBW_Lvl2",
+          "ProtossAirWeaponsSCBW_Lvl3"
+        ]
+      },
+      "sha": "e21abbf12168034acfb3f35f20f07c65c92ef434"
+    },
+    {
+      "file": "SCBW_03.Protoss/05a.StructureBasic/08.PhotonCannonSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "PhotonCannonSCBWWeapon@Damage"
+        ],
+        "CEffectLaunchMissile": [
+          "PhotonCannonSCBWWeapon@LM"
+        ],
+        "CActorForceCylinder": [
+          "PhotonCannonSCBWWeapon@DeathForce"
+        ],
+        "CActorAction": [
+          "PhotonCannonSCBWWeapon@Action"
+        ],
+        "CActorMissile": [
+          "PhotonCannonSCBWWeapon@Missile"
+        ],
+        "CActorModel": [
+          "PhotonCannonSCBW@SkinnablePlacementModel",
+          "PhotonCannonSCBW@PlacementModel",
+          "PhotonCannonSCBW@Death",
+          "PhotonCannonSCBW@Build"
+        ],
+        "CActorRange": [
+          "PhotonCannonSCBW@ProtectRange",
+          "PhotonCannonSCBWDetectRange",
+          "PhotonCannonSCBW@Range"
+        ],
+        "CActorUnit": [
+          "PhotonCannonSCBW"
+        ],
+        "CActorSplat": [
+          "PhotonCannonSCBW@Splat"
+        ],
+        "CActorTurret": [
+          "PhotonCannonSCBW@Turret"
+        ],
+        "CModel": [
+          "PhotonCannonSCBWWeapon@Impact",
+          "PhotonCannonSCBWWeapon@Missile",
+          "PhotonCannonSCBW@Build",
+          "PhotonCannonSCBW",
+          "PhotonCannonSCBW@Birth",
+          "PhotonCannonSCBW@Death",
+          "PhotonCannonSCBW@DeathUnpowered",
+          "PhotonCannonSCBW@Placement",
+          "PhotonCannonSCBW@Splat"
+        ],
+        "CWeaponLegacy": [
+          "PhotonCannonSCBWWeapon"
+        ],
+        "CUnit": [
+          "PhotonCannonSCBWWeapon@Missile",
+          "PhotonCannonSCBW"
+        ]
+      },
+      "sha": "edd74dd1667385085d428fc71f1cfc6d6635a9df"
+    },
+    {
+      "file": "SCBW_03.Protoss/05b.StructureAdvanced/01.RoboticsFacilitySCBW.xml",
+      "types": {
+        "CAbilTrain": [
+          "RoboticsFacilitySCBW@Train"
+        ],
+        "CActorModel": [
+          "RoboticsFacilitySCBW@Death",
+          "RoboticsFacilitySCBW@Build"
+        ],
+        "CActorUnit": [
+          "RoboticsFacilitySCBW"
+        ],
+        "CActorSplat": [
+          "RoboticsFacilitySCBW@Splat"
+        ],
+        "CActorEventMacro": [
+          "RoboticsFacilitySCBW@WarpInMacro"
+        ],
+        "CModel": [
+          "RoboticsFacilitySCBW@Build",
+          "RoboticsFacilitySCBW@DeathUnpowered",
+          "RoboticsFacilitySCBW@Portrait",
+          "RoboticsFacilitySCBW@DeathUnderConstruction",
+          "RoboticsFacilitySCBW@Death",
+          "RoboticsFacilitySCBW",
+          "RoboticsFacilitySCBW@Birth",
+          "RoboticsFacilitySCBW@Placement",
+          "RoboticsFacilitySCBW@Splat",
+          "RoboticsFacilitySCBW@WarpInEnemy"
+        ],
+        "CUnit": [
+          "RoboticsFacilitySCBW"
+        ]
+      },
+      "sha": "0e887f9da4d848b9b0a74b456e3c60cb244d7f30"
+    },
+    {
+      "file": "SCBW_03.Protoss/05b.StructureAdvanced/02.StargateSCBW.xml",
+      "types": {
+        "CAbilTrain": [
+          "StargateSCBW@Train"
+        ],
+        "CActorModel": [
+          "StargateSCBW@Death",
+          "StargateSCBW@Build"
+        ],
+        "CActorUnit": [
+          "StargateSCBW"
+        ],
+        "CActorSplat": [
+          "StargateSCBW@Splat"
+        ],
+        "CModel": [
+          "StargateSCBW@Build",
+          "StargateSCBW@DeathUnpowered",
+          "StargateSCBW@Portrait",
+          "StargateSCBW",
+          "StargateSCBW@Birth",
+          "StargateSCBW@DeathUnderConstruction",
+          "StargateSCBW@Death",
+          "StargateSCBW@Placement",
+          "StargateSCBW@Splat"
+        ],
+        "CUnit": [
+          "StargateSCBW"
+        ]
+      },
+      "sha": "f928485940a4d27ea812c53086d1c79885765601"
+    },
+    {
+      "file": "SCBW_03.Protoss/05b.StructureAdvanced/03.CitadelOfAdunSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "CitadelOfAdunSCBW@Death",
+          "CitadelOfAdunSCBW@Build"
+        ],
+        "CActorSplat": [
+          "CitadelOfAdunSCBW@Splat"
+        ],
+        "CActorUnit": [
+          "CitadelOfAdunSCBW"
+        ],
+        "CModel": [
+          "CitadelOfAdunSCBW@Build",
+          "CitadelOfAdunSCBW@DeathUnpowered",
+          "CitadelOfAdunSCBW@Placement",
+          "CitadelOfAdunSCBW@Splat",
+          "CitadelOfAdunSCBW",
+          "CitadelOfAdunSCBW@Death",
+          "CitadelOfAdunSCBW@Portrait",
+          "CitadelOfAdunSCBW@Birth"
+        ],
+        "CUnit": [
+          "CitadelOfAdunSCBW"
+        ]
+      },
+      "sha": "ba49af9ac68bc9d0f89cebc02bd8437c03e821d2"
+    },
+    {
+      "file": "SCBW_03.Protoss/05b.StructureAdvanced/04.RoboticsBaySCBW.xml",
+      "types": {
+        "CActorModel": [
+          "RoboticsBaySCBW@Death",
+          "RoboticsBaySCBW@Build"
+        ],
+        "CActorUnit": [
+          "RoboticsBaySCBW"
+        ],
+        "CActorSplat": [
+          "RoboticsBaySCBW@Splat"
+        ],
+        "CModel": [
+          "RoboticsBaySCBW@Build",
+          "RoboticsBaySCBW@DeathUnpowered",
+          "RoboticsBaySCBW@Portrait",
+          "RoboticsBaySCBW@DeathUnderConstruction",
+          "RoboticsBaySCBW@Death",
+          "RoboticsBaySCBW",
+          "RoboticsBaySCBW@Birth",
+          "RoboticsBaySCBW@Placement",
+          "RoboticsBaySCBW@Splat"
+        ],
+        "CUnit": [
+          "RoboticsBaySCBW"
+        ]
+      },
+      "sha": "60eab15ddc83baf1d9386fb54cc6f857349273ef"
+    },
+    {
+      "file": "SCBW_03.Protoss/05b.StructureAdvanced/05.FleetBeaconSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "FleetBeaconSCBW@Death",
+          "FleetBeaconSCBW@Build"
+        ],
+        "CActorUnit": [
+          "FleetBeaconSCBW"
+        ],
+        "CActorSplat": [
+          "FleetBeaconSCBW@Splat"
+        ],
+        "CModel": [
+          "FleetBeaconSCBW@Build",
+          "FleetBeaconSCBW@DeathUnpowered",
+          "FleetBeaconSCBW@Portrait",
+          "FleetBeaconSCBW@DeathUnderConstruction",
+          "FleetBeaconSCBW@Birth",
+          "FleetBeaconSCBW@Death",
+          "FleetBeaconSCBW@Splat",
+          "FleetBeaconSCBW@Placement",
+          "FleetBeaconSCBW"
+        ],
+        "CUnit": [
+          "FleetBeaconSCBW"
+        ]
+      },
+      "sha": "c724acdf0a8e80d61076d0777a932660034644d8"
+    },
+    {
+      "file": "SCBW_03.Protoss/05b.StructureAdvanced/06.TemplarArchiveSCBW.xml",
+      "types": {
+        "CActorSplat": [
+          "TemplarArchiveSCBW@Splat"
+        ],
+        "CActorModel": [
+          "TemplarArchiveSCBW@Build",
+          "TemplarArchiveSCBW@Death"
+        ],
+        "CActorUnit": [
+          "TemplarArchiveSCBW"
+        ],
+        "CModel": [
+          "TemplarArchiveSCBW@Build",
+          "TemplarArchiveSCBW@Death",
+          "TemplarArchiveSCBW@Portrait",
+          "TemplarArchiveSCBW@DeathUnderConstruction",
+          "TemplarArchiveSCBW",
+          "TemplarArchiveSCBW@Birth",
+          "TemplarArchiveSCBW@Placement",
+          "TemplarArchiveSCBW@Splat"
+        ],
+        "CUnit": [
+          "TemplarArchiveSCBW"
+        ]
+      },
+      "sha": "fe0c81da6d3eace9316b00b7fcb6e78ed32c472f"
+    },
+    {
+      "file": "SCBW_03.Protoss/05b.StructureAdvanced/07.ObservatorySCBW.xml",
+      "types": {
+        "CActorModel": [
+          "ObservatorySCBW@Build",
+          "ObservatorySCBW@Death"
+        ],
+        "CActorSplat": [
+          "ObservatorySCBW@Splat"
+        ],
+        "CActorUnit": [
+          "ObservatorySCBW"
+        ],
+        "CModel": [
+          "ObservatorySCBW@Build",
+          "ObservatorySCBW@Portrait",
+          "ObservatorySCBW@DeathUnderConstruction",
+          "ObservatorySCBW@Death",
+          "ObservatorySCBW",
+          "ObservatorySCBW@Birth",
+          "ObservatorySCBW@Placement",
+          "ObservatorySCBW@Splat"
+        ],
+        "CUnit": [
+          "ObservatorySCBW"
+        ]
+      },
+      "sha": "6a72717ac6c77089bf4d0a2cba030a296430a696"
+    }
+  ]
+}
