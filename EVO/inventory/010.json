@@ -1,0 +1,1103 @@
+{
+  "rev": "773c8e8ae8828121e8f37bb74ab82ceb761a45bc",
+  "rows": [
+    {
+      "file": "SCBW_01.Terran/04.Ship/01.WraithSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "WraithSCBWWeaponAir@Impact"
+        ],
+        "CEffectUserData": [
+          "WraithSCBWWeaponAir@DamageApply"
+        ],
+        "CEffectDamage": [
+          "WraithSCBWWeaponAir@ImpactDummy",
+          "WraithSCBWWeaponAir@DamageAccum",
+          "WraithSCBWWeaponGround@Damage",
+          "WraithSCBWWeaponAir@DamageExpl"
+        ],
+        "CEffectLaunchMissile": [
+          "WraithSCBWWeaponAir@LMLeft",
+          "WraithSCBWWeaponAir@LMRight",
+          "WraithSCBWWeaponGround@LM"
+        ],
+        "CEffectCreatePersistent": [
+          "WraithSCBWWeaponAir@CP",
+          "WraithSCBW@AirStack@MorphDelay",
+          "WraithSCBW@MorphDelay"
+        ],
+        "CEffectIssueOrder": [
+          "WraithSCBW@AirStack@Morph",
+          "WraithSCBW@Morph"
+        ],
+        "CAbilResearch": [
+          "WraithSCBWCloakResearch",
+          "WraithSCBWEnergyUpgrade"
+        ],
+        "CAbilBehavior": [
+          "WraithSCBWCloak"
+        ],
+        "CAbilMorph": [
+          "WraithSCBW@AirStack@Morph",
+          "WraithSCBW@Morph"
+        ],
+        "CActorAction": [
+          "WraithSCBWWeaponAir@ActionLeft",
+          "WraithSCBWWeaponAir@ActionRight",
+          "WraithSCBWWeaponGround@Action"
+        ],
+        "CActorMissile": [
+          "WraithSCBWWeaponAir@MissileLeft",
+          "WraithSCBWWeaponAir@MissileRight",
+          "WraithSCBWWeaponGround@Missile"
+        ],
+        "CActorForceSphere": [
+          "WraithSCBWWeaponAir@ActionExplosionDeathForce",
+          "WraithSCBWWeaponAir@ActionDeathForce",
+          "WraithSCBW@DeathRagdollDetonationForce"
+        ],
+        "CActorSound": [
+          "WraithSCBWCloak@Off",
+          "WraithSCBWCloak@On"
+        ],
+        "CActorModel": [
+          "WraithSCBW@DeathRagdoll"
+        ],
+        "CActorSiteOpBanker": [
+          "WraithSCBW@SOpBanker"
+        ],
+        "CActorUnit": [
+          "WraithSCBW"
+        ],
+        "CModel": [
+          "WraithSCBWWeaponAir@Impact",
+          "WraithSCBWWeaponAir@MissileLeft",
+          "WraithSCBWWeaponAir@MissileRight",
+          "WraithSCBWWeaponGround@Impact",
+          "WraithSCBWWeaponGround@Missile",
+          "WraithSCBW@DeathRagdoll",
+          "WraithSCBW",
+          "WraithSCBW@Death",
+          "WraithSCBW@Portrait",
+          "WraithSCBW@Evade"
+        ],
+        "CWeaponLegacy": [
+          "WraithSCBWWeaponAir",
+          "WraithSCBWWeaponGround"
+        ],
+        "CAccumulatorConstant": [
+          "WraithSCBWWeaponAir@Damage"
+        ],
+        "CUnit": [
+          "WraithSCBWWeaponAir@MissileLeft",
+          "WraithSCBWWeaponAir@MissileRight",
+          "WraithSCBWWeaponGround@Missile",
+          "WraithSCBW",
+          "WraithSCBW@AirStack"
+        ],
+        "CBehaviorBuff": [
+          "WraithSCBWCloak",
+          "WraithSCBW@AirStack",
+          "WraithSCBW@AirStackUndo"
+        ],
+        "CUpgrade": [
+          "WraithSCBWCloakResearch",
+          "WraithSCBWEnergyUpgrade"
+        ]
+      },
+      "sha": "6caffae762fab8333cc61f0137b12a12e02f4d77"
+    },
+    {
+      "file": "SCBW_01.Terran/04.Ship/02.DropshipSCBW.xml",
+      "types": {
+        "CEffectApplyBehavior": [
+          "DropshipSCBWSpeedBoost"
+        ],
+        "CAbilEffectInstant": [
+          "DropshipSCBWSpeedBoost"
+        ],
+        "CAbilResearch": [
+          "DropshipSCBWSpeedBoostResearch"
+        ],
+        "CAbilTransport": [
+          "DropshipSCBW@Transport"
+        ],
+        "CActorSound": [
+          "DropshipSCBWSpeedBoost@On",
+          "DropshipSCBWSpeedBoost@On2",
+          "DropshipSCBWSpeedBoost@Movement",
+          "DropshipSCBW@Land",
+          "DropshipSCBW@LoadSound",
+          "DropshipSCBW@UnloadSound"
+        ],
+        "CActorEventMacro": [
+          "DropshipSCBW@UnloadDropAnim",
+          "DropshipSCBW@TransportAnim"
+        ],
+        "CActorModel": [
+          "DropshipSCBW@DeathRagdoll"
+        ],
+        "CActorForceSphere": [
+          "DropshipSCBW@DeathRagdollDetonationForce"
+        ],
+        "CActorUnit": [
+          "DropshipSCBW"
+        ],
+        "CActorSiteOpBankerUnit": [
+          "DropshipSCBW@SOpBanker"
+        ],
+        "CModel": [
+          "DropshipSCBW@Portrait",
+          "DropshipSCBW",
+          "DropshipSCBW@Death",
+          "DropshipSCBW@DeathRagdoll"
+        ],
+        "CUnit": [
+          "DropshipSCBW"
+        ],
+        "CBehaviorBuff": [
+          "DropshipSCBWSpeedBoost"
+        ],
+        "CUpgrade": [
+          "DropshipSCBWSpeedBoostResearch"
+        ]
+      },
+      "sha": "82a89a19598c85616b5dd3c7f1e983c603a854be"
+    },
+    {
+      "file": "SCBW_01.Terran/04.Ship/03.ValkyrieSCBW.xml",
+      "types": {
+        "CEffectCreatePersistent": [
+          "ValkyrieSCBWWeapon@OffsetBase",
+          "ValkyrieSCBWWeapon@RedirectCPDummy",
+          "ValkyrieSCBWWeapon@RedirectCP",
+          "ValkyrieSCBWWeapon@Offset01",
+          "ValkyrieSCBWWeapon@Offset02",
+          "ValkyrieSCBWWeapon@Offset03",
+          "ValkyrieSCBWWeapon@Offset04",
+          "ValkyrieSCBWWeapon@Offset05",
+          "ValkyrieSCBWWeapon@Offset06",
+          "ValkyrieSCBWWeapon@Offset07",
+          "ValkyrieSCBWWeapon@Offset08",
+          "ValkyrieSCBWWeapon@Offset09",
+          "ValkyrieSCBWWeapon@Offset10",
+          "ValkyrieSCBWWeapon@Offset11",
+          "ValkyrieSCBWWeapon@Offset12",
+          "ValkyrieSCBWWeapon@Offset13",
+          "ValkyrieSCBWWeapon@Offset14",
+          "ValkyrieSCBWWeapon@CP"
+        ],
+        "CEffectUserData": [
+          "ValkyrieSCBWWeapon@FinalVolley",
+          "ValkyrieSCBWWeapon@LMSideReset",
+          "ValkyrieSCBWWeapon@LMSide",
+          "ValkyrieSCBWWeapon@OffsetIncrement",
+          "ValkyrieSCBWWeapon@OffsetReset",
+          "ValkyrieSCBWWeapon@DamageApply"
+        ],
+        "CEffectSet": [
+          "ValkyrieSCBWWeapon@CPFinal",
+          "ValkyrieSCBWWeapon@DummySpawn",
+          "ValkyrieSCBWWeapon@ImpactSplash",
+          "ValkyrieSCBWWeapon@Impact",
+          "ValkyrieSCBWWeapon@Set"
+        ],
+        "CEffectRemoveBehavior": [
+          "ValkyrieSCBWWeapon@CasterStunRB",
+          "ValkyrieSCBWWeapon@MarkerRB"
+        ],
+        "CEffectSwitch": [
+          "ValkyrieSCBWWeapon@LMSwitch",
+          "ValkyrieSCBWWeapon@OffsetSwitch"
+        ],
+        "CEffectApplyBehavior": [
+          "ValkyrieSCBWWeapon@Marker",
+          "ValkyrieSCBWWeapon@CasterStun"
+        ],
+        "CEffectDamage": [
+          "ValkyrieSCBWWeapon@DummyFateExpire",
+          "ValkyrieSCBWWeapon@DummyKill",
+          "ValkyrieSCBWWeapon@DamageAccum",
+          "ValkyrieSCBWWeapon@DamageAccum2",
+          "ValkyrieSCBWWeapon@DamageAccum3",
+          "ValkyrieSCBWWeapon@DamageExpl"
+        ],
+        "CEffectRedirectMissile": [
+          "ValkyrieSCBWWeapon@Redirect"
+        ],
+        "CEffectApplyKinetic": [
+          "ValkyrieSCBWWeapon@DummyKinetic"
+        ],
+        "CEffectCreateUnit": [
+          "ValkyrieSCBWWeapon@DummyCreate"
+        ],
+        "CEffectLaunchMissile": [
+          "ValkyrieSCBWWeapon@LMLeft",
+          "ValkyrieSCBWWeapon@LMRight"
+        ],
+        "CActorUnit": [
+          "ValkyrieSCBWWeapon@Dummy",
+          "ValkyrieSCBW"
+        ],
+        "CActorModel": [
+          "ValkyrieSCBWWeapon@Impact"
+        ],
+        "CActorAction": [
+          "ValkyrieSCBWWeapon@ActionLeft",
+          "ValkyrieSCBWWeapon@ActionRight"
+        ],
+        "CActorMissile": [
+          "ValkyrieSCBWWeapon@Missile"
+        ],
+        "CActorForceSphere": [
+          "ValkyrieSCBWWeapon@MissileDeathForce",
+          "ValkyrieSCBWWeapon@MissileDeathForceUp"
+        ],
+        "CActorSiteOpBanker": [
+          "ValkyrieSCBW@SOpBanker"
+        ],
+        "CModel": [
+          "ValkyrieSCBWWeapon@Dummy",
+          "ValkyrieSCBWWeapon@Impact",
+          "ValkyrieSCBWWeapon@Missile",
+          "ValkyrieSCBW",
+          "ValkyrieSCBW@Death",
+          "ValkyrieSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "ValkyrieSCBWWeapon"
+        ],
+        "CAccumulatorConstant": [
+          "ValkyrieSCBWWeapon@Damage"
+        ],
+        "CUnit": [
+          "ValkyrieSCBWWeapon@Dummy",
+          "ValkyrieSCBWWeapon@Missile",
+          "ValkyrieSCBW"
+        ],
+        "CBehaviorBuff": [
+          "ValkyrieSCBWWeapon@Marker",
+          "ValkyrieSCBWWeapon@DummyFate",
+          "ValkyrieSCBWWeapon@CasterStun"
+        ],
+        "CBehaviorAttribute": [
+          "ValkyrieSCBWWeapon@OffsetIndex"
+        ]
+      },
+      "sha": "0c6b632e3069a9ae4c12e3380f7f891bf98a1712"
+    },
+    {
+      "file": "SCBW_01.Terran/04.Ship/04.ScienceVesselSCBW.xml",
+      "types": {
+        "CEffectUserData": [
+          "ScienceVesselSCBWDefensiveMatrix@UDBase",
+          "ScienceVesselSCBWDefensiveMatrix@UDModify",
+          "ScienceVesselSCBWDefensiveMatrix@UDInit",
+          "ScienceVesselSCBWDefensiveMatrix@UDModifySpell",
+          "ScienceVesselSCBWDefensiveMatrix@UDTransfer",
+          "ScienceVesselSCBWDefensiveMatrix@UDIgnoreArmorSet",
+          "ScienceVesselSCBWDefensiveMatrix@UDIgnoreArmorClear"
+        ],
+        "CEffectSet": [
+          "ScienceVesselSCBWIrradiate@ApplySet",
+          "ScienceVesselSCBWDefensiveMatrix@Final",
+          "ScienceVesselSCBWDefensiveMatrix@DamageResponseSpell",
+          "ScienceVesselSCBWIrradiate@SearchInitialSet",
+          "ScienceVesselSCBWDefensiveMatrix@Exhausted",
+          "ScienceVesselSCBWDefensiveMatrix@ExhaustedSpell",
+          "ScienceVesselSCBWDefensiveMatrix@Init",
+          "ScienceVesselSCBWDefensiveMatrix@DamageResponse",
+          "ScienceVesselSCBWDefensiveMatrix@Set",
+          "ScienceVesselSCBWIrradiate@Set",
+          "ScienceVesselSCBWEMPShockwave@Set"
+        ],
+        "CEffectSwitch": [
+          "ScienceVesselSCBWIrradiate@RadiusSwitch",
+          "ScienceVesselSCBWDefensiveMatrix@BreakDamageSwitch",
+          "ScienceVesselSCBWIrradiate@Switch",
+          "ScienceVesselSCBWIrradiate@SwitchInitial"
+        ],
+        "CEffectModifyUnit": [
+          "ScienceVesselSCBWIrradiate@RadiusDummy",
+          "ScienceVesselSCBWEMPShockwave@ModifyUnit"
+        ],
+        "CEffectRemoveBehavior": [
+          "ScienceVesselSCBWDefensiveMatrix@RBSpell",
+          "ScienceVesselSCBWDefensiveMatrix@RBData",
+          "ScienceVesselSCBWDefensiveMatrix@RB"
+        ],
+        "CEffectDamage": [
+          "ScienceVesselSCBWDefensiveMatrix@LeakDamagePassShields",
+          "ScienceVesselSCBWDefensiveMatrix@BreakDamage",
+          "ScienceVesselSCBWDefensiveMatrix@BreakDamageIgnoreArmor",
+          "ScienceVesselSCBWDefensiveMatrix@LeakDamage",
+          "ScienceVesselSCBWIrradiate@DamageInitial",
+          "ScienceVesselSCBWIrradiate@DamagePeriodic",
+          "ScienceVesselSCBWEMPShockwave@Damage"
+        ],
+        "CEffectApplyBehavior": [
+          "ScienceVesselSCBWDefensiveMatrix@ABSpell",
+          "ScienceVesselSCBWIrradiate@DamageBuff",
+          "ScienceVesselSCBWDefensiveMatrix@ABData",
+          "ScienceVesselSCBWDefensiveMatrix@AB",
+          "ScienceVesselSCBWIrradiate@AB",
+          "ScienceVesselSCBWEMPShockwave@ABDecloak"
+        ],
+        "CEffectEnumTransport": [
+          "ScienceVesselSCBWIrradiate@IterateTransportPeriodic"
+        ],
+        "CEffectEnumArea": [
+          "ScienceVesselSCBWIrradiate@SearchPeriodic",
+          "ScienceVesselSCBWIrradiate@SearchInitial",
+          "ScienceVesselSCBWEMPShockwave@Search"
+        ],
+        "CEffectLaunchMissile": [
+          "ScienceVesselSCBWEMPShockwave@LM"
+        ],
+        "CAbilResearch": [
+          "ScienceVesselSCBWEnergyUpgrade",
+          "ScienceVesselSCBWDefensiveMatrixResearch",
+          "ScienceVesselSCBWEMPShockwaveResearch",
+          "ScienceVesselSCBWIrradiateResearch"
+        ],
+        "CAbilEffectTarget": [
+          "ScienceVesselSCBWDefensiveMatrix",
+          "ScienceVesselSCBWDefensiveMatrix@Hardcore",
+          "ScienceVesselSCBWIrradiate",
+          "ScienceVesselSCBWIrradiate@Hardcore",
+          "ScienceVesselSCBWEMPShockwave",
+          "ScienceVesselSCBWEMPShockwave@Hardcore"
+        ],
+        "CActorModelMaterial": [
+          "ScienceVesselSCBWDefensiveMatrix@Glaze",
+          "ScienceVesselSCBWIrradiate@Glaze"
+        ],
+        "CActorRegionCircle": [
+          "ScienceVesselSCBWEMPShockwave@CursorRegion"
+        ],
+        "CActorQueryResponse": [
+          "ScienceVesselSCBWEMPShockwave@GuideRegionAdd"
+        ],
+        "CActorEventMacro": [
+          "ScienceVesselSCBWDefensiveMatrix@Macro"
+        ],
+        "CActorSiteOpDeltaSum": [
+          "ScienceVesselSCBWIrradiate@Attach"
+        ],
+        "CActorModel": [
+          "ScienceVesselSCBWIrradiate@ImpactFX",
+          "ScienceVesselSCBWIrradiate@Effect",
+          "ScienceVesselSCBWDefensiveMatrix@Effect",
+          "ScienceVesselSCBWEMPShockwave@Impact",
+          "ScienceVesselSCBW@DeathModel"
+        ],
+        "CActorSiteOpShadow": [
+          "ScienceVesselSCBWIrradiate@SOpShadow"
+        ],
+        "CActorRange": [
+          "ScienceVesselSCBWEMPShockwave@Range",
+          "ScienceVesselSCBWDefensiveMatrix@Range",
+          "ScienceVesselSCBWIrradiate@Range"
+        ],
+        "CActorSplat": [
+          "ScienceVesselSCBWEMPShockwave@CursorSplat"
+        ],
+        "CActorSound": [
+          "ScienceVesselSCBWDefensiveMatrix@Birth",
+          "ScienceVesselSCBWDefensiveMatrix@Death",
+          "ScienceVesselSCBWIrradiate@Impact"
+        ],
+        "CActorAction": [
+          "ScienceVesselSCBWEMPShockwave@Action"
+        ],
+        "CActorMissile": [
+          "ScienceVesselSCBWEMPShockwave@Missile"
+        ],
+        "CActorSiteOpForward": [
+          "ScienceVesselSCBW@SOpDeath"
+        ],
+        "CActorUnit": [
+          "ScienceVesselSCBW"
+        ],
+        "CActorTurret": [
+          "ScienceVesselSCBW@Turret"
+        ],
+        "CModel": [
+          "ScienceVesselSCBWDefensiveMatrix@Glaze",
+          "ScienceVesselSCBWDefensiveMatrix@Glaze2",
+          "ScienceVesselSCBWIrradiate@Glaze",
+          "ScienceVesselSCBWIrradiate@EffectAir",
+          "ScienceVesselSCBWIrradiate@ImpactFX",
+          "ScienceVesselSCBWIrradiate@Behavior",
+          "ScienceVesselSCBWDefensiveMatrix@Effect",
+          "ScienceVesselSCBWIrradiate@Effect",
+          "ScienceVesselSCBWEMPShockwave@Missile",
+          "ScienceVesselSCBWEMPShockwave@Impact",
+          "ScienceVesselSCBW",
+          "ScienceVesselSCBW@Death",
+          "ScienceVesselSCBW@Portrait"
+        ],
+        "CAccumulatorBehavior": [
+          "ScienceVesselSCBWDefensiveMatrix@RemainingDuration"
+        ],
+        "CAccumulatorEffectAmount": [
+          "ScienceVesselSCBWDefensiveMatrix@DamageInherited"
+        ],
+        "CAccumulatorConstant": [
+          "ScienceVesselSCBWDefensiveMatrix"
+        ],
+        "CAccumulatorArithmetic": [
+          "ScienceVesselSCBWDefensiveMatrix@DamageRemainder",
+          "ScienceVesselSCBWDefensiveMatrix@RemainingMultiply"
+        ],
+        "CAccumulatorUserData": [
+          "ScienceVesselSCBWDefensiveMatrix@RemainingSource",
+          "ScienceVesselSCBWDefensiveMatrix@Remaining"
+        ],
+        "CUnit": [
+          "ScienceVesselSCBWEMPShockwave@Missile",
+          "ScienceVesselSCBW"
+        ],
+        "CBehaviorBuff": [
+          "ScienceVesselSCBWIrradiate@DamageBuff",
+          "ScienceVesselSCBWDefensiveMatrix@Data",
+          "ScienceVesselSCBWDefensiveMatrix",
+          "ScienceVesselSCBWDefensiveMatrix@Spell",
+          "ScienceVesselSCBWIrradiate@Irradiated",
+          "ScienceVesselSCBWEMPShockwave@Decloak"
+        ],
+        "CUpgrade": [
+          "ScienceVesselSCBWEnergyUpgrade",
+          "ScienceVesselSCBWDefensiveMatrixResearch",
+          "ScienceVesselSCBWEMPShockwaveResearch",
+          "ScienceVesselSCBWIrradiateResearch"
+        ]
+      },
+      "sha": "d100585b064b1cef631f55c0dae6d163d2863c66"
+    },
+    {
+      "file": "SCBW_01.Terran/04.Ship/05.BattlecruiserSCBW.xml",
+      "types": {
+        "CEffectCreatePersistent": [
+          "BattlecruiserSCBWYamato@Hardcore"
+        ],
+        "CEffectDamage": [
+          "BattlecruiserSCBWWeaponAir@Damage",
+          "BattlecruiserSCBWWeaponGround@Damage",
+          "BattlecruiserSCBWYamato@Damage",
+          "BattlecruiserSCBWYamato@DamageAccum"
+        ],
+        "CEffectLaunchMissile": [
+          "BattlecruiserSCBWWeaponAir@LM",
+          "BattlecruiserSCBWWeaponGround@LM",
+          "BattlecruiserSCBWYamato@LM"
+        ],
+        "CEffectUserData": [
+          "BattlecruiserSCBWYamato@DamageApply"
+        ],
+        "CEffectSet": [
+          "BattlecruiserSCBWYamato@Impact"
+        ],
+        "CAbilResearch": [
+          "BattlecruiserSCBWEnergyUpgrade",
+          "BattlecruiserSCBWYamatoResearch"
+        ],
+        "CAbilEffectTarget": [
+          "BattlecruiserSCBWYamato",
+          "BattlecruiserSCBWYamato@Hardcore"
+        ],
+        "CActorAction": [
+          "BattlecruiserSCBWWeaponAir@Action",
+          "BattlecruiserSCBWWeaponGround@Action",
+          "BattlecruiserSCBWYamato@Action"
+        ],
+        "CActorMissile": [
+          "BattlecruiserSCBWWeaponAir@Missile",
+          "BattlecruiserSCBWWeaponGround@Missile",
+          "BattlecruiserSCBWYamato@Missile"
+        ],
+        "CActorRange": [
+          "BattlecruiserSCBWYamato@Range"
+        ],
+        "CActorModel": [
+          "BattlecruiserSCBWYamato@ChargeModel",
+          "BattlecruiserSCBWYamato@ImpactModel",
+          "BattlecruiserSCBW@DeathRagdoll"
+        ],
+        "CActorSound": [
+          "BattlecruiserSCBWYamato@ChargeSound",
+          "BattlecruiserSCBW@Land"
+        ],
+        "CActorForceSphere": [
+          "BattlecruiserSCBW@DeathRagdollDetonationForce"
+        ],
+        "CActorSiteOpBankerUnit": [
+          "BattlecruiserSCBW@SOpBanker"
+        ],
+        "CActorUnit": [
+          "BattlecruiserSCBW"
+        ],
+        "CActorLookAt": [
+          "BattlecruiserSCBW@LookAt01",
+          "BattlecruiserSCBW@LookAt02",
+          "BattlecruiserSCBW@LookAt03",
+          "BattlecruiserSCBW@LookAt04",
+          "BattlecruiserSCBW@LookAt05",
+          "BattlecruiserSCBW@LookAt06",
+          "BattlecruiserSCBW@LookAt07"
+        ],
+        "CActorEventMacro": [
+          "BattlecruiserSCBW@HardcoreMacro"
+        ],
+        "CModel": [
+          "BattlecruiserSCBWWeaponAir@Impact",
+          "BattlecruiserSCBWWeaponAir@Missile",
+          "BattlecruiserSCBWWeaponGround@Impact",
+          "BattlecruiserSCBWWeaponGround@Missile",
+          "BattlecruiserSCBWYamato@ChargeModel",
+          "BattlecruiserSCBWYamato@Impact",
+          "BattlecruiserSCBWYamato@Missile",
+          "BattlecruiserSCBW@Portrait",
+          "BattlecruiserSCBW",
+          "BattlecruiserSCBW@Death",
+          "BattlecruiserSCBW@DeathA",
+          "BattlecruiserSCBW@DeathRagdoll"
+        ],
+        "CWeaponLegacy": [
+          "BattlecruiserSCBWWeaponAir",
+          "BattlecruiserSCBWWeaponGround"
+        ],
+        "CAccumulatorConstant": [
+          "BattlecruiserSCBWYamato@Damage"
+        ],
+        "CUnit": [
+          "BattlecruiserSCBWWeaponAir@Missile",
+          "BattlecruiserSCBWWeaponGround@Missile",
+          "BattlecruiserSCBWYamato@Missile",
+          "BattlecruiserSCBW"
+        ],
+        "CUpgrade": [
+          "BattlecruiserSCBWEnergyUpgrade",
+          "BattlecruiserSCBWYamatoResearch"
+        ]
+      },
+      "sha": "6d470964034689dbc7bd0355b8a1ab8d6190836d"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/00.General.xml",
+      "types": {
+        "CEffectSet": [
+          "TerranBuildingSCBW@LiftOffStart",
+          "TerranBuildingSCBW@LandFinish"
+        ],
+        "CEffectDamage": [
+          "TerranBuildingSCBW@BurnoutDamage"
+        ],
+        "CActorStateMonitor": [
+          "TerranBuildingSCBW@FlamesLarge",
+          "TerranBuildingSCBW@FlamesMedium",
+          "TerranBuildingSCBW@FlamesSmall"
+        ],
+        "CModel": [
+          "TerranBuildingSCBW@Portrait"
+        ],
+        "CBehaviorBuff": [
+          "TerranBuildingSCBW@Burnout",
+          "TerranBuildingSCBW@AddonDetached"
+        ]
+      },
+      "sha": "57e035466795a963495989aa8ed9f3bc11dddba1"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/01.CommandCenterSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "CommandCenterSCBW@CreateSet",
+          "CommandCenterSCBW@BirthSet"
+        ],
+        "CEffectRemoveBehavior": [
+          "CommandCenterSCBW@ComsatRemoveAttached",
+          "CommandCenterSCBW@NuclearSiloRemoveAttached"
+        ],
+        "CEffectTeleport": [
+          "CommandCenterSCBW@DetachAddon"
+        ],
+        "CAbilMorphPlacement": [
+          "CommandCenterSCBW@Land"
+        ],
+        "CAbilBuild": [
+          "CommandCenterSCBW@AddOns"
+        ],
+        "CAbilMorph": [
+          "CommandCenterSCBW@LiftOff"
+        ],
+        "CAbilTrain": [
+          "CommandCenterSCBW@Train"
+        ],
+        "CAbilTransport": [
+          "CommandCenterSCBW@Transport"
+        ],
+        "CAbilRally": [
+          "CommandCenterSCBW@Rally"
+        ],
+        "CActorModel": [
+          "CommandCenterSCBW@CommandPlayerDecalW",
+          "CommandCenterSCBW@Build"
+        ],
+        "CActorSiteOpLocalOffset": [
+          "CommandCenterSCBW@TerranCommandPlayerDecalOffset"
+        ],
+        "CActorEventMacro": [
+          "CommandCenterSCBW@TerranPlayerDecalMacro"
+        ],
+        "CActorProgress": [
+          "CommandCenterSCBW@AddOns"
+        ],
+        "CActorSound": [
+          "CommandCenterSCBW@Land",
+          "CommandCenterSCBW@LiftOff"
+        ],
+        "CActorUnit": [
+          "CommandCenterSCBW"
+        ],
+        "CActorSplat": [
+          "CommandCenterSCBW@Splat"
+        ],
+        "CModel": [
+          "CommandCenterSCBW@Build",
+          "CommandCenterSCBW",
+          "CommandCenterSCBW@Death",
+          "CommandCenterSCBW@DeathLow",
+          "CommandCenterSCBW@FlyDeath",
+          "CommandCenterSCBW@Placement",
+          "CommandCenterSCBW@Portrait",
+          "CommandCenterSCBW@Splat"
+        ],
+        "CUnit": [
+          "CommandCenterSCBW@Flying",
+          "CommandCenterSCBW"
+        ],
+        "CBehaviorBuff": [
+          "CommandCenterSCBW@TransportDummy"
+        ]
+      },
+      "sha": "5a103aa4a5e016772c8d7be734e810336ac4ca72"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/01a.ComsatStationSCBW.xml",
+      "types": {
+        "CEffectModifyUnit": [
+          "ComsatStationSCBWScannerSweep@CopyEnergy"
+        ],
+        "CEffectSet": [
+          "ComsatStationSCBWScannerSweep@AddonDetach",
+          "ComsatStationSCBWScannerSweep@AddonAttach",
+          "ComsatStationSCBWScannerSweep@RedirectSet",
+          "ComsatStationSCBWScannerSweep@SearchAddonSet",
+          "ComsatStationSCBW@DetachAddon",
+          "ComsatStationSCBW@AttachAddon"
+        ],
+        "CEffectEnumTrackedUnits": [
+          "ComsatStationSCBWScannerSweep@CopyEnergyTracked",
+          "ComsatStationSCBWScannerSweep@EnumTracked"
+        ],
+        "CEffectApplyBehavior": [
+          "ComsatStationSCBWScannerSweep@AttachedTracker"
+        ],
+        "CEffectIssueOrder": [
+          "ComsatStationSCBWScannerSweep@IssueOrder"
+        ],
+        "CEffectAddTrackedUnit": [
+          "ComsatStationSCBWScannerSweep@AttachedTrackUnit"
+        ],
+        "CEffectRemoveBehavior": [
+          "ComsatStationSCBWScannerSweep@AttachedTrackerRB"
+        ],
+        "CEffectEnumArea": [
+          "ComsatStationSCBWScannerSweep@SearchAddon"
+        ],
+        "CEffectCreatePersistent": [
+          "ComsatStationSCBWScannerSweep@SearchAddonDelay",
+          "ComsatStationSCBWScannerSweep@Revealer"
+        ],
+        "CAbilEffectTarget": [
+          "ComsatStationSCBWScannerSweep",
+          "ComsatStationSCBWScannerSweep@Hardcore",
+          "ComsatStationSCBWScannerSweep@Redirect"
+        ],
+        "CActorRange": [
+          "ComsatStationSCBWScannerSweep@Visual"
+        ],
+        "CActorSplat": [
+          "ComsatStationSCBWScannerSweep@CursorSplat",
+          "ComsatStationSCBW@Splat"
+        ],
+        "CActorModel": [
+          "ComsatStationSCBWScannerSweep@Model",
+          "ComsatStationSCBW@Build"
+        ],
+        "CActorSound": [
+          "ComsatStationSCBWScannerSweep@LaunchSound",
+          "ComsatStationSCBWScannerSweep@LaunchSoundOthers"
+        ],
+        "CActorUnit": [
+          "ComsatStationSCBW"
+        ],
+        "CModel": [
+          "ComsatStationSCBWScannerSweep@CursorSplat",
+          "ComsatStationSCBWScannerSweep@Model",
+          "ComsatStationSCBW",
+          "ComsatStationSCBW@Build",
+          "ComsatStationSCBW@Death",
+          "ComsatStationSCBW@DeathDetached",
+          "ComsatStationSCBW@Placement",
+          "ComsatStationSCBW@Splat"
+        ],
+        "CAccumulatorSwitch": [
+          "ComsatStationSCBWScannerSweep@ComsatVitalsSwitch"
+        ],
+        "CAccumulatorVitals": [
+          "ComsatStationSCBWScannerSweep@ComsatVitalsMax",
+          "ComsatStationSCBWScannerSweep@ComsatVitalsCurr"
+        ],
+        "CAccumulatorArithmetic": [
+          "ComsatStationSCBWScannerSweep@ComsatVitalsAccum"
+        ],
+        "CUnit": [
+          "ComsatStationSCBW"
+        ],
+        "CBehaviorBuff": [
+          "ComsatStationSCBWScannerSweep@Energy",
+          "ComsatStationSCBW@Attached"
+        ],
+        "CBehaviorUnitTracker": [
+          "ComsatStationSCBWScannerSweep@AttachedTracker"
+        ]
+      },
+      "sha": "9b2b59d710f460a79b48ef76099cdf9ffa831463"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/01b.NuclearSiloSCBW.xml",
+      "types": {
+        "CActorUnit": [
+          "NuclearSiloSCBW"
+        ],
+        "CActorModel": [
+          "NuclearSiloSCBW@Build"
+        ],
+        "CActorSplat": [
+          "NuclearSiloSCBW@Splat"
+        ],
+        "CModel": [
+          "NuclearSiloSCBW",
+          "NuclearSiloSCBW@Build",
+          "NuclearSiloSCBW@Death",
+          "NuclearSiloSCBW@DeathDetached",
+          "NuclearSiloSCBW@Placement",
+          "NuclearSiloSCBW@Splat"
+        ],
+        "CUnit": [
+          "NuclearSiloSCBW"
+        ],
+        "CBehaviorBuff": [
+          "NuclearSiloSCBW@Attached"
+        ]
+      },
+      "sha": "c1481f5c2352860a78b963a54efcccff633b5e17"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/02.SupplyDepotSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "SupplyDepotSCBW@Build"
+        ],
+        "CActorUnit": [
+          "SupplyDepotSCBW"
+        ],
+        "CActorSplat": [
+          "SupplyDepotSCBW@Splat"
+        ],
+        "CModel": [
+          "SupplyDepotSCBW@DeathLow",
+          "SupplyDepotSCBW@Build",
+          "SupplyDepotSCBW",
+          "SupplyDepotSCBW@Death",
+          "SupplyDepotSCBW@Placement",
+          "SupplyDepotSCBW@Portrait",
+          "SupplyDepotSCBW@Splat"
+        ],
+        "CUnit": [
+          "SupplyDepotSCBW"
+        ]
+      },
+      "sha": "28622c3ff8234870b9370893a0b087f3ca630d56"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/03.RefinerySCBW.xml",
+      "types": {
+        "CActorModel": [
+          "RefinerySCBW@RichBuild",
+          "RefinerySCBW@Build"
+        ],
+        "CActorUnit": [
+          "RefinerySCBW@Rich",
+          "RefinerySCBW"
+        ],
+        "CActorSplat": [
+          "RefinerySCBW@RichSplat",
+          "RefinerySCBW@Splat"
+        ],
+        "CModel": [
+          "RefinerySCBW@DeathLow",
+          "RefinerySCBW@Rich",
+          "RefinerySCBW@RichDeath",
+          "RefinerySCBW@Build",
+          "RefinerySCBW@Placement",
+          "RefinerySCBW",
+          "RefinerySCBW@Death",
+          "RefinerySCBW@EmptyDeath",
+          "RefinerySCBW@Portrait",
+          "RefinerySCBW@Splat",
+          "RefinerySCBW@RichSplat"
+        ],
+        "CUnit": [
+          "RefinerySCBW@Rich",
+          "RefinerySCBW"
+        ]
+      },
+      "sha": "b089c50a012e5a1c2df741406097a76da641ecc6"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/04.BarracksSCBW.xml",
+      "types": {
+        "CAbilMorphPlacement": [
+          "BarracksSCBW@Land"
+        ],
+        "CAbilMorph": [
+          "BarracksSCBW@LiftOff"
+        ],
+        "CAbilTrain": [
+          "BarracksSCBW@Train"
+        ],
+        "CActorUnit": [
+          "BarracksSCBW"
+        ],
+        "CActorSound": [
+          "BarracksSCBW@Land",
+          "BarracksSCBW@LiftOff"
+        ],
+        "CActorModel": [
+          "BarracksSCBW@Build"
+        ],
+        "CActorSplat": [
+          "BarracksSCBW@Splat"
+        ],
+        "CModel": [
+          "BarracksSCBW@DeathLow",
+          "BarracksSCBW@Build",
+          "BarracksSCBW",
+          "BarracksSCBW@Death",
+          "BarracksSCBW@FlyDeath",
+          "BarracksSCBW@Placement",
+          "BarracksSCBW@Portrait",
+          "BarracksSCBW@Splat"
+        ],
+        "CUnit": [
+          "BarracksSCBW@Flying",
+          "BarracksSCBW"
+        ]
+      },
+      "sha": "cf12c54dfb8886c090da9b47f7875a4b996c10fa"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/05.BunkerSCBW.xml",
+      "types": {
+        "CEffectIssueOrder": [
+          "BunkerSCBW@Salvage"
+        ],
+        "CAbilRally": [
+          "BunkerSCBW@Rally"
+        ],
+        "CAbilRedirectTarget": [
+          "BunkerSCBW@AttackRedirect",
+          "BunkerSCBW@HealRedirect"
+        ],
+        "CAbilTransport": [
+          "BunkerSCBW@Transport"
+        ],
+        "CAbilRedirectInstant": [
+          "BunkerSCBW@StopRedirect"
+        ],
+        "CAbilBehavior": [
+          "BunkerSCBW@Salvage"
+        ],
+        "CAbilEffectInstant": [
+          "BunkerSCBW@SalvageRefund"
+        ],
+        "CActorEventMacro": [
+          "BunkerSCBW@UnloadDropAnim",
+          "BunkerSCBW@TransportAnim"
+        ],
+        "CActorSound": [
+          "BunkerSCBW@LoadSound",
+          "BunkerSCBW@UnloadSound"
+        ],
+        "CActorModel": [
+          "BunkerSCBW@Build"
+        ],
+        "CActorUnit": [
+          "BunkerSCBW"
+        ],
+        "CActorSplat": [
+          "BunkerSCBW@Splat"
+        ],
+        "CModel": [
+          "BunkerSCBW@DeathLow",
+          "BunkerSCBW@Build",
+          "BunkerSCBW",
+          "BunkerSCBW@Death",
+          "BunkerSCBW@DeathEmpty",
+          "BunkerSCBW@Placement",
+          "BunkerSCBW@Portrait",
+          "BunkerSCBW@Splat"
+        ],
+        "CUnit": [
+          "BunkerSCBW"
+        ],
+        "CBehaviorBuff": [
+          "BunkerSCBW@Salvage",
+          "BunkerSCBW@RangeBonus"
+        ]
+      },
+      "sha": "50a9ba3c9e27f904b9c1235ef1f8ed43eb08da3b"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/06.EngineeringBaySCBW.xml",
+      "types": {
+        "CAbilMorphPlacement": [
+          "EngineeringBaySCBW@Land"
+        ],
+        "CAbilMorph": [
+          "EngineeringBaySCBW@LiftOff"
+        ],
+        "CAbilResearch": [
+          "TerranInfantryArmorsSCBW",
+          "TerranInfantryWeaponsSCBW"
+        ],
+        "CActorSound": [
+          "EngineeringBaySCBW@Land",
+          "EngineeringBaySCBW@LiftOff"
+        ],
+        "CActorModel": [
+          "EngineeringBaySCBW@Build",
+          "EngineeringBaySCBW@Placeholder",
+          "EngineeringBaySCBW@Placement"
+        ],
+        "CActorUnit": [
+          "EngineeringBaySCBW"
+        ],
+        "CActorSiteOpRotationExplicit": [
+          "EngineeringBaySCBW@Facing"
+        ],
+        "CActorSplat": [
+          "EngineeringBaySCBW@Splat"
+        ],
+        "CModel": [
+          "EngineeringBaySCBW@DeathLow",
+          "EngineeringBaySCBW@Build",
+          "EngineeringBaySCBW",
+          "EngineeringBaySCBW@Death",
+          "EngineeringBaySCBW@Placement",
+          "EngineeringBaySCBW@Portrait",
+          "EngineeringBaySCBW@Splat",
+          "EngineeringBaySCBW@FlyDeath"
+        ],
+        "CUnit": [
+          "EngineeringBaySCBW@Flying",
+          "EngineeringBaySCBW"
+        ],
+        "CUpgrade": [
+          "TerranInfantryArmorsSCBW_Lvl1",
+          "TerranInfantryArmorsSCBW_Lvl2",
+          "TerranInfantryArmorsSCBW_Lvl3",
+          "TerranInfantryWeaponsSCBW_Lvl1",
+          "TerranInfantryWeaponsSCBW_Lvl2",
+          "TerranInfantryWeaponsSCBW_Lvl3"
+        ]
+      },
+      "sha": "db57eeba30406bc3cd299a3fd373d7cc50f1c9d2"
+    },
+    {
+      "file": "SCBW_01.Terran/05a.StructureBasic/07.MissileTurretSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "MissileTurretSCBWWeapon@Impact"
+        ],
+        "CEffectUserData": [
+          "MissileTurretSCBWWeapon@DamageApply"
+        ],
+        "CEffectCreatePersistent": [
+          "MissileTurretSCBWWeapon@CP"
+        ],
+        "CEffectLaunchMissile": [
+          "MissileTurretSCBWWeapon@LM"
+        ],
+        "CEffectDamage": [
+          "MissileTurretSCBWWeapon@DamageAccum",
+          "MissileTurretSCBWWeapon@Damage"
+        ],
+        "CActorForceSphere": [
+          "MissileTurretSCBWWeapon@Force"
+        ],
+        "CActorAction": [
+          "MissileTurretSCBWWeapon@Action"
+        ],
+        "CActorMissile": [
+          "MissileTurretSCBWWeapon@Missile"
+        ],
+        "CActorTurret": [
+          "MissileTurretSCBW@TurretIdle",
+          "MissileTurretSCBW@Turret"
+        ],
+        "CActorModel": [
+          "MissileTurretSCBW@SkinnablePlacementModel",
+          "MissileTurretSCBW@Build"
+        ],
+        "CActorRange": [
+          "MissileTurretSCBW@ProtectRange"
+        ],
+        "CActorUnit": [
+          "MissileTurretSCBW"
+        ],
+        "CActorSplat": [
+          "MissileTurretSCBW@Splat"
+        ],
+        "CModel": [
+          "MissileTurretSCBWWeapon@LaunchFX",
+          "MissileTurretSCBWWeapon@Missile",
+          "MissileTurretSCBWWeapon@Impact",
+          "MissileTurretSCBW@Build",
+          "MissileTurretSCBW",
+          "MissileTurretSCBW@Death",
+          "MissileTurretSCBW@Placement",
+          "MissileTurretSCBW@Portrait",
+          "MissileTurretSCBW@Splat"
+        ],
+        "CWeaponLegacy": [
+          "MissileTurretSCBWWeapon"
+        ],
+        "CAccumulatorConstant": [
+          "MissileTurretSCBWWeapon@Damage"
+        ],
+        "CUnit": [
+          "MissileTurretSCBWWeapon@Missile",
+          "MissileTurretSCBW"
+        ],
+        "CBehaviorBuff": [
+          "MissileTurretSCBW@TurretDisable"
+        ]
+      },
+      "sha": "756376a786982a4cb1f2b3290f0a0ec83c939a55"
+    }
+  ]
+}
