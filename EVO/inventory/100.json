@@ -1,0 +1,268 @@
+{
+  "rev": "773c8e8ae8828121e8f37bb74ab82ceb761a45bc",
+  "rows": [
+    {
+      "file": "SCBW_03.Protoss/05b.StructureAdvanced/08.ArbiterTribunalSCBW.xml",
+      "types": {
+        "CActorModel": [
+          "ArbiterTribunalSCBW@Death",
+          "ArbiterTribunalSCBW@Build"
+        ],
+        "CActorSplat": [
+          "ArbiterTribunalSCBW@Splat"
+        ],
+        "CActorUnit": [
+          "ArbiterTribunalSCBW"
+        ],
+        "CModel": [
+          "ArbiterTribunalSCBW@Build",
+          "ArbiterTribunalSCBW",
+          "ArbiterTribunalSCBW@Portrait",
+          "ArbiterTribunalSCBW@DeathUnpowered",
+          "ArbiterTribunalSCBW@Death",
+          "ArbiterTribunalSCBW@DeathUnderConstruction",
+          "ArbiterTribunalSCBW@Birth",
+          "ArbiterTribunalSCBW@Splat",
+          "ArbiterTribunalSCBW@Placement"
+        ],
+        "CUnit": [
+          "ArbiterTribunalSCBW"
+        ]
+      },
+      "sha": "d1844023330bd77335e665aaa030eef2faceaa22"
+    },
+    {
+      "file": "SCBW_xx.Misc/ChangelingMarineSCBW.xml",
+      "types": {
+        "CEffectCreateUnit": [
+          "DisguiseAsMarineSCBWCU"
+        ],
+        "CAbilMorph": [
+          "DisguiseAsMarineSCBW"
+        ],
+        "CActorUnit": [
+          "ChangelingMarineSCBW"
+        ],
+        "CActorSound": [
+          "ChangelingMarineSCBW_Land"
+        ],
+        "CUnit": [
+          "ChangelingMarineSCBW"
+        ]
+      },
+      "sha": "5128a77f6841d9728a603fe556320edde9a59215"
+    },
+    {
+      "file": "SCBW_xx.Misc/ChangelingZealotSCBW.xml",
+      "types": {
+        "CEffectCreateUnit": [
+          "DisguiseAsZealotSCBWCU"
+        ],
+        "CAbilMorph": [
+          "DisguiseAsZealotSCBW"
+        ],
+        "CActorUnit": [
+          "ChangelingZealotSCBW"
+        ],
+        "CActorSound": [
+          "ChangelingZealotSCBW_Land"
+        ],
+        "CUnit": [
+          "ChangelingZealotSCBW"
+        ]
+      },
+      "sha": "5d47d179a2bedac0fdf91166fbd05cb297ffb8e1"
+    },
+    {
+      "file": "SCBW_xx.Misc/ChangelingZerglingSCBW.xml",
+      "types": {
+        "CEffectCreateUnit": [
+          "DisguiseAsZerglingSCBWCU"
+        ],
+        "CAbilMorph": [
+          "DisguiseAsZerglingSCBW"
+        ],
+        "CActorUnit": [
+          "ChangelingZerglingSCBW"
+        ],
+        "CActorSound": [
+          "ChangelingZerglingSCBW_Land"
+        ],
+        "CUnit": [
+          "ChangelingZerglingSCBW"
+        ]
+      },
+      "sha": "34721aa2ec9118380a75f70db73a502de31ea09f"
+    },
+    {
+      "file": "SCBW_xx.Misc/InfestedCommandCenterSC2.xml",
+      "types": {
+        "CEffectMorph": [
+          "InfestedCommandCenterSC2@Morph",
+          "InfestedCommandCenterSC2@MorphFlyer"
+        ],
+        "CAbilMorphPlacement": [
+          "InfestedCommandCenterSC2@Land"
+        ],
+        "CAbilMorph": [
+          "InfestedCommandCenterSC2@LiftOff",
+          "InfestedCommandCenterSC2@Morph",
+          "InfestedCommandCenterSC2@MorphFlyer"
+        ],
+        "CActorModel": [
+          "InfestedCommandCenterSC2@DeathModel"
+        ],
+        "CActorUnit": [
+          "InfestedCommandCenterSC2"
+        ],
+        "CActorSplat": [
+          "InfestedCommandCenterSC2@Splat"
+        ],
+        "CActorSound": [
+          "InfestedCommandCenterSC2@Land",
+          "InfestedCommandCenterSC2@LiftOff"
+        ],
+        "CUnit": [
+          "InfestedCommandCenterSC2@Flying",
+          "InfestedCommandCenterSC2"
+        ]
+      },
+      "sha": "154d79cea3b10677315fea1a12809574048a54bb"
+    },
+    {
+      "file": "SCBW_xx.Misc/InfestedCommandCenterSCBW.xml",
+      "types": {
+        "CEffectMorph": [
+          "InfestedCommandCenterSCBW@MorphFlyer",
+          "InfestedCommandCenterSCBW@Morph"
+        ],
+        "CAbilMorphPlacement": [
+          "InfestedCommandCenterSCBW@Land"
+        ],
+        "CAbilMorph": [
+          "InfestedCommandCenterSCBW@LiftOff",
+          "InfestedCommandCenterSCBW@Morph",
+          "InfestedCommandCenterSCBW@MorphFlyer"
+        ],
+        "CAbilRally": [
+          "InfestedCommandCenterSCBW@Rally"
+        ],
+        "CAbilTrain": [
+          "InfestedCommandCenterSCBW@Train"
+        ],
+        "CAbilTransport": [
+          "InfestedCommandCenterSCBW@Transport"
+        ],
+        "CActorUnit": [
+          "InfestedCommandCenterSCBW"
+        ],
+        "CActorModel": [
+          "InfestedCommandCenterSCBW@Build"
+        ],
+        "CActorSound": [
+          "InfestedCommandCenterSCBW@Land",
+          "InfestedCommandCenterSCBW@LiftOff"
+        ],
+        "CActorSplat": [
+          "InfestedCommandCenterSCBW@Splat"
+        ],
+        "CActorEventMacro": [
+          "SCBW_InfestationMacro"
+        ],
+        "CModel": [
+          "InfestedCommandCenterSCBW",
+          "InfestedCommandCenterSCBW@Build",
+          "InfestedCommandCenterSCBW@Death",
+          "InfestedCommandCenterSCBW@DeathLow",
+          "InfestedCommandCenterSCBW@FlyDeath",
+          "InfestedCommandCenterSCBW@Placement",
+          "InfestedCommandCenterSCBW@Splat",
+          "InfestedCommandCenterSCBW@Portrait"
+        ],
+        "CUnit": [
+          "InfestedCommandCenterSCBW",
+          "InfestedCommandCenterSCBW@Flying"
+        ]
+      },
+      "sha": "aa46acc4524dd8091e13e97c086293c4c7f59429"
+    },
+    {
+      "file": "SCBW_xx.Misc/InfestedOrbitalCommandSCBW.xml",
+      "types": {
+        "CEffectMorph": [
+          "InfestedOrbitalCommandSCBW@Morph",
+          "InfestedOrbitalCommandSCBW@MorphFlyer"
+        ],
+        "CAbilMorphPlacement": [
+          "InfestedOrbitalCommandSCBW@Land"
+        ],
+        "CAbilMorph": [
+          "InfestedOrbitalCommandSCBW@LiftOff",
+          "InfestedOrbitalCommandSCBW@Morph",
+          "InfestedOrbitalCommandSCBW@MorphFlyer"
+        ],
+        "CActorModel": [
+          "InfestedOrbitalCommandSCBW@DeathModel"
+        ],
+        "CActorUnit": [
+          "InfestedOrbitalCommandSCBW"
+        ],
+        "CActorSplat": [
+          "InfestedOrbitalCommandSCBW@Splat"
+        ],
+        "CActorSound": [
+          "InfestedOrbitalCommandSCBW@Land",
+          "InfestedOrbitalCommandSCBW@LiftOff"
+        ],
+        "CUnit": [
+          "InfestedOrbitalCommandSCBW@Flying",
+          "InfestedOrbitalCommandSCBW"
+        ]
+      },
+      "sha": "11f7e56d8a18d56b6c841bb9eda2fae52caa2c49"
+    },
+    {
+      "file": "SCBW_xx.Misc/InfestedPlanetaryFortressSCBW.xml",
+      "types": {
+        "CEffectMorph": [
+          "InfestedPlanetaryFortressSCBW@Morph"
+        ],
+        "CAbilMorph": [
+          "InfestedPlanetaryFortressSCBW@Morph"
+        ],
+        "CActorModel": [
+          "InfestedPlanetaryFortressSCBW@DeathModel"
+        ],
+        "CActorTurret": [
+          "InfestedPlanetaryFortressSCBW@Turret"
+        ],
+        "CActorUnit": [
+          "InfestedPlanetaryFortressSCBW"
+        ],
+        "CActorSplat": [
+          "InfestedPlanetaryFortressSCBW@Splat"
+        ],
+        "CUnit": [
+          "InfestedPlanetaryFortressSCBW"
+        ]
+      },
+      "sha": "07870af0036eb60bababd7a5930fcf8d1e40e807"
+    },
+    {
+      "file": "SCBW_xx.Misc/TempleVespeneGeyserSCBW.xml",
+      "types": {
+        "CActorUnit": [
+          "TempleVespeneGeyserSCBW"
+        ],
+        "CModel": [
+          "TempleVespeneGeyserSCBW@High",
+          "TempleVespeneGeyserSCBW"
+        ],
+        "CUnit": [
+          "TempleVespeneGeyserSCBW"
+        ]
+      },
+      "sha": "834dc94ed307601f5698e0b488582595985a1123"
+    }
+  ]
+}
