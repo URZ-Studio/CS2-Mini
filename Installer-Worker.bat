@@ -89,7 +89,11 @@ if errorlevel 1 git -C "%CACHE%\upstream" fetch --depth=1 origin "%REV%" || goto
 git -C "%CACHE%\upstream" checkout --detach "%REV%" || goto evofail
 set "MODS=%~2"
 if not defined MODS if exist "%CACHE%\mods.txt" set /p MODS=<"%CACHE%\mods.txt"
-if not defined MODS set /p "MODS=Enter installed StarCraft II Mods folder: "
+if defined MODS goto modsready
+if exist "%ProgramFiles(x86)%\StarCraft II\Mods\" set "MODS=%ProgramFiles(x86)%\StarCraft II\Mods"
+if not defined MODS if exist "%ProgramFiles%\StarCraft II\Mods\" set "MODS=%ProgramFiles%\StarCraft II\Mods"
+if not defined MODS set /p "MODS=Enter installed StarCraft II Mods folder (first setup only): "
+:modsready
 if not defined MODS goto evofail
 set "MODS=%MODS:"=%"
 %PY% "%CACHE%\EVO\Build-MiniCraft-EVO.py" --source "%CACHE%\upstream" --mods "%MODS%" --mini "%CACHE%\Build-MiniCraft.py" || goto evofail
