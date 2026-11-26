@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorUnit id="Disruptor">
+        <Remove Terms="Behavior.PurificationNovaTargettedCaster.On" Send="SetTintColor {255,83,26 1.550000} 0.100000 Bounce Firing"/>
+        <Remove Terms="Behavior.PurificationNovaTargettedCaster.Off" Send="ClearTintColor 0.050000 Firing"/>
+        <Remove Terms="Behavior.PurificationNovaTargettedCaster.Off" Send="SetTintColor {171,156,156 0.500000} 0.050000 OneShot Darken"/>
+        <Remove Terms="AbilCooldown.PurificationNovaTargeted.Regen" Send="ClearTintColor 0.100000 Darken"/>
+    </CActorUnit>
+    <CActorUnit id="ForceField">
+        <DeathArray index="Normal" ModelLink="ForceField"/>
+        <DeathArray index="Blast" ModelLink=""/>
+        <DeathArray index="Fire" ModelLink=""/>
+    </CActorUnit>
+    <CActorSound id="LurkerMPAttackSpikeSound">
+        <FogVisibility value="Visible"/>
+    </CActorSound>
+    <CActorModel id="ProtossFastWarpinMarker">
+        <On index="3" Terms="Behavior.PowerUserWarpable.Create; ValidateEffect SuperPower"/>
+        <On Terms="Effect.PowerUserWarpablelevel2lost.Start" Send="Destroy"/>
+    </CActorModel>
+    <CActorModel id="PylonPlacementModel">
+        <On Terms="TimerExpired; TimerName PylonPowerSearch; ValidatePosition LocationHasFastEnablerPower" Send="Signal SpecialPower"/>
+    </CActorModel>
+    <CActorProgress id="ProtossWarpIn">
+        <On index="5" Terms="ActorCreation; !ValidateUnit SuperPower" Send="$Birth 0 0.000000 0.000000 16.000000 AsDuration"/>
+        <On index="6" Terms="ActorCreation; ValidateUnit SuperPower" Send="$Birth 0 0.000000 0.000000 5.000000 AsDuration"/>
+        <On Terms="Effect.PowerUserWarpablelevel2gained.Start" Target="_Unit" Send="AnimSetTimeScale Birth 1.000000"/>
+        <On Terms="Effect.PowerUserWarpablelevel2lost.Start" Target="_Unit" Send="AnimSetTimeScale Birth 0.312500"/>
+        <On Terms="Effect.PowerUserWarpablelevel2gained.Start" Send="Create ProtossFastWarpinMarker"/>
+    </CActorProgress>
+    <CActorBeamSimple id="WidowMineTargetingBeam">
+        <On index="5" Send="SetTintColorBlendPair 255,255,255 {221,0,0 1.500000} 1.350000"/>
+        <On index="6" Send="SetScale 2.000000 3.000000"/>
+    </CActorBeamSimple>
+    <CActorRange id="XelNagaTowerRange">
+        <Remove Terms="SelectionLocalUpdate.XelNagaTowerRangeIndicatorDummy.Start" Send="Create"/>
+        <Remove Terms="SelectionLocalUpdate.XelNagaTowerRangeIndicatorDummy.Stop" Send="Destroy"/>
+        <Remove Terms="SelectionLocalUpdate.XelNagaTower.Start" Send="Create"/>
+        <Remove Terms="SelectionLocalUpdate.XelNagaTower.Stop" Send="Destroy"/>
+    </CActorRange>
+</Catalog>
