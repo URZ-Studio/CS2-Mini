@@ -4,16 +4,15 @@
 
 스타크래프트 II: 공허의 유산 섬멸전을 소형 유닛, 작은 건물, 빠른 생산, 대규모 물량전으로 바꾸는 독립 확장 모드(Extension Mod). 기존 테란/저그/프로토스 유지. 기존 섬멸전 맵에 적용하는 것이 목표이며 맵 자체는 수정하지 않는다. 전용 소형 맵은 추후 별도 제작 가능.
 
-## 통합 설치 및 자동 업데이트 실행기 (2026-11-26)
+## 원클릭 설치 및 자동 업데이트 (2026-11-26)
 
-**[Build-MiniCraft.bat](Build-MiniCraft.bat)** 하나만 저장한다. Git for Windows와 Python 3가 필요하며 비공개 저장소 접근 권한 및 Git 인증이 필요하다.
+**[Build-MiniCraft.bat](Build-MiniCraft.bat)** 하나만 저장하고 더블클릭한다. 선택 메뉴 없이 Classic과 EVO를 순차 설치/업데이트한다. Git for Windows 및 Python 3와 비공개 저장소 접근 권한이 필요하다.
 
-- 1: Classic 설치/업데이트
-- 2: EVO 설치/업데이트
-- 3: Classic과 EVO 순차 설치/업데이트
-- 0: 종료
-
-최초 한 번은 최신 통합 BAT로 교체해야 한다. 이후 실행 시 최신 Installer-Worker.bat 및 빌더를 GitHub에서 가져온다. 기존 Classic 및 EVO 캐시와 대상 경로를 유지한다. Classic 구성 요소 폴더를 BAT에 끌어 놓는 기존 방식도 지원한다. EVO 최초 실행 시 StarCraft II Mods 폴더를 입력하며 이후 기억한다. 에디터를 닫고 실행한다. ZIP 생성 및 Battle.net 자동 게시를 하지 않는다. 두 모드 일괄 설치는 순차 실행이며 하나가 실패하면 중단한다. 기존 EVO 전용 BAT는 이전 사용자 호환용으로 유지하며 신규 다운로드는 불필요하다.
+- 최초 1회 이전 메뉴형 BAT를 최신 BAT로 교체한다. 이후 최신 실행 작업 코드와 빌더를 GitHub에서 자동으로 가져온다.
+- 기존 캐시 및 저장 경로를 유지한다. EVO는 기억된 Mods 경로를 우선 사용하며, 없으면 표준 설치 경로를 자동 탐지한다. 둘 다 없을 때만 최초 경로 입력이 필요하다.
+- Mods 폴더를 BAT로 끌어 놓으면 해당 EVO 경로를 지정하면서 Classic도 함께 업데이트한다. 기존 Classic 구성 요소 폴더를 끌어 놓으면 해당 Classic 대상과 EVO를 함께 업데이트한다.
+- 개별 실행이 필요한 고급 사용자는 명령줄에서 `Build-MiniCraft.bat --classic` 또는 `Build-MiniCraft.bat --evo`를 사용할 수 있다.
+- 에디터를 닫고 실행한다. 기존 모드와 EVO는 별개 출력 폴더를 유지한다. ZIP 생성 및 Battle.net 자동 게시를 하지 않는다. 먼저 실행한 빌드가 실패하면 다음 빌드는 중단한다.
 
 Windows 실제 실행 및 에디터 검증은 아직 수행하지 않았다.
 
