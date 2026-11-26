@@ -796,6 +796,7 @@ def main():
     p.add_argument("--check",action="store_true")
     p.add_argument("--source",type=Path)
     p.add_argument("--mods",type=Path)
+    p.add_argument("--export-dir",type=Path,help="Build files only; never access the installed game directory")
     p.add_argument("--remember-mods",type=Path)
     p.add_argument("--open-output",action="store_true")
     p.add_argument("--mini",type=Path,default=Path(__file__).resolve().parents[1]/"Build-MiniCraft.py")
@@ -803,7 +804,12 @@ def main():
     if args.check:return
     if not args.source:p.error("--source required")
     src=args.source.resolve()
-    mods=locate_mods(args.mods,args.remember_mods)
+    if args.export_dir:
+        mods=args.export_dir.resolve()
+        mods.mkdir(parents=True,exist_ok=True)
+        print("Manual export directory:",mods)
+    else:
+        mods=locate_mods(args.mods,args.remember_mods)
     if (src/"SC Evo Complete").is_dir():src=src/"SC Evo Complete"
     for mod in MODS:
         if not (src/mod/"ComponentList.SC2Components").is_file():raise SystemExit("Missing source components: "+mod)
@@ -815,7 +821,7 @@ def main():
         if key not in inv["ids"].get("CUnit",[]):raise SystemExit("Unexpected source: missing "+key)
     out=mods/"MiniCraft-EVO"
     if out.exists() and not (out/"MINICRAFT-EVO.json").is_file():raise SystemExit("Refusing to replace unrecognized folder: "+str(out))
-    if args.open_output and os.name=="nt" and out.exists():
+    if not args.export_dir and args.open_output and os.name=="nt" and out.exists():
         home=os.environ.get("MINICRAFT_LAUNCHER_HOME")
         if home: expose_output(out,home)
     stage=Path(tempfile.mkdtemp(prefix=".MiniCraft-EVO-stage-",dir=mods))
@@ -837,7 +843,7 @@ def main():
         inv["terran_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="terran"]
         inv["zerg_record_audit"]=[r for r in VISUAL_AUDIT if visual_race(r["file"])=="zerg"]
         (stage/"EVO-audit.json").write_text(json.dumps(inv,indent=2,ensure_ascii=False),encoding="utf-8")
-        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.7-preview"},indent=2),encoding="utf-8")
+        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.8-preview"},indent=2),encoding="utf-8")
         if out.exists():
             from datetime import datetime
             backup=out.with_name(out.name+".backup-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
@@ -852,7 +858,7 @@ def main():
             raise
     finally:
         if stage.exists():shutil.rmtree(stage)
-    if args.remember_mods:
+    if args.remember_mods and not args.export_dir:
         args.remember_mods.parent.mkdir(parents=True,exist_ok=True)
         args.remember_mods.write_text(str(mods),encoding="utf-8")
     print("Built:",out/MODS[2]/"ComponentList.SC2Components")
@@ -869,9 +875,12 @@ def main():
     missing=[race+"/"+group+"/"+name for race,g in inv["crosswalk"].items() for group,items in g.items() for name,ids in items.items() if not ids]
     print("Unmapped canonical names (see audit):",missing)
     print("Editor and actual game still require validation. Close editor before rebuild.")
+    if args.export_dir:
+        print("MANUAL INSTALL: copy the entire MiniCraft-EVO folder into StarCraft II/Mods yourself.")
+        print("The installed game and previously published mods were not modified.")
     if args.open_output and os.name=="nt":
         home=os.environ.get("MINICRAFT_LAUNCHER_HOME")
-        if home: expose_output(out,home)
+        if home and not args.export_dir: expose_output(out,home)
         import subprocess
         entry=out/MODS[2]/"ComponentList.SC2Components"
         try: subprocess.Popen(["explorer.exe","/select,"+str(entry)])
