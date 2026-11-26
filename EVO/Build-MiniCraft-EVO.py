@@ -111,7 +111,7 @@ def visual_race(rel):
     if rel.startswith("SCBW_01."): return "terran"
     if rel.startswith("SCBW_02."): return "zerg"
     return None
-ZERG_VISUAL_KEEP = re.compile(r"fungal|parasiticbomb|blindingcloud|corrosivebile|darkswarm|plague|ensnare|creep(?!tumor)",re.I)
+ZERG_VISUAL_KEEP = re.compile(r"fungal|parasiticbomb|blindingcloud|corrosivebile|darkswarm|plague|ensnare|creep(?!tumor)|tentacle|attackspike|groundcracks|webby|primal|mutant|collector|skin",re.I)
 ZERG_VISUAL_SMALL = re.compile(r"burrow|unburrow|cocoon|egg|spawn|emerge|spine|spit|acid|tentacle|claw|swipe|squib|overhead|transfusion|consume|parasite|broodling",re.I)
 VISUAL_KEEP = re.compile(r"portrait|icon|cursor|range|radius|sight|vision|scan|search|targeting|target.?area|area|aoe|indicator|reticle|telegraph|decal|nuke|nuclear|emp|irradiate|explosion|blast|splash|shockwave|sensor|selection|beam|cone", re.I)
 VISUAL_SMALL = re.compile(r"placement|death|birth|warp|build|splat|lift.?off|land|thruster|engine|missile|projectile|muzzle|launch|impact|stimpack|heal|repair|lockdown|yamato|attack|weapon|shell|bullet|tracer|flame|grenade|morph|transform|cloak|matrix|restoration|opticflare", re.I)
