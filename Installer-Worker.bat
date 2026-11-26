@@ -86,25 +86,20 @@ if not exist "%CACHE%\upstream\.git" (
 git -C "%CACHE%\upstream" config core.longpaths true || goto evofail
 git -C "%CACHE%\upstream" rev-parse --verify "%REV%^{commit}" >nul 2>&1
 if errorlevel 1 git -C "%CACHE%\upstream" fetch --depth=1 origin "%REV%" || goto evofail
-git -C "%CACHE%\upstream" checkout --detach "%REV%" || goto evofail
-set "MODS=%~2"
-if not defined MODS if exist "%CACHE%\mods.txt" set /p MODS=<"%CACHE%\mods.txt"
-if defined MODS set "MODS=%MODS:"=%"
-if defined MODS if not exist "%MODS%\..\SC2Data\" set "MODS="
-if defined MODS goto modsready
-if exist "%ProgramFiles(x86)%\StarCraft II\Mods\..\SC2Data\" set "MODS=%ProgramFiles(x86)%\StarCraft II\Mods"
-if not defined MODS if exist "%ProgramFiles%\StarCraft II\Mods\..\SC2Data\" set "MODS=%ProgramFiles%\StarCraft II\Mods"
-if not defined MODS set /p "MODS=Enter actual StarCraft II Mods folder (next to SC2Data): "
-:modsready
-if not defined MODS goto evofail
-set "MODS=%MODS:"=%"
-%PY% "%CACHE%\EVO\Build-MiniCraft-EVO.py" --source "%CACHE%\upstream" --mods "%MODS%" --mini "%CACHE%\Build-MiniCraft.py" || goto evofail
-> "%CACHE%\mods.txt" echo(%MODS%
-set "ENTRY=%MODS%\MiniCraft-EVO\SCEvo_Multi.SC2Mod\ComponentList.SC2Components"
-echo Open this generated document, not a previously saved minicraft.SC2Mod:
-echo "%ENTRY%"
-if exist "%ENTRY%" start "" explorer.exe /select,"%ENTRY%"
-
+git -C "%CACHE%\upstream" diff --quiet HEAD -- >nul 2>&1
+if errorlevel 1 (
+  echo Saving modified tracked upstream cache files before restoring pinned source...
+  git -C "%CACHE%\upstream" diff --binary HEAD -- > "%CACHE%\upstream-local-%RANDOM%-%RANDOM%.patch" || goto evofail
+)
+git -C "%CACHE%\upstream" checkout --detach --force "%REV%" || goto evofail
+echo Locating the actual StarCraft II installation...
+if "%~2"=="" goto evodetect
+%PY% "%CACHE%\EVO\Build-MiniCraft-EVO.py" --source "%CACHE%\upstream" --mods "%~2" --remember-mods "%CACHE%\mods.txt" --mini "%CACHE%\Build-MiniCraft.py" --open-output || goto evofail
+goto evodone
+:evodetect
+%PY% "%CACHE%\EVO\Build-MiniCraft-EVO.py" --source "%CACHE%\upstream" --remember-mods "%CACHE%\mods.txt" --mini "%CACHE%\Build-MiniCraft.py" --open-output || goto evofail
+:evodone
+echo Done. Open the selected generated SCEvo_Multi document, not the upstream cache.
 exit /b 0
 :evofail
 echo Build failed. Existing MiniCraft is not modified.
