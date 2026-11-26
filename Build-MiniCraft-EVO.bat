@@ -20,6 +20,7 @@ if not exist "%CACHE%\upstream\.git" (
   git init "%CACHE%\upstream" || goto fail
   git -C "%CACHE%\upstream" remote add origin "%UPSTREAM%" || goto fail
 )
+git -C "%CACHE%\upstream" config core.longpaths true || goto fail
 git -C "%CACHE%\upstream" rev-parse --verify "%REV%^{commit}" >nul 2>&1
 if errorlevel 1 git -C "%CACHE%\upstream" fetch --depth=1 origin "%REV%" || goto fail
 git -C "%CACHE%\upstream" checkout --detach "%REV%" || goto fail
@@ -27,6 +28,7 @@ set "MODS=%~1"
 if not defined MODS if exist "%CACHE%\mods.txt" set /p MODS=<"%CACHE%\mods.txt"
 if not defined MODS set /p "MODS=Enter installed StarCraft II Mods folder: "
 if not defined MODS goto fail
+set "MODS=%MODS:"=%"
 %PY% "%CACHE%\EVO\Build-MiniCraft-EVO.py" --source "%CACHE%\upstream" --mods "%MODS%" --mini "%CACHE%\Build-MiniCraft.py" || goto fail
 > "%CACHE%\mods.txt" echo(%MODS%
 echo Done. Open the generated SCEvo_Multi component folder in Galaxy Editor.

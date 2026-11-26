@@ -1,4 +1,4 @@
-# MiniCraft EVO — v0.1.0 preview
+# MiniCraft EVO — v0.1.1 preview
 
 Separate local derivative of SCEvoComplete at commit 773c8e8ae8828121e8f37bb74ab82ceb761a45bc. MIT license retained. Original MiniCraft, upstream, and published mods are not edited.
 
@@ -15,3 +15,7 @@ BW explicit life/shield/armor/regeneration and damage fields 10%; unit actor and
 This is an experimental source builder, not a game-tested release. Inherited base models, all custom script-driven damage/recovery/armor, upgrade formula evaluation, paid morphs without explicit costs, build time sourced from custom data, special footprints and add-on spacing, all actor shadow/placement/skin variants, starting economy, custom race supply and AI, and compatibility of SC2 MiniCraft overrides with EVO balance require editor/game checks. Data audits are coverage checks, not evidence of runtime functionality. The builder deliberately reports unresolved mappings rather than claiming complete coverage. No automatic online publication.
 
 Upstream: https://github.com/TeamKoprulu/SCEvoComplete/tree/773c8e8ae8828121e8f37bb74ab82ceb761a45bc
+
+## Source audit and targeted corrections
+
+[109-file source audit and BW crosswalk](SOURCE-AUDIT.md). 98/98 canonical unit/building names found with exact IDs; source inventory includes additional states, missiles and helpers. Explicitly handle accumulator damage (including Yamato and nuclear strike), Defensive Matrix capacity, Feedback energy-derived damage, Medic/SCV default-Life healer, Shield Battery, and Life-paid skills. Tests are included but not executed in Galaxy Editor or Python in this environment. Production morphs using target BuildTime inherit that scaled value; explicit morph transition costs/times still require checks.

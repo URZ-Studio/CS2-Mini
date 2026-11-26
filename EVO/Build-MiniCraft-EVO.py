@@ -136,6 +136,8 @@ def patch_record(e,rel,fp,unit_ids):
                 elif child.tag in ("ShadowRadius","SelectionRadius","Radius"):attr(child,"value",.5)
     elif tag=="CEffectDamage":
         for child in e.iter():
+            # Feedback converts unscaled Energy into damage; keep the energy drain unchanged.
+            if child.tag=="VitalFractionCurrent" and child.get("index")=="Energy":attr(child,"value",.1)
             if child.tag in ("Amount","AttributeBonus","AttributeFactorBonus","ShieldBonus","ShieldFactorBonus"):
                 if child.tag not in ("AttributeFactorBonus","ShieldFactorBonus"):attr(child,"value",.1)
         attr(e,"Amount",.1)
@@ -149,8 +151,12 @@ def patch_record(e,rel,fp,unit_ids):
                         if sub.tag in ("Change","ChangeAmount"):attr(sub,"value",.1)
         if tag in ("CEffectCreateHealer","CEffectModifyUnit"):
             v=e.find("RechargeVital")
-            if v is not None and v.get("value") in ("Life","Shields"):
+            # Medic/SCV use the engine's default Life vital when absent.
+            if (v is None and tag=="CEffectCreateHealer") or (v is not None and v.get("value") in ("Life","Shields")):
                 for child in e.findall("RechargeVitalRate"):attr(child,"value",.1)
+                drain=e.find("DrainVital")
+                if drain is not None and drain.get("value")=="Energy":
+                    for child in e.findall("DrainVitalCostFactor"):attr(child,"value",10)
     elif tag in BUILD_ABILS:
         for child in e.iter():
             if child.tag=="InfoArray":attr(child,"Time",.5)
@@ -176,13 +182,22 @@ def patch_record(e,rel,fp,unit_ids):
                 elif val.startswith("{") and val.endswith("}") and "/" not in val:
                     child.set("Value",val[:-1]+"*0.1}");COUNTS["upgrade_formula_fields"]+=1
                 else:COUNTS["unresolved_upgrade_expressions"]+=1
-    elif tag=="CAccumulatorConstant" and re.search(r"Weapon(?:Ground|Air|Alt)?@Damage$",uid):
+    elif tag=="CAccumulatorConstant" and (uid.endswith("@Damage") or uid=="ScienceVesselSCBWDefensiveMatrix"):
         for child in e.findall("Amount"):attr(child,"value",.1)
     elif tag=="CBehaviorBuff":
+        for response in e.iter("DamageResponse"):
+            for key in ("ModifyAmount","ModifyLimit","ModifyMinimumDamage"):attr(response,key,.1)
+            for child in response:
+                if child.tag in ("ModifyAmount","ModifyLimit","ModifyMinimumDamage"):attr(child,"value",.1)
         for mod in e.iter("Modification"):
             for key in ("LifeArmorBonus","ShieldArmorBonus"):attr(mod,key,.1)
             for child in mod:
                 if child.tag in ("LifeArmorBonus","ShieldArmorBonus"):attr(child,"value",.1)
+
+    if tag.startswith("CAbil"):
+        # Life-paid skills (Stimpack etc.) scale with the new HP pool; Energy is unchanged.
+        for child in e.iter("Vital"):
+            if child.get("index")=="Life":attr(child,"value",.1)
 
 def patch_bw(stage, inv, catalogs):
     fp={e.get("id") for e in ET.fromstring(catalogs["FootprintData"])}
@@ -265,6 +280,10 @@ def selftest():
     assert e.find("Footprint").get("value")=="MiniFootprint3x3Contour" and e.find("Food").get("value")=="8"
     e=ET.fromstring('<CUpgrade id="XSCBW"><EffectArrayTemplate Reference="Effect,X,Amount" Value="{DataCollection,X,DamagePerDice}"/></CUpgrade>')
     patch_record(e,"UpgradeData.xml",set(),set());assert e[0].get("Value").endswith("*0.1}")
+    e=ET.fromstring('<CAccumulatorConstant id="BattlecruiserSCBWYamato@Damage"><Amount value="260"/></CAccumulatorConstant>')
+    patch_record(e,"SCBW_01.Terran/b.xml",set(),set());assert e.find("Amount").get("value")=="26"
+    e=ET.fromstring('<CEffectCreateHealer id="MedicSCBWHeal@Healer"><DrainVital value="Energy"/><DrainVitalCostFactor value="0.5"/><RechargeVitalRate value="12"/></CEffectCreateHealer>')
+    patch_record(e,"SCBW_01.Terran/m.xml",set(),set());assert e.find("RechargeVitalRate").get("value")=="1.2" and e.find("DrainVitalCostFactor").get("value")=="5"
     COUNTS.clear()
     print("EVO transform self-tests passed.")
 
@@ -301,7 +320,7 @@ def main():
         shutil.copy2(license_path,stage/"LICENSE-SCEvo.txt")
         inv["transform_counts"]=dict(COUNTS)
         (stage/"EVO-audit.json").write_text(json.dumps(inv,indent=2,ensure_ascii=False),encoding="utf-8")
-        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.0-preview"},indent=2),encoding="utf-8")
+        (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.1-preview"},indent=2),encoding="utf-8")
         if out.exists():
             from datetime import datetime
             backup=out.with_name(out.name+".backup-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
