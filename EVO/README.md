@@ -1,4 +1,4 @@
-# MiniCraft EVO — v0.1.5 preview
+# MiniCraft EVO — v0.1.6 preview
 
 Separate local derivative of SCEvoComplete at commit 773c8e8ae8828121e8f37bb74ab82ceb761a45bc. MIT license retained. Original MiniCraft, upstream, and published mods are not edited.
 
@@ -39,3 +39,7 @@ The original H2CS version-8 DocumentHeader contains a second dependency list. Re
 ## Installation path recovery (0.1.5 preview)
 
 The launcher now delegates installation discovery to Python (saved path, Windows registry, standard folders and common drive paths). It accepts the game root or Mods path, creates Mods if absent, and asks for the actual game installation folder only when discovery fails. The remembered path is written in UTF-8 after successful generation. Modified tracked upstream cache files are backed up as a binary Git diff before restoring the pinned checkout; never open the upstream cache in the editor. The successful build opens Explorer at the generated Multi component file. Windows execution and Galaxy Editor loading remain unverified.
+
+## Battle.net publication workflow (0.1.6 preview)
+
+After updating with the same launcher, open the installed `Mods/MiniCraft-EVO` folder. `Open-1-Assets.cmd`, `Open-2-Core.cmd`, and `Open-3-Multi.cmd` select their component documents in Explorer. `EVO-PUBLISH.txt` shows the exact local paths and dependency status. Publish Assets as **MiniCraft EVO Assets**, Core as **MiniCraft EVO Core**, and Multi as **MiniCraft EVO** in the same region/account. Bind Core to your published Assets and Multi to your published Core in the Blizzard dependency column. Keep the local file override and save the component documents in place after editing/publishing. Do not use the original SCEvo online publications. Subsequent rebuilds preserve the saved DocumentInfo/DocumentHeader pair and DocInfo localization fields, restoring a missing local override when needed; unexpected dependency layouts or unsupported saved headers fail safely before replacing the previous build. The strict title checks intentionally require the names above. Separate packed Save As documents are not imported. The builder cannot confirm remote publication, sign in, or publish; the editor's saved metadata format and online publication still require real-world validation. The current audit records publication dependencies, not a guarantee of account-level publication state.
