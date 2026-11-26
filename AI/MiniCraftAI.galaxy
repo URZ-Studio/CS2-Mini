@@ -420,7 +420,9 @@ bool MC_TrainUnit(string id) {
 bool MC_OnTrain(bool testConds,bool runActions) {
     unit u;
     int p;
+    int i = 0;
     string id;
+    fixed actual;
     if (!runActions || !mc_configured || mc_mult <= 1) { return true; }
     if (!MC_TrainAbility(EventUnitCreatedAbil())) { return true; }
     u = EventUnitCreatedUnit();
@@ -428,6 +430,17 @@ bool MC_OnTrain(bool testConds,bool runActions) {
     p = UnitGetOwner(u);
     id = UnitGetType(u);
     if (!MC_Active(p) || !MC_TrainUnit(id)) { return true; }
+    // Verify actual unit food, not only the catalog readback.
+    while (i < 72) {
+        if (mc_foodId[i] == id) { break; }
+        i += 1;
+    }
+    if (i >= 72) { return true; }
+    actual = UnitGetPropertyFixed(u,c_unitPropSuppliesUsed,c_unitPropCurrent);
+    if (actual != -MC_TargetFood(i,mc_mult,mc_workersFree)) {
+        TriggerDebugOutput(1,StringToText("MiniCraft: actual supply differs; batch skipped for "+id),true);
+        return true;
+    }
     // Script-created copies have no training ability and cannot trigger another batch.
     // Each native Zergling birth is handled once (two births per normal egg).
     UnitCreate(mc_mult-1,id,0,p,UnitGetPosition(u),UnitGetFacing(u));
@@ -444,14 +457,14 @@ bool MC_IsRich(string id) {
 }
 void MC_Resources(int percent, bool rich) {
     unitgroup g = UnitGroup(null,c_playerAny,RegionEntireMap(),null,0);
-    int i = 1;
+    int i = UnitGroupCount(g,c_unitCountAll);
     unit u;
     string id;
     string target;
     fixed amount;
-    while (i <= UnitGroupCount(g,c_unitCountAll)) {
+    while (i > 0) {
         u = UnitGroupUnit(g,i);
-        i += 1;
+        i -= 1;
         if (u != null && UnitIsAlive(u)) {
             id = UnitGetType(u);
             target = MC_RichType(id);
@@ -462,7 +475,7 @@ void MC_Resources(int percent, bool rich) {
                         libNtve_gf_ReplaceUnit(u,target,libNtve_ge_ReplaceUnitOptions_NewUnitsDefault);
                         u = libNtve_gf_LastReplacedUnit();
                     }
-                    if (u != null) { UnitSetPropertyFixed(u,c_unitPropResources,amount * IntToFixed(percent) / 100.0); }
+                    if (u != null) { UnitSetPropertyFixed(u,c_unitPropResources,amount * (IntToFixed(percent) / 100.0)); }
                 }
             }
         }
