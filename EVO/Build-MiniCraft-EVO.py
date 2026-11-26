@@ -747,6 +747,36 @@ def locate_mods(explicit=None, remember=None):
         print("StarCraft II Mods:",mods,flush=True)
         return mods
 
+
+def expose_output(out,launcher_home):
+    """A Windows folder shortcut, not a second copy or relocated dependency."""
+    import subprocess
+    home=Path(launcher_home).resolve()
+    if not home.is_dir(): return
+    link=home/"MiniCraft-EVO.lnk"
+    env=dict(os.environ,MINICRAFT_SHORTCUT_PATH=str(link),MINICRAFT_SHORTCUT_TARGET=str(out))
+    script="""
+$ErrorActionPreference = 'Stop'
+$shell = New-Object -ComObject WScript.Shell
+$path = $env:MINICRAFT_SHORTCUT_PATH
+$target = $env:MINICRAFT_SHORTCUT_TARGET
+$link = $shell.CreateShortcut($path)
+if ((Test-Path -LiteralPath $path) -and ($link.TargetPath -ne $target)) {
+    throw 'An existing shortcut points elsewhere; leaving it unchanged.'
+}
+$link.TargetPath = $target
+$link.WorkingDirectory = $target
+$link.Description = 'MiniCraft EVO installed mods and publishing tools'
+$link.Save()
+"""
+    try:
+        subprocess.run(["powershell.exe","-NoProfile","-NonInteractive","-Command",script],env=env,check=True,timeout=30)
+        if not link.is_file(): raise OSError("Shortcut file was not created")
+        print("Easy access:",link)
+    except (OSError,subprocess.SubprocessError) as exc:
+        print("Shortcut creation skipped (build is intact):",exc)
+        print("Open the installed folder directly:",out)
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--check",action="store_true")
@@ -819,6 +849,8 @@ def main():
     print("Unmapped canonical names (see audit):",missing)
     print("Editor and actual game still require validation. Close editor before rebuild.")
     if args.open_output and os.name=="nt":
+        home=os.environ.get("MINICRAFT_LAUNCHER_HOME")
+        if home: expose_output(out,home)
         import subprocess
         entry=out/MODS[2]/"ComponentList.SC2Components"
         try: subprocess.Popen(["explorer.exe","/select,"+str(entry)])
