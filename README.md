@@ -17,6 +17,12 @@
 
 Windows 실제 실행 및 에디터 검증은 아직 수행하지 않았다.
 
+## 테란 시각 효과 1차 확장 — Classic / EVO (2026-11-26)
+
+- Classic: 원본 Core/Liberty/VoidMulti 모델과 나머지 빈 모델 계층 확인. 독립 모델 121개 추가(전체 743 → 864). 자극제, 발사/착탄, 공성 변형, 미사일, 수리 드론 등. 7개 ActorData 계층 대조에서 현재 관리 유닛에 대응하는 테란 액터 49개 모두 기존 그림자 설정 확인. [모델 감사 JSON](audit/terran-visual-classic.json).
+- EVO: 테란 원본 파일 범위에 유닛 액터 그림자 플래그/이벤트, 독립 모델 크기와 명시/상속 반경 보정, 기본 모델 상속 해석을 추가. 설치 시 `EVO-audit.json`의 `terran_record_audit`에 변경/유지/미해결 레코드 기록.
+- EMP/스캔/핵/범위 및 사거리 표시, 초상화, 공유 광선 등의 크기는 보존한다. 일부 스킨·엔진 상속·부착 효과는 추가 검수 필요. 데이터 중복 ID 검사 및 주요 회귀 검사 추가; Python 실행, 에디터 및 게임 검증은 아직 하지 않음.
+
 ## MiniCraft AI — 전용 운영 AI (실험판)
 
 **[AI/MiniCraftAI.galaxy](AI/MiniCraftAI.galaxy)** · **[AI/README.md — 활성화 및 테스트](AI/README.md)**
