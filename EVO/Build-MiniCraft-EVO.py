@@ -99,6 +99,72 @@ def scope(e,rel):
     uid=e.get("id","")
     return bool(uid) and ("SCBW" in uid or rel.startswith(("SCBW_01.","SCBW_02.","SCBW_03.","SCBW_xx.")))
 
+
+# Model-space changes only. Keep gameplay area indicators and shared FX intact.
+VISUAL_AUDIT = []
+MODEL_ORIGINALS = {}
+TERRAN_BODY_MODELS = set()
+VISUAL_KEEP = re.compile(r"portrait|icon|cursor|range|radius|sight|vision|scan|search|targeting|target.?area|area|aoe|indicator|reticle|telegraph|decal|nuke|nuclear|emp|irradiate|explosion|blast|splash|shockwave|sensor|selection|beam|cone", re.I)
+VISUAL_SMALL = re.compile(r"placement|death|birth|warp|build|splat|lift.?off|land|thruster|engine|missile|projectile|muzzle|launch|impact|stimpack|heal|repair|lockdown|yamato|attack|weapon|shell|bullet|tracer|flame|grenade|morph|transform|cloak|matrix|restoration|opticflare", re.I)
+
+def original_field(uid, key, seen=None):
+    seen = set() if seen is None else seen
+    if uid in seen: return None
+    seen.add(uid)
+    data = MODEL_ORIGINALS.get(uid, {})
+    return data.get(key) or (original_field(data["parent"], key, seen) if data.get("parent") else None)
+
+def half_vector(value):
+    if not value: return None
+    parts = value.split(",")
+    if len(parts) not in (1, 3) or not all(number(p) is not None for p in parts): return None
+    return ",".join(scaled(p, .5) for p in parts)
+
+def terran_visual_model(e, rel):
+    uid = e.get("id", "")
+    row = {"id":uid, "file":rel, "type":"CModel", "changed":[], "unresolved":[]}
+    VISUAL_AUDIT.append(row)
+    if e.get("default") == "1" or VISUAL_KEEP.search(uid):
+        row["status"] = "preserve template/UI/area/shared effect"
+        return
+    def field(key):
+        child = e.find(key)
+        return original_field(uid,key) or (child.get("value") if child is not None else None)
+    if VISUAL_SMALL.search(uid) and uid not in TERRAN_BODY_MODELS:
+        for key in ("ScaleMin", "ScaleMax"):
+            value = half_vector(field(key))
+            if value is not None:
+                put(e, key, value); row["changed"].append(key)
+            else: row["unresolved"].append(key)
+    for key in ("ShadowRadius", "SelectionRadius", "Radius"):
+        value = field(key)
+        if number(value) is not None:
+            put(e, key, scaled(value,.5)); row["changed"].append(key)
+    row["status"] = "patched" if row["changed"] else "inherited or review"
+    COUNTS["terran_visual_models_patched"] += bool(row["changed"])
+    COUNTS["terran_visual_scale_unresolved"] += bool(row["unresolved"])
+
+def collect_visual_originals(stage):
+    MODEL_ORIGINALS.clear(); TERRAN_BODY_MODELS.clear(); VISUAL_AUDIT.clear()
+    for mod in MODS[1:]:
+        data = stage/mod/"Base.SC2Data/GameData"
+        for path in sorted(data.rglob("*.xml")):
+            root = xmlread(path).getroot()
+            if root.tag != "Catalog": continue
+            for e in root:
+                uid = e.get("id")
+                if not uid: continue
+                if e.tag == "CModel":
+                    record = MODEL_ORIGINALS.setdefault(uid,{})
+                    if e.get("parent"): record["parent"] = e.get("parent")
+                    for key in ("ScaleMin","ScaleMax","ShadowRadius","SelectionRadius","Radius"):
+                        value = e.find(key)
+                        if value is not None and value.get("value") is not None: record[key] = value.get("value")
+                elif e.tag == "CActorUnit" and path.relative_to(data).as_posix().startswith("SCBW_01."):
+                    TERRAN_BODY_MODELS.add(uid)
+                    model = e.find("Model")
+                    if model is not None and model.get("value"): TERRAN_BODY_MODELS.add(model.get("value"))
+
 def patch_record(e,rel,fp,unit_ids):
     uid=e.get("id",""); tag=e.tag
     if tag=="CRace" and uid in BW_RACES:
@@ -128,7 +194,17 @@ def patch_record(e,rel,fp,unit_ids):
             if sc is None:put(e,"Scale","0.5,0.5,0.5")
             else:vector(sc,"value",.5)
             COUNTS["unit_actor_records"]+=1
+            if rel.startswith("SCBW_01.") and tag=="CActorUnit":
+                flag=e.find("UnitFlags[@index='ShowBlobShadow']")
+                if flag is None: flag=ET.SubElement(e,"UnitFlags",index="ShowBlobShadow")
+                flag.set("value","0")
+                if not any(x.get("Terms")=="ActorCreation" and x.get("Send")=="SetCastShadows" for x in e.findall("On")):
+                    ET.SubElement(e,"On",Terms="ActorCreation",Send="SetCastShadows")
+                COUNTS["terran_actor_shadow_records"]+=1
     elif tag=="CModel":
+        if rel.startswith("SCBW_01."):
+            terran_visual_model(e,rel)
+            return
         # Only explicit placement/death model sizes; body actor is scaled above.
         if any(x in uid.lower() for x in ("placement","death","birth","warp")):
             for child in e:
@@ -200,6 +276,7 @@ def patch_record(e,rel,fp,unit_ids):
             if child.get("index")=="Life":attr(child,"value",.1)
 
 def patch_bw(stage, inv, catalogs):
+    collect_visual_originals(stage)
     fp={e.get("id") for e in ET.fromstring(catalogs["FootprintData"])}
     unit_ids=set(inv["ids"].get("CUnit",[]))
     for mod in MODS[1:]:
@@ -208,7 +285,12 @@ def patch_bw(stage, inv, catalogs):
             t=xmlread(path);root=t.getroot()
             if root.tag!="Catalog":continue
             old=ET.tostring(root)
-            for e in root:patch_record(e,path.relative_to(data).as_posix(),fp,unit_ids)
+            for e in root:
+                rel=path.relative_to(data).as_posix()
+                before=ET.tostring(e)
+                patch_record(e,rel,fp,unit_ids)
+                if rel.startswith("SCBW_01.") and e.get("id") and e.tag.startswith(("CActor","CEffect","CAbil","CUnit","CWeapon","CUpgrade","CBehavior","CAccumulator")):
+                    VISUAL_AUDIT.append({"file":rel,"id":e.get("id"),"type":e.tag,"status":"changed" if before!=ET.tostring(e) else "unchanged / review"})
             if ET.tostring(root)!=old:
                 xmlwrite(t,path);COUNTS["catalog_files_changed"]+=1
     core=stage/MODS[1]/"Base.SC2Data"
@@ -284,7 +366,16 @@ def selftest():
     patch_record(e,"SCBW_01.Terran/b.xml",set(),set());assert e.find("Amount").get("value")=="26"
     e=ET.fromstring('<CEffectCreateHealer id="MedicSCBWHeal@Healer"><DrainVital value="Energy"/><DrainVitalCostFactor value="0.5"/><RechargeVitalRate value="12"/></CEffectCreateHealer>')
     patch_record(e,"SCBW_01.Terran/m.xml",set(),set());assert e.find("RechargeVitalRate").get("value")=="1.2" and e.find("DrainVitalCostFactor").get("value")=="5"
-    COUNTS.clear()
+    e=ET.fromstring('<CModel id="MarineSCBWWeapon@Launch"><ScaleMin value="1,1,1"/><ScaleMax value="2,2,2"/></CModel>')
+    patch_record(e,"SCBW_01.Terran/m.xml",set(),set())
+    assert e.find("ScaleMin").get("value")=="0.5,0.5,0.5" and e.find("ScaleMax").get("value")=="1,1,1"
+    e=ET.fromstring('<CModel id="ScienceVesselSCBWEMPShockwave@Impact"><ScaleMin value="2,2,2"/></CModel>')
+    patch_record(e,"SCBW_01.Terran/m.xml",set(),set())
+    assert e.find("ScaleMin").get("value")=="2,2,2"
+    e=ET.fromstring('<CActorUnit id="MarineSCBW" unitName="MarineSCBW"/>')
+    patch_record(e,"SCBW_01.Terran/m.xml",set(),{"MarineSCBW"})
+    assert e.find("UnitFlags").get("value")=="0" and e.find("On").get("Send")=="SetCastShadows"
+    COUNTS.clear(); VISUAL_AUDIT.clear()
     print("EVO transform self-tests passed.")
 
 def main():
@@ -319,6 +410,7 @@ def main():
         if not license_path.is_file():raise SystemExit("Upstream LICENSE missing")
         shutil.copy2(license_path,stage/"LICENSE-SCEvo.txt")
         inv["transform_counts"]=dict(COUNTS)
+        inv["terran_record_audit"]=VISUAL_AUDIT
         (stage/"EVO-audit.json").write_text(json.dumps(inv,indent=2,ensure_ascii=False),encoding="utf-8")
         (stage/"MINICRAFT-EVO.json").write_text(json.dumps({"source":REV,"version":"0.1.1-preview"},indent=2),encoding="utf-8")
         if out.exists():
