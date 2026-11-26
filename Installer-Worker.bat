@@ -62,6 +62,10 @@ echo Update failed. Read the error above.
 exit /b 1
 
 :evo
+if /i not "%MINICRAFT_EVO_MANUAL%"=="1" (
+  echo EVO automatic installation is disabled. Use Build-MiniCraft-EVO.bat for manual file export.
+  exit /b 0
+)
 setlocal EnableExtensions DisableDelayedExpansion
 cd /d "%MINICRAFT_LAUNCHER_HOME%" || goto evofail
 set "CACHE=%MINICRAFT_LAUNCHER_HOME%.MiniCraft-EVO-cache"
@@ -92,14 +96,9 @@ if errorlevel 1 (
   git -C "%CACHE%\upstream" diff --binary HEAD -- > "%CACHE%\upstream-local-%RANDOM%-%RANDOM%.patch" || goto evofail
 )
 git -C "%CACHE%\upstream" checkout --detach --force "%REV%" || goto evofail
-echo Locating the actual StarCraft II installation...
-if "%~2"=="" goto evodetect
-%PY% "%CACHE%\EVO\Build-MiniCraft-EVO.py" --source "%CACHE%\upstream" --mods "%~2" --remember-mods "%CACHE%\mods.txt" --mini "%CACHE%\Build-MiniCraft.py" --open-output || goto evofail
-goto evodone
-:evodetect
-%PY% "%CACHE%\EVO\Build-MiniCraft-EVO.py" --source "%CACHE%\upstream" --remember-mods "%CACHE%\mods.txt" --mini "%CACHE%\Build-MiniCraft.py" --open-output || goto evofail
-:evodone
-echo Done. Open the selected generated SCEvo_Multi document, not the upstream cache.
+echo Exporting EVO files beside the launcher. The installed game is not modified.
+%PY% "%CACHE%\EVO\Build-MiniCraft-EVO.py" --source "%CACHE%\upstream" --export-dir "%MINICRAFT_LAUNCHER_HOME%EVO-Manual" --mini "%CACHE%\Build-MiniCraft.py" --open-output || goto evofail
+echo Done. Copy EVO-Manual\MiniCraft-EVO into the game's Mods folder manually.
 exit /b 0
 :evofail
 echo Build failed. Existing MiniCraft is not modified.
