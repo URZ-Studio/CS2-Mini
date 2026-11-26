@@ -515,6 +515,10 @@ void MC_Apply() {
     int v = mc_choice[4];
     bool rich = v >= 5;
     if (mc_configured) { return; }
+    // Release the setup pause before any experimental native calls, so an engine error cannot leave the game frozen.
+    UnitPauseAll(false);
+    AITimePause(false);
+    if (mc_dialog != -1) { DialogDestroy(mc_dialog); mc_dialog = -1; }
     mc_mult = mc_choice[1]+1;
     mc_workersFree = mc_choice[5] == 1;
     if (!MC_SetFood(mc_mult,mc_workersFree)) {
@@ -538,9 +542,6 @@ void MC_Apply() {
     }
     mc_configured = true;
     if (mc_choice[2] == 1) { MiniCraftAI_Start(); }
-    if (mc_dialog != -1) { DialogDestroy(mc_dialog); mc_dialog = -1; }
-    UnitPauseAll(false);
-    AITimePause(false);
     TriggerDebugOutput(1,StringToText("MiniCraft options applied: "+IntToString(mc_mult)+"x, cap "+IntToString(200+100*mc_choice[3])),true);
 }
 bool MC_Timeout(bool testConds,bool runActions) {
