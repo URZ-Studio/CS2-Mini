@@ -40,6 +40,8 @@ goto :success
 :defaulttarget
 %PY_CMD% "%BUILDER%" || goto :fail
 :success
+echo Building separate NormalCraft profile...
+%PY_CMD% "%BUILDER%" --normal || goto :fail
 echo.
 echo Done. Open the target component folder in Galaxy Editor.
 echo This launcher does not publish to Battle.net.
