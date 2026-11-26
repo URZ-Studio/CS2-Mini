@@ -1,0 +1,1333 @@
+{
+  "rev": "773c8e8ae8828121e8f37bb74ab82ceb761a45bc",
+  "rows": [
+    {
+      "file": "SCBW_02.Zerg/02.ArmyHatchery/02.HydraliskSCBW.xml",
+      "types": {
+        "CEffectUserData": [
+          "HydraliskSCBWWeapon@DamageApply"
+        ],
+        "CEffectSet": [
+          "HydraliskSCBWWeapon@Impact",
+          "HydraliskSCBWWeaponAlt@Impact"
+        ],
+        "CEffectDamage": [
+          "HydraliskSCBWWeapon@DamageAccum",
+          "HydraliskSCBWWeapon@DamageExpl"
+        ],
+        "CEffectLaunchMissile": [
+          "HydraliskSCBWWeapon@LM"
+        ],
+        "CAbilResearch": [
+          "HydraliskSCBWRangeUpgrade",
+          "HydraliskSCBWSpeedUpgrade"
+        ],
+        "CAbilMorph": [
+          "HydraliskSCBW@BurrowUp",
+          "HydraliskSCBW@BurrowDown"
+        ],
+        "CActorAction": [
+          "HydraliskSCBWWeapon@Action",
+          "HydraliskSCBWWeaponAlt@Action"
+        ],
+        "CActorForceSphere": [
+          "HydraliskSCBWWeaponAlt@PhysicsImpact"
+        ],
+        "CActorMissile": [
+          "HydraliskSCBWWeapon@Missile"
+        ],
+        "CActorSplat": [
+          "HydraliskSCBW@BurrowedSplat"
+        ],
+        "CActorUnit": [
+          "HydraliskSCBW"
+        ],
+        "CActorSound": [
+          "HydraliskSCBW@Death"
+        ],
+        "CModel": [
+          "HydraliskSCBWWeapon@Launch",
+          "HydraliskSCBWWeapon@Impact",
+          "HydraliskSCBWWeapon@Missile",
+          "HydraliskSCBW",
+          "HydraliskSCBW@Death",
+          "HydraliskSCBW@DeathAcid",
+          "HydraliskSCBW@DeathFire",
+          "HydraliskSCBW@DeathRagdoll",
+          "HydraliskSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "HydraliskSCBWWeapon",
+          "HydraliskSCBWWeaponAlt"
+        ],
+        "CAccumulatorConstant": [
+          "HydraliskSCBWWeapon@Damage"
+        ],
+        "CUnit": [
+          "HydraliskSCBWWeapon@Missile",
+          "HydraliskSCBW@Burrowed",
+          "HydraliskSCBW"
+        ],
+        "CUpgrade": [
+          "HydraliskSCBWRangeUpgrade",
+          "HydraliskSCBWSpeedUpgrade"
+        ]
+      },
+      "sha": "6faa7e3529ba1b8d923c7049ede98d3b1ed95b70"
+    },
+    {
+      "file": "SCBW_02.Zerg/03.ArmyLair/01.LurkerSCBW.xml",
+      "types": {
+        "CEffectCreatePersistent": [
+          "LurkerSCBWWeapon@CP"
+        ],
+        "CEffectDamage": [
+          "LurkerSCBWWeapon@Damage"
+        ],
+        "CEffectEnumArea": [
+          "LurkerSCBWWeapon@Search"
+        ],
+        "CEffectCreateUnit": [
+          "LurkerSCBWWeapon@CU"
+        ],
+        "CEffectDestroyPersistent": [
+          "LurkerSCBWWeapon@DP"
+        ],
+        "CEffectSet": [
+          "LurkerSCBWWeapon@SearchSet"
+        ],
+        "CEffectSwitch": [
+          "LurkerSCBWWeapon@WeaponRangeSwitch"
+        ],
+        "CEffectIssueOrder": [
+          "LurkerSCBW@Unburrow",
+          "LurkerSCBW@BurrowCancel"
+        ],
+        "CAbilResearch": [
+          "LurkerSCBWResearch"
+        ],
+        "CAbilMorph": [
+          "LurkerSCBW@MorphBurrowed",
+          "LurkerSCBW@Morph",
+          "LurkerSCBW@BurrowDown",
+          "LurkerSCBW@BurrowUp"
+        ],
+        "CActorModel": [
+          "LurkerSCBWWeapon@SpikeImpact",
+          "LurkerSCBWWeapon@DamageModelReaction",
+          "LurkerSCBWWeapon@Spike",
+          "LurkerSCBWWeapon@ImpactModel",
+          "LurkerSCBWEgg@Hatch",
+          "LurkerSCBW@DeathRagdoll"
+        ],
+        "CActorAction": [
+          "LurkerSCBWWeapon@Action"
+        ],
+        "CActorSound": [
+          "LurkerSCBWWeapon@LaunchSoundInitial",
+          "LurkerSCBWWeapon@LaunchSound",
+          "LurkerSCBW@Death",
+          "LurkerSCBW@BurrowDown",
+          "LurkerSCBW@Land",
+          "LurkerSCBWEgg@Birth"
+        ],
+        "CActorForceSphere": [
+          "LurkerSCBWWeapon@StabForce",
+          "LurkerSCBW@DetonationForce"
+        ],
+        "CActorSplat": [
+          "LurkerSCBW@BurrowedSplat"
+        ],
+        "CActorUnit": [
+          "LurkerSCBWEgg",
+          "LurkerSCBW"
+        ],
+        "CActorRange": [
+          "LurkerSCBW@Range"
+        ],
+        "CModel": [
+          "LurkerSCBW@BurrowedSplat",
+          "LurkerSCBWWeapon@SpikeImpact",
+          "LurkerSCBWWeapon@Spike",
+          "LurkerSCBWWeapon@DeathBloodGeyser",
+          "LurkerSCBWWeapon@Impact",
+          "LurkerSCBWEgg@Portrait",
+          "LurkerSCBWEgg",
+          "LurkerSCBWEgg@Death",
+          "LurkerSCBW@DeathRagdoll",
+          "LurkerSCBW",
+          "LurkerSCBW@Death",
+          "LurkerSCBW@DeathAcid",
+          "LurkerSCBW@DeathFire",
+          "LurkerSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "LurkerSCBWWeapon",
+          "LurkerSCBWWeaponAlt"
+        ],
+        "CUnit": [
+          "LurkerSCBW@Burrowed",
+          "LurkerSCBWEgg",
+          "LurkerSCBW"
+        ],
+        "CUpgrade": [
+          "LurkerSCBWResearch"
+        ]
+      },
+      "sha": "1290e3a113529da1760c70ec44ef651e652c2f60"
+    },
+    {
+      "file": "SCBW_02.Zerg/03.ArmyLair/02.MutaliskSCBW.xml",
+      "types": {
+        "CEffectUserData": [
+          "MutaliskSCBWWeapon@MissChance",
+          "MutaliskSCBWWeapon@BounceHitCount"
+        ],
+        "CEffectDamage": [
+          "MutaliskSCBWWeapon@MissDummy",
+          "MutaliskSCBWWeapon@Damage",
+          "MutaliskSCBWWeapon@DamageBounce1",
+          "MutaliskSCBWWeapon@DamageBounce2"
+        ],
+        "CEffectSet": [
+          "MutaliskSCBWWeapon@Impact",
+          "MutaliskSCBWWeapon@BounceImpactSet",
+          "MutaliskSCBWWeapon@BounceSet",
+          "MutaliskSCBWWeapon@InitialSet"
+        ],
+        "CEffectLaunchMissile": [
+          "MutaliskSCBWWeapon@BounceLM",
+          "MutaliskSCBWWeapon@LM",
+          "MutaliskSCBWWeapon@LMMiss"
+        ],
+        "CEffectEnumArea": [
+          "MutaliskSCBWWeapon@BounceSearch"
+        ],
+        "CEffectSwitch": [
+          "MutaliskSCBWWeapon@DamageSwitch",
+          "MutaliskSCBWWeapon@MissSwitch"
+        ],
+        "CEffectCreatePersistent": [
+          "MutaliskSCBWWeapon@Miss",
+          "MutaliskSCBW@AirStack@MorphDelay",
+          "MutaliskSCBW@MorphDelay"
+        ],
+        "CEffectIssueOrder": [
+          "MutaliskSCBW@AirStack@Morph",
+          "MutaliskSCBW@Morph"
+        ],
+        "CAbilMorph": [
+          "MutaliskSCBW@AirStack@Morph",
+          "MutaliskSCBW@Morph"
+        ],
+        "CActorForceSphere": [
+          "MutaliskSCBW@DeathRagdollDetonationForce"
+        ],
+        "CActorModel": [
+          "MutaliskSCBW@DeathActor"
+        ],
+        "CActorSite": [
+          "MutaliskSCBWWeapon@BounceImpactSite"
+        ],
+        "CActorAction": [
+          "MutaliskSCBWWeapon@Action",
+          "MutaliskSCBWWeapon@ActionMiss",
+          "MutaliskSCBWWeapon@ActionBounce"
+        ],
+        "CActorSound": [
+          "MutaliskSCBW@Death"
+        ],
+        "CActorMissile": [
+          "MutaliskSCBWWeapon@Missile"
+        ],
+        "CActorUnit": [
+          "MutaliskSCBW"
+        ],
+        "CModel": [
+          "MutaliskSCBWWeapon@Missile",
+          "MutaliskSCBWWeapon@Impact",
+          "MutaliskSCBW",
+          "MutaliskSCBW@Death",
+          "MutaliskSCBW@DeathRagdoll",
+          "MutaliskSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "MutaliskSCBWWeapon"
+        ],
+        "CAccumulatorConstant": [
+          "MutaliskSCBWWeapon@BounceCount0",
+          "MutaliskSCBWWeapon@BounceCount1",
+          "MutaliskSCBWWeapon@BounceCount2",
+          "MutaliskSCBWWeapon@MaxTargets"
+        ],
+        "CAccumulatorSwitch": [
+          "MutaliskSCBWWeapon@BounceFractionSwitch"
+        ],
+        "CAccumulatorUserData": [
+          "MutaliskSCBWWeapon@BounceCount"
+        ],
+        "CUnit": [
+          "MutaliskSCBWWeapon@Missile",
+          "MutaliskSCBW",
+          "MutaliskSCBW@AirStack"
+        ],
+        "CBehaviorBuff": [
+          "MutaliskSCBW@AirStack",
+          "MutaliskSCBW@AirStackUndo"
+        ]
+      },
+      "sha": "b3aa8375d1709b28fa9773e4de40b4914411a12a"
+    },
+    {
+      "file": "SCBW_02.Zerg/03.ArmyLair/03.ScourgeSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "ScourgeSCBWWeapon@Damage",
+          "ScourgeSCBWWeapon@RemoveSource"
+        ],
+        "CEffectSet": [
+          "ScourgeSCBWWeapon@Set"
+        ],
+        "CActorForceSphere": [
+          "ScourgeSCBWWeapon@DeathForce"
+        ],
+        "CActorSound": [
+          "ScourgeSCBWWeapon@LaunchSound"
+        ],
+        "CActorAction": [
+          "ScourgeSCBWWeapon@Action"
+        ],
+        "CActorUnit": [
+          "ScourgeSCBW"
+        ],
+        "CModel": [
+          "ScourgeSCBWWeapon@Impact",
+          "ScourgeSCBW",
+          "ScourgeSCBW@Death",
+          "ScourgeSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "ScourgeSCBWWeapon"
+        ],
+        "CUnit": [
+          "ScourgeSCBW"
+        ]
+      },
+      "sha": "8e7dce6ac2236d0d9d03cffcac7a4ea75e193f13"
+    },
+    {
+      "file": "SCBW_02.Zerg/03.ArmyLair/04.QueenSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "QueenSCBWParasite@Set",
+          "QueenSCBWSpawnBroodlings@DamageInheritSet",
+          "QueenSCBWInfestCommandCenter@ExpireSet",
+          "QueenSCBWInfestCommandCenter@PeriodicSet",
+          "QueenSCBWInfestCommandCenter@InfestingFinish",
+          "QueenSCBWInfestCommandCenter@InfestingStart",
+          "QueenSCBWInfestCommandCenter@Recast",
+          "QueenSCBWEnsnare@Impact",
+          "QueenSCBWInfestCommandCenter@Set",
+          "QueenSCBWEnsnare@Set",
+          "QueenSCBWSpawnBroodlings@Set"
+        ],
+        "CEffectSwitch": [
+          "QueenSCBWEnsnare@ABSwitch",
+          "QueenSCBWInfestCommandCenter@InitialSwitch",
+          "QueenSCBWInfestCommandCenter@Switch"
+        ],
+        "CEffectApplyBehavior": [
+          "QueenSCBWEnsnare@AttackAB",
+          "QueenSCBWSpawnBroodlings@MissileAB",
+          "QueenSCBWInfestCommandCenter@InfestingCasterAB",
+          "QueenSCBWInfestCommandCenter@InfestingTargetAB",
+          "QueenSCBWEnsnare@MovementAB",
+          "QueenSCBWSpawnBroodlings@TimedLife",
+          "QueenSCBWParasite@AB",
+          "QueenSCBWEnsnare@AB"
+        ],
+        "CEffectUserData": [
+          "QueenSCBWSpawnBroodlings@DamageValidate"
+        ],
+        "CEffectDamage": [
+          "QueenSCBWSpawnBroodlings@DamageKill",
+          "QueenSCBWSpawnBroodlings@MissileDummy",
+          "QueenSCBWSpawnBroodlings@MissileFate",
+          "QueenSCBWInfestCommandCenter@Notify",
+          "QueenSCBWInfestCommandCenter@InfestImpact",
+          "QueenSCBWInfestCommandCenter@SprayDummy",
+          "QueenSCBWEnsnare@DamageDummy",
+          "QueenSCBWSpawnBroodlings@Damage"
+        ],
+        "CEffectEnumArea": [
+          "QueenSCBWSpawnBroodlings@LMLaunch",
+          "QueenSCBWInfestCommandCenter@SearchAddon",
+          "QueenSCBWEnsnare@Search"
+        ],
+        "CEffectTeleport": [
+          "QueenSCBWInfestCommandCenter@InfestingCasterTeleport"
+        ],
+        "CEffectLaunchMissile": [
+          "QueenSCBWInfestCommandCenter@InfestLM",
+          "QueenSCBWParasite@LM",
+          "QueenSCBWEnsnare@LM",
+          "QueenSCBWSpawnBroodlings@LM"
+        ],
+        "CEffectIssueOrder": [
+          "QueenSCBWInfestCommandCenter@CancelPlanetary",
+          "QueenSCBWInfestCommandCenter@CancelOrbital",
+          "QueenSCBWInfestCommandCenter@RecastMoveOrder",
+          "QueenSCBWInfestCommandCenter@OrderInfest"
+        ],
+        "CEffectRemoveBehavior": [
+          "QueenSCBWInfestCommandCenter@InfestingTargetRB",
+          "QueenSCBWInfestCommandCenter@InfestingCasterRB"
+        ],
+        "CEffectCreatePersistent": [
+          "QueenSCBWInfestCommandCenter@CP",
+          "QueenSCBWInfestCommandCenter@ValidateMorph",
+          "QueenSCBWInfestCommandCenter@SearchAddonDelay",
+          "QueenSCBWParasite@Detector"
+        ],
+        "CEffectCreateUnit": [
+          "QueenSCBWEnsnare@CreepDummyCreate",
+          "QueenSCBWSpawnBroodlings@CU"
+        ],
+        "CEffectModifyUnit": [
+          "QueenSCBWInfestCommandCenter@MUChangeAddonOwner",
+          "QueenSCBWInfestCommandCenter@MU",
+          "QueenSCBWInfestCommandCenter@MUChangeOwner"
+        ],
+        "CAbilResearch": [
+          "QueenSCBWEnergyUpgrade",
+          "QueenSCBWEnsnareResearch",
+          "QueenSCBWParasiteResearch",
+          "QueenSCBWSpawnBroodlingsResearch"
+        ],
+        "CAbilEffectTarget": [
+          "QueenSCBWParasite",
+          "QueenSCBWParasite@Hardcore",
+          "QueenSCBWEnsnare",
+          "QueenSCBWEnsnare@Hardcore",
+          "QueenSCBWSpawnBroodlings",
+          "QueenSCBWSpawnBroodlings@Hardcore",
+          "QueenSCBWInfestCommandCenter"
+        ],
+        "CActorModel": [
+          "QueenSCBWSpawnBroodlings@ActionShieldModelReaction",
+          "QueenSCBWParasite@Parasite",
+          "QueenSCBWEnsnare@Impact",
+          "QueenSCBWEnsnare@Slow"
+        ],
+        "CActorAction": [
+          "QueenSCBWSpawnBroodlings@ActionShield",
+          "QueenSCBWInfestCommandCenter@InfestSpray",
+          "QueenSCBWInfestCommandCenter@DummyAttack",
+          "QueenSCBWParasite@Action",
+          "QueenSCBWEnsnare@Action",
+          "QueenSCBWSpawnBroodlings@Action"
+        ],
+        "CActorSound": [
+          "QueenSCBWInfestCommandCenter@InfestStart",
+          "QueenSCBWInfestCommandCenter@InfestEnd",
+          "QueenSCBWInfestCommandCenter@LoopSound",
+          "QueenSCBWInfestCommandCenter@LaunchSound",
+          "QueenSCBWParasite@DeathSound",
+          "QueenSCBWEnsnare@ImpactSound"
+        ],
+        "CActorBeamSimple": [
+          "QueenSCBWInfestCommandCenter@DummyAttackBeam"
+        ],
+        "CActorMissile": [
+          "QueenSCBWInfestCommandCenter@Missile",
+          "QueenSCBWParasite@Missile",
+          "QueenSCBWEnsnare@Missile",
+          "QueenSCBWSpawnBroodlings@Missile"
+        ],
+        "CActorUnit": [
+          "QueenSCBWEnsnare@CreepDummy",
+          "QueenSCBW"
+        ],
+        "CActorModelMaterial": [
+          "QueenSCBWEnsnare@Glaze"
+        ],
+        "CActorRange": [
+          "QueenSCBWParasite@Range",
+          "QueenSCBWEnsnare@Range",
+          "QueenSCBWSpawnBroodlings@Range"
+        ],
+        "CActorSplat": [
+          "QueenSCBWEnsnare@CursorSplat"
+        ],
+        "CActorEventMacro": [
+          "QueenSCBW@HardcoreMacro"
+        ],
+        "CFootprint": [
+          "QueenSCBWEnsnare@CreepGrown",
+          "QueenSCBWEnsnare@CreepStart"
+        ],
+        "CModel": [
+          "QueenSCBWSpawnBroodlings@MissilePenetrateShield",
+          "QueenSCBWSpawnBroodlings@ActionLaunch",
+          "QueenSCBWSpawnBroodlings@MissilePenetrate",
+          "QueenSCBWInfestCommandCenter@Impact",
+          "QueenSCBWInfestCommandCenter@Weapon",
+          "QueenSCBWEnsnare@Glaze",
+          "QueenSCBWParasite@Parasite",
+          "QueenSCBWParasite@Missile",
+          "QueenSCBWEnsnare@Impact",
+          "QueenSCBWEnsnare@Missile",
+          "QueenSCBWEnsnare@Slow",
+          "QueenSCBWSpawnBroodlings@Missile",
+          "QueenSCBW",
+          "QueenSCBW@Death",
+          "QueenSCBW@Portrait"
+        ],
+        "CAccumulatorEffectAmount": [
+          "QueenSCBWSpawnBroodlings@Damaged"
+        ],
+        "CAccumulatorConstant": [
+          "QueenSCBWEnsnare@MoveSpeedFactor",
+          "QueenSCBWEnsnare@MoveFactor_Stimpack",
+          "QueenSCBWEnsnare@MoveDefault",
+          "QueenSCBWEnsnare@MoveFactor_HydraliskSCBW",
+          "QueenSCBWEnsnare@MoveFactor_ObserverSCBW",
+          "QueenSCBWEnsnare@MoveFactor_OverlordSCBW",
+          "QueenSCBWEnsnare@MoveFactor_ScoutSCBW",
+          "QueenSCBWEnsnare@MoveFactor_ShuttleSCBW",
+          "QueenSCBWEnsnare@MoveFactor_UltraliskSCBW",
+          "QueenSCBWEnsnare@MoveFactor_VultureSCBW",
+          "QueenSCBWEnsnare@MoveFactor_ZealotSCBW",
+          "QueenSCBWEnsnare@MoveFactor_ZerglingSCBW",
+          "QueenSCBWEnsnare@AttackSpeedFactor",
+          "QueenSCBWEnsnare@AttackFactor_MarineSCBWStimpack",
+          "QueenSCBWEnsnare@AttackFactor_FirebatSCBWStimpack",
+          "QueenSCBWEnsnare@AttackFactor_AdrenalBW",
+          "QueenSCBWEnsnare@AttackFactor_Stimpack",
+          "QueenSCBWEnsnare@AttackFactor_MarauderStimpack",
+          "QueenSCBWEnsnare@AttackFactor_Adrenal",
+          "QueenSCBWEnsnare@AttackFactor_AdeptGlaives",
+          "QueenSCBWEnsnare@AttackFactor_Default"
+        ],
+        "CAccumulatorSwitch": [
+          "QueenSCBWEnsnare@Move",
+          "QueenSCBWParasite@Detector",
+          "QueenSCBWEnsnare@AttackAccum"
+        ],
+        "CUnit": [
+          "QueenSCBWInfestCommandCenter@Missile",
+          "QueenSCBWEnsnare@CreepDummy",
+          "QueenSCBWParasite@Missile",
+          "QueenSCBWEnsnare@Missile",
+          "QueenSCBWSpawnBroodlings@Missile",
+          "QueenSCBW"
+        ],
+        "CBehaviorBuff": [
+          "QueenSCBWSpawnBroodlings@Missile",
+          "QueenSCBWInfestCommandCenter@InfestingCaster",
+          "QueenSCBWInfestCommandCenter@InfestingTarget",
+          "QueenSCBWEnsnare@CreepDummyTimedLife",
+          "QueenSCBWEnsnare",
+          "QueenSCBWEnsnare@Movement",
+          "QueenSCBWEnsnare@Attack",
+          "QueenSCBWSpawnBroodlings@BroodlingFate",
+          "QueenSCBWParasite"
+        ],
+        "CBehaviorCreepSource": [
+          "QueenSCBWEnsnare@CreepDummy"
+        ],
+        "CUpgrade": [
+          "QueenSCBWEnergyUpgrade",
+          "QueenSCBWEnsnareResearch",
+          "QueenSCBWParasiteResearch",
+          "QueenSCBWSpawnBroodlingsResearch"
+        ]
+      },
+      "sha": "0fe12f982dad7f0c6ab5c988ef88af886c810ae4"
+    },
+    {
+      "file": "SCBW_02.Zerg/03.ArmyLair/04a.BroodlingSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "BroodlingSCBWWeapon@Damage"
+        ],
+        "CEffectUserData": [
+          "BroodlingSCBW@WalkStaggerUDPhaseIncrease",
+          "BroodlingSCBW@WalkStaggerUDPhaseReset",
+          "BroodlingSCBW@WalkStaggerUDStepIncreasePhase2",
+          "BroodlingSCBW@WalkStaggerUDStepIncreasePhase3",
+          "BroodlingSCBW@WalkStaggerUDStepReset",
+          "BroodlingSCBW@WalkStaggerUDStepIncreasePhase1"
+        ],
+        "CEffectSwitch": [
+          "BroodlingSCBW@WalkStaggerSwitchPhaseCheck",
+          "BroodlingSCBW@WalkStaggerTrackerSwitch"
+        ],
+        "CEffectSet": [
+          "BroodlingSCBW@WalkStaggerSuccessSet"
+        ],
+        "CEffectApplyBehavior": [
+          "BroodlingSCBW@WalkStaggerAB"
+        ],
+        "CActorAction": [
+          "BroodlingSCBWWeapon@Action"
+        ],
+        "CActorSound": [
+          "BroodlingSCBWWeapon@LaunchSound",
+          "BroodlingSCBW@Death"
+        ],
+        "CActorUnit": [
+          "BroodlingSCBW"
+        ],
+        "CModel": [
+          "BroodlingSCBW",
+          "BroodlingSCBW@Death",
+          "BroodlingSCBW@DeathAcid",
+          "BroodlingSCBW@DeathFire",
+          "BroodlingSCBW@DeathRagdoll",
+          "BroodlingSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "BroodlingSCBWWeapon"
+        ],
+        "CUnit": [
+          "BroodlingSCBW"
+        ],
+        "CBehaviorBuff": [
+          "BroodlingSCBW@WalkStaggerStaggered",
+          "BroodlingSCBW@WalkStaggerTracker"
+        ]
+      },
+      "sha": "0633ebaece335e7ff5b377eb19c8aa1ff2847ac6"
+    },
+    {
+      "file": "SCBW_02.Zerg/03.ArmyLair/04b.InfestedTerranSCBW.xml",
+      "types": {
+        "CEffectCreatePersistent": [
+          "InfestedTerranSCBWWeapon@DamageFallbackRedirect",
+          "InfestedTerranSCBWWeapon@SuicideDelay"
+        ],
+        "CEffectUserData": [
+          "InfestedTerranSCBWWeapon@DamageApply"
+        ],
+        "CEffectDamage": [
+          "InfestedTerranSCBWWeapon@DamageAccum",
+          "InfestedTerranSCBWWeapon@DamageAccum2",
+          "InfestedTerranSCBWWeapon@DamageAccum3",
+          "InfestedTerranSCBWWeapon@SuicideRemove",
+          "InfestedTerranSCBWWeapon@DamageExpl",
+          "InfestedTerranSCBWWeapon@DamageFallback"
+        ],
+        "CEffectSet": [
+          "InfestedTerranSCBWWeapon@DamageFallbackSet",
+          "InfestedTerranSCBWWeapon@ImpactSplash",
+          "InfestedTerranSCBWWeapon@Impact"
+        ],
+        "CEffectIssueOrder": [
+          "InfestedTerranSCBW@SapStructureIssueAttackOrder"
+        ],
+        "CAbilEffectInstant": [
+          "InfestedTerranSCBW@Explode"
+        ],
+        "CAbilEffectTarget": [
+          "InfestedTerranSCBW@SapStructure"
+        ],
+        "CAbilMorph": [
+          "InfestedTerranSCBW@BurrowUp",
+          "InfestedTerranSCBW@BurrowDown"
+        ],
+        "CActorModel": [
+          "InfestedTerranSCBWWeapon@DamageModel",
+          "InfestedTerranSCBWWeapon@Impact"
+        ],
+        "CActorSound": [
+          "InfestedTerranSCBWWeapon@Explode"
+        ],
+        "CActorForceSphere": [
+          "InfestedTerranSCBWWeapon@Force"
+        ],
+        "CActorAction": [
+          "InfestedTerranSCBWWeapon@ShieldHitter",
+          "InfestedTerranSCBWWeapon@Action"
+        ],
+        "CActorSplat": [
+          "InfestedTerranSCBW@BurrowedSplat"
+        ],
+        "CActorUnit": [
+          "InfestedTerranSCBW"
+        ],
+        "CModel": [
+          "InfestedTerranSCBWWeapon@Damage",
+          "InfestedTerranSCBWWeapon@Impact",
+          "InfestedTerranSCBW@DeathAcid",
+          "InfestedTerranSCBW@DeathFire",
+          "InfestedTerranSCBW@DeathTimeout",
+          "InfestedTerranSCBW@Portrait",
+          "InfestedTerranSCBW",
+          "InfestedTerranSCBW@Death"
+        ],
+        "CWeaponLegacy": [
+          "InfestedTerranSCBWWeapon"
+        ],
+        "CAccumulatorConstant": [
+          "InfestedTerranSCBWWeapon@Damage"
+        ],
+        "CUnit": [
+          "InfestedTerranSCBW",
+          "InfestedTerranSCBW@Burrowed"
+        ],
+        "CBehaviorBuff": [
+          "InfestedTerranSCBW@Notify"
+        ]
+      },
+      "sha": "75a1d3221c07b86e28ded3a0c8219b97d9680b6e"
+    },
+    {
+      "file": "SCBW_02.Zerg/04.ArmyHive/01.UltraliskSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "UltraliskSCBWWeapon@Damage"
+        ],
+        "CAbilResearch": [
+          "UltraliskSCBWArmorUpgrade",
+          "UltraliskSCBWSpeedUpgrade"
+        ],
+        "CAbilMorph": [
+          "UltraliskSCBW@BurrowUp",
+          "UltraliskSCBW@BurrowDown"
+        ],
+        "CActorForceBox": [
+          "UltraliskSCBWWeapon@LateralLeftForce",
+          "UltraliskSCBWWeapon@LateralRightForce"
+        ],
+        "CActorForceCylinder": [
+          "UltraliskSCBWWeapon@Force"
+        ],
+        "CActorForceSphere": [
+          "UltraliskSCBWWeapon@UpwardForce"
+        ],
+        "CActorSound": [
+          "UltraliskSCBWWeapon@LaunchSound",
+          "UltraliskSCBW@BurrowDown"
+        ],
+        "CActorAction": [
+          "UltraliskSCBWWeapon@Action"
+        ],
+        "CActorModel": [
+          "UltraliskSCBWSpeedUpgrade",
+          "UltraliskSCBW@DeathRagdoll",
+          "UltraliskSCBW@Death"
+        ],
+        "CActorSplat": [
+          "UltraliskSCBW@BurrowedSplat"
+        ],
+        "CActorUnit": [
+          "UltraliskSCBW"
+        ],
+        "CModel": [
+          "UltraliskSCBWSpeedUpgrade",
+          "UltraliskSCBWWeapon@Impact",
+          "UltraliskSCBW",
+          "UltraliskSCBW@Death",
+          "UltraliskSCBW@DeathAcid",
+          "UltraliskSCBW@DeathFire",
+          "UltraliskSCBW@DeathRagdoll"
+        ],
+        "CWeaponLegacy": [
+          "UltraliskSCBWWeapon"
+        ],
+        "CUnit": [
+          "UltraliskSCBW",
+          "UltraliskSCBW@Burrowed"
+        ],
+        "CUpgrade": [
+          "UltraliskSCBWArmorUpgrade",
+          "UltraliskSCBWSpeedUpgrade"
+        ]
+      },
+      "sha": "96920189e6db08a4110d9ee88135f3dba97f8d1c"
+    },
+    {
+      "file": "SCBW_02.Zerg/04.ArmyHive/02.DefilerSCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "DefilerSCBWWeapon@ImpactDirect",
+          "DefilerSCBWWeapon@ImpactSplash",
+          "DefilerSCBWWeapon@Impact",
+          "DefilerSCBWWeapon@InitialSet",
+          "DefilerSCBWDarkSwarm@Set",
+          "DefilerSCBWConsume@Set",
+          "DefilerSCBWPlague@Set"
+        ],
+        "CEffectDamage": [
+          "DefilerSCBWWeapon@DamageDirect",
+          "DefilerSCBWWeapon@Damage",
+          "DefilerSCBWWeapon@DamageAccum",
+          "DefilerSCBWWeapon@DamageAccum2",
+          "DefilerSCBWWeapon@DamageAccum3",
+          "DefilerSCBWDarkSwarm@DamageDummy",
+          "DefilerSCBWPlague@Damage"
+        ],
+        "CEffectApplyBehavior": [
+          "DefilerSCBWWeapon@MainTarget",
+          "DefilerSCBWDarkSwarm@ABSpell",
+          "DefilerSCBWConsume@AB",
+          "DefilerSCBWDarkSwarm@AB",
+          "DefilerSCBWPlague@AB"
+        ],
+        "CEffectUserData": [
+          "DefilerSCBWWeapon@DamageApply",
+          "DefilerSCBWWeapon@MissChance"
+        ],
+        "CEffectLaunchMissile": [
+          "DefilerSCBWWeapon@LM",
+          "DefilerSCBWWeapon@LMDirect",
+          "DefilerSCBWDarkSwarm@LM"
+        ],
+        "CEffectCreatePersistent": [
+          "DefilerSCBWWeapon@Miss",
+          "DefilerSCBWWeapon@MissSmall",
+          "DefilerSCBWWeapon@MissMedium",
+          "DefilerSCBWWeapon@MissLarge",
+          "DefilerSCBWDarkSwarm@DummyPersistent",
+          "DefilerSCBWDarkSwarm@DummyLocation",
+          "DefilerSCBWDarkSwarm@DummyPersistentInfinite",
+          "DefilerSCBWDarkSwarm@CP",
+          "DefilerSCBWDarkSwarm@CPInfinite"
+        ],
+        "CEffectSwitch": [
+          "DefilerSCBWWeapon@MissOffsetSwitch",
+          "DefilerSCBWWeapon@MissSwitch",
+          "DefilerSCBWWeapon@Switch"
+        ],
+        "CEffectModifyUnit": [
+          "DefilerSCBWConsume@MU"
+        ],
+        "CEffectEnumArea": [
+          "DefilerSCBWDarkSwarm@Search",
+          "DefilerSCBWPlague@Search"
+        ],
+        "CAbilResearch": [
+          "DefilerSCBWConsumeResearch",
+          "DefilerSCBWDarkSwarmResearch",
+          "DefilerSCBWEnergyUpgrade",
+          "DefilerSCBWPlagueResearch"
+        ],
+        "CAbilEffectTarget": [
+          "DefilerSCBWConsume",
+          "DefilerSCBWConsume@Hardcore",
+          "DefilerSCBWDarkSwarm",
+          "DefilerSCBWDarkSwarm@Hardcore",
+          "DefilerSCBWPlague",
+          "DefilerSCBWPlague@Hardcore"
+        ],
+        "CAbilMorph": [
+          "DefilerSCBW@BurrowUp",
+          "DefilerSCBW@BurrowDown"
+        ],
+        "CActorAction": [
+          "DefilerSCBWWeapon@ActionDirect",
+          "DefilerSCBWWeapon@Action",
+          "DefilerSCBWDarkSwarm@Action"
+        ],
+        "CActorForceSphere": [
+          "DefilerSCBWWeapon@AttackForce",
+          "DefilerSCBWWeapon@AttackForceUp",
+          "DefilerSCBW@DetonationForce"
+        ],
+        "CActorMissile": [
+          "DefilerSCBWWeapon@Missile",
+          "DefilerSCBWDarkSwarm@Missile"
+        ],
+        "CActorSound": [
+          "DefilerSCBWWeapon@LaunchSound",
+          "DefilerSCBWConsume@Explode",
+          "DefilerSCBWDarkSwarm@MissileLaunchSound",
+          "DefilerSCBWConsume@ImpactSound",
+          "DefilerSCBWConsume@LaunchSound",
+          "DefilerSCBWConsume@ConsumeSound",
+          "DefilerSCBWDarkSwarm@LaunchSound",
+          "DefilerSCBWPlague@ImpactSound",
+          "DefilerSCBW@Death"
+        ],
+        "CActorUnit": [
+          "DefilerSCBWDarkSwarm@Unit",
+          "DefilerSCBW"
+        ],
+        "CActorModel": [
+          "DefilerSCBWPlague@TargetModelMassive",
+          "DefilerSCBWDarkSwarm@Persistent",
+          "DefilerSCBWDarkSwarm@Splat",
+          "DefilerSCBWConsume@Consume",
+          "DefilerSCBWConsume@Impact",
+          "DefilerSCBWDarkSwarm@DarkSwarm",
+          "DefilerSCBWPlague@ImpactModel",
+          "DefilerSCBWPlague@TargetModel",
+          "DefilerSCBWPlague@TargetModelMedium",
+          "DefilerSCBWPlague@TargetModelSmall",
+          "DefilerSCBW@DeathRagdoll"
+        ],
+        "CActorSiteOpLocalOffset": [
+          "DefilerSCBWDarkSwarm@HeightVariancer"
+        ],
+        "CActorModelMaterial": [
+          "DefilerSCBWPlague@CreepGlaze",
+          "DefilerSCBWPlague@Glaze"
+        ],
+        "CActorSplat": [
+          "DefilerSCBWDarkSwarm@CursorSplat",
+          "DefilerSCBWPlague@CursorSplat",
+          "DefilerSCBW@BurrowedSplat"
+        ],
+        "CActorRange": [
+          "DefilerSCBWDarkSwarm@Range",
+          "DefilerSCBWPlague@Range"
+        ],
+        "CActorEventMacro": [
+          "DefilerSCBW@HardcoreMacro"
+        ],
+        "CModel": [
+          "DefilerSCBWWeapon@Launch",
+          "DefilerSCBWWeapon@Impact",
+          "DefilerSCBWWeapon@Missile",
+          "DefilerSCBWDarkSwarm@Unit",
+          "DefilerSCBWDarkSwarm@PersistentBurrowed",
+          "DefilerSCBWDarkSwarm@PersistentSmallBurrowed",
+          "DefilerSCBWPlague@GlazeBuilding",
+          "DefilerSCBWPlague@TargetModelMassive",
+          "DefilerSCBWDarkSwarm@PersistentSmall",
+          "DefilerSCBWDarkSwarm@Persistent",
+          "DefilerSCBWPlague@CreepGlaze",
+          "DefilerSCBWDarkSwarm@Splat",
+          "DefilerSCBWConsume@Consume",
+          "DefilerSCBWConsume@Impact",
+          "DefilerSCBWDarkSwarm@DarkSwarm",
+          "DefilerSCBWDarkSwarm@Impact",
+          "DefilerSCBWDarkSwarm@Missile",
+          "DefilerSCBWPlague@Impact",
+          "DefilerSCBWPlague@Glaze",
+          "DefilerSCBWPlague@TargetModel",
+          "DefilerSCBWPlague@TargetModelMedium",
+          "DefilerSCBWPlague@TargetModelSmall",
+          "DefilerSCBW@DeathRagdoll",
+          "DefilerSCBW",
+          "DefilerSCBW@DeathAcid",
+          "DefilerSCBW@Death",
+          "DefilerSCBW@DeathFire",
+          "DefilerSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "DefilerSCBWWeapon"
+        ],
+        "CAccumulatorConstant": [
+          "DefilerSCBWWeapon@Damage"
+        ],
+        "CUnit": [
+          "DefilerSCBWWeapon@Missile",
+          "DefilerSCBWDarkSwarm@Unit",
+          "DefilerSCBWDarkSwarm@Missile",
+          "DefilerSCBW",
+          "DefilerSCBW@Burrowed"
+        ],
+        "CBehaviorBuff": [
+          "DefilerSCBWWeapon@MainTarget",
+          "DefilerSCBWDarkSwarm@Spell",
+          "DefilerSCBWConsume",
+          "DefilerSCBWDarkSwarm",
+          "DefilerSCBWPlague"
+        ],
+        "CUpgrade": [
+          "DefilerSCBWConsumeResearch",
+          "DefilerSCBWDarkSwarmResearch",
+          "DefilerSCBWEnergyUpgrade",
+          "DefilerSCBWPlagueResearch"
+        ]
+      },
+      "sha": "6523c1db48c90a7d7f83a570aa5e1b4197b47625"
+    },
+    {
+      "file": "SCBW_02.Zerg/04.ArmyHive/03.GuardianSCBW.xml",
+      "types": {
+        "CEffectDamage": [
+          "GuardianSCBWWeapon@Damage"
+        ],
+        "CEffectLaunchMissile": [
+          "GuardianSCBWWeapon@LM"
+        ],
+        "CAbilMorph": [
+          "GuardianSCBW@Morph"
+        ],
+        "CActorAction": [
+          "GuardianSCBWWeapon@Action"
+        ],
+        "CActorMissile": [
+          "GuardianSCBWWeapon@Missile"
+        ],
+        "CActorModel": [
+          "GuardianSCBWEgg@Death"
+        ],
+        "CActorUnit": [
+          "GuardianSCBWEgg",
+          "GuardianSCBW"
+        ],
+        "CModel": [
+          "GuardianSCBWWeapon@Impact",
+          "GuardianSCBWWeapon@Missile",
+          "GuardianSCBWEgg@Portrait",
+          "GuardianSCBWEgg",
+          "GuardianSCBWEgg@Death",
+          "GuardianSCBW",
+          "GuardianSCBW@Death",
+          "GuardianSCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "GuardianSCBWWeapon"
+        ],
+        "CUnit": [
+          "GuardianSCBWWeapon@Missile",
+          "GuardianSCBWEgg",
+          "GuardianSCBW"
+        ]
+      },
+      "sha": "1e78bbcbe75ff475d58c17856751a96d07a4808e"
+    },
+    {
+      "file": "SCBW_02.Zerg/04.ArmyHive/04.DevourerSCBW.xml",
+      "types": {
+        "CEffectApplyBehavior": [
+          "DevourerSCBWWeapon@SporeBase",
+          "DevourerSCBWWeapon@Spore1",
+          "DevourerSCBWWeapon@SporeUnloader",
+          "DevourerSCBWWeapon@Spore2",
+          "DevourerSCBWWeapon@Spore3",
+          "DevourerSCBWWeapon@Spore4",
+          "DevourerSCBWWeapon@Spore5",
+          "DevourerSCBWWeapon@Spore6",
+          "DevourerSCBWWeapon@Spore7",
+          "DevourerSCBWWeapon@Spore8",
+          "DevourerSCBWWeapon@Spore9",
+          "DevourerSCBWWeapon@AB"
+        ],
+        "CEffectCreatePersistent": [
+          "DevourerSCBWWeapon@ImpactRedirect",
+          "DevourerSCBWWeapon@SporesCP"
+        ],
+        "CEffectRemoveBehavior": [
+          "DevourerSCBWWeapon@RBSpores"
+        ],
+        "CEffectLaunchMissile": [
+          "DevourerSCBWWeapon@LM"
+        ],
+        "CEffectSet": [
+          "DevourerSCBWWeapon@Set"
+        ],
+        "CEffectUserData": [
+          "DevourerSCBWWeapon@DamageApply"
+        ],
+        "CEffectDamage": [
+          "DevourerSCBWWeapon@DamageAccum",
+          "DevourerSCBWWeapon@DamageExpl"
+        ],
+        "CEffectEnumArea": [
+          "DevourerSCBWWeapon@Search"
+        ],
+        "CAbilMorph": [
+          "DevourerSCBW@Morph"
+        ],
+        "CActorForceSphere": [
+          "DevourerSCBWWeapon@DeathForce"
+        ],
+        "CActorEventMacro": [
+          "DevourerSCBWWeapon@SporesScaleMacro"
+        ],
+        "CActorSound": [
+          "DevourerSCBWWeapon@Launch"
+        ],
+        "CActorAction": [
+          "DevourerSCBWWeapon@ShieldHitter",
+          "DevourerSCBWWeapon@Action"
+        ],
+        "CActorModel": [
+          "DevourerSCBWWeapon@SporesModelSmall",
+          "DevourerSCBWWeapon@SporesModelMedium",
+          "DevourerSCBWWeapon@SporesModel",
+          "DevourerSCBWEgg@Death"
+        ],
+        "CActorMissile": [
+          "DevourerSCBWWeapon@Missile"
+        ],
+        "CActorUnit": [
+          "DevourerSCBWEgg",
+          "DevourerSCBW"
+        ],
+        "CModel": [
+          "DevourerSCBWWeapon@SporesModelMedium",
+          "DevourerSCBWWeapon@SporesModelSmall",
+          "DevourerSCBWWeapon@SporesModel",
+          "DevourerSCBWWeapon@Impact",
+          "DevourerSCBWWeapon@Missile",
+          "DevourerSCBWEgg@Portrait",
+          "DevourerSCBWEgg@Death",
+          "DevourerSCBWEgg",
+          "DevourerSCBW@Death",
+          "DevourerSCBW@Portrait",
+          "DevourerSCBW"
+        ],
+        "CWeaponLegacy": [
+          "DevourerSCBWWeapon"
+        ],
+        "CAccumulatorArithmetic": [
+          "DevourerSCBWWeapon@AttackSpeedAdd",
+          "DevourerSCBWWeapon@AttackSpeedAddInv",
+          "DevourerSCBWWeapon@Param1",
+          "DevourerSCBWWeapon@Param2",
+          "DevourerSCBWWeapon@AttackSpeedFactor"
+        ],
+        "CAccumulatorBehavior": [
+          "DevourerSCBWWeapon@AcidSporesSource",
+          "DevourerSCBWWeapon@AcidSporesCaster",
+          "DevourerSCBWWeapon@AcidSpores"
+        ],
+        "CAccumulatorConstant": [
+          "DevourerSCBWWeapon@Damage"
+        ],
+        "CUnit": [
+          "DevourerSCBWWeapon@Missile",
+          "DevourerSCBWEgg",
+          "DevourerSCBW"
+        ],
+        "CBehaviorBuff": [
+          "DevourerSCBWWeapon@Base",
+          "DevourerSCBWWeapon@Spore1",
+          "DevourerSCBWWeapon@Spore2",
+          "DevourerSCBWWeapon@Spore3",
+          "DevourerSCBWWeapon@Spore4",
+          "DevourerSCBWWeapon@Spore5",
+          "DevourerSCBWWeapon@Spore6",
+          "DevourerSCBWWeapon@Spore7",
+          "DevourerSCBWWeapon@Spore8",
+          "DevourerSCBWWeapon@Spore9",
+          "DevourerSCBWWeapon",
+          "DevourerSCBWWeapon@SporeUnloader"
+        ]
+      },
+      "sha": "2eb06b4ba6cc66b6f566434fb9e7dd2304815b3b"
+    },
+    {
+      "file": "SCBW_02.Zerg/05a.StructureBasic/00.General.xml",
+      "types": {
+        "CEffectApplyBehavior": [
+          "ZergBuildingSCBW@MorphSuppressRegen"
+        ],
+        "CEffectSet": [
+          "ZergBuildingSCBW@MorphStart"
+        ],
+        "CActorSound": [
+          "ZergBuildingSCBW@StopSound",
+          "ZergBuildingSCBW@MorphCancel",
+          "ZergBuildingSCBW@ConstructionSoundLevel2",
+          "ZergBuildingSCBW@ConstructionSoundLevel4",
+          "ZergBuildingSCBW@MorphEnd",
+          "ZergBuildingSCBW@MorphStart"
+        ],
+        "CActorSiteOpRotationExplicit": [
+          "ZergBuildingSCBW@Facing"
+        ],
+        "CActorStateMonitor": [
+          "ZergBuildingSCBW@InfestedStructuresSmokeLarge",
+          "ZergBuildingSCBW@BloodLarge",
+          "ZergBuildingSCBW@BloodMedium",
+          "ZergBuildingSCBW@BloodSmall"
+        ],
+        "CActorProgress": [
+          "ZergBuildingSCBW@Construction",
+          "ZergBuildingSCBW@ConstructionAttached"
+        ],
+        "CFootprint": [
+          "ZergBuildingSCBW@CreepGrowthSmallGrown",
+          "ZergBuildingSCBW@CreepGrowthSmallStart",
+          "ZergBuildingSCBW@CreepFoundation3x3",
+          "ZergBuildingSCBW@CreepFoundation2x2"
+        ],
+        "CBehaviorBuff": [
+          "ZergBuildingSCBW@MorphSuppressRegen"
+        ],
+        "CBehaviorCreepSource": [
+          "ZergBuildingSCBW@CreepGrowthSmall",
+          "ZergBuildingSCBW@CreepGrowthLarge",
+          "ZergBuildingSCBW@CreepGrowthMedium",
+          "ZergBuildingSCBW@CreepFoundation3x3",
+          "ZergBuildingSCBW@CreepFoundation2x2"
+        ]
+      },
+      "sha": "50cac47ddca10884366d81922727e834223da98b"
+    },
+    {
+      "file": "SCBW_02.Zerg/05a.StructureBasic/01.HatcherySCBW.xml",
+      "types": {
+        "CEffectSet": [
+          "HatcherySCBW@BirthSet",
+          "HatcherySCBW@CreateSet"
+        ],
+        "CEffectCreatePersistent": [
+          "HatcherySCBW@SpawnLarvaDisableDelay"
+        ],
+        "CEffectApplyBehavior": [
+          "HatcherySCBW@SpawnLarvaDisable"
+        ],
+        "CAbilResearch": [
+          "ZergSCBWBurrowResearch"
+        ],
+        "CAbilRally": [
+          "HatcherySCBW@Rally"
+        ],
+        "CActorEventMacro": [
+          "HatcherySCBW@PlayerDecalMacro"
+        ],
+        "CActorModel": [
+          "HatcherySCBW@Build"
+        ],
+        "CActorUnit": [
+          "HatcherySCBW"
+        ],
+        "CModel": [
+          "HatcherySCBW",
+          "HatcherySCBW@Build",
+          "HatcherySCBW@Death",
+          "HatcherySCBW@DeathUnderConstruction",
+          "HatcherySCBW@Placement",
+          "HatcherySCBW@Portrait"
+        ],
+        "CUnit": [
+          "HatcherySCBW"
+        ],
+        "CBehaviorBuff": [
+          "HatcherySCBW@SpawnLarvaDisable"
+        ],
+        "CBehaviorSpawn": [
+          "HatcherySCBW@SpawnLarva"
+        ],
+        "CBehaviorConjoined": [
+          "HatcherySCBW@SpawnLarvaConjoined"
+        ],
+        "CUpgrade": [
+          "ZergSCBWBurrowResearch"
+        ]
+      },
+      "sha": "d1fb554aa1f92aeba625018b11cc0ad61b879a90"
+    },
+    {
+      "file": "SCBW_02.Zerg/05a.StructureBasic/02.CreepColonySCBW.xml",
+      "types": {
+        "CActorSiteOpLocalOffset": [
+          "CreepColonySCBW@SplatOffset"
+        ],
+        "CActorModel": [
+          "CreepColonySCBW@PlacementModel",
+          "CreepColonySCBW@Build"
+        ],
+        "CActorSplat": [
+          "CreepColonySCBW@Splat"
+        ],
+        "CActorProgress": [
+          "CreepColonySCBW@MorphProgress"
+        ],
+        "CActorUnit": [
+          "CreepColonySCBW"
+        ],
+        "CModel": [
+          "CreepColonySCBW@Placement",
+          "CreepColonySCBW@Portrait",
+          "CreepColonySCBW@Build",
+          "CreepColonySCBW@DeathUnderConstruction",
+          "CreepColonySCBW",
+          "CreepColonySCBW@Death"
+        ],
+        "CUnit": [
+          "CreepColonySCBW"
+        ]
+      },
+      "sha": "143dd2165099c477467a4fb146e3942f0bf391e7"
+    },
+    {
+      "file": "SCBW_02.Zerg/05a.StructureBasic/02a.SunkenColonySCBW.xml",
+      "types": {
+        "CEffectCreatePersistent": [
+          "SunkenColonySCBWWeapon@CP"
+        ],
+        "CEffectSet": [
+          "SunkenColonySCBWWeapon@Impact"
+        ],
+        "CEffectUserData": [
+          "SunkenColonySCBWWeapon@DamageApply"
+        ],
+        "CEffectDamage": [
+          "SunkenColonySCBWWeapon@DamageAccum",
+          "SunkenColonySCBWWeapon@Damage"
+        ],
+        "CAbilMorph": [
+          "SunkenColonySCBW@Morph"
+        ],
+        "CActorModel": [
+          "SunkenColonySCBWWeapon@StabImpact",
+          "SunkenColonySCBWWeapon@ImpactModel",
+          "SunkenColonySCBW@MorphModel",
+          "SunkenColonySCBW@PlacementModel",
+          "SunkenColonySCBW@Build"
+        ],
+        "CActorSound": [
+          "SunkenColonySCBWWeapon@LaunchSound"
+        ],
+        "CActorAction": [
+          "SunkenColonySCBWWeapon@Action"
+        ],
+        "CActorForceSphere": [
+          "SunkenColonySCBWWeapon@StabUpForce",
+          "SunkenColonySCBWWeapon@StabForce"
+        ],
+        "CActorProgress": [
+          "SunkenColonySCBW@MorphProgress",
+          "SunkenColonySCBW@BuildProgress"
+        ],
+        "CActorLookAt": [
+          "SunkenColonySCBW@LookAt"
+        ],
+        "CActorRange": [
+          "SunkenColonySCBW@ProtectRange"
+        ],
+        "CActorSplat": [
+          "SunkenColonySCBW@Splat"
+        ],
+        "CActorSiteOpRotationExplicit": [
+          "SunkenColonySCBW@BuildFacing"
+        ],
+        "CActorTurret": [
+          "SunkenColonySCBW@Turret"
+        ],
+        "CActorUnit": [
+          "SunkenColonySCBW"
+        ],
+        "CModel": [
+          "SunkenColonySCBWWeapon@StabImpact",
+          "SunkenColonySCBWWeapon@ActionDamageReactionFlesh",
+          "SunkenColonySCBWWeapon@ActionDamageReaction",
+          "SunkenColonySCBWWeapon@Impact",
+          "SunkenColonySCBW@Build",
+          "SunkenColonySCBW",
+          "SunkenColonySCBW@Death",
+          "SunkenColonySCBW@Portrait"
+        ],
+        "CWeaponLegacy": [
+          "SunkenColonySCBWWeapon"
+        ],
+        "CAccumulatorConstant": [
+          "SunkenColonySCBWWeapon@Damage"
+        ],
+        "CUnit": [
+          "SunkenColonySCBW"
+        ]
+      },
+      "sha": "18611d8fdc999a3adf0467df974b4dc11fbd9035"
+    }
+  ]
+}
