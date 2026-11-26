@@ -1,0 +1,1293 @@
+{
+  "source_layers": [
+    "89a218ada2d0d07fd4734ea30b3c44a5038ed010",
+    "508d32ba215141d4a860984d9068f39e65128564",
+    "2ccae3217d3a0d30179e3736926d3ff6f45fca46"
+  ],
+  "added": [
+    {
+      "id": "BanelingCocoonUpgrade",
+      "fields": {
+        "ScaleMin": "0.45,0.45,0.45",
+        "ScaleMax": "0.45,0.45,0.45",
+        "ShadowRadius": "0.20825",
+        "Radius": "0.1875",
+        "SelectionRadius": "0.20825"
+      }
+    },
+    {
+      "id": "EggsplosionGeneric0",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "EggsplosionGeneric",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "NeuralParasiteMissileModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "NeuralParasiteTentacle",
+      "fields": {
+        "ScaleMin": "0.425,0.425,0.425",
+        "ScaleMax": "0.425,0.425,0.425"
+      }
+    },
+    {
+      "id": "LarvaSuperEgg",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "LarvaReleaseMissile",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "OverseerCocoonDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.4705",
+        "Radius": "0.25",
+        "SelectionRadius": "0.4705"
+      }
+    },
+    {
+      "id": "CorruptorAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CorruptorAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "DroneAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HydraliskAirAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HydraliskAirAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HydraliskAirAttackImpactShield",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HydraliskGroundAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HydraliskGroundAttackImpactShield",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "MutaliskAttackSegment1Impact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "RoachAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "RoachMissileImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SporeCrawlerAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SpineCrawlerAttackImpactReactionFlesh",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "BroodLordAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ZergBuildingBirthTiny",
+      "fields": {
+        "ScaleMin": "0.15,0.15,0.15",
+        "ScaleMax": "0.15,0.15,0.15",
+        "ShadowRadius": "0.83325",
+        "Radius": "0.25",
+        "SelectionRadius": "0.83325"
+      }
+    },
+    {
+      "id": "ZergBuildingBirthSmall",
+      "fields": {
+        "ScaleMin": "0.2,0.2,0.2",
+        "ScaleMax": "0.2,0.2,0.2",
+        "ShadowRadius": "0.625",
+        "Radius": "0.25",
+        "SelectionRadius": "0.625"
+      }
+    },
+    {
+      "id": "ZergBuildingBirthMedium",
+      "fields": {
+        "ScaleMin": "0.3,0.3,0.3",
+        "ScaleMax": "0.3,0.3,0.3",
+        "ShadowRadius": "0.4166",
+        "Radius": "0.25",
+        "SelectionRadius": "0.4166"
+      }
+    },
+    {
+      "id": "ZergBuildingBirthMediumHigh",
+      "fields": {
+        "ScaleMin": "0.325,0.325,0.4",
+        "ScaleMax": "0.325,0.325,0.4",
+        "ShadowRadius": "0.4166",
+        "Radius": "0.25",
+        "SelectionRadius": "0.4166"
+      }
+    },
+    {
+      "id": "ZergBuildingBirthBigger",
+      "fields": {
+        "ScaleMin": "0.4,0.4,0.4",
+        "ScaleMax": "0.4,0.4,0.4",
+        "ShadowRadius": "0.3125",
+        "Radius": "0.25",
+        "SelectionRadius": "0.3125"
+      }
+    },
+    {
+      "id": "ZerglingAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ZergBuildingBirth",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "1",
+        "Radius": "1",
+        "SelectionRadius": "1"
+      }
+    },
+    {
+      "id": "ZergSmallBuildingDeath",
+      "fields": {
+        "ScaleMin": "0.15,0.15,0.15",
+        "ScaleMax": "0.15,0.15,0.15",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergLargeBuildingDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergLargeUnitDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergMediumUnitDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergUnloadLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SpireMorph",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "EggsplosionGeneric1",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "EggsplosionGeneric2",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestedTerransEgg",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestedTerransWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "InfestorTerranAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "InfestorTerranAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "InfestorTerran_Webby_Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorTerran_Webby_DeathFire",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorTerran_Webby_DeathAcid",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorTerran_Webby_DeathTimeout",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorTerran_Webby_DeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorTerran_Primal_Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorTerran_Primal_DeathFire",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorTerran_Primal_DeathAcid",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorTerran_Primal_DeathTimeout",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorTerran_Primal_DeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "SporeCrawlerWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "NeedleSpinesWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HydraliskMissile_Upgrade",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ZergBuildingBlood",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergBuildingBloodLight",
+      "fields": {
+        "ScaleMin": "0.4,0.4,0.4",
+        "ScaleMax": "0.4,0.4,0.4",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergBuildingBloodHeavy",
+      "fields": {
+        "ScaleMin": "0.4,0.4,0.4",
+        "ScaleMax": "0.4,0.4,0.4",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergBuildingBloodProfuse",
+      "fields": {
+        "ScaleMin": "0.4,0.4,0.4",
+        "ScaleMax": "0.4,0.4,0.4",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergBuildingBloodTinyLight",
+      "fields": {
+        "ScaleMin": "0.2,0.2,0.2",
+        "ScaleMax": "0.2,0.2,0.2",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergBuildingBloodTinyHeavy",
+      "fields": {
+        "ScaleMin": "0.2,0.2,0.2",
+        "ScaleMax": "0.2,0.2,0.2",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZergBuildingBloodTinyProfuse",
+      "fields": {
+        "ScaleMin": "0.2,0.2,0.2",
+        "ScaleMax": "0.2,0.2,0.2",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZerglingUpgradeDeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "NeuralParasiteEgg",
+      "fields": {
+        "ScaleMin": "0.25,0.25,0.25",
+        "ScaleMax": "0.25,0.25,0.25",
+        "ShadowRadius": "0.5",
+        "Radius": "0.25",
+        "SelectionRadius": "0.5"
+      }
+    },
+    {
+      "id": "QueenWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "QueenAttackLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "QueenAttackImpactShield",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "AcidSalivaWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "InfestedTerranEggDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ContaminateWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "NeuralParasiteTentacleLaunchHostModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "NeuralParasiteTentacleImpactHostModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "BanelingEx1Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "CorruptorGroundAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CorruptorGroundAttackImpactModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HydraliskAttackImpact",
+      "fields": {
+        "ScaleMin": "0.33,0.33,0.33",
+        "ScaleMax": "0.33,0.33,0.33"
+      }
+    },
+    {
+      "id": "LocustMPEggAttackLaunchModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "LocustEgg",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.33325",
+        "Radius": "0.25",
+        "SelectionRadius": "0.33325"
+      }
+    },
+    {
+      "id": "LocustMPEggAMissileWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.33325",
+        "Radius": "0.25",
+        "SelectionRadius": "0.33325"
+      }
+    },
+    {
+      "id": "LocustMPEggBMissileWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.33325",
+        "Radius": "0.25",
+        "SelectionRadius": "0.33325"
+      }
+    },
+    {
+      "id": "LocustMPWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "LocustAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "LocustMPAttackImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "LocustDeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "LurkerMPAttackSpike",
+      "fields": {
+        "ScaleMin": "0.75,0.75,0.75",
+        "ScaleMax": "0.75,0.75,0.75"
+      }
+    },
+    {
+      "id": "LurkerMPAttackDeathBloodGeyser",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "OverlordXPRDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "OverlordXPRDeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "QueenMissileImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "SwarmHostDeathAcid",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.5",
+        "Radius": "0.25",
+        "SelectionRadius": "0.5"
+      }
+    },
+    {
+      "id": "SwarmHostDeathFire",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.5",
+        "Radius": "0.25",
+        "SelectionRadius": "0.5"
+      }
+    },
+    {
+      "id": "SwarmHostSpawnDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "SwarmHostSpawnDeathFire",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "SwarmHostSpawnDeathAcid",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "SwarmHostCocoon",
+      "fields": {
+        "ScaleMin": "0.425,0.425,0.425",
+        "ScaleMax": "0.425,0.425,0.425",
+        "ShadowRadius": "0.3675",
+        "Radius": "0.3125",
+        "SelectionRadius": "0.3675"
+      }
+    },
+    {
+      "id": "SwarmHostEgg",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "UltraliskBurrowChargeImpact",
+      "fields": {
+        "ScaleMin": "0.6,0.6,0.6",
+        "ScaleMax": "0.6,0.6,0.6"
+      }
+    },
+    {
+      "id": "UltraliskBurrowChargeModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "UltraliskCEDeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ViperConsumeStructureTentacle",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "ZerglingXPRDeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "ZerglingUpgradeXPRDeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "HydraliskImpaleMissileGroundCracks",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HydraliskImpaleAttackImpact",
+      "fields": {
+        "ScaleMin": "0.125,0.125,0.125",
+        "ScaleMax": "0.125,0.125,0.125"
+      }
+    },
+    {
+      "id": "LurkerMPAttackSpikeImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "LurkerAttackSpikeEx2",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "QueenMPSpawnBroodlingsMissile",
+      "fields": {
+        "ScaleMin": "0.25,0.25,0.25",
+        "ScaleMax": "0.25,0.25,0.25"
+      }
+    },
+    {
+      "id": "QueenMPEnsnareMissile",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "QueenMPEnsnareImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "RavagerWeaponMissile",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "RavagerWeaponImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "Zergling_Primal_Upgrade_DeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "Zergling_Webby_Upgrade_DeathRagdoll",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "Overlord_Mutant_Transport_Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "NydusAttackerRumble",
+      "fields": {
+        "ScaleMin": "0.275,0.275,0.275",
+        "ScaleMax": "0.275,0.275,0.275"
+      }
+    },
+    {
+      "id": "ExtractorTerrazineBuild",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.3125",
+        "Radius": "0.25",
+        "SelectionRadius": "0.3125"
+      }
+    },
+    {
+      "id": "GuardianMPDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "GuardianMPWeaponMissile",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "GuardianMPWeaponImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "DevourerMPDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.375",
+        "Radius": "0.375",
+        "SelectionRadius": "0.375"
+      }
+    },
+    {
+      "id": "DevourerMPWeaponImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "DevourerMPWeaponMissile",
+      "fields": {
+        "ScaleMin": "0.75,0.75,0.75",
+        "ScaleMax": "0.75,0.75,0.75"
+      }
+    },
+    {
+      "id": "DevourerMPAcidSporesImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "DevourerCocoonDeath",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.3675",
+        "Radius": "0.25",
+        "SelectionRadius": "0.3675"
+      }
+    },
+    {
+      "id": "DevourerEx3Death",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.375",
+        "Radius": "0.375",
+        "SelectionRadius": "0.375"
+      }
+    },
+    {
+      "id": "ScourgeMPAttackImpact",
+      "fields": {
+        "ScaleMin": "0.2,0.2,0.2",
+        "ScaleMax": "0.2,0.2,0.2"
+      }
+    },
+    {
+      "id": "DefilerMPConsumeImpact",
+      "fields": {
+        "ScaleMin": "0.25,0.25,0.25",
+        "ScaleMax": "0.25,0.25,0.25"
+      }
+    },
+    {
+      "id": "DefilerMPPlagueWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "DefilerMPPlagueAttackImpact",
+      "fields": {
+        "ScaleMin": "0.3,0.3,0.3",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CausticSprayImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "CausticSprayWeapon",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "Infestor_Ex3_Tentacle",
+      "fields": {
+        "ScaleMin": "0.425,0.425,0.425",
+        "ScaleMax": "0.425,0.425,0.425"
+      }
+    },
+    {
+      "id": "InfestorBurrowedNeuralParasiteGroundSplat",
+      "fields": {
+        "ScaleMin": "0.625,0.625,0.625",
+        "ScaleMax": "0.625,0.625,0.625",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestedTerranInfestedAcidSpinesMissileImpact",
+      "fields": {
+        "ScaleMin": "0.125,0.125,0.125",
+        "ScaleMax": "0.125,0.125,0.125"
+      }
+    },
+    {
+      "id": "InfestedTerranAAMPLaunch",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "InfestorEnsnareImpact",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "TransfusionHealTick",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5"
+      }
+    },
+    {
+      "id": "HydraliskFrenzyBirthModel",
+      "fields": {
+        "ScaleMin": "0.5,0.5,0.5",
+        "ScaleMax": "0.5,0.5,0.5",
+        "ShadowRadius": "0.25",
+        "Radius": "0.25",
+        "SelectionRadius": "0.25"
+      }
+    },
+    {
+      "id": "InfestorWeaponImpact",
+      "fields": {
+        "ScaleMin": "0.15,0.15,0.15",
+        "ScaleMax": "0.15,0.15,0.15"
+      }
+    },
+    {
+      "id": "InfestorWeaponMissile",
+      "fields": {
+        "ScaleMin": "0.2,0.2,0.2",
+        "ScaleMax": "0.2,0.2,0.2"
+      }
+    }
+  ],
+  "unresolved": [],
+  "preserved": [
+    "Baneling_Primal_Collection_Death",
+    "Baneling_Primal_Collection_Death_Low",
+    "Lurker_CollectionSkin_Primal_Death",
+    "Lurker_CollectionSkin_Primal_DeathRagdoll",
+    "Lurker_CollectionSkin_Primal_Death_Acid",
+    "Lurker_CollectionSkin_Primal_Death_Fire",
+    "Roach_Deluxe_Collection_DeathRagdoll",
+    "BroodLord_PremiumSkin_Aquatic_Death",
+    "BroodLord_PremiumSkin_Aquatic_DeathRagdoll",
+    "Roach_Deluxe_Collection_Death_Acid",
+    "Roach_Deluxe_Collection_Death_Fire",
+    "Roach_Deluxe_Collection_Death",
+    "FungalGrowthMissile",
+    "FungalGrowthImpact",
+    "ZergAOECursorSplat",
+    "SwarmHostSpawn_Primal_Collection_Portrait",
+    "EggMonsterPortrait",
+    "QueenCreepBirth",
+    "SwarmHostSpawnPortrait",
+    "SwarmHost_CollectionSkin_Primal_Death",
+    "SwarmHost_CollectionSkin_Primal_DeathAcid",
+    "SwarmHost_CollectionSkin_Primal_DeathFire",
+    "SwarmHost_CollectionSkin_Webby_DeathAcid",
+    "SwarmHost_CollectionSkin_Webby_DeathFire",
+    "Baneling_CollectionSkin_WebbyDeath",
+    "Baneling_CollectionSkin_WebbyDeath_Low",
+    "Baneling_CollectionSkin_PrimalDeath",
+    "Baneling_CollectionSkin_PrimalDeath_Low",
+    "Corruptor_CollectionSkin_Primal_Death",
+    "Corruptor_CollectionSkin_Primal_DeathRagdoll",
+    "Drone_CollectionSkin_Primal_Death",
+    "Drone_CollectionSkin_Primal_DeathFire",
+    "Drone_CollectionSkin_Primal_DeathAcid",
+    "Drone_CollectionSkin_Primal_DeathRagdoll",
+    "Hydralisk_Collection_Primal_Death",
+    "Hydralisk_Collection_Primal_DeathFire",
+    "Hydralisk_Collection_Primal_DeathAcid",
+    "Hydralisk_Collection_Primal_DeathRagdoll",
+    "Locust_CollectionSkin_Webby_Death",
+    "Locust_CollectionSkin_Webby_DeathFire",
+    "Locust_CollectionSkin_Webby_DeathAcid",
+    "Locust_CollectionSkin_Webby_DeathRagdoll",
+    "LocustFlyer_CollectionSkin_Webby_Death",
+    "Mutalisk_CollectionSkin_Webby_DeathRagdoll",
+    "Mutalisk_CollectionSkin_Primal_Death",
+    "Mutalisk_CollectionSkin_Primal_DeathRagdoll",
+    "Ravager_CollectionSkin_Bone_Death",
+    "Ravager_CollectionSkin_Bone_DeathFire",
+    "Ravager_CollectionSkin_Bone_DeathAcid",
+    "Ravager_CollectionSkin_Bone_DeathRagdoll",
+    "RavagerCorrosiveBileImpact",
+    "RavagerCorrosiveBileMissile",
+    "Roach_CollectionSkin_Primal_Death",
+    "Roach_CollectionSkin_Primal_DeathFire",
+    "Roach_CollectionSkin_Primal_DeathAcid",
+    "Roach_CollectionSkin_Primal_DeathRagdoll",
+    "SwarmHost_CollectionSkin_Primal_DeathRagdoll",
+    "Locust_CollectionSkin_Primal_Death",
+    "Locust_CollectionSkin_Primal_DeathFire",
+    "Locust_CollectionSkin_Primal_DeathAcid",
+    "Locust_CollectionSkin_Primal_DeathRagdoll",
+    "LocustFlyer_CollectionSkin_Primal_Death",
+    "Ultralisk_CollectionSkin_Primal_Death",
+    "Ultralisk_CollectionSkin_Primal_DeathFire",
+    "Ultralisk_CollectionSkin_Primal_DeathAcid",
+    "Ultralisk_CollectionSkin_Primal_DeathRagdoll",
+    "Viper_CollectionSkin_Webby_Death",
+    "Zergling_CollectionSkin_Primal_Death",
+    "Zergling_CollectionSkin_Primal_DeathFire",
+    "Zergling_CollectionSkin_Primal_DeathAcid",
+    "Zergling_CollectionSkin_Primal_DeathEviscerate",
+    "ZerglingUpgrade_CollectionSkin_Primal_Death",
+    "ZerglingUpgrade_CollectionSkin_Primal_DeathFire",
+    "ZerglingUpgrade_CollectionSkin_Primal_DeathEviscerate",
+    "Zergling_CollectionSkin_Primal_DeathRagdoll",
+    "Broodlord_CollectionSkin_Primal_Death",
+    "Broodlord_CollectionSkin_Primal_DeathRagdoll",
+    "Infestor_CollectionSkin_Primal_Death",
+    "Infestor_CollectionSkin_Primal_DeathFire",
+    "Infestor_CollectionSkin_Primal_DeathAcid",
+    "Infestor_CollectionSkin_Primal_DeathRagdoll",
+    "Overlord_CollectionSkin_Primal_Death",
+    "Overlord_CollectionSkin_Primal_DeathRagdoll",
+    "OverlordTransport_CollectionSkin_Primal_Death",
+    "Overseer_CollectionSkin_Primal_Death",
+    "Overseer_CollectionSkin_Primal_DeathRagdoll",
+    "Queen_CollectionSkin_Primal_Death",
+    "Queen_CollectionSkin_Primal_DeathFire",
+    "Queen_CollectionSkin_Primal_DeathAcid",
+    "Queen_CollectionSkin_Primal_DeathRagdoll",
+    "Ravager_CollectionSkin_Primal_Death",
+    "Ravager_CollectionSkin_Primal_DeathFire",
+    "Ravager_CollectionSkin_Primal_DeathAcid",
+    "Ravager_CollectionSkin_Primal_DeathRagdoll",
+    "Viper_CollectionSkin_Primal_DeathRagdoll",
+    "NydusCreepSpoutBirth",
+    "NydusCanalAttackerWeapon",
+    "NydusCanalAttackerAttackImpact",
+    "DefilerMPDarkSwarmWeapon",
+    "DefilerMPDarkSwarmImpact",
+    "ParasiticBombMissile",
+    "ParasiticBombAttackImpact",
+    "InfestorEnsnareAttackMissile"
+  ],
+  "policy": "Verified numeric model scales including Core defaults; preserve area effects and uncertain shared/skin models. Candidate filter is not full runtime coverage."
+}
