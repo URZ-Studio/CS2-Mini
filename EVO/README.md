@@ -1,4 +1,4 @@
-# MiniCraft EVO — v0.1.4 preview
+# MiniCraft EVO — v0.1.5 preview
 
 Separate local derivative of SCEvoComplete at commit 773c8e8ae8828121e8f37bb74ab82ceb761a45bc. MIT license retained. Original MiniCraft, upstream, and published mods are not edited.
 
@@ -35,3 +35,7 @@ Close Galaxy Editor without saving a broken regenerated script, then run the exi
 ## Binary dependency header recovery (0.1.4 preview)
 
 The original H2CS version-8 DocumentHeader contains a second dependency list. Rewrite it alongside DocumentInfo, verifying the original lists match and preserving all trailing localized metadata bytes. Verify the generated XML/header lists agree for Assets, Core, and Multi, with no original custom Battle.net dependencies. Round-trip layout checked against all three pinned upstream header files. The actual Galaxy Editor resolver and compilation are still untested. Do not save a document after a missing-dependency warning; reopen the freshly generated Multi document after updating.
+
+## Installation path recovery (0.1.5 preview)
+
+The launcher now delegates installation discovery to Python (saved path, Windows registry, standard folders and common drive paths). It accepts the game root or Mods path, creates Mods if absent, and asks for the actual game installation folder only when discovery fails. The remembered path is written in UTF-8 after successful generation. Modified tracked upstream cache files are backed up as a binary Git diff before restoring the pinned checkout; never open the upstream cache in the editor. The successful build opens Explorer at the generated Multi component file. Windows execution and Galaxy Editor loading remain unverified.
