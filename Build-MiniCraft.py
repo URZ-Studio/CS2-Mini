@@ -107,6 +107,13 @@ def validate():
         node = parsed["ModelData"].find("./*[@id='" + uid + "']/" + field)
         if node is None or node.get("value") != expected:
             raise ValueError("Model regression: " + uid + "/" + field)
+    for uid, expected in (("StimpackStartImpact","0.5,0.5,0.5"),("MarineAttackLaunch","0.5,0.5,0.5"),("SiegeTankSiegedMorph","0.4,0.4,0.4"),("CycloneMissile","0.5,0.5,0.5")):
+        for field in ("ScaleMin","ScaleMax"):
+            assert parsed["ModelData"].find(f"./*[@id='{uid}']/{field}").get("value") == expected, (uid,field)
+    for uid in ("Marine","SiegeTank","Barracks","Battlecruiser"):
+        actor = parsed["ActorData"].find(f"./*[@id='{uid}']")
+        assert actor.find("UnitFlags[@index='ShowBlobShadow']").get("value") == "0", uid
+        assert any(x.get("Terms")=="ActorCreation" and x.get("Send")=="SetCastShadows" for x in actor.findall("On")), uid
     for uid in ("Nexus", "Gateway", "Pylon", "Barracks", "Hatchery"):
         if parsed["ActorData"].find("./*[@id='" + uid + "']/Scale") is not None:
             raise ValueError("Duplicate visual scaling: " + uid)
