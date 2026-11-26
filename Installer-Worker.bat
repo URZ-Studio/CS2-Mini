@@ -89,16 +89,21 @@ if errorlevel 1 git -C "%CACHE%\upstream" fetch --depth=1 origin "%REV%" || goto
 git -C "%CACHE%\upstream" checkout --detach "%REV%" || goto evofail
 set "MODS=%~2"
 if not defined MODS if exist "%CACHE%\mods.txt" set /p MODS=<"%CACHE%\mods.txt"
+if defined MODS set "MODS=%MODS:"=%"
+if defined MODS if not exist "%MODS%\..\SC2Data\" set "MODS="
 if defined MODS goto modsready
-if exist "%ProgramFiles(x86)%\StarCraft II\Mods\" set "MODS=%ProgramFiles(x86)%\StarCraft II\Mods"
-if not defined MODS if exist "%ProgramFiles%\StarCraft II\Mods\" set "MODS=%ProgramFiles%\StarCraft II\Mods"
-if not defined MODS set /p "MODS=Enter installed StarCraft II Mods folder (first setup only): "
+if exist "%ProgramFiles(x86)%\StarCraft II\Mods\..\SC2Data\" set "MODS=%ProgramFiles(x86)%\StarCraft II\Mods"
+if not defined MODS if exist "%ProgramFiles%\StarCraft II\Mods\..\SC2Data\" set "MODS=%ProgramFiles%\StarCraft II\Mods"
+if not defined MODS set /p "MODS=Enter actual StarCraft II Mods folder (next to SC2Data): "
 :modsready
 if not defined MODS goto evofail
 set "MODS=%MODS:"=%"
 %PY% "%CACHE%\EVO\Build-MiniCraft-EVO.py" --source "%CACHE%\upstream" --mods "%MODS%" --mini "%CACHE%\Build-MiniCraft.py" || goto evofail
 > "%CACHE%\mods.txt" echo(%MODS%
-echo Done. Open the generated SCEvo_Multi component folder in Galaxy Editor.
+set "ENTRY=%MODS%\MiniCraft-EVO\SCEvo_Multi.SC2Mod\ComponentList.SC2Components"
+echo Open this generated document, not a previously saved minicraft.SC2Mod:
+echo "%ENTRY%"
+if exist "%ENTRY%" start "" explorer.exe /select,"%ENTRY%"
 
 exit /b 0
 :evofail
