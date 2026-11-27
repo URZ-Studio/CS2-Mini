@@ -15,12 +15,7 @@ set "REPO=https://github.com/URZ-Studio/CS2-Mini.git"
 echo ===========================================================
 echo MiniCraft II - Permanent GitHub launcher
 echo ===========================================================
-where git >nul 2>&1 || goto :craftprobe
-echo [3/3] Building a disposable private Craft Switch Probe...
-git --git-dir="%SOURCE%" show refs/heads/main:Build-CraftSwitchProbe.py > "%CACHE%\Build-CraftSwitchProbe.py" || goto :fail
-%PY_CMD% "%CACHE%\Build-CraftSwitchProbe.py" --builder "%BUILDER%" --output "%MINICRAFT_HOME%Craft-Switch-Probe.SC2Mod" || goto :fail
-exit /b 0
-:nogit
+where git >nul 2>&1 || goto :nogit
 where py >nul 2>&1
 if errorlevel 1 (
     where python >nul 2>&1 || goto :nopy
@@ -53,6 +48,12 @@ echo Done. Open the target component folder in Galaxy Editor.
 echo This launcher does not publish to Battle.net.
 
 exit /b 0
+:craftprobe
+echo [3/3] Building a disposable private Craft Switch Probe...
+git --git-dir="%SOURCE%" show refs/heads/main:Build-CraftSwitchProbe.py > "%CACHE%\Build-CraftSwitchProbe.py" || goto :fail
+%PY_CMD% "%CACHE%\Build-CraftSwitchProbe.py" --builder "%BUILDER%" --output "%MINICRAFT_HOME%Craft-Switch-Probe.SC2Mod" || goto :fail
+exit /b 0
+
 :nogit
 echo Git for Windows is required. Install it and reopen this launcher.
 goto :fail
