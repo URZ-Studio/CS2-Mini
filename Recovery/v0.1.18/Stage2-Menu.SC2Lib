@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TriggerData>
+    <Standard Id="D73C1021"/>
+    <Name>MiniCraft Recovery Menu</Name>
+    <Root>
+        <Item Type="CustomScript" Library="D73C1021" Id="D73C1022"/>
+    </Root>
+    <Element Type="CustomScript" Id="D73C1022">
+        <Name>Bootstrap</Name>
+        <ScriptCode>include "TriggerLibs/MiniCraftRecovery"
+</ScriptCode>
+        <InitFunc>MCR_MenuInit</InitFunc>
+    </Element>
+</TriggerData>

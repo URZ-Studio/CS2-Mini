@@ -1,0 +1,138 @@
+// MiniCraft recovery stage 2: no catalog writes, no AI, no unit cloning.
+// Include from a small editor-authored Custom Script. Do not embed this entire
+// source in the Triggers XML or generate the editor's compiled wrapper.
+int mcr_dialog = -1;
+int mcr_cap = 300;
+int mcr_resource = 100;
+int mcr_capButton = -1;
+int mcr_resourceButton = -1;
+int mcr_startButton = -1;
+int mcr_host = 0;
+bool mcr_applied = false;
+bool mcr_init = false;
+
+bool MCR_IsPlayer(int p) {
+    return PlayerStatus(p) == c_playerStatusActive &&
+        (PlayerType(p) == c_playerTypeUser || PlayerType(p) == c_playerTypeComputer);
+}
+
+bool MCR_ResourceType(string id) {
+    return id == "MineralField" || id == "MineralField750" ||
+        id == "MineralField450" || id == "RichMineralField" ||
+        id == "RichMineralField750" || id == "PurifierMineralField" ||
+        id == "PurifierMineralField750" || id == "PurifierRichMineralField" ||
+        id == "PurifierRichMineralField750" || id == "LabMineralField" ||
+        id == "LabMineralField750" || id == "BattleStationMineralField" ||
+        id == "BattleStationMineralField750" || id == "MineralFieldOpaque" ||
+        id == "MineralField900Opaque" || id == "VespeneGeyser" ||
+        id == "RichVespeneGeyser" || id == "SpacePlatformGeyser" ||
+        id == "ProtossVespeneGeyser" || id == "PurifierVespeneGeyser" ||
+        id == "ShakurasVespeneGeyser";
+}
+
+void MCR_Resources() {
+    unitgroup g;
+    int i;
+    unit u;
+    fixed amount;
+    if (mcr_resource == 100) { return; }
+    g = UnitGroup(null, c_playerAny, RegionEntireMap(), null, 0);
+    i = UnitGroupCount(g, c_unitCountAll);
+    while (i > 0) {
+        u = UnitGroupUnit(g, i);
+        if (u != null && UnitIsAlive(u) && MCR_ResourceType(UnitGetType(u))) {
+            amount = UnitGetPropertyFixed(u, c_unitPropResources, c_unitPropCurrent);
+            if (amount > 0.0) {
+                UnitSetPropertyFixed(u, c_unitPropResources, amount * (IntToFixed(mcr_resource) / 100.0));
+            }
+        }
+        i -= 1;
+    }
+}
+
+void MCR_SetText(int control, string value) {
+    DialogControlSetPropertyAsText(control, PlayerGroupAll(), c_triggerControlPropertyText, StringToText(value));
+}
+
+int MCR_Button(string value, int y) {
+    int control = DialogControlCreate(mcr_dialog, c_triggerControlTypeButton);
+    DialogControlSetPosition(control, PlayerGroupAll(), c_anchorTopLeft, 30, y);
+    DialogControlSetSize(control, PlayerGroupAll(), 460, 48);
+    MCR_SetText(control, value);
+    return control;
+}
+
+void MCR_Apply() {
+    int p = 1;
+    if (mcr_applied) { return; }
+    mcr_applied = true;
+    if (mcr_dialog != -1) {
+        DialogDestroy(mcr_dialog);
+        mcr_dialog = -1;
+    }
+    while (p <= 15) {
+        if (MCR_IsPlayer(p)) {
+            PlayerModifyPropertyInt(p, c_playerPropSuppliesLimit, c_playerPropOperSetTo, mcr_cap);
+        }
+        p += 1;
+    }
+    MCR_Resources();
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat,
+        StringToText("[MiniCraft] cap " + IntToString(mcr_cap) + " / resource " + IntToString(mcr_resource) + "%"));
+}
+
+bool MCR_Timeout(bool testConds, bool runActions) {
+    if (runActions) { MCR_Apply(); }
+    return true;
+}
+
+bool MCR_Click(bool testConds, bool runActions) {
+    int c;
+    if (!runActions || mcr_applied || EventPlayer() != mcr_host) { return true; }
+    c = EventDialogControl();
+    if (c == mcr_capButton) {
+        mcr_cap += 100;
+        if (mcr_cap > 500) { mcr_cap = 200; }
+        MCR_SetText(c, "Supply / " + IntToString(mcr_cap));
+    }
+    if (c == mcr_resourceButton) {
+        if (mcr_resource == 100) { mcr_resource = 150; }
+        else if (mcr_resource == 150) { mcr_resource = 200; }
+        else if (mcr_resource == 200) { mcr_resource = 300; }
+        else if (mcr_resource == 300) { mcr_resource = 500; }
+        else { mcr_resource = 100; }
+        MCR_SetText(c, "Resources / " + IntToString(mcr_resource) + "%");
+    }
+    if (c == mcr_startButton) { MCR_Apply(); }
+    return true;
+}
+
+bool MCR_Show(bool testConds, bool runActions) {
+    int p = 1;
+    trigger click;
+    trigger timeout;
+    if (!runActions || mcr_applied || mcr_dialog != -1) { return true; }
+    while (p <= 15) {
+        if (MCR_IsPlayer(p) && PlayerType(p) == c_playerTypeUser) { mcr_host = p; break; }
+        p += 1;
+    }
+    if (mcr_host == 0) { MCR_Apply(); return true; }
+    mcr_dialog = DialogCreate(520, 240, c_anchorCenter, 0, 0, true);
+    mcr_capButton = MCR_Button("Supply / 300", 24);
+    mcr_resourceButton = MCR_Button("Resources / 100%", 82);
+    mcr_startButton = MCR_Button("Apply (20 sec auto)", 140);
+    click = TriggerCreate("MCR_Click");
+    TriggerAddEventDialogControl(click, mcr_host, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+    timeout = TriggerCreate("MCR_Timeout");
+    TriggerAddEventTimeElapsed(timeout, 20.0, c_timeGame);
+    DialogSetVisible(mcr_dialog, PlayerGroupSingle(mcr_host), true);
+    return true;
+}
+
+void MCR_MenuInit() {
+    trigger start;
+    if (mcr_init) { return; }
+    mcr_init = true;
+    start = TriggerCreate("MCR_Show");
+    TriggerAddEventTimeElapsed(start, 2.0, c_timeGame);
+}

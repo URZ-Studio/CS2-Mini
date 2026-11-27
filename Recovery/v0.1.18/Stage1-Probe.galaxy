@@ -1,0 +1,10 @@
+bool MCR_ProbeStart(bool testConds, bool runActions) {
+    if (runActions) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("[MiniCraft] Trigger init OK"));
+    }
+    return true;
+}
+void MCR_ProbeInit() {
+    trigger t = TriggerCreate("MCR_ProbeStart");
+    TriggerAddEventTimeElapsed(t, 2.0, c_timeGame);
+}

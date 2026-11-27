@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TriggerData>
+    <Standard Id="D73C1011"/>
+    <Name>MiniCraft Recovery Probe</Name>
+    <Root>
+        <Item Type="CustomScript" Library="D73C1011" Id="D73C1012"/>
+    </Root>
+    <Element Type="CustomScript" Id="D73C1012">
+        <Name>Bootstrap</Name>
+        <ScriptCode>bool MCR_ProbeStart(bool testConds, bool runActions) {
+    if (runActions) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("[MiniCraft] Trigger init OK"));
+    }
+    return true;
+}
+void MCR_ProbeInit() {
+    trigger t = TriggerCreate("MCR_ProbeStart");
+    TriggerAddEventTimeElapsed(t, 2.0, c_timeGame);
+}
+</ScriptCode>
+        <InitFunc>MCR_ProbeInit</InitFunc>
+    </Element>
+</TriggerData>
