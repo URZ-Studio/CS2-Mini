@@ -1,0 +1,120 @@
+// MiniCraft Fastest AI Assault — gameplay map, separate from TestArena.
+// Map template: flat 192x192, P1 human, P2–P4 computer.
+// Race and elite difficulty configured in editor/lobby.
+// No free armies, no scripted combat waves: stock melee AI (or MiniCraft enhanced AI).
+bool mcf_started = false;
+void MCF_Log(string msg) {
+    UIDisplayMessage(PlayerGroupAll(),c_messageAreaChat,StringToText("[Fastest AI] "+msg));
+    TriggerDebugOutput(1,StringToText("[Fastest AI] "+msg),true);
+}
+void MCF_Resource(string id,fixed x,fixed y) {
+    unit u;
+    UnitCreate(1,id,0,0,Point(x,y),270.0);
+    u = UnitLastCreated();
+    if (u != null && UnitGetType(u) == id) {
+        UnitSetPropertyFixed(u,c_unitPropResources,50000.0);
+    }
+}
+void MCF_Bank(point at, bool north) {
+    int i = 0;
+    fixed x = PointGetX(at);
+    fixed y = PointGetY(at);
+    fixed d = 1.0;
+    if (!north) { d = -1.0; }
+    // Single row with normal mining clearance; no stacked resource objects.
+    while (i < 12) {
+        MCF_Resource("MineralField",x-11.0+2.0*IntToFixed(i),y+d*7.0);
+        i += 1;
+    }
+    MCF_Resource("VespeneGeyser",x-8.0,y+d*1.0);
+    MCF_Resource("VespeneGeyser",x+8.0,y+d*1.0);
+    MCF_Resource("VespeneGeyser",x-14.0,y+d*1.0);
+    MCF_Resource("VespeneGeyser",x+14.0,y+d*1.0);
+}
+bool MCF_Start(bool testConds,bool runActions) {
+    int p = 1;
+    int q;
+    point lo = RegionGetBoundsMin(RegionPlayableMap());
+    point hi = RegionGetBoundsMax(RegionPlayableMap());
+    fixed ox = PointGetX(lo);
+    fixed oy = PointGetY(lo);
+    fixed w = PointGetX(hi)-ox;
+    fixed h = PointGetY(hi)-oy;
+    point at;
+    bool north;
+    if (!runActions || mcf_started) { return true; }
+    mcf_started = true;
+    if (w < 176.0 || h < 176.0 || PlayerType(1) != c_playerTypeUser) {
+        MCF_Log("Need a flat >=176x176 playable area and P1 user."); return true;
+    }
+    // Verify all start locations before mutating the match.
+    while (p <= 4) {
+        if (PlayerStatus(p) != c_playerStatusActive || (p > 1 && PlayerType(p) != c_playerTypeComputer)) {
+            MCF_Log("Need one human and three active computer players."); return true;
+        }
+        at = PlayerStartLocation(p);
+        if (at == null) { MCF_Log("Missing start location."); return true; }
+        if (PointGetX(at) < ox+17.0 || PointGetX(at) > ox+w-17.0 || PointGetY(at) < oy+12.0 || PointGetY(at) > oy+h-12.0) {
+            MCF_Log("Start too close to map edge."); return true;
+        }
+        if ((p == 1 && PointGetY(at) > oy+40.0) || (p > 1 && PointGetY(at) < oy+h-40.0)) {
+            MCF_Log("P1 must start south and P2-P4 north."); return true;
+        }
+        q = 1;
+        while (q < p) {
+            if (DistanceBetweenPoints(at,PlayerStartLocation(q)) < 36.0) {
+                MCF_Log("Starting locations too close."); return true;
+            }
+            q += 1;
+        }
+        p += 1;
+    }
+    p = 5;
+    while (p <= 15) {
+        if (PlayerStatus(p) == c_playerStatusActive && (PlayerType(p) == c_playerTypeUser || PlayerType(p) == c_playerTypeComputer)) {
+            MCF_Log("Only P1-P4 may be active."); return true;
+        }
+        p += 1;
+    }
+    MeleeInitOptions();
+    p = 2;
+    while (p <= 4) {
+        libNtve_gf_SetAlliance(1,p,libNtve_ge_AllianceSetting_Enemy);
+        q = p+1;
+        while (q <= 4) {
+            libNtve_gf_SetAlliance(p,q,libNtve_ge_AllianceSetting_AllyWithSharedVisionAndPushable);
+            q += 1;
+        }
+        p += 1;
+    }
+    p = 1;
+    while (p <= 4) {
+        north = p > 1;
+        at = PlayerStartLocation(p);
+        MCF_Bank(at,north);
+        p += 1;
+    }
+    // Six open expansion sites, two horizontal rows in the interior.
+    MCF_Bank(Point(ox+w*0.18,oy+h*0.34),false);
+    MCF_Bank(Point(ox+w*0.50,oy+h*0.34),false);
+    MCF_Bank(Point(ox+w*0.82,oy+h*0.34),false);
+    MCF_Bank(Point(ox+w*0.18,oy+h*0.66),true);
+    MCF_Bank(Point(ox+w*0.50,oy+h*0.66),true);
+    MCF_Bank(Point(ox+w*0.82,oy+h*0.66),true);
+    MeleeInitResources();
+    p = 1;
+    while (p <= 4) {
+        MeleeInitUnitsForPlayer(p,PlayerRace(p),PlayerStartLocation(p));
+        PlayerModifyPropertyInt(p,c_playerPropMinerals,c_playerPropOperSetTo,500);
+        PlayerModifyPropertyInt(p,c_playerPropVespene,c_playerPropOperSetTo,500);
+        p += 1;
+    }
+    MeleeInitAI();
+    MCF_Log("1v3 allied AI. 12 minerals / 4 gas per base. Defeat the enemy team.");
+    return true;
+}
+// Existing map builder recognizes this entry point. Do not load TestArena script together.
+void MCT_Init() {
+    trigger t = TriggerCreate("MCF_Start");
+    TriggerAddEventTimeElapsed(t,0.1,c_timeGame);
+}
