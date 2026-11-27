@@ -149,6 +149,8 @@ def build(builder_path, output):
             dest = stage / path
             dest.parent.mkdir(parents=True, exist_ok=True)
             dest.write_bytes(data)
+        # Also protect the probe from the normal MiniCraft patch path.
+        (stage / module.NORMAL_MARKER).write_text("Disposable NormalCraft probe\n",encoding="utf-8")
         (stage / "CRAFT-PROBE-PRIVATE.txt").write_text("Disposable private test only. Do not publish as the normal MiniCraft or NormalCraft mod.\n",encoding="utf-8")
         if output.exists():
             raise FileExistsError(output)
