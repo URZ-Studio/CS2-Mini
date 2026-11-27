@@ -1,0 +1,254 @@
+// MiniCraft Test Arena - paste into a map custom script, InitFunc MCT_Init.
+// Private test only. No melee initialization trigger in the map.
+// Start locations: P1 south, P2-P4 north. Use a 192x192 flat map.
+bool mct_started = false;
+int mct_created = 0;
+int mct_skipped = 0;
+void MCT_Log(string s) {
+    UIDisplayMessage(PlayerGroupAll(),c_messageAreaChat,StringToText("[MiniCraft Test] "+s));
+    TriggerDebugOutput(1,StringToText("[MiniCraft Test] "+s),true);
+}
+unit MCT_Create(string id,int p,fixed x,fixed y,int count) {
+    unit u;
+    if (!CatalogEntryIsValid(c_gameCatalogUnit,id)) {
+        mct_skipped += 1;
+        MCT_Log("missing "+id);
+        return null;
+    }
+    UnitCreate(count,id,0,p,Point(x,y),270.0);
+    u = UnitLastCreated();
+    if (u == null || UnitGetType(u) != id || UnitGetOwner(u) != p) {
+        mct_skipped += 1;
+        MCT_Log("creation unconfirmed "+id);
+        return null;
+    }
+    mct_created += 1;
+    return u;
+}
+void MCT_Resource(string id,fixed x,fixed y) {
+    unit u = MCT_Create(id,0,x,y,1);
+    if (u != null) { UnitSetPropertyFixed(u,c_unitPropResources,100000.0); }
+}
+void MCT_Bank(fixed x,fixed y,bool north) {
+    int i = 0;
+    fixed direction = 1.0;
+    if (!north) { direction = -1.0; }
+    while (i < 10) {
+        MCT_Resource("MineralField",x-9.0+IntToFixed(i)*2.0,y+direction*7.0);
+        i += 1;
+    }
+    MCT_Resource("VespeneGeyser",x-9.0,y+direction*2.0);
+    MCT_Resource("VespeneGeyser",x+9.0,y+direction*2.0);
+}
+void MCT_Money(int p) {
+    PlayerModifyPropertyInt(p,c_playerPropMinerals,c_playerPropOperSetTo,10000);
+    PlayerModifyPropertyInt(p,c_playerPropVespene,c_playerPropOperSetTo,10000);
+}
+void MCT_Gallery(fixed ox,fixed oy) {
+    MCT_Create("CommandCenter",1,ox+10.0,oy+43.0,1);
+    MCT_Create("OrbitalCommand",1,ox+17.0,oy+43.0,1);
+    MCT_Create("PlanetaryFortress",1,ox+24.0,oy+43.0,1);
+    MCT_Create("SupplyDepot",1,ox+31.0,oy+43.0,1);
+    MCT_Create("SupplyDepotLowered",1,ox+38.0,oy+43.0,1);
+    MCT_Create("Barracks",1,ox+45.0,oy+43.0,1);
+    MCT_Create("Factory",1,ox+52.0,oy+43.0,1);
+    MCT_Create("Starport",1,ox+10.0,oy+50.0,1);
+    MCT_Create("EngineeringBay",1,ox+17.0,oy+50.0,1);
+    MCT_Create("Armory",1,ox+24.0,oy+50.0,1);
+    MCT_Create("FusionCore",1,ox+31.0,oy+50.0,1);
+    MCT_Create("GhostAcademy",1,ox+38.0,oy+50.0,1);
+    MCT_Create("Bunker",1,ox+45.0,oy+50.0,1);
+    MCT_Create("MissileTurret",1,ox+52.0,oy+50.0,1);
+    MCT_Create("SensorTower",1,ox+10.0,oy+57.0,1);
+    MCT_Create("SCV",1,ox+10.0,oy+68.0,1);
+    MCT_Create("MULE",1,ox+15.0,oy+68.0,1);
+    MCT_Create("Marine",1,ox+20.0,oy+68.0,1);
+    MCT_Create("Marauder",1,ox+25.0,oy+68.0,1);
+    MCT_Create("Reaper",1,ox+30.0,oy+68.0,1);
+    MCT_Create("Ghost",1,ox+35.0,oy+68.0,1);
+    MCT_Create("Hellion",1,ox+40.0,oy+68.0,1);
+    MCT_Create("HellionTank",1,ox+45.0,oy+68.0,1);
+    MCT_Create("WidowMine",1,ox+50.0,oy+68.0,1);
+    MCT_Create("WidowMineBurrowed",1,ox+55.0,oy+68.0,1);
+    MCT_Create("SiegeTank",1,ox+10.0,oy+73.0,1);
+    MCT_Create("SiegeTankSieged",1,ox+15.0,oy+73.0,1);
+    MCT_Create("Cyclone",1,ox+20.0,oy+73.0,1);
+    MCT_Create("Thor",1,ox+25.0,oy+73.0,1);
+    MCT_Create("ThorAP",1,ox+30.0,oy+73.0,1);
+    MCT_Create("VikingFighter",1,ox+35.0,oy+73.0,1);
+    MCT_Create("VikingAssault",1,ox+40.0,oy+73.0,1);
+    MCT_Create("Medivac",1,ox+45.0,oy+73.0,1);
+    MCT_Create("Liberator",1,ox+50.0,oy+73.0,1);
+    MCT_Create("LiberatorAG",1,ox+55.0,oy+73.0,1);
+    MCT_Create("Raven",1,ox+10.0,oy+78.0,1);
+    MCT_Create("Banshee",1,ox+15.0,oy+78.0,1);
+    MCT_Create("Battlecruiser",1,ox+20.0,oy+78.0,1);
+    MCT_Create("BarracksFlying",1,ox+10.0,oy+86.0,1);
+    MCT_Create("FactoryFlying",1,ox+15.0,oy+86.0,1);
+    MCT_Create("StarportFlying",1,ox+20.0,oy+86.0,1);
+    MCT_Create("CommandCenterFlying",1,ox+25.0,oy+86.0,1);
+    MCT_Create("OrbitalCommandFlying",1,ox+30.0,oy+86.0,1);
+    MCT_Create("TechLab",1,ox+35.0,oy+86.0,1);
+    MCT_Create("Reactor",1,ox+40.0,oy+86.0,1);
+    MCT_Create("AutoTurret",1,ox+45.0,oy+86.0,1);
+    MCT_Create("Hatchery",1,ox+68.0,oy+43.0,1);
+    MCT_Create("Lair",1,ox+75.0,oy+43.0,1);
+    MCT_Create("Hive",1,ox+82.0,oy+43.0,1);
+    MCT_Create("SpawningPool",1,ox+89.0,oy+43.0,1);
+    MCT_Create("EvolutionChamber",1,ox+96.0,oy+43.0,1);
+    MCT_Create("RoachWarren",1,ox+103.0,oy+43.0,1);
+    MCT_Create("BanelingNest",1,ox+110.0,oy+43.0,1);
+    MCT_Create("SpineCrawler",1,ox+68.0,oy+50.0,1);
+    MCT_Create("SporeCrawler",1,ox+75.0,oy+50.0,1);
+    MCT_Create("HydraliskDen",1,ox+82.0,oy+50.0,1);
+    MCT_Create("LurkerDenMP",1,ox+89.0,oy+50.0,1);
+    MCT_Create("InfestationPit",1,ox+96.0,oy+50.0,1);
+    MCT_Create("Spire",1,ox+103.0,oy+50.0,1);
+    MCT_Create("GreaterSpire",1,ox+110.0,oy+50.0,1);
+    MCT_Create("UltraliskCavern",1,ox+68.0,oy+57.0,1);
+    MCT_Create("NydusNetwork",1,ox+75.0,oy+57.0,1);
+    MCT_Create("NydusCanal",1,ox+82.0,oy+57.0,1);
+    MCT_Create("Drone",1,ox+68.0,oy+68.0,1);
+    MCT_Create("DroneBurrowed",1,ox+73.0,oy+68.0,1);
+    MCT_Create("Zergling",1,ox+78.0,oy+68.0,1);
+    MCT_Create("ZerglingBurrowed",1,ox+83.0,oy+68.0,1);
+    MCT_Create("Baneling",1,ox+88.0,oy+68.0,1);
+    MCT_Create("BanelingBurrowed",1,ox+93.0,oy+68.0,1);
+    MCT_Create("Roach",1,ox+98.0,oy+68.0,1);
+    MCT_Create("RoachBurrowed",1,ox+103.0,oy+68.0,1);
+    MCT_Create("Ravager",1,ox+108.0,oy+68.0,1);
+    MCT_Create("RavagerBurrowed",1,ox+113.0,oy+68.0,1);
+    MCT_Create("Hydralisk",1,ox+68.0,oy+73.0,1);
+    MCT_Create("HydraliskBurrowed",1,ox+73.0,oy+73.0,1);
+    MCT_Create("LurkerMP",1,ox+78.0,oy+73.0,1);
+    MCT_Create("LurkerMPBurrowed",1,ox+83.0,oy+73.0,1);
+    MCT_Create("Infestor",1,ox+88.0,oy+73.0,1);
+    MCT_Create("InfestorBurrowed",1,ox+93.0,oy+73.0,1);
+    MCT_Create("SwarmHostMP",1,ox+98.0,oy+73.0,1);
+    MCT_Create("SwarmHostBurrowedMP",1,ox+103.0,oy+73.0,1);
+    MCT_Create("Ultralisk",1,ox+108.0,oy+73.0,1);
+    MCT_Create("UltraliskBurrowed",1,ox+113.0,oy+73.0,1);
+    MCT_Create("Queen",1,ox+68.0,oy+78.0,1);
+    MCT_Create("QueenBurrowed",1,ox+73.0,oy+78.0,1);
+    MCT_Create("Mutalisk",1,ox+78.0,oy+78.0,1);
+    MCT_Create("Corruptor",1,ox+83.0,oy+78.0,1);
+    MCT_Create("BroodLord",1,ox+88.0,oy+78.0,1);
+    MCT_Create("Viper",1,ox+93.0,oy+78.0,1);
+    MCT_Create("Overlord",1,ox+98.0,oy+78.0,1);
+    MCT_Create("OverlordTransport",1,ox+103.0,oy+78.0,1);
+    MCT_Create("Overseer",1,ox+108.0,oy+78.0,1);
+    MCT_Create("OverseerSiegeMode",1,ox+113.0,oy+78.0,1);
+    MCT_Create("SpineCrawlerUprooted",1,ox+68.0,oy+86.0,1);
+    MCT_Create("SporeCrawlerUprooted",1,ox+73.0,oy+86.0,1);
+    MCT_Create("CreepTumor",1,ox+78.0,oy+86.0,1);
+    MCT_Create("CreepTumorBurrowed",1,ox+83.0,oy+86.0,1);
+    MCT_Create("CreepTumorQueen",1,ox+88.0,oy+86.0,1);
+    MCT_Create("Larva",1,ox+93.0,oy+86.0,1);
+    MCT_Create("Nexus",1,ox+126.0,oy+43.0,1);
+    MCT_Create("Pylon",1,ox+133.0,oy+43.0,1);
+    MCT_Create("Gateway",1,ox+140.0,oy+43.0,1);
+    MCT_Create("WarpGate",1,ox+147.0,oy+43.0,1);
+    MCT_Create("CyberneticsCore",1,ox+154.0,oy+43.0,1);
+    MCT_Create("Forge",1,ox+161.0,oy+43.0,1);
+    MCT_Create("PhotonCannon",1,ox+168.0,oy+43.0,1);
+    MCT_Create("ShieldBattery",1,ox+126.0,oy+50.0,1);
+    MCT_Create("TwilightCouncil",1,ox+133.0,oy+50.0,1);
+    MCT_Create("TemplarArchive",1,ox+140.0,oy+50.0,1);
+    MCT_Create("DarkShrine",1,ox+147.0,oy+50.0,1);
+    MCT_Create("RoboticsFacility",1,ox+154.0,oy+50.0,1);
+    MCT_Create("RoboticsBay",1,ox+161.0,oy+50.0,1);
+    MCT_Create("Stargate",1,ox+168.0,oy+50.0,1);
+    MCT_Create("FleetBeacon",1,ox+126.0,oy+57.0,1);
+    MCT_Create("Probe",1,ox+126.0,oy+68.0,1);
+    MCT_Create("Zealot",1,ox+131.0,oy+68.0,1);
+    MCT_Create("Stalker",1,ox+136.0,oy+68.0,1);
+    MCT_Create("Sentry",1,ox+141.0,oy+68.0,1);
+    MCT_Create("Adept",1,ox+146.0,oy+68.0,1);
+    MCT_Create("HighTemplar",1,ox+151.0,oy+68.0,1);
+    MCT_Create("DarkTemplar",1,ox+156.0,oy+68.0,1);
+    MCT_Create("Archon",1,ox+161.0,oy+68.0,1);
+    MCT_Create("Immortal",1,ox+166.0,oy+68.0,1);
+    MCT_Create("Colossus",1,ox+171.0,oy+68.0,1);
+    MCT_Create("Disruptor",1,ox+126.0,oy+73.0,1);
+    MCT_Create("Observer",1,ox+131.0,oy+73.0,1);
+    MCT_Create("ObserverSiegeMode",1,ox+136.0,oy+73.0,1);
+    MCT_Create("WarpPrism",1,ox+141.0,oy+73.0,1);
+    MCT_Create("WarpPrismPhasing",1,ox+146.0,oy+73.0,1);
+    MCT_Create("Phoenix",1,ox+151.0,oy+73.0,1);
+    MCT_Create("VoidRay",1,ox+156.0,oy+73.0,1);
+    MCT_Create("Oracle",1,ox+161.0,oy+73.0,1);
+    MCT_Create("Tempest",1,ox+166.0,oy+73.0,1);
+    MCT_Create("Carrier",1,ox+171.0,oy+73.0,1);
+    MCT_Create("Mothership",1,ox+126.0,oy+78.0,1);
+    // Detached add-ons above the Terran gallery; connected versions must be built normally.
+    // Three gas buildings are placed by the player on nearby geysers.
+}
+bool MCT_Start(bool testConds,bool runActions) {
+    int p = 2;
+    int q;
+    point lo = RegionGetBoundsMin(RegionPlayableMap());
+    point hi = RegionGetBoundsMax(RegionPlayableMap());
+    point at;
+    fixed ox = PointGetX(lo);
+    fixed oy = PointGetY(lo);
+    fixed w = PointGetX(hi)-ox;
+    fixed h = PointGetY(hi)-oy;
+    if (!runActions || mct_started) { return true; }
+    mct_started = true;
+    if (w < 176.0 || h < 176.0 || PlayerType(1) != c_playerTypeUser) {
+        MCT_Log("Need flat playable area >=176x176 and P1 user.");
+        return true;
+    }
+    while (p <= 4) {
+        if (PlayerType(p) != c_playerTypeComputer || PlayerStatus(p) != c_playerStatusActive) {
+            MCT_Log("P2-P4 must be active computer slots."); return true;
+        }
+        at = PlayerStartLocation(p);
+        if (at == null || PointGetY(at) < oy+110.0 || PointGetY(at) > oy+h-14.0 || PointGetX(at) < ox+14.0 || PointGetX(at) > ox+w-14.0) {
+            MCT_Log("Place P2-P4 start locations across the north, away from edges."); return true;
+        }
+        p += 1;
+    }
+    PlayerSetRace(2,"Terr");
+    PlayerSetRace(3,"Zerg");
+    PlayerSetRace(4,"Prot");
+    MeleeInitOptions();
+    p = 2;
+    while (p <= 4) {
+        libNtve_gf_SetAlliance(1,p,libNtve_ge_AllianceSetting_Enemy);
+        q = p+1;
+        while (q <= 4) {
+            libNtve_gf_SetAlliance(p,q,libNtve_ge_AllianceSetting_AllyWithSharedVisionAndPushable);
+            q += 1;
+        }
+        p += 1;
+    }
+    MCT_Bank(ox+30.0,oy+25.0,false);
+    MCT_Bank(ox+88.0,oy+25.0,false);
+    MCT_Bank(ox+146.0,oy+25.0,false);
+    MCT_Create("CommandCenter",1,ox+30.0,oy+25.0,1);
+    MCT_Create("Hatchery",1,ox+88.0,oy+25.0,1);
+    MCT_Create("Nexus",1,ox+146.0,oy+25.0,1);
+    MCT_Create("SCV",1,ox+30.0,oy+29.0,12);
+    MCT_Create("Drone",1,ox+88.0,oy+29.0,12);
+    MCT_Create("Probe",1,ox+146.0,oy+29.0,12);
+    MCT_Money(1);
+    PlayerModifyPropertyInt(1,c_playerPropSuppliesLimit,c_playerPropOperSetTo,500);
+    MCT_Gallery(ox,oy);
+    p = 2;
+    while (p <= 4) {
+        at = PlayerStartLocation(p);
+        MCT_Bank(PointGetX(at),PointGetY(at),true);
+        MeleeInitUnitsForPlayer(p,PlayerRace(p),at);
+        MCT_Money(p);
+        PlayerSetDifficulty(p,7);
+        p += 1;
+    }
+    MeleeInitAI();
+    MCT_Log("Ready: 3 race gallery / 1v3 alliance. Created calls="+IntToString(mct_created)+" skipped="+IntToString(mct_skipped));
+    return true;
+}
+void MCT_Init() {
+    trigger t = TriggerCreate("MCT_Start");
+    TriggerAddEventTimeElapsed(t,0.1,c_timeGame);
+}
