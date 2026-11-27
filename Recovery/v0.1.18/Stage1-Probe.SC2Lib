@@ -7,17 +7,18 @@
     </Root>
     <Element Type="CustomScript" Id="D73C1012">
         <Name>Bootstrap</Name>
-        <ScriptCode>bool MCR_ProbeStart(bool testConds, bool runActions) {
-    if (runActions) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("[MiniCraft] Trigger init OK"));
-    }
-    return true;
-}
-void MCR_ProbeInit() {
-    trigger t = TriggerCreate("MCR_ProbeStart");
-    TriggerAddEventTimeElapsed(t, 2.0, c_timeGame);
-}
-</ScriptCode>
+        <ScriptCode>
+            bool MCR_ProbeStart(bool testConds, bool runActions) {
+                if (runActions) {
+                    UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText(&quot;[MiniCraft] Trigger init OK&quot;));
+                }
+                return true;
+            }
+            void MCR_ProbeInit() {
+                trigger t = TriggerCreate(&quot;MCR_ProbeStart&quot;);
+                TriggerAddEventTimeElapsed(t, 2.0, c_timeGame);
+            }
+        </ScriptCode>
         <InitFunc>MCR_ProbeInit</InitFunc>
     </Element>
 </TriggerData>

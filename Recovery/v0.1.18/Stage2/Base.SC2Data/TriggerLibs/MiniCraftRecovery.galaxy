@@ -51,7 +51,7 @@ void MCR_Resources() {
 }
 
 void MCR_SetText(int control, string value) {
-    DialogControlSetPropertyAsText(control, PlayerGroupAll(), c_triggerControlPropertyText, StringToText(value));
+    DialogControlSetPropertyAsText(control, c_triggerControlPropertyText, PlayerGroupAll(), StringToText(value));
 }
 
 int MCR_Button(string value, int y) {

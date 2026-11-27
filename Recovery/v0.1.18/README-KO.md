@@ -23,3 +23,6 @@ F6에서 새 사용자 지정 스크립트를 하나 만들고 Stage1의 Probe.g
 2단계는 코드 한 줄 include "TriggerLibs/MiniCraftRecovery"와 초기화 함수 MCR_MenuInit만 입력한다.
 같은 모드에서 자동 생성기 Build-MiniCraft.bat를 다시 실행하지 않는다.
 기존 AI 및 full builder는 유지한다. Galaxy Editor 실행/실제 게임 검증은 아직 하지 못했다.
+
+## 0.1.18a: import source truncation
+The editor screenshot shows missing bool/void prefixes in generated code. SC2Lib ScriptCode now uses multiline indented blocks and CRLF. This is a candidate fix; editor import is not tested. For reliable diagnosis, open Bootstrap in trigger editor and replace the entire script with Stage1-Probe.galaxy directly, not the generated-code preview. Verify generated bool/void declarations and closing braces before compiling. The previous ZIP remains obsolete; use these individual files. Stage2 native argument order also corrected.
