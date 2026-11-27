@@ -180,8 +180,32 @@ void MCT_Gallery(fixed ox,fixed oy) {
     MCT_Create("Tempest",1,ox+166.0,oy+73.0,1);
     MCT_Create("Carrier",1,ox+171.0,oy+73.0,1);
     MCT_Create("Mothership",1,ox+126.0,oy+78.0,1);
+    MCT_Create("BarracksTechLab",1,ox+10.0,oy+100.0,1);
+    MCT_Create("FactoryTechLab",1,ox+16.0,oy+100.0,1);
+    MCT_Create("StarportTechLab",1,ox+22.0,oy+100.0,1);
+    MCT_Create("BarracksReactor",1,ox+28.0,oy+100.0,1);
+    MCT_Create("FactoryReactor",1,ox+34.0,oy+100.0,1);
+    MCT_Create("StarportReactor",1,ox+40.0,oy+100.0,1);
+    MCT_Create("RefineryRich",1,ox+46.0,oy+100.0,1);
+    MCT_Create("ExtractorRich",1,ox+52.0,oy+100.0,1);
+    MCT_Create("AssimilatorRich",1,ox+58.0,oy+100.0,1);
+    MCT_Create("Interceptor",1,ox+64.0,oy+100.0,1);
+    MCT_Create("AdeptPhaseShift",1,ox+70.0,oy+100.0,1);
+    MCT_Create("DisruptorPhased",1,ox+76.0,oy+100.0,1);
+    MCT_Create("OracleStasisTrap",1,ox+82.0,oy+100.0,1);
+    MCT_Create("ForceField",1,ox+88.0,oy+100.0,1);
+    MCT_Create("LocustMP",1,ox+94.0,oy+100.0,1);
+    MCT_Create("LocustMPFlying",1,ox+100.0,oy+100.0,1);
+    MCT_Create("Broodling",1,ox+106.0,oy+100.0,1);
+    MCT_Create("RavagerCocoon",1,ox+112.0,oy+100.0,1);
+    MCT_Create("BanelingCocoon",1,ox+118.0,oy+100.0,1);
+    MCT_Create("LurkerMPEgg",1,ox+124.0,oy+100.0,1);
+    MCT_Create("BroodLordCocoon",1,ox+130.0,oy+100.0,1);
+    MCT_Create("OverlordCocoon",1,ox+136.0,oy+100.0,1);
+    MCT_Create("TransportOverlordCocoon",1,ox+142.0,oy+100.0,1);
+    MCT_Create("Egg",1,ox+148.0,oy+100.0,1);
     // Detached add-ons above the Terran gallery; connected versions must be built normally.
-    // Three gas buildings are placed by the player on nearby geysers.
+    // Gas-building connection is verified in normal construction, not by forced creation.
 }
 bool MCT_Start(bool testConds,bool runActions) {
     int p = 2;
@@ -232,6 +256,9 @@ bool MCT_Start(bool testConds,bool runActions) {
     MCT_Create("SCV",1,ox+30.0,oy+29.0,12);
     MCT_Create("Drone",1,ox+88.0,oy+29.0,12);
     MCT_Create("Probe",1,ox+146.0,oy+29.0,12);
+    MCT_Create("Refinery",1,ox+21.0,oy+23.0,1);
+    MCT_Create("Extractor",1,ox+79.0,oy+23.0,1);
+    MCT_Create("Assimilator",1,ox+137.0,oy+23.0,1);
     MCT_Money(1);
     PlayerModifyPropertyInt(1,c_playerPropSuppliesLimit,c_playerPropOperSetTo,500);
     MCT_Gallery(ox,oy);
