@@ -15,7 +15,12 @@ set "REPO=https://github.com/URZ-Studio/CS2-Mini.git"
 echo ===========================================================
 echo MiniCraft II - Permanent GitHub launcher
 echo ===========================================================
-where git >nul 2>&1 || goto :nogit
+where git >nul 2>&1 || goto :craftprobe
+echo [3/3] Building a disposable private Craft Switch Probe...
+git --git-dir="%SOURCE%" show refs/heads/main:Build-CraftSwitchProbe.py > "%CACHE%\Build-CraftSwitchProbe.py" || goto :fail
+%PY_CMD% "%CACHE%\Build-CraftSwitchProbe.py" --builder "%BUILDER%" --output "%MINICRAFT_HOME%Craft-Switch-Probe.SC2Mod" || goto :fail
+exit /b 0
+:nogit
 where py >nul 2>&1
 if errorlevel 1 (
     where python >nul 2>&1 || goto :nopy
@@ -32,6 +37,7 @@ git --git-dir="%SOURCE%" show refs/heads/main:Build-MiniCraft.py > "%STAGED%" ||
 echo [2/3] Validating downloaded builder...
 %PY_CMD% "%STAGED%" --check || goto :fail
 move /y "%STAGED%" "%BUILDER%" >nul || goto :fail
+if /i "%~2"=="--probe" goto :craftprobe
 echo [3/3] Building or updating MiniCraft...
 echo Close Galaxy Editor before proceeding.
 if "%~2"=="" goto :defaulttarget
