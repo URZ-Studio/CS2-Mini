@@ -140,7 +140,8 @@ def build(builder_path, output):
             "DocInfo/DescLong":"비공개 테스트 전용. 일반 크래프트 경기 시작 시 전환 가능성을 진단합니다.",
         })
         trigger = ET.fromstring(payload["Triggers"])
-        code = trigger.find(".//ScriptCode").text
+        assert trigger.findtext(".//ScriptCode").strip() == 'include "TriggerLibs/MiniCraftAI"'
+        code = payload["Base.SC2Data/TriggerLibs/MiniCraftAI.galaxy"].decode("utf-8")
         assert code.count("MC_RunCraftProbe();") == 1
         assert "mc_normalProfile = true" in code
         assert "UnitPauseAll(false);" in code
